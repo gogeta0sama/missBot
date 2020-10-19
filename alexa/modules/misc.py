@@ -2385,9 +2385,8 @@ def lyrics(update: Update, context: CallbackContext):
             msg.reply_text(reply)
 
 
-# Made by @Ayushchatterjee
+# Made by @MissAlexa_Robot
 
-import wolframalpha 
 from alexa import WOLFRAM_ID
 from requests import get
 
