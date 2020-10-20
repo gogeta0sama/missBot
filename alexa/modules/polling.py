@@ -34,7 +34,8 @@ async def is_register_admin(chat, user):
     else:
         return None
 
-@register(pattern="^/poll (.*)")
+# syntax : /poll am i cool? | False False False yes no
+@register(pattern="^/poll (.*) | (.*)")
 async def _(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss: 
@@ -47,7 +48,12 @@ async def _(event):
        pass
      else:
        return
-    quiz = event.text.split(' ')[2-1] 
+    try: 
+      ques = event.pattern_match.group(1)
+    except Exception:
+       await event.reply("Where is the question ?")
+       return
+    quiz = event.pattern_match.group(2).split(' ')[2-1] 
     if "True" in quiz:
        quizy = True
     elif "False" in quiz:
@@ -55,7 +61,7 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
-    pvote = event.text.split(' ')[3-1] 
+    pvote = event.pattern_match.group(2).split(' ')[3-1] 
     if "True" in pvote:
        pvoty = True
     elif "False" in pvote:
@@ -63,7 +69,7 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
-    mchoice = event.text.split(' ')[4-1] 
+    mchoice = event.pattern_match.group(2).split(' ')[4-1] 
     if "True" in mchoice:
        mchoicee = True
     elif "False" in mchoice:
@@ -71,90 +77,77 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
+    optionss = ""
     try: 
-      ques = event.text.split(' ')[5-1] 
-    except Exception:
-       await event.reply("Where is the question ?")
-       return
-    try: 
-      ab = event.text.split(' ')[6-1] 
-      cd = event.text.split(' ')[7-1] 
+      ab = event.pattern_match.group(2).split(' ')[5-1] 
+      cd = event.pattern_match.group(2).split(' ')[6-1] 
+      optionss += f"types.PollAnswer({ab}, b'xnx'), types.PollAnswer({cd}, b'xdnxx'),"
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
-      ef = event.text.split(' ')[8-1] 
+      ef = event.pattern_match.group(2).split(' ')[7-1] 
+      optionss += f",types.PollAnswer({ef}, b'dnxnx')"
     except Exception:
-      ef = ""     
+      ef = None     
     try:
-      gh = event.text.split(' ')[9-1] 
+      gh = event.pattern_match.group(2).split(' ')[8-1] 
+      optionss += f",types.PollAnswer({gh}, b'xowpx')"
     except Exception:
-      gh = ""  
+      gh = None  
     try:
-      ij = event.text.split(' ')[10-1] 
+      ij = event.pattern_match.group(2).split(' ')[9-1] 
+      optionss += f",types.PollAnswer({ij}, b'xppalx')"
     except Exception:
-      ij = ""
+      ij = None
     try:
-      kl = event.text.split(' ')[11-1] 
+      kl = event.pattern_match.group(2).split(' ')[10-1] 
+      optionss += f",types.PollAnswer({kl}, b'wppowpx')"
     except Exception:
-      kl = ""
+      kl = None
     try:
-      mn = event.text.split(' ')[12-1] 
+      mn = event.pattern_match.group(2).split(' ')[11-1] 
+      optionss += f",types.PollAnswer({mn}, b'owozpx')"
     except Exception:
-      mn = ""     
+      mn = None     
     try:
-      op = event.text.split(' ')[13-1] 
+      op = event.pattern_match.group(2).split(' ')[12-1] 
+      optionss += f",types.PollAnswer({op}, b'aoaalx')"
     except Exception:
-      op = ""   
+      op = None   
     try:
-      qr = event.text.split(' ')[14-1] 
+      qr = event.pattern_match.group(2).split(' ')[13-1] 
+      optionss += f",types.PollAnswer({qr}, b'owzkkx')"
     except Exception:
-      qr= ""   
+      qr= None   
     try:
-      st = event.text.split(' ')[15-1] 
+      st = event.pattern_match.group(2).split(' ')[14-1] 
+      optionss += f",types.PollAnswer({gh}, b'wxxvuurpx')"
     except Exception:
-      st = ""   
+      st = None   
     if pvoty==False and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
         answers=[
-            types.PollAnswer(ab, b'xnx'),
-            types.PollAnswer(cd, b'xxnx'),
-            types.PollAnswer(ef, b'dxx'),
-            types.PollAnswer(gh, b'dnx'),
-            types.PollAnswer(ij, b'xnxxx'),
-            types.PollAnswer(kl, b'kskss'),
-            types.PollAnswer(mn, b'djdj'),
-            types.PollAnswer(op, b'djdjddkd'),
-            types.PollAnswer(qr, b'skskslz'),
-            types.PollAnswer(st, b'djdbsjs'),
+            optionss
           ],
           quiz=False
             ),           
         ))
-
+      
     if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
         answers=[
-            types.PollAnswer(ab, b'xnx'),
-            types.PollAnswer(cd, b'xxnx'),
-            types.PollAnswer(ef, b'dxx'),
-            types.PollAnswer(gh, b'dnx'),
-            types.PollAnswer(ij, b'xnxxx'),
-            types.PollAnswer(kl, b'kskss'),
-            types.PollAnswer(mn, b'djdj'),
-            types.PollAnswer(op, b'djdjddkd'),
-            types.PollAnswer(qr, b'skskslz'),
-            types.PollAnswer(st, b'djdbsjs'),
+            optionss
           ],
           quiz=False,
           multiple_choice=True, 
-          public_vote=True
+          public_voters=True
             ),           
         ))
 
@@ -164,20 +157,11 @@ async def _(event):
         id=12345,
         question=ques,
         answers=[
-            types.PollAnswer(ab, b'xnx'),
-            types.PollAnswer(cd, b'xxnx'),
-            types.PollAnswer(ef, b'dxx'),
-            types.PollAnswer(gh, b'dnx'),
-            types.PollAnswer(ij, b'xnxxx'),
-            types.PollAnswer(kl, b'kskss'),
-            types.PollAnswer(mn, b'djdj'),
-            types.PollAnswer(op, b'djdjddkd'),
-            types.PollAnswer(qr, b'skskslz'),
-            types.PollAnswer(st, b'djdbsjs'),
+            optionss
           ],
           quiz=False,
           multiple_choice=True, 
-          public_vote=True
+          public_voters=True
             ),           
         ))
 
@@ -187,20 +171,11 @@ async def _(event):
         id=12345,
         question=ques,
         answers=[
-            types.PollAnswer(ab, b'xnx'),
-            types.PollAnswer(cd, b'xxnx'),
-            types.PollAnswer(ef, b'dxx'),
-            types.PollAnswer(gh, b'dnx'),
-            types.PollAnswer(ij, b'xnxxx'),
-            types.PollAnswer(kl, b'kskss'),
-            types.PollAnswer(mn, b'djdj'),
-            types.PollAnswer(op, b'djdjddkd'),
-            types.PollAnswer(qr, b'skskslz'),
-            types.PollAnswer(st, b'djdbsjs'),
+            optionss
           ],
           quiz=False,
           multiple_choice=True, 
-          public_vote=False
+          public_voters=False
             ),           
         ))
 
@@ -210,19 +185,10 @@ async def _(event):
         id=12345,
         question=ques,
         answers=[
-            types.PollAnswer(ab, b'xnx'),
-            types.PollAnswer(cd, b'xxnx'),
-            types.PollAnswer(ef, b'dxx'),
-            types.PollAnswer(gh, b'dnx'),
-            types.PollAnswer(ij, b'xnxxx'),
-            types.PollAnswer(kl, b'kskss'),
-            types.PollAnswer(mn, b'djdj'),
-            types.PollAnswer(op, b'djdjddkd'),
-            types.PollAnswer(qr, b'skskslz'),
-            types.PollAnswer(st, b'djdbsjs'),
+            optionss
           ],
           quiz=False,
           multiple_choice=False, 
-          public_vote=True
+          public_voters=True
             ),           
         ))
