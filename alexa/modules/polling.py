@@ -266,7 +266,7 @@ async def _(event):
         answers=quizoptionss,
         quiz=True
     ),
-    correct_answers=[b'{}'.format(rightone)]))
+    correct_answers=[f"{rightone}"]))
     
     if pvoty==True and quizy==True and mchoicee==False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
@@ -277,7 +277,7 @@ async def _(event):
         quiz=True,
         public_voters=True
     ),
-    correct_answers=[b'{}'.format(rightone)]))
+    correct_answers=[f"{rightone}"]))
     
     if pvoty==True and quizy==True and mchoicee==True:
        await event.reply("You can't use multiple voting with quiz mode")
