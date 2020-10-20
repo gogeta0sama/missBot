@@ -4253,7 +4253,7 @@ async def can_change_info(message):
  
 # MADE BY @MissAlexa_Robot
 
-@register(pattern="^/profanity (.*)")
+@register(pattern="^/profanity(?: |$)(.*)")
 async def sticklet(event):
     if event.fwd_from:
         return  
@@ -4262,6 +4262,14 @@ async def sticklet(event):
     if MONGO_DB_URI is None:
         return
     input = event.pattern_match.group(1)
+    if not input:
+     for c in chats:
+    	if event.chat_id == c['id']:         
+      	   setting = "yes"
+        else:
+           setting = "no"
+    	await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **{setting}**")
+        return
     if input in "on": 
      if event.is_group:
        if str(event.from_id) in str(OWNER_ID):
@@ -4344,8 +4352,7 @@ async def spam_update(event):
            await dev.delete()
            os.remove("nudes.jpg")
     		
-			
-			
+						
 
 __help__ = """
  - /id: get the current group id. If replied to user's message gets that user's id.
