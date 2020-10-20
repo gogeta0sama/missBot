@@ -6,7 +6,7 @@ from alexa import register
 
 @register(pattern="^/poll (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)")
 async def _(event):
-    
+   
     quiz = event.pattern_match.group(1)
     if "True" in quiz:
        quizy = True
@@ -43,7 +43,7 @@ async def _(event):
     qr = event.pattern_match.group(13)
     st = event.pattern_match.group(14)
     
-    if pvoty=False and quizy=False and mchoicee=False:      
+    if pvoty==False and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -64,7 +64,7 @@ async def _(event):
             ),           
         ))
 
-    if pvoty=True and quizy=False and mchoicee=True:      
+    if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -87,7 +87,7 @@ async def _(event):
             ),           
         ))
 
-    if pvoty=True and quizy=False and mchoicee=True:      
+    if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -110,7 +110,7 @@ async def _(event):
             ),           
         ))
 
-    if pvoty=False and quizy=False and mchoicee=True:      
+    if pvoty==False and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -133,7 +133,7 @@ async def _(event):
             ),           
         ))
 
-    if pvoty=True and quizy=False and mchoicee=False:      
+    if pvoty==True and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -155,3 +155,4 @@ async def _(event):
           public_vote=True
             ),           
         ))
+
