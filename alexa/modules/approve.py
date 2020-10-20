@@ -712,7 +712,7 @@ async def is_register_admin(chat, user):
 #------ THANKS TO LONAMI ------#
 
  
-@register(pattern="^/poll (.* | $)(.*)")
+@register(pattern="^/approve(?: |$)(.*)")
 async def approve(event):
 	if event.fwd_from:
 		return  
