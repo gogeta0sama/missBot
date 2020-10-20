@@ -137,21 +137,19 @@ async def _(event):
         id=12345,
         question=ques,
         answers=optionss,
-        quiz=False
-            ),           
-        ))
+        quiz=False)))
+          
       
     if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=optionss
+        answers=optionss,
         quiz=False,
         multiple_choice=True, 
-        public_voters=True
-            ),           
-        ))
+        public_voters=True)))
+                     
 
     if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
@@ -161,9 +159,8 @@ async def _(event):
         answers=optionss,
         quiz=False,
         multiple_choice=True, 
-        public_voters=True
-            ),           
-        ))
+        public_voters=True)))
+           
 
     if pvoty==False and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
@@ -173,9 +170,8 @@ async def _(event):
         answers=optionss,
         quiz=False,
         multiple_choice=True, 
-        public_voters=False
-            ),           
-        ))
+        public_voters=False)))
+          
 
     if pvoty==True and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
@@ -185,6 +181,4 @@ async def _(event):
         answers=optionss,
         quiz=False,
         multiple_choice=False, 
-        public_voters=True
-            ),           
-        ))
+        public_voters=True)))
