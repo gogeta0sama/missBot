@@ -47,74 +47,71 @@ async def _(event):
        pass
      else:
        return
-    quiz = event.text.split(' ')[1-1] 
-    print(quiz)
-    if str("True") in str(quiz):
+    quiz = event.text.split(' ')[2-1] 
+    if "True" in quiz:
        quizy = True
-    elif str("False") in str(quiz):
+    elif "False" in quiz:
        quizy = False
     else:
        await event.reply("Wrong arguments provided !")
        return
-    pvote = event.text.split(' ')[2-1] 
-    print(pvote)
-    if str("True") in str(pvote):
+    pvote = event.text.split(' ')[3-1] 
+    if "True" in pvote:
        pvoty = True
-    elif str("False") in str(pvote):
+    elif "False" in pvote:
        pvoty = False
     else:
        await event.reply("Wrong arguments provided !")
        return
-    mchoice = event.text.split(' ')[3-1] 
-    print(mchoice)
-    if str("True") in str(mchoice):
+    mchoice = event.text.split(' ')[4-1] 
+    if "True" in mchoice:
        mchoicee = True
-    elif str("False") in str(mchoice):
+    elif "False" in mchoice:
        mchoicee = False
     else:
        await event.reply("Wrong arguments provided !")
        return
     try: 
-      ques = event.text.split(' ')[4-1] 
+      ques = event.text.split(' ')[5-1] 
     except Exception:
        await event.reply("Where is the question ?")
        return
     try: 
-      ab = event.text.split(' ')[5-1] 
-      cd = event.text.split(' ')[6-1] 
+      ab = event.text.split(' ')[6-1] 
+      cd = event.text.split(' ')[7-1] 
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
-      ef = event.text.split(' ')[7-1] 
+      ef = event.text.split(' ')[8-1] 
     except Exception:
       ef = ""     
     try:
-      gh = event.text.split(' ')[8-1] 
+      gh = event.text.split(' ')[9-1] 
     except Exception:
       gh = ""  
     try:
-      ij = event.text.split(' ')[9-1] 
+      ij = event.text.split(' ')[10-1] 
     except Exception:
       ij = ""
     try:
-      kl = event.text.split(' ')[10-1] 
+      kl = event.text.split(' ')[11-1] 
     except Exception:
       kl = ""
     try:
-      mn = event.text.split(' ')[11-1] 
+      mn = event.text.split(' ')[12-1] 
     except Exception:
       mn = ""     
     try:
-      op = event.text.split(' ')[12-1] 
+      op = event.text.split(' ')[13-1] 
     except Exception:
       op = ""   
     try:
-      qr = event.text.split(' ')[13-1] 
+      qr = event.text.split(' ')[14-1] 
     except Exception:
       qr= ""   
     try:
-      st = event.text.split(' ')[14-1] 
+      st = event.text.split(' ')[15-1] 
     except Exception:
       st = ""   
     if pvoty==False and quizy==False and mchoicee==False:      
@@ -229,4 +226,3 @@ async def _(event):
           public_vote=True
             ),           
         ))
-
