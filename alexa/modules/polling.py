@@ -35,7 +35,7 @@ async def is_register_admin(chat, user):
         return None
 
 # syntax : /poll am i cool? | False False False yes no
-@register(pattern="^/poll(.* | |$)(.*)")
+@register(pattern="^/poll option ?(.*)")
 async def _(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss: 
@@ -49,11 +49,11 @@ async def _(event):
      else:
        return
     try: 
-      ques = event.pattern_match.group(1)
+      ques = option.pattern_match.group(1)
     except Exception:
        await event.reply("Where is the question ?")
        return
-    quiz = event.pattern_match.group(2).split(' ')[2-1] 
+    quiz = option.pattern_match.group(2).split(' ')[1-1] 
     if "True" in quiz:
        quizy = True
     elif "False" in quiz:
@@ -61,7 +61,7 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
-    pvote = event.pattern_match.group(2).split(' ')[3-1] 
+    pvote = event.pattern_match.group(2).split(' ')[2-1] 
     if "True" in pvote:
        pvoty = True
     elif "False" in pvote:
@@ -69,7 +69,7 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
-    mchoice = event.pattern_match.group(2).split(' ')[4-1] 
+    mchoice = event.pattern_match.group(2).split(' ')[3-1] 
     if "True" in mchoice:
        mchoicee = True
     elif "False" in mchoice:
@@ -79,49 +79,49 @@ async def _(event):
        return
     optionss = ""
     try: 
-      ab = event.pattern_match.group(2).split(' ')[5-1] 
-      cd = event.pattern_match.group(2).split(' ')[6-1] 
+      ab = event.pattern_match.group(2).split(' ')[4-1] 
+      cd = event.pattern_match.group(2).split(' ')[5-1] 
       optionss += f"types.PollAnswer({ab}, b'xnx'), types.PollAnswer({cd}, b'xdnxx'),"
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
-      ef = event.pattern_match.group(2).split(' ')[7-1] 
+      ef = event.pattern_match.group(2).split(' ')[6-1] 
       optionss += f",types.PollAnswer({ef}, b'dnxnx')"
     except Exception:
       ef = None     
     try:
-      gh = event.pattern_match.group(2).split(' ')[8-1] 
+      gh = event.pattern_match.group(2).split(' ')[7-1] 
       optionss += f",types.PollAnswer({gh}, b'xowpx')"
     except Exception:
       gh = None  
     try:
-      ij = event.pattern_match.group(2).split(' ')[9-1] 
+      ij = event.pattern_match.group(2).split(' ')[8-1] 
       optionss += f",types.PollAnswer({ij}, b'xppalx')"
     except Exception:
       ij = None
     try:
-      kl = event.pattern_match.group(2).split(' ')[10-1] 
+      kl = event.pattern_match.group(2).split(' ')[9-1] 
       optionss += f",types.PollAnswer({kl}, b'wppowpx')"
     except Exception:
       kl = None
     try:
-      mn = event.pattern_match.group(2).split(' ')[11-1] 
+      mn = event.pattern_match.group(2).split(' ')[10-1] 
       optionss += f",types.PollAnswer({mn}, b'owozpx')"
     except Exception:
       mn = None     
     try:
-      op = event.pattern_match.group(2).split(' ')[12-1] 
+      op = event.pattern_match.group(2).split(' ')[11-1] 
       optionss += f",types.PollAnswer({op}, b'aoaalx')"
     except Exception:
       op = None   
     try:
-      qr = event.pattern_match.group(2).split(' ')[13-1] 
+      qr = event.pattern_match.group(2).split(' ')[12-1] 
       optionss += f",types.PollAnswer({qr}, b'owzkkx')"
     except Exception:
       qr= None   
     try:
-      st = event.pattern_match.group(2).split(' ')[14-1] 
+      st = event.pattern_match.group(2).split(' ')[13-1] 
       optionss += f",types.PollAnswer({gh}, b'wxxvuurpx')"
     except Exception:
       st = None   
