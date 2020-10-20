@@ -4262,6 +4262,7 @@ async def sticklet(event):
     if MONGO_DB_URI is None:
         return
     input = event.pattern_match.group(1)
+    chats = spammers.find({})
     if not input:
      for c in chats:
         if event.chat_id == c['id']:         
@@ -4277,7 +4278,7 @@ async def sticklet(event):
        else:
           if not await can_change_info(message=event):
              return
-       chats = spammers.find({})
+ 
        for c in chats:
          if event.chat_id == c['id']:
              await event.reply("Profanity filter is already activated for this chat.")
