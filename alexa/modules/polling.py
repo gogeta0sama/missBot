@@ -136,10 +136,8 @@ async def _(event):
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False
+        answers=optionss,
+        quiz=False
             ),           
         ))
       
@@ -148,12 +146,10 @@ async def _(event):
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=True, 
-          public_voters=True
+        answers=optionss
+        quiz=False,
+        multiple_choice=True, 
+        public_voters=True
             ),           
         ))
 
@@ -162,12 +158,10 @@ async def _(event):
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=True, 
-          public_voters=True
+        answers=optionss,
+        quiz=False,
+        multiple_choice=True, 
+        public_voters=True
             ),           
         ))
 
@@ -176,12 +170,10 @@ async def _(event):
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=True, 
-          public_voters=False
+        answers=optionss,
+        quiz=False,
+        multiple_choice=True, 
+        public_voters=False
             ),           
         ))
 
@@ -190,11 +182,9 @@ async def _(event):
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=False, 
-          public_voters=True
+        answers=optionss,
+        quiz=False,
+        multiple_choice=False, 
+        public_voters=True
             ),           
         ))
