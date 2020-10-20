@@ -4264,7 +4264,7 @@ async def sticklet(event):
     input = event.pattern_match.group(1)
     if not input:
      for c in chats:
-    	if event.chat_id == c['id']:         
+        if event.chat_id == c['id']:         
       	   setting = "yes"
         else:
            setting = "no"
