@@ -35,6 +35,7 @@ async def is_register_admin(chat, user):
         return None
 
 # syntax : /poll am i cool? | False False False yes no
+# syntax : /poll am i cool? | True@1 False False yes no
 @register(pattern="^/poll (.*)")
 async def _(event):
     approved_userss = approved_users.find({})
@@ -60,11 +61,69 @@ async def _(event):
     quiz = option.split(' ')[1-1] 
     if "True" in quiz:
        quizy = True
+       if "@" in quiz:
+          one, two = quiz.split("@")
+          rightone = two.strip()
+       else:
+          await event.reply("You need to select the right answer with question number like True@1, True@3 etc..")
+          return          
+       quizoptionss = []
+
+    try: 
+      ab = option.split(' ')[4-1] 
+      cd = option.split(' ')[5-1] 
+      quizoptionss.append(types.PollAnswer(ab, b'1'))
+      quizoptionss.append(types.PollAnswer(cd, b'2'))
+    except Exception:
+      await event.reply("At least need two options to create a poll")
+      return
+    try:
+      ef = option.split(' ')[6-1] 
+      quizoptionss.append(types.PollAnswer(ef, b'3'))
+    except Exception:
+      ef = None     
+    try:
+      gh = option.split(' ')[7-1] 
+      quizoptionss.append(types.PollAnswer(gh, b'4'))
+    except Exception:
+      gh = None  
+    try:
+      ij = option.split(' ')[8-1] 
+      quizoptionss.append(types.PollAnswer(ij, b'5'))
+    except Exception:
+      ij = None
+    try:
+      kl = option.split(' ')[9-1] 
+      quizoptionss.append(types.PollAnswer(kl, b'6'))
+    except Exception:
+      kl = None
+    try:
+      mn = option.split(' ')[10-1] 
+      quizoptionss.append(types.PollAnswer(mn, b'7'))
+    except Exception:
+      mn = None     
+    try:
+      op = option.split(' ')[11-1] 
+      quizoptionss.append(types.PollAnswer(op, b'8'))
+    except Exception:
+      op = None   
+    try:
+      qr = option.split(' ')[12-1] 
+      quizoptionss.append(types.PollAnswer(qr, b'9'))
+    except Exception:
+      qr= None   
+    try:
+      st = option.split(' ')[13-1] 
+      quizoptionss.append(types.PollAnswer(st, b'10'))
+    except Exception:
+      st = None   
+         
     elif "False" in quiz:
        quizy = False
     else:
        await event.reply("Wrong arguments provided !")
        return
+       
     pvote = option.split(' ')[2-1] 
     if "True" in pvote:
        pvoty = True
@@ -130,55 +189,97 @@ async def _(event):
       optionss.append(types.PollAnswer(st, b'wxxvuurpx'))
     except Exception:
       st = None   
-    print(optionss)
+  
     if pvoty==False and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=optionss,
-        quiz=False)))
-          
+        answers=[
+            optionss
+          ],
+          quiz=False
+            ),           
+        ))
       
     if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=optionss,
-        quiz=False,
-        multiple_choice=True, 
-        public_voters=True)))
-                     
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=True, 
+          public_voters=True
+            ),           
+        ))
 
     if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=optionss,
-        quiz=False,
-        multiple_choice=True, 
-        public_voters=True)))
-           
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=True, 
+          public_voters=True
+            ),           
+        ))
 
     if pvoty==False and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=optionss,
-        quiz=False,
-        multiple_choice=True, 
-        public_voters=False)))
-          
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=True, 
+          public_voters=False
+            ),           
+        ))
 
-    if pvoty==True and quizy==False and mchoicee==False:      
+    if pvoty==False and quizy==True and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=optionss,
-        quiz=False,
-        multiple_choice=False, 
-        public_voters=True)))
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=False, 
+          public_voters=True
+            ),           
+        ))
+
+    if pvoty==False and quizy==True and mchoicee==False:
+     await tbot.send_file(chat, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=quizoptionss,
+        quiz=True
+    ),
+    correct_answers=[b'{}'.format(rightone)]))
+    
+    if pvoty==True and quizy==True and mchoicee==False:
+     await tbot.send_file(chat, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=quizoptionss,
+        quiz=True,
+        public_voters=True
+    ),
+    correct_answers=[b'{}'.format(rightone)]))
+    
+    if pvoty==True and quizy==True and and mchoicee==True:
+       await event.reply("You can't use multiple voting with quiz mode")
+       return
+       
