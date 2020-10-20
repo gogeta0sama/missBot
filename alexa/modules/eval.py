@@ -9,9 +9,10 @@ from alexa import OWNER_ID
 
 @register(pattern="^/eval")
 async def _(event):
-    if event.fwd_from or event.via_bot_id:
-        return
-    if not str(event.from_id) in str(OWNER_ID):
+    check = event.message.sender_id
+    checkint = int(check)
+    # print(checkint)
+    if int(check) != int(OWNER_ID):
         return
     cmd = event.text.split(" ", maxsplit=1)[1]
     reply_to_id = event.message.id
