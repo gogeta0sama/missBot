@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from alexa import MONGO_DB_URI
 from alexa.events import register
 from alexa import tbot
-from telethon.tl import functions, types
+
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
