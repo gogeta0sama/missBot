@@ -68,55 +68,55 @@ async def _(event):
           await event.reply("You need to select the right answer with question number like True@1, True@3 etc..")
           return          
 
-    quizoptionss = []
-    try: 
-      ab = option.split(' ')[4-1] 
-      cd = option.split(' ')[5-1] 
-      quizoptionss.append(types.PollAnswer(ab, b'1'))
-      quizoptionss.append(types.PollAnswer(cd, b'2'))
-    except Exception:
-      await event.reply("At least need two options to create a poll")
-      return
-    try:
-      ef = option.split(' ')[6-1] 
-      quizoptionss.append(types.PollAnswer(ef, b'3'))
-    except Exception:
-      ef = None     
-    try:
-      gh = option.split(' ')[7-1] 
-      quizoptionss.append(types.PollAnswer(gh, b'4'))
-    except Exception:
-      gh = None  
-    try:
-      ij = option.split(' ')[8-1] 
-      quizoptionss.append(types.PollAnswer(ij, b'5'))
-    except Exception:
-      ij = None
-    try:
-      kl = option.split(' ')[9-1] 
-      quizoptionss.append(types.PollAnswer(kl, b'6'))
-    except Exception:
-      kl = None
-    try:
-      mn = option.split(' ')[10-1] 
-      quizoptionss.append(types.PollAnswer(mn, b'7'))
-    except Exception:
-      mn = None     
-    try:
-      op = option.split(' ')[11-1] 
-      quizoptionss.append(types.PollAnswer(op, b'8'))
-    except Exception:
-      op = None   
-    try:
-      qr = option.split(' ')[12-1] 
-      quizoptionss.append(types.PollAnswer(qr, b'9'))
-    except Exception:
-      qr= None   
-    try:
-      st = option.split(' ')[13-1] 
-      quizoptionss.append(types.PollAnswer(st, b'10'))
-    except Exception:
-      st = None   
+       quizoptionss = []
+       try: 
+         ab = option.split(' ')[4-1] 
+         cd = option.split(' ')[5-1] 
+         quizoptionss.append(types.PollAnswer(ab, b'1'))
+         quizoptionss.append(types.PollAnswer(cd, b'2'))
+       except Exception:
+         await event.reply("At least need two options to create a poll")
+         return
+       try:
+         ef = option.split(' ')[6-1] 
+         quizoptionss.append(types.PollAnswer(ef, b'3'))
+       except Exception:
+         ef = None        
+       try:
+         gh = option.split(' ')[7-1] 
+         quizoptionss.append(types.PollAnswer(gh, b'4'))
+       except Exception:
+         gh = None  
+       try:
+         ij = option.split(' ')[8-1] 
+         quizoptionss.append(types.PollAnswer(ij, b'5'))
+       except Exception:
+         ij = None
+       try:
+         kl = option.split(' ')[9-1] 
+         quizoptionss.append(types.PollAnswer(kl, b'6'))
+       except Exception:
+         kl = None
+       try:
+         mn = option.split(' ')[10-1] 
+         quizoptionss.append(types.PollAnswer(mn, b'7'))
+       except Exception:
+         mn = None        
+       try:
+         op = option.split(' ')[11-1] 
+         quizoptionss.append(types.PollAnswer(op, b'8'))
+       except Exception:
+         op = None   
+       try:
+         qr = option.split(' ')[12-1] 
+         quizoptionss.append(types.PollAnswer(qr, b'9'))
+       except Exception:
+         qr= None   
+       try:
+         st = option.split(' ')[13-1] 
+         quizoptionss.append(types.PollAnswer(st, b'10'))
+       except Exception:
+         st = None   
          
     elif "False" in quiz:
        quizy = False
