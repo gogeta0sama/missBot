@@ -4269,7 +4269,7 @@ async def sticklet(event):
       	   setting = "yes"
         else:
            setting = "no"
-        await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **{setting}**")
+        await event.reply(f"Please provide some input yes or no.\n\nCurrent setting is : **{setting}**")
         return
     if input in "on": 
      if event.is_group:
