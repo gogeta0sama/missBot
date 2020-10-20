@@ -85,48 +85,48 @@ async def _(event):
     try: 
       ab = option.split(' ')[4-1] 
       cd = option.split(' ')[5-1] 
-      optionss.append(f"types.PollAnswer({ab}, b'xnx'), types.PollAnswer({cd}, b'xdnxx'),")
+      optionss.append(f"types.PollAnswer(ab, b'xnx'), types.PollAnswer(cd, b'xdnxx'),")
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
       ef = option.split(' ')[6-1] 
-      optionss.append(f",types.PollAnswer({ef}, b'dnxnx')")
+      optionss.append(f",types.PollAnswer(ef, b'dnxnx')")
     except Exception:
       ef = None     
     try:
       gh = option.split(' ')[7-1] 
-      optionss.append(f",types.PollAnswer({gh}, b'xowpx')")
+      optionss.append(f",types.PollAnswer(gh, b'xowpx')")
     except Exception:
       gh = None  
     try:
       ij = option.split(' ')[8-1] 
-      optionss.append(f",types.PollAnswer({ij}, b'xppalx')")
+      optionss.append(f",types.PollAnswer(ij, b'xppalx')")
     except Exception:
       ij = None
     try:
       kl = option.split(' ')[9-1] 
-      optionss.append(f",types.PollAnswer({kl}, b'wppowpx')")
+      optionss.append(f",types.PollAnswer(kl, b'wppowpx')")
     except Exception:
       kl = None
     try:
       mn = option.split(' ')[10-1] 
-      optionss.append(f",types.PollAnswer({mn}, b'owozpx')")
+      optionss.append(f",types.PollAnswer(mn, b'owozpx')")
     except Exception:
       mn = None     
     try:
       op = option.split(' ')[11-1] 
-      optionss.append(f",types.PollAnswer({op}, b'aoaalx')")
+      optionss.append(f",types.PollAnswer(op, b'aoaalx')")
     except Exception:
       op = None   
     try:
       qr = option.split(' ')[12-1] 
-      optionss.append(f",types.PollAnswer({qr}, b'owzkkx')")
+      optionss.append(f",types.PollAnswer(qr, b'owzkkx')")
     except Exception:
       qr= None   
     try:
       st = option.split(' ')[13-1] 
-      optionss.append(f",types.PollAnswer({gh}, b'wxxvuurpx')")
+      optionss.append(f",types.PollAnswer(st, b'wxxvuurpx')")
     except Exception:
       st = None   
     print(optionss)
