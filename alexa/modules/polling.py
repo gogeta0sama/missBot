@@ -279,7 +279,7 @@ async def _(event):
     ),
     correct_answers=[b'{}'.format(rightone)]))
     
-    if pvoty==True and quizy==True and and mchoicee==True:
+    if pvoty==True and quizy==True and mchoicee==True:
        await event.reply("You can't use multiple voting with quiz mode")
        return
        
