@@ -34,7 +34,6 @@ async def is_register_admin(chat, user):
     else:
         return None
 
-
 @register(pattern="^/poll (.*)")
 async def _(event):
     approved_userss = approved_users.find({})
@@ -49,25 +48,25 @@ async def _(event):
      else:
        return
     quiz = event.text.split(' ')[1-1] 
-    if "True" in quiz:
+    if str("True") in str(quiz):
        quizy = True
-    elif "False" in quiz:
+    elif str("False") in str(quiz):
        quizy = False
     else:
        await event.reply("Wrong arguments provided !")
        return
     pvote = event.text.split(' ')[2-1] 
-    if "True" in pvote:
+    if str("True") in str(pvote):
        pvoty = True
-    elif "False" in pvote:
+    elif str("False") in str(pvote):
        pvoty = False
     else:
        await event.reply("Wrong arguments provided !")
        return
     mchoice = event.text.split(' ')[3-1] 
-    if "True" in mchoice:
+    if str("True") in str(mchoice):
        mchoicee = True
-    elif "False" in mchoice:
+    elif str("False") in str(mchoice):
        mchoicee = False
     else:
        await event.reply("Wrong arguments provided !")
