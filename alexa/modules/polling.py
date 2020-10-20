@@ -129,6 +129,8 @@ async def _(event):
       optionss += f",types.PollAnswer({gh}, b'wxxvuurpx')"
     except Exception:
       st = None   
+
+    print(optionss)
     if pvoty==False and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
@@ -175,7 +177,7 @@ async def _(event):
         id=12345,
         question=ques,
         answers=[
-            optionss
+            optionss 
           ],
           quiz=False,
           multiple_choice=True, 
