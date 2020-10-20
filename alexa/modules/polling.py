@@ -67,8 +67,8 @@ async def _(event):
        else:
           await event.reply("You need to select the right answer with question number like True@1, True@3 etc..")
           return          
-       quizoptionss = []
 
+    quizoptionss = []
     try: 
       ab = option.split(' ')[4-1] 
       cd = option.split(' ')[5-1] 
