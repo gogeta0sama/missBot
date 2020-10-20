@@ -53,7 +53,7 @@ async def _(event):
     except Exception:
        await event.reply("Where is the question ?")
        return
-    if "|" in quew:
+    if "|" in ques:
                 quess, options = quew.split("|")
     ques = quess.strip()
     option = options.strip()
@@ -81,53 +81,119 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
-    optionss = ""
+    optionss = []
     try: 
       ab = option.split(' ')[4-1] 
       cd = option.split(' ')[5-1] 
-      optionss += f"types.PollAnswer({ab}, b'xnx'), types.PollAnswer({cd}, b'xdnxx'),"
+      optionss.append(f"types.PollAnswer({ab}, b'xnx'), types.PollAnswer({cd}, b'xdnxx'),")
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
       ef = option.split(' ')[6-1] 
-      optionss += f",types.PollAnswer({ef}, b'dnxnx')"
+      optionss.append(f",types.PollAnswer({ef}, b'dnxnx')")
     except Exception:
       ef = None     
     try:
       gh = option.split(' ')[7-1] 
-      optionss += f",types.PollAnswer({gh}, b'xowpx')"
+      optionss.append(f",types.PollAnswer({gh}, b'xowpx')")
     except Exception:
       gh = None  
     try:
       ij = option.split(' ')[8-1] 
-      optionss += f",types.PollAnswer({ij}, b'xppalx')"
+      optionss.append(f",types.PollAnswer({ij}, b'xppalx')")
     except Exception:
       ij = None
     try:
       kl = option.split(' ')[9-1] 
-      optionss += f",types.PollAnswer({kl}, b'wppowpx')"
+      optionss.append(f",types.PollAnswer({kl}, b'wppowpx')")
     except Exception:
       kl = None
     try:
       mn = option.split(' ')[10-1] 
-      optionss += f",types.PollAnswer({mn}, b'owozpx')"
+      optionss.append(f",types.PollAnswer({mn}, b'owozpx')")
     except Exception:
       mn = None     
     try:
       op = option.split(' ')[11-1] 
-      optionss += f",types.PollAnswer({op}, b'aoaalx')"
+      optionss.append(f",types.PollAnswer({op}, b'aoaalx')")
     except Exception:
       op = None   
     try:
       qr = option.split(' ')[12-1] 
-      optionss += f",types.PollAnswer({qr}, b'owzkkx')"
+      optionss.append(f",types.PollAnswer({qr}, b'owzkkx')")
     except Exception:
       qr= None   
     try:
       st = option.split(' ')[13-1] 
-      optionss += f",types.PollAnswer({gh}, b'wxxvuurpx')"
+      optionss.append(f",types.PollAnswer({gh}, b'wxxvuurpx')")
     except Exception:
       st = None   
-
     print(optionss)
+    if pvoty==False and quizy==False and mchoicee==False:      
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=[
+            optionss
+          ],
+          quiz=False
+            ),           
+        ))
+      
+    if pvoty==True and quizy==False and mchoicee==True:      
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=True, 
+          public_voters=True
+            ),           
+        ))
+
+    if pvoty==True and quizy==False and mchoicee==True:      
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=True, 
+          public_voters=True
+            ),           
+        ))
+
+    if pvoty==False and quizy==False and mchoicee==True:      
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=True, 
+          public_voters=False
+            ),           
+        ))
+
+    if pvoty==True and quizy==False and mchoicee==False:      
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
+      poll=types.Poll(
+        id=12345,
+        question=ques,
+        answers=[
+            optionss
+          ],
+          quiz=False,
+          multiple_choice=False, 
+          public_voters=True
+            ),           
+        ))
