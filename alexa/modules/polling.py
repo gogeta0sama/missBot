@@ -259,7 +259,7 @@ async def _(event):
         ))
 
     if pvoty==False and quizy==True and mchoicee==False:
-     await tbot.send_file(chat, types.InputMediaPoll(
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
@@ -269,7 +269,7 @@ async def _(event):
     correct_answers=[b'{}'.format(rightone)]))
     
     if pvoty==True and quizy==True and mchoicee==False:
-     await tbot.send_file(chat, types.InputMediaPoll(
+     await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
