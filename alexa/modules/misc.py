@@ -4266,7 +4266,7 @@ async def sticklet(event):
     if not input:
      for c in chats:
         if event.chat_id == c['id']:         
-      	   await event.reply(f"Please provide some input yes or no.\n\nCurrent setting is : **on**")
+           await event.reply(f"Please provide some input yes or no.\n\nCurrent setting is : **on**")
            return
         await event.reply(f"Please provide some input yes or no.\n\nCurrent setting is : **off**")
     if input in "on": 
