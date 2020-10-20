@@ -5,6 +5,7 @@ import sys
 import traceback
 from telethon import errors, events, functions, types
 from alexa.events import register
+from alexa import OWNER_ID
 
 @register(pattern="^/eval")
 async def _(event):
