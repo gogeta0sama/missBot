@@ -48,6 +48,7 @@ async def _(event):
      else:
        return
     quiz = event.text.split(' ')[1-1] 
+    print(quiz)
     if str("True") in str(quiz):
        quizy = True
     elif str("False") in str(quiz):
@@ -56,6 +57,7 @@ async def _(event):
        await event.reply("Wrong arguments provided !")
        return
     pvote = event.text.split(' ')[2-1] 
+    print(pvote)
     if str("True") in str(pvote):
        pvoty = True
     elif str("False") in str(pvote):
@@ -64,6 +66,7 @@ async def _(event):
        await event.reply("Wrong arguments provided !")
        return
     mchoice = event.text.split(' ')[3-1] 
+    print(mchoice)
     if str("True") in str(mchoice):
        mchoicee = True
     elif str("False") in str(mchoice):
