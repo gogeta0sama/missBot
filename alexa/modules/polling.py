@@ -1,4 +1,5 @@
 # MADE BY @MissAlexa_Robot
+# He has wasted a lot of time of his life to make this so please give proper credits to him 😭
 
 from telethon import *
 from telethon.tl import *
@@ -34,8 +35,7 @@ async def is_register_admin(chat, user):
         return None
 
 
-
-@register(pattern="^/poll (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)")
+@register(pattern="^/poll (.*)")
 async def _(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss: 
@@ -48,42 +48,73 @@ async def _(event):
        pass
      else:
        return
-    quiz = event.pattern_match.group(1)
+    quiz = event.text.split(' ')[1-1] 
     if "True" in quiz:
        quizy = True
     elif "False" in quiz:
        quizy = False
     else:
        await event.reply("Wrong arguments provided !")
-       
-    pvote = event.pattern_match.group(2)
+       return
+    pvote = event.text.split(' ')[2-1] 
     if "True" in pvote:
        pvoty = True
     elif "False" in pvote:
        pvoty = False
     else:
        await event.reply("Wrong arguments provided !")
-       
-    mchoice = event.pattern_match.group(3)
+       return
+    mchoice = event.text.split(' ')[3-1] 
     if "True" in mchoice:
        mchoicee = True
     elif "False" in mchoice:
        mchoicee = False
     else:
        await event.reply("Wrong arguments provided !")
-       
-    ques = event.pattern_match.group(4)
-    ab = event.pattern_match.group(5)
-    cd = event.pattern_match.group(6)
-    ef = event.pattern_match.group(7)
-    gh = event.pattern_match.group(8)
-    ij = event.pattern_match.group(9)
-    kl = event.pattern_match.group(10)
-    mn = event.pattern_match.group(11)
-    op = event.pattern_match.group(12)
-    qr = event.pattern_match.group(13)
-    st = event.pattern_match.group(14)
-    
+       return
+    try: 
+      ques = event.text.split(' ')[4-1] 
+    except Exception:
+       await event.reply("Where is the question ?")
+       return
+    try: 
+      ab = event.text.split(' ')[5-1] 
+      cd = event.text.split(' ')[6-1] 
+    except Exception:
+      await event.reply("At least need two options to create a poll")
+      return
+    try:
+      ef = event.text.split(' ')[7-1] 
+    except Exception:
+      ef = ""     
+    try:
+      gh = event.text.split(' ')[8-1] 
+    except Exception:
+      gh = ""  
+    try:
+      ij = event.text.split(' ')[9-1] 
+    except Exception:
+      ij = ""
+    try:
+      kl = event.text.split(' ')[10-1] 
+    except Exception:
+      kl = ""
+    try:
+      mn = event.text.split(' ')[11-1] 
+    except Exception:
+      mn = ""     
+    try:
+      op = event.text.split(' ')[12-1] 
+    except Exception:
+      op = ""   
+    try:
+      qr = event.text.split(' ')[13-1] 
+    except Exception:
+      qr= ""   
+    try:
+      st = event.text.split(' ')[14-1] 
+    except Exception:
+      st = ""   
     if pvoty==False and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
