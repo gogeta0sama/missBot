@@ -35,7 +35,7 @@ async def is_register_admin(chat, user):
         return None
 
 # syntax : /poll am i cool? | False False False yes no
-@register(pattern="^/poll(.* | $)(.*)")
+@register(pattern="^/poll (.* | $)(.*)")
 async def _(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss: 
