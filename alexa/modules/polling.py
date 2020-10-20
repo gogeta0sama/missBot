@@ -53,7 +53,7 @@ async def _(event):
     except Exception:
        await event.reply("Where is the question ?")
        return
-    if "|" in ques:
+    if "|" in quew:
                 quess, options = quew.split("|")
     ques = quess.strip()
     option = options.strip()
