@@ -195,68 +195,42 @@ async def _(event):
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False
-            ),           
-        ))
+        answers=optionss,
+        quiz=False)))
+
       
     if pvoty==True and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=True, 
-          public_voters=True
-            ),           
-        ))
+        answers=optionss,
+        quiz=False,
+        multiple_choice=True, 
+        public_voters=True)))
 
-    if pvoty==True and quizy==False and mchoicee==True:      
-     await tbot.send_file(event.chat_id, types.InputMediaPoll(
-      poll=types.Poll(
-        id=12345,
-        question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=True, 
-          public_voters=True
-            ),           
-        ))
 
     if pvoty==False and quizy==False and mchoicee==True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=True, 
-          public_voters=False
-            ),           
-        ))
-
-    if pvoty==False and quizy==True and mchoicee==False:      
+        answers=optionss,
+        quiz=False,
+        multiple_choice=True, 
+        public_voters=False)))
+   
+ 
+    if pvoty== True and quizy==False and mchoicee==False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
-        answers=[
-            optionss
-          ],
-          quiz=False,
-          multiple_choice=False, 
-          public_voters=True
-            ),           
-        ))
+        answers=optionss,
+        quiz=False,
+        multiple_choice=False, 
+        public_voters=True)))
+            
 
     if pvoty==False and quizy==True and mchoicee==False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
@@ -282,4 +256,3 @@ async def _(event):
     if pvoty==True and quizy==True and mchoicee==True:
        await event.reply("You can't use multiple voting with quiz mode")
        return
-       
