@@ -259,3 +259,24 @@ async def _(event):
     if pvoty==False and quizy==True and mchoicee==True:
        await event.reply("You can't use multiple voting with quiz mode")
        return
+
+@register(pattern="^/stoppoll")
+async def stop(event):
+ if event.poll:
+   if not event.reply_to_msg_id:
+     await event.reply("Please reply to a poll to stop it")
+     return
+   else:
+    try:
+     msg = await event.get_reply_message()
+     pollid = msg.poll.poll.id
+     await msg.edit(file=types.InputMediaPoll(
+      poll=types.Poll(
+        id=pollid,
+        question="",
+        answers =[],
+        closed=True)))
+    except Exception:
+        await event.reply("I can't do this operation on this poll.\n\nProbably it's not made by me")     
+ else:
+   await event.reply("This isn't a poll")
