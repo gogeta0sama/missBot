@@ -308,7 +308,7 @@ async def stop(event):
        await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")     
        return
      if msg.poll:     
-     allpoll = poll_id.find({})
+       allpoll = poll_id.find({})
        for c in allpoll:
          if event.from_id == c['user'] and secret == c['pollid']:
              poll_id.delete_one({'user':event.from_id,'pollid':secret})
