@@ -144,49 +144,49 @@ async def _(event):
     try: 
       ab = option.split(' ')[4-1] 
       cd = option.split(' ')[5-1] 
-      optionss.append(types.PollAnswer(ab, b'xnx'))
-      optionss.append(types.PollAnswer(cd, b'xdnxx'))
+      optionss.append(types.PollAnswer(ab, b'1'))
+      optionss.append(types.PollAnswer(cd, b'2'))
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
       ef = option.split(' ')[6-1] 
-      optionss.append(types.PollAnswer(ef, b'dnxnx'))
+      optionss.append(types.PollAnswer(ef, b'3'))
     except Exception:
       ef = None     
     try:
       gh = option.split(' ')[7-1] 
-      optionss.append(types.PollAnswer(gh, b'xowpx'))
+      optionss.append(types.PollAnswer(gh, b'4'))
     except Exception:
       gh = None  
     try:
       ij = option.split(' ')[8-1] 
-      optionss.append(types.PollAnswer(ij, b'xppalx'))
+      optionss.append(types.PollAnswer(ij, b'5'))
     except Exception:
       ij = None
     try:
       kl = option.split(' ')[9-1] 
-      optionss.append(types.PollAnswer(kl, b'wppowpx'))
+      optionss.append(types.PollAnswer(kl, b'6'))
     except Exception:
       kl = None
     try:
       mn = option.split(' ')[10-1] 
-      optionss.append(types.PollAnswer(mn, b'owozpx'))
+      optionss.append(types.PollAnswer(mn, b'7'))
     except Exception:
       mn = None     
     try:
       op = option.split(' ')[11-1] 
-      optionss.append(types.PollAnswer(op, b'aoaalx'))
+      optionss.append(types.PollAnswer(op, b'8'))
     except Exception:
       op = None   
     try:
       qr = option.split(' ')[12-1] 
-      optionss.append(types.PollAnswer(qr, b'owzkkx'))
+      optionss.append(types.PollAnswer(qr, b'9'))
     except Exception:
       qr= None   
     try:
       st = option.split(' ')[13-1] 
-      optionss.append(types.PollAnswer(st, b'wxxvuurpx'))
+      optionss.append(types.PollAnswer(st, b'10'))
     except Exception:
       st = None   
   
