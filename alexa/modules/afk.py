@@ -49,7 +49,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
         return
 
     res = sql.rm_afk(user.id)
-    user = sql.check_afk_status(user.id)
+    user = sql.check_afk(user.id)
     etime = user.start_time
     elapsed_time = time.time() - float(etime)
     final = time.strftime("%Hh: %Mm: %Ss", time.gmtime(elapsed_time))
