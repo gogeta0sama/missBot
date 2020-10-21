@@ -734,6 +734,7 @@ def rm_afk(user_id):
 
 def __load_afk_users():
     global AFK_USERS
+    global AFK_USERSS
     try:
         all_afk = SESSION.query(AFK).all()
         AFK_USERS = {
