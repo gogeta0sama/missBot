@@ -276,7 +276,8 @@ async def stop(event):
         question="",
         answers =[],
         closed=True)))
+      await event.reply("Successfully stopped the poll")
      else:
         await event.reply("This isn't a poll")
     except Exception:
-        await event.reply("I can't do this operation on this poll.\nProbably it's not made by me")     
+        await event.reply("I can't do this operation on this poll.\nProbably it's already closed")     
