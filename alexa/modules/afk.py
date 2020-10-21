@@ -6,6 +6,7 @@ from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters, MessageHandler, run_async, CommandHandler
 import time
+from telegram import ParseMode
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
@@ -35,7 +36,7 @@ def afk(update: Update, context: CallbackContext):
     fname = update.effective_user.first_name
     try:
         update.effective_message.reply_text("*{} is now AFK !*\n\n{}".format(
-            fname, notice))
+            fname, notice), parse_mode=ParseMode.MARKDOWN)
     except BadRequest:
         pass
 
@@ -44,23 +45,20 @@ def afk(update: Update, context: CallbackContext):
 def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
     message = update.effective_message
-
     if not user:  # ignore channels
         return
-
-    res = sql.rm_afk(user.id)
-    user = sql.check_afk(user.id)
-    etime = user.start_time
+    userr = sql.check_afk_status(user.id)
+    etime = userr.start_time
     elapsed_time = time.time() - float(etime)
     final = time.strftime("%Hh: %Mm: %Ss", time.gmtime(elapsed_time))
-    
+    res = sql.rm_afk(user.id)
     if res:
         if message.new_chat_members:  #dont say msg
             return
         firstname = update.effective_user.first_name
         try:
             text = "*{} is no longer AFK !*\n\n*Was AFK for*: {}".format(firstname, final)
-            update.effective_message.reply_text(text, parse_mode="markdown")
+            update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
         except:
             return
 
@@ -127,7 +125,7 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             if int(userc_id) == int(user_id):
                 return
             res = "*{} is AFK !*\n\n*Last seen*: {}".format(fst_name, final)
-            update.effective_message.reply_text(res, parse_mode="markdown")
+            update.effective_message.reply_text(res, parse_mode=ParseMode.MARKDOWN)
         else:
             etime = user.start_time
             elapsed_time = time.time() - float(etime)
@@ -137,7 +135,7 @@ def check_afk(update, context, user_id, fst_name, userc_id):
                 return
             res = "*{} is AFK !*\n\n*Reason*: {}\n\n*Last seen*: {}".format(
                 fst_name, user.reason, final)
-            update.effective_message.reply_text(res, parse_mode="markdown")
+            update.effective_message.reply_text(res, parse_mode=ParseMode.MARKDOWN)
 
 
 AFK_HANDLER = CommandHandler("afk", afk)
