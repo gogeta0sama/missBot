@@ -262,21 +262,21 @@ async def _(event):
 
 @register(pattern="^/stoppoll")
 async def stop(event):
- if event.poll:
    if not event.reply_to_msg_id:
      await event.reply("Please reply to a poll to stop it")
      return
    else:
     try:
      msg = await event.get_reply_message()
-     pollid = msg.poll.poll.id
-     await msg.edit(file=types.InputMediaPoll(
-      poll=types.Poll(
+     if msg.poll:     
+      pollid = msg.poll.poll.id
+      await msg.edit(file=types.InputMediaPoll(
+       poll=types.Poll(
         id=pollid,
         question="",
         answers =[],
         closed=True)))
+     else:
+        await event.reply("This isn't a poll")
     except Exception:
-        await event.reply("I can't do this operation on this poll.\n\nProbably it's not made by me")     
- else:
-   await event.reply("This isn't a poll")
+        await event.reply("I can't do this operation on this poll.\nProbably it's not made by me")     
