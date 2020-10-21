@@ -66,7 +66,7 @@ async def _(event):
        while(secret>0):
                 count=count+1
                 secret=secret//10
-    if count != 5:
+    elif count != 5:
         await event.reply("Poll id should be an integer of 5 digits")
         return
     else:
@@ -77,7 +77,7 @@ async def _(event):
       if event.from_id == c['user'] and secret == c['pollid']:
           await event.reply("Please give another poll id, this id is already used")
           return
-       poll_id.insert_one({'user':event.from_id,'pollid':secret})
+      poll_id.insert_one({'user':event.from_id,'pollid':secret})
     
     ques = quess.strip()
     option = options.strip()
