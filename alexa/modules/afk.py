@@ -47,10 +47,14 @@ def no_longer_afk(update: Update, context: CallbackContext):
     message = update.effective_message
     if not user:  # ignore channels
         return
-    userr = sql.check_afk_status(user.id)
-    etime = userr.start_time
-    elapsed_time = time.time() - float(etime)
-    final = time.strftime("%Hh: %Mm: %Ss", time.gmtime(elapsed_time))
+    if sql.is_afk(user.id):
+     user = sql.check_afk_status(user.id)
+      if not user.reason:
+       userr = sql.check_afk_status(user.id)
+       etime = userr.start_time
+       elapsed_time = time.time() - float(etime)
+       final = time.strftime("%Hh: %Mm: %Ss", time.gmtime(elapsed_time))
+
     res = sql.rm_afk(user.id)
     if res:
         if message.new_chat_members:  #dont say msg
