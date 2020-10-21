@@ -14,7 +14,8 @@ client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client['test']
 approved_users = db.approve
-
+dbb = client['poll']
+poll_id = dbb.pollid
 
 #------ THANKS TO LONAMI ------#
 async def is_register_admin(chat, user):
@@ -55,7 +56,29 @@ async def _(event):
        await event.reply("Where is the question ?")
        return
     if "|" in quew:
-                quess, options = quew.split("|")
+         secrets, quess, options = quew.split("|")
+    secret = secrets.strip()
+    if not secret:
+        await event.reply("I need a poll id of 5 digits to make a poll")
+        return
+    if isinstance(secret, int):
+       count=0
+       while(secret>0):
+                count=count+1
+                secret=secret//10
+    if count != 5:
+        await event.reply("Poll id should be an integer of 5 digits")
+        return
+    else:
+       await event.reply("Poll id should be an integer")
+       return
+    allpoll = poll_id.find({})
+    for c in allpoll:
+      if event.from_id == c['user'] and secret == c['pollid']:
+          await event.reply("Please give another poll id, this id is already used")
+          return
+       poll_id.insert_one({'user':event.from_id,'pollid':secret})
+    
     ques = quess.strip()
     option = options.strip()
     quiz = option.split(' ')[1-1] 
@@ -260,15 +283,39 @@ async def _(event):
        await event.reply("You can't use multiple voting with quiz mode")
        return
 
-@register(pattern="^/stoppoll")
+
+@register(pattern="^/stoppoll (.*)")
 async def stop(event):
+   secret = event.pattern_match.group(1)
+   approved_userss = approved_users.find({})
+   for ch in approved_userss: 
+        iid = ch['id']
+        userss = ch['user']
+   if event.is_group:
+     if (await is_register_admin(event.input_chat, event.message.sender_id)):
+       pass
+     elif event.chat_id == iid and event.from_id == userss:  
+       pass
+     else:
+       return
    if not event.reply_to_msg_id:
      await event.reply("Please reply to a poll to stop it")
      return
    else:
     try:
      msg = await event.get_reply_message()
+     if not msg.from_id == 1361631434:
+       await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")     
+       return
      if msg.poll:     
+     allpoll = poll_id.find({})
+       for c in allpoll:
+         if event.from_id == c['user'] and secret == c['pollid']:
+             poll_id.delete_one({'user':event.from_id,'pollid':secret})
+             pass
+         else:
+            await event.reply("Oops, seems like you haven't created this poll")
+            return
       pollid = msg.poll.poll.id
       await msg.edit(file=types.InputMediaPoll(
        poll=types.Poll(
@@ -281,3 +328,4 @@ async def stop(event):
         await event.reply("This isn't a poll")
     except Exception:
         await event.reply("I can't do this operation on this poll.\nProbably it's already closed")     
+
