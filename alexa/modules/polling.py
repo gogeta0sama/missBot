@@ -66,7 +66,7 @@ async def _(event):
        while(secret>0):
                 count=count+1
                 secret=secret//10
-    elif count != 5:
+       if count != 5:
         await event.reply("Poll id should be an integer of 5 digits")
         return
     else:
