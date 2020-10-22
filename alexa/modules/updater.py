@@ -674,7 +674,6 @@ from alexa.events import register
 from alexa import OWNER_ID
 import os
 from os import *
-global UPSTREAM_REPO_URL
 UPSTREAM_REPO_URL = "https://github.com/MissAlexaRobot/MissAlexaRobot.git"
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
