@@ -2367,7 +2367,7 @@ async def _(event):
 
     c = 0
     KICK_RIGHTS = ChatBannedRights(until_date=None, view_messages=True)
-    await event.reply("Working ...")
+    done = await event.reply("Working ...")
     async for i in event.client.iter_participants(event.chat_id):
         
         if isinstance(i.status, UserStatusLastMonth):
