@@ -777,7 +777,7 @@ def reverse(update, context):
         os.remove(imagename)
         match = ParseSauce(fetchUrl + "&hl=en")
         guess = match["best_guess"]
-        if match["override"] and not match["override"] == "":
+        if match["override"] and match["override"] != "":
             imgspage = match["override"]
         else:
             imgspage = match["similar_images"]
