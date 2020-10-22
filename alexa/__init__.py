@@ -744,7 +744,7 @@ if ENV:
     SUDO_USERS.add(OWNER_ID)
     GBAN_LOGS = os.environ.get("MESSAGE_DUMP")
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
-    tbot = TelegramClient(None, API_KEY, API_HASH)
+    tbot = TelegramClient("alexa", API_KEY, API_HASH)
     updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
     dispatcher = updater.dispatcher
     SUDO_USERS = list(SUDO_USERS)
