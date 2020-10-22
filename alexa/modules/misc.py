@@ -3938,7 +3938,7 @@ async def spam_update(event):
   for c in chats:
    if event.text: 
     if event.chat_id == c['id']:
-     if profanity.contains_profanity(msg) == True:
+     if profanity.contains_profanity(msg) is True:
         await event.delete()
         if sender.username == None:
            st = sender.first_name
@@ -3952,7 +3952,7 @@ async def spam_update(event):
    if event.photo:
      if event.chat_id == c['id']:
         await event.client.download_media(event.photo, "nudes.jpg")
-        if nude.is_nude('./nudes.jpg') == True:
+        if nude.is_nude('./nudes.jpg') is True:
            await event.delete()
            if sender.username == None:
              st = sender.first_name
