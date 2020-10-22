@@ -666,7 +666,7 @@ from telegram import Message
 from telegram.ext import BaseFilter
 
 
-class CustomFilters(object):
+class CustomFilters():
 
     class _Supporters(BaseFilter):
 
