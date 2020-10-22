@@ -218,7 +218,7 @@ async def _(event):
     except Exception:
       st = None   
   
-    if pvoty is False and quizy is False and mchoicee==False:      
+    if pvoty is False and quizy is False and mchoicee is False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -227,7 +227,7 @@ async def _(event):
         quiz=False)))
 
       
-    if pvoty is True and quizy is False and mchoicee==True:      
+    if pvoty is True and quizy is False and mchoicee is True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -238,7 +238,7 @@ async def _(event):
         public_voters=True)))
 
 
-    if pvoty is False and quizy is False and mchoicee==True:      
+    if pvoty is False and quizy is False and mchoicee is True:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -249,7 +249,7 @@ async def _(event):
         public_voters=False)))
    
  
-    if pvoty is True and quizy is False and mchoicee==False:      
+    if pvoty is True and quizy is False and mchoicee is False:      
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -260,7 +260,7 @@ async def _(event):
         public_voters=True)))
             
 
-    if pvoty is False and quizy is True and mchoicee==False:
+    if pvoty is False and quizy is True and mchoicee is False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -270,7 +270,7 @@ async def _(event):
     ),
     correct_answers=[f"{rightone}"]))
     
-    if pvoty is True and quizy is True and mchoicee==False:
+    if pvoty is True and quizy is True and mchoicee is False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -281,10 +281,10 @@ async def _(event):
     ),
     correct_answers=[f"{rightone}"]))
     
-    if pvoty is True and quizy is True and mchoicee==True:
+    if pvoty is True and quizy is True and mchoicee is True:
        await event.reply("You can't use multiple voting with quiz mode")
        return
-    if pvoty is False and quizy is True and mchoicee==True:
+    if pvoty is False and quizy is True and mchoicee is True:
        await event.reply("You can't use multiple voting with quiz mode")
        return
 
