@@ -683,7 +683,7 @@ async def is_register_admin(chat, user):
                                                            user))).participant,
             (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
         )
-    elif isinstance(chat, types.InputPeerChat):
+    if isinstance(chat, types.InputPeerChat):
 
         ui = await tbot.get_peer_id(user)
         ps = (await tbot(functions.messages.GetFullChatRequest(chat.chat_id)
@@ -692,8 +692,7 @@ async def is_register_admin(chat, user):
             next((p for p in ps if p.user_id == ui), None),
             (types.ChatParticipantAdmin, types.ChatParticipantCreator),
         )
-    else:
-        return None
+    return None
 
 
 @register(pattern="^/type (.*)")

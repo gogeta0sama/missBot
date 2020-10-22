@@ -731,8 +731,7 @@ def bot_can_delete(func):
     def delete_rights(update, context, *args, **kwargs):
         if can_delete(update.effective_chat, context.bot.id):
             return func(update, context, *args, **kwargs)
-        else:
-            return
+        return
 
     return delete_rights
 
@@ -742,8 +741,7 @@ def can_pin(func):
     def pin_rights(update, context, *args, **kwargs):
         if update.effective_chat.get_member(context.bot.id).can_pin_messages:
             return func(update, context, *args, **kwargs)
-        else:
-            return
+        return
 
     return pin_rights
 
@@ -754,8 +752,7 @@ def can_promote(func):
         if update.effective_chat.get_member(
                 context.bot.id).can_promote_members:
             return func(update, context, *args, **kwargs)
-        else:
-            return
+        return
 
     return promote_rights
 
@@ -766,8 +763,7 @@ def can_restrict(func):
         if update.effective_chat.get_member(
                 context.bot.id).can_restrict_members:
             return func(update, context, *args, **kwargs)
-        else:
-            return
+        return
 
     return promote_rights
 
@@ -777,8 +773,7 @@ def bot_admin(func):
     def is_admin(update, context, *args, **kwargs):
         if is_bot_admin(update.effective_chat, context.bot.id):
             return func(update, context, *args, **kwargs)
-        else:
-            return
+        return
 
     return is_admin
 
@@ -791,9 +786,9 @@ def user_admin(func):
     
         if user and is_user_admin(update.effective_chat, user.id):
             return func(update, context, *args, **kwargs)
-        elif not user:
+        if not user:
            pass
-        
+
         else:
             return
 
@@ -806,7 +801,7 @@ def user_admin_no_reply(func):
         if user and is_user_admin(update.effective_chat, user.id):
             return func(update, context, *args, **kwargs)
 
-        elif not user:
+        if not user:
             pass
 
         elif DEL_CMDS and " " not in update.effective_message.text:
@@ -948,14 +943,13 @@ def connection_status(func):
             chat = dispatcher.bot.getChat(conn)
             update.__setattr__("_effective_chat", chat)
             return func(update, context, *args, **kwargs)
-        else:
-            if update.effective_message.chat.type == "private":
-                update.effective_message.reply_text(
-                    "Send /connect in a group that you and I have in common first."
-                )
-                return connected_status
+        if update.effective_message.chat.type == "private":
+            update.effective_message.reply_text(
+                "Send /connect in a group that you and I have in common first."
+            )
+            return connected_status
 
-            return func(update, context, *args, **kwargs)
+        return func(update, context, *args, **kwargs)
 
     return connected_status
 
