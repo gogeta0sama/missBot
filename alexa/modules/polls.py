@@ -20,5 +20,5 @@ Here is how you can do it:
 `/poll 12345 | am i cool? | True@1 False False yes no`
 
 *To stop a poll*
-Reply to the poll with /stoppoll <poll_id> to stop the poll
+Reply to the poll with `/stoppoll <poll_id>` to stop the poll
 """
