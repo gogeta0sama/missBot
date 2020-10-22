@@ -663,8 +663,14 @@ import random
 import re
 from random import randint
 
-from telegram import Message, MessageEntity, Update, User
-from telegram.ext import CommandHandler, Filters, MessageHandler, run_async
+from telegram import Message
+from telegram import MessageEntity
+from telegram import Update
+from telegram import User
+from telegram.ext import CommandHandler
+from telegram.ext import Filters
+from telegram.ext import MessageHandler
+from telegram.ext import run_async
 
 from alexa import dispatcher
 from alexa.modules.disable import DisableAbleCommandHandler

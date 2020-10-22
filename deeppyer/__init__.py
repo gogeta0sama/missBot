@@ -5,7 +5,9 @@ from enum import Enum
 from io import BytesIO
 
 import aiohttp
-from PIL import Image, ImageEnhance, ImageOps
+from PIL import Image
+from PIL import ImageEnhance
+from PIL import ImageOps
 
 
 class DeepfryTypes(Enum):
