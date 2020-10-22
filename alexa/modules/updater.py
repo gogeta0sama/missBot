@@ -765,7 +765,7 @@ async def upstream(ups):
 
     if not changelog and not force_update:
         await lol.edit(
-            f'\n`Your bot is`  **up-to-date**  \n')
+            '\n`Your bot is`  **up-to-date**  \n')
         repo.__del__()
         return
 
@@ -813,7 +813,7 @@ async def upstream(ups):
             )
             repo.__del__()
             return
-        await lol.edit(f'`[Updater]\
+        await lol.edit('`[Updater]\
                         Your bot is being deployed, please wait for it to complete.\nIt may take upto 5 minutes `'
                        )
         ups_rem.fetch(ac_br)
