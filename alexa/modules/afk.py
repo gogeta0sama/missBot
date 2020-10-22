@@ -45,6 +45,7 @@ def afk(update: Update, context: CallbackContext):
 def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
     message = update.effective_message
+
     if not user:  # ignore channels
         return
    
@@ -54,7 +55,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
             return
         firstname = update.effective_user.first_name
         try:
-            text = "*{} is no longer AFK !".format(firstname)
+            text = "*{} is no longer AFK !*".format(firstname)
             update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
         except:
             return
