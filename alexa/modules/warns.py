@@ -680,12 +680,9 @@ from telegram.ext import run_async
 from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher  # BAN_STICKER
-from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.alternate import typing_action
 from alexa.modules.helper_funcs.chat_status import bot_admin
 from alexa.modules.helper_funcs.chat_status import can_restrict
 from alexa.modules.helper_funcs.chat_status import is_user_admin
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_admin_no_reply
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.chat_status import user_can_restrict

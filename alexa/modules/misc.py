@@ -665,105 +665,61 @@ import json
 import random
 from random import randrange
 import time
-from telethon.tl.types import ChannelParticipantsAdmins
 import re
-import wikipedia
 from typing import Optional, List
 from telethon import events
 import datetime
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from datetime import timedelta
-from telethon.tl.types import UserStatusEmpty, UserStatusLastMonth, UserStatusLastWeek, UserStatusOffline, UserStatusOnline, UserStatusRecently, ChannelParticipantsKicked, ChatBannedRights
+from telethon.tl.types import UserStatusLastMonth, UserStatusLastWeek, ChannelParticipantsKicked, ChatBannedRights
 from telethon.tl import functions, types
 from time import sleep
 import asyncio
-from telegram import Message, Chat, Update, Bot, User, ParseMode
+from telegram import Message, Update, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import run_async, Filters
 from telegram.utils.helpers import mention_html
-from alexa import dispatcher, LOGGER, CHROME_DRIVER, GOOGLE_CHROME_BIN
+from alexa import dispatcher
 from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.chat_status import bot_admin, user_admin, is_user_ban_protected, can_restrict, \
-    is_user_admin, is_user_in_chat
-from alexa.modules.helper_funcs.extraction import extract_user_and_text
-from alexa.modules.helper_funcs.string_handling import extract_time
-from alexa.modules.log_channel import loggable
-from pyDownload import Downloader
+from alexa.modules.helper_funcs.chat_status import user_admin, is_user_admin
 import os
-import pytz
-from io import BytesIO 
-from telegram import TelegramError
-from telegram.ext import MessageHandler, CommandHandler
+from telegram.ext import CommandHandler
 from telegram.utils.helpers import escape_markdown
-import telegram
 import alexa.modules.sql.users_sql as sql
-from alexa import OWNER_ID, SUDO_USERS, SUPPORT_USERS, OCR_SPACE_API_KEY, IBM_WATSON_CRED_URL, IBM_WATSON_CRED_PASSWORD
-from alexa.modules.helper_funcs.filters import CustomFilters
+from alexa import OWNER_ID, SUDO_USERS, OCR_SPACE_API_KEY, IBM_WATSON_CRED_URL, IBM_WATSON_CRED_PASSWORD
 USERS_GROUP = 4
 import requests
-from alexa.modules.helper_funcs.chat_status import can_promote, can_pin
 import urllib
 from urllib.request import urlopen
-from urllib.error import URLError, HTTPError
-from bs4 import BeautifulSoup
-from telegram import InputMediaPhoto
 from googleapiclient.discovery import build
 import urllib.request
 
-from telethon.errors import (BadRequestError, ChatAdminRequiredError,
-                             ImageProcessFailedError, PhotoCropSizeSmallError,
+from telethon.errors import (ChatAdminRequiredError,
                              UserAdminInvalidError)
-from telethon.errors.rpcerrorlist import (UserIdInvalidError,
-                                          MessageTooLongError)
-from telethon.tl.functions.channels import (EditAdminRequest,
-                                            EditBannedRequest,
-                                            EditPhotoRequest)
-from telethon.tl.functions.messages import UpdatePinnedMessageRequest
-from telethon.tl.types import (PeerChat, PeerChannel,
-                               ChatAdminRights,
-                               MessageMediaPhoto, ChannelParticipantsBots)
+from telethon.tl.functions.channels import (EditBannedRequest)
 from telethon.errors import YouBlockedUserError
 import pyfiglet
-from urllib.parse import quote_plus
 import sys
 from telegraph import Telegraph
 from googleapiclient.errors import HttpError
-import shutil
 from html import unescape
-from re import findall
 from gtts import gTTS
 from wikipedia import summary
 from wikipedia.exceptions import DisambiguationError, PageError
-import math
-from youtube_dl import YoutubeDL
-from youtube_dl.utils import (DownloadError, ContentTooShortError,
-                              ExtractorError, GeoRestrictedError,
-                              MaxDownloadsReached, PostProcessingError,
-                              UnavailableVideoError, XAttrMetadataError)
 from gtts import gTTSError
 from requests import get
-from alexa import updater
-from telegram import ChatAction
 from telegram import MessageEntity
 from telegram import ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
 
-from alexa import WHITELIST_USERS, tbot, OPENWEATHERMAP_ID, YOUTUBE_API_KEY, TEMP_DOWNLOAD_DIRECTORY
+from alexa import tbot, OPENWEATHERMAP_ID, YOUTUBE_API_KEY, TEMP_DOWNLOAD_DIRECTORY
 from alexa.__main__ import GDPR
 from alexa.__main__ import STATS, USER_INFO
 from alexa.modules.helper_funcs.extraction import extract_user
 
 from alexa.events import register
-from shutil import rmtree
 from telethon.errors import FloodWaitError
 from alexa import OWNER_USERNAME
-from telethon.tl.types import DocumentAttributeAudio
-from collections import deque
 from telegram.ext import CallbackContext
-import inspect
 import io
 import traceback
-from telethon import errors
 
 
 BANNED_RIGHTS = ChatBannedRights(
@@ -792,12 +748,7 @@ UNBAN_RIGHTS = ChatBannedRights(
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
-# ==================================#
-from random import randint
 from datetime import datetime
-from hurry.filesize import size
-from telegram import ReplyKeyboardMarkup
-from alexa import BAN_STICKER
 from telethon.tl.types import *
 
 from pymongo import MongoClient
@@ -1355,7 +1306,6 @@ async def _(event):
     await event.reply("{}".format(output_str), link_preview=False, parse_mode='Markdown')
 
 import aiohttp
-from datetime import tzinfo
 
 
 @register(pattern="^/weather (.*)")
@@ -1915,9 +1865,6 @@ def conv_image(image):
     new_file_name = image + ".png"
     os.rename(image, new_file_name)
     return new_file_name
-from getpass import getuser
-from os import remove
-from sys import executable
 
 
 """Speech to Text
@@ -2630,7 +2577,6 @@ async def _(event):
 # Ported to Lynda by: @pokurt
 from PIL import ImageDraw, ImageFont, ImageOps
 from fontTools.ttLib import TTFont 
-from fontTools.unicode import Unicode 
 import emoji
 import textwrap
 import logging
@@ -3023,10 +2969,6 @@ async def _(event):
     canvas.save('sticker.webp')
     await event.client.send_file(event.chat_id, "sticker.webp", reply_to=event.reply_to_msg_id)
     os.remove('sticker.webp')
-from random import choice, getrandbits
-from re import sub
-from os import execl
-from PIL import ImageEnhance
 from alexa.events import alexabot
 BOTLOG_CHATID = os.environ.get("BOTLOG_CHATID")
 
@@ -3086,8 +3028,6 @@ async def stickerizer(event):
     await event.client.send_file(event.chat_id, bara, reply_to=event.id)
     os.remove(bara)
     await randika.delete()
-from telethon.tl.functions.account import UpdateNotifySettingsRequest
-import base64 
 
 # Made by @AyushChatterjee
 
@@ -3977,7 +3917,6 @@ async def sticklet(event):
        return
      
 import nude
-from nude import Nude
 
 @tbot.on(events.NewMessage())      
 async def spam_update(event):

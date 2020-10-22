@@ -659,17 +659,8 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-import asyncio
-import math
 import os
-import shutil
 import time
-from asyncio import sleep
-from collections import deque
-from html import unescape
-
-import requests
-from googleapiclient.discovery import build
 from telethon import types
 from telethon.tl import functions
 from telethon.tl.types import DocumentAttributeAudio
@@ -682,10 +673,7 @@ from youtube_dl.utils import MaxDownloadsReached
 from youtube_dl.utils import PostProcessingError
 from youtube_dl.utils import UnavailableVideoError
 from youtube_dl.utils import XAttrMetadataError
-
-from alexa import LOGGER
 from alexa import tbot
-from alexa import YOUTUBE_API_KEY
 from alexa.events import register
 
 from pymongo import MongoClient

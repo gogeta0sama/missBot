@@ -660,27 +660,11 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 import asyncio
-import html
-import random
-import re
-import time
 from typing import List
-
-from cowpy import cow
-from telegram import Bot
-from telegram import ParseMode
-from telegram import Update
-from telegram.ext import run_async
 from telethon import types
 from telethon.tl import functions
-
-from alexa import dispatcher
-from alexa import LOGGER
 from alexa import tbot
 from alexa.events import register
-from alexa.modules.helper_funcs.chat_status import is_user_admin
-from alexa.modules.helper_funcs.chat_status import user_admin
-from alexa.modules.helper_funcs.extraction import extract_user
 
 from pymongo import MongoClient
 from alexa import MONGO_DB_URI

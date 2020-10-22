@@ -678,9 +678,7 @@ from telegram.utils.helpers import mention_html
 from alexa import dispatcher
 from alexa.modules.connection import connected
 from alexa.modules.helper_funcs.alternate import send_message
-from alexa.modules.helper_funcs.alternate import typing_action
 from alexa.modules.helper_funcs.chat_status import is_user_admin
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.string_handling import extract_time
 from alexa.modules.log_channel import loggable

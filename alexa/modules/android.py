@@ -661,17 +661,12 @@
 #     <https://www.gnu.org/licenses/>.
 import json
 import re
-import urllib
 
 import rapidjson as json
 from bs4 import BeautifulSoup
-from hurry.filesize import size as sizee
 from requests import get
-from telethon import custom
 from telethon import types
 from telethon.tl import functions
-
-from alexa import LOGGER
 from alexa import tbot
 from alexa.events import register
 from pymongo import MongoClient

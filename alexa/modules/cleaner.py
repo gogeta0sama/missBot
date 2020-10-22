@@ -4,14 +4,12 @@ from typing import List
 
 from telegram import Update, ParseMode
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async, CallbackContext
-from telegram import Chat, ChatMember
 from alexa import dispatcher, CustomCommandHandler
 
-from alexa.modules.helper_funcs.chat_status import bot_can_delete, user_admin, user_can_change, connection_status
+from alexa.modules.helper_funcs.chat_status import bot_can_delete, user_can_change, connection_status
 from alexa.modules.sql import cleaner_sql as sql
 from pymongo import MongoClient
-from alexa import MONGO_DB_URI, OWNER_ID
-from alexa.events import register
+from alexa import MONGO_DB_URI
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)

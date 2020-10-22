@@ -680,12 +680,10 @@ from alexa import dispatcher
 from alexa import LOGGER
 from alexa import OWNER_ID
 from alexa.modules.connection import connected
-from alexa.modules.disable import DisableAbleCommandHandler
 from alexa.modules.helper_funcs.alternate import send_message
 from alexa.modules.helper_funcs.chat_status import can_delete
 from alexa.modules.helper_funcs.chat_status import is_bot_admin
 from alexa.modules.helper_funcs.chat_status import is_user_admin
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.chat_status import user_not_admin
 from alexa.modules.log_channel import loggable

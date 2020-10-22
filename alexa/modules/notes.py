@@ -683,8 +683,6 @@ from alexa import dispatcher
 from alexa import LOGGER
 from alexa import MESSAGE_DUMP
 from alexa.modules.connection import connected
-from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_admin_no_reply
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.misc import build_keyboard

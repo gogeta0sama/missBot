@@ -676,7 +676,6 @@ from telegram.utils.helpers import escape_markdown
 
 import alexa.modules.sql.rules_sql as sql
 from alexa import dispatcher
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.string_handling import markdown_parser
 

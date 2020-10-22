@@ -672,7 +672,6 @@ from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher
 from alexa.modules.connection import connected
-from alexa.modules.disable import DisableAbleCommandHandler
 from alexa.modules.helper_funcs.chat_status import bot_admin
 from alexa.modules.helper_funcs.chat_status import can_pin
 from alexa.modules.helper_funcs.chat_status import can_promote

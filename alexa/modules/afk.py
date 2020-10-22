@@ -1,4 +1,3 @@
-import random
 from alexa import dispatcher
 from alexa.modules.sql import afk_sql as sql
 from alexa.modules.users import get_user_id

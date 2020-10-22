@@ -674,7 +674,6 @@ import alexa.modules.sql.users_sql as sql
 from alexa import dispatcher
 from alexa import LOGGER
 from alexa import OWNER_ID
-from alexa.modules.helper_funcs.filters import CustomFilters
 
 USERS_GROUP = 4
 CHAT_GROUP = 10

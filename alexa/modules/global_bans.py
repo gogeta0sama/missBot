@@ -663,7 +663,7 @@
 import html
 from io import BytesIO
 
-from telegram import ParseMode, ChatAction
+from telegram import ParseMode
 from telegram.error import BadRequest, TelegramError
 from telegram.ext import run_async, CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html

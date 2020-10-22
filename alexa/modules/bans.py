@@ -672,13 +672,11 @@ from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher
 from alexa import LOGGER
-from alexa.modules.disable import DisableAbleCommandHandler
 from alexa.modules.helper_funcs.chat_status import bot_admin
 from alexa.modules.helper_funcs.chat_status import can_restrict
 from alexa.modules.helper_funcs.chat_status import is_user_admin
 from alexa.modules.helper_funcs.chat_status import is_user_ban_protected
 from alexa.modules.helper_funcs.chat_status import is_user_in_chat
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_ban
 from alexa.modules.helper_funcs.extraction import extract_user_and_text
 from alexa.modules.helper_funcs.string_handling import extract_time
