@@ -802,7 +802,7 @@ if ENV:
     if STRING_SESSION:
         ubot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
     else:
-        quit(1)
+        sys.exit(1)
 
     async def check_botlog_chatid():
         if not BOTLOG:
@@ -812,7 +812,7 @@ if ENV:
             LOGS.error(
                 "Your account doesn't have rights to send messages to BOTLOG_CHATID "
                 "group. Check if you typed the Chat ID correctly. Halting!")
-            quit(1)
+            sys.exit(1)
 
     with ubot:
         try:
@@ -820,13 +820,13 @@ if ENV:
         except:
             LOGS.error("BOTLOG_CHATID environment variable isn't a "
                        "valid entity. Halting!")
-            quit(1)
+            sys.exit(1)
     INVALID_PH = "\nERROR: The phone no. entered is incorrect"
     try:
         ubot.start()
     except PhoneNumberInvalidError:
         print(INVALID_PH)
-        exit(1)
+        sys.exit(1)
         
 else:
-    quit(1)
+    sys.exit(1)

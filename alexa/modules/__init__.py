@@ -659,6 +659,7 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
+import sys
 from alexa import LOAD
 from alexa import LOGGER
 from alexa import NO_LOAD
@@ -682,7 +683,7 @@ def __list_all_modules():
                     any(mod == module_name for module_name in all_modules)
                     for mod in to_load):
                 LOGGER.error("Invalid loadorder names. Quitting.")
-                quit(1)
+                sys.exit(1)
 
         else:
             to_load = all_modules
