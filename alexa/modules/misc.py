@@ -982,7 +982,7 @@ def gdpr(update: Update, context: CallbackContext):
     )
 
 
-MARKDOWN_HELP = f"""
+MARKDOWN_HELP = """
 Markdown is a very powerful formatting tool supported by telegram. Alexa has some enhancements, to make sure that \
 saved messages are correctly parsed, and to allow you to create buttons.
 • <code>_italic_</code>: wrapping text with '_' will produce italic text
@@ -3880,9 +3880,9 @@ async def sticklet(event):
     if not input:
      for c in chats:
         if event.chat_id == c['id']:         
-           await event.reply(f"Please provide some input yes or no.\n\nCurrent setting is : **on**")
+           await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **on**")
            return
-     await event.reply(f"Please provide some input yes or no.\n\nCurrent setting is : **off**")
+     await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **off**")
      return
     if input in "on": 
      if event.is_group:
@@ -4025,7 +4025,7 @@ async def aexec(code, smessatatus):
     p = lambda _x: print(slitu.yaml_format(_x))
     reply = await event.get_reply_message()
     exec(
-        f'async def __aexec(message, reply, client, p): ' +
+        'async def __aexec(message, reply, client, p): ' +
         '\n event = smessatatus = message' +
         ''.join(f'\n {l}' for l in code.split('\n'))
     )
