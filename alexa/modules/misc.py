@@ -2639,7 +2639,7 @@ async def _(event):
 
     c = 0
     KICK_RIGHTS = ChatBannedRights(until_date=None, view_messages=True)
-    await event.reply("Searching Participant Lists...")
+    await event.reply("Working ...")
     async for i in event.client.iter_participants(event.chat_id):
         
         if isinstance(i.status, UserStatusLastMonth):
@@ -2655,7 +2655,11 @@ async def _(event):
                return
             else:
                c = c + 1             
-
+            
+    if c == 0:
+       await done.edit("Got no one to kick 😔")
+       return      
+    
     required_string = "Successfully Kicked **{}** users"
     await event.reply(required_string.format(c))
 
@@ -2775,7 +2779,6 @@ async def _(event):
     ms = (end - start).seconds
     await event.reply("Created BarCode in {} seconds".format(ms))
 
-
 @tbot.on(events.NewMessage(pattern="^/unbanall$"))
 async def _(event):
     if event.is_private:
@@ -2805,10 +2808,12 @@ async def _(event):
                 await event.reply(str(ex))
             else:
                 p += 1
-            if p == 0:
-              await event.reply("No one is banned in this chat")
-              return
-            await done.edit("{}: {} unbanned".format(event.chat_id, p))
+            
+    if p == 0:
+       await done.edit("No one is banned in this chat")
+       return      
+    required_string = "Successfully unbanned **{}** users"
+    await event.reply(required_string.format(p))
 
 @tbot.on(events.NewMessage(pattern="^/unmuteall$"))
 async def _(event):
@@ -2824,7 +2829,7 @@ async def _(event):
          if not await can_ban_users(message=event):
            return
 
-    done = await event.reply("Searching Participant Lists.")
+    done = await event.reply("Working ...")
     p = 0
     async for i in event.client.iter_participants(event.chat_id, filter=ChannelParticipantsBanned, aggressive=True):
             rights = ChatBannedRights(
@@ -2840,10 +2845,13 @@ async def _(event):
                 await event.reply(str(ex))
             else:
                 p += 1
-            if p == 0:
-              await event.reply("No one is muted in this chat")
-              return
-            await done.edit("{}: {} unmuted".format(event.chat_id, p))
+            
+    if p == 0:
+       await done.edit("No one is muted in this chat")
+       return      
+    required_string = "Successfully unmuted **{}** users"
+    await event.reply(required_string.format(p))
+
 
 
 # Oringinal Source from Nicegrill: https://github.com/erenmetesar/NiceGrill/
