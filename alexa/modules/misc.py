@@ -2806,7 +2806,7 @@ async def _(event):
             else:
                 p += 1
             if p == 0:
-              await event.reply("No one is muted in this chat")
+              await event.reply("No one is banned in this chat")
               return
             await done.edit("{}: {} unbanned".format(event.chat_id, p))
 
