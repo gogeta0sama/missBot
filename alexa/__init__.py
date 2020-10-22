@@ -781,8 +781,7 @@ if ENV:
         if int(user_id) in SPAMMERS:
             print("This user is a spammer!")
             return True
-        else:
-            return False
+        return False
 
     # Bot Logs setup:
     CONSOLE_LOGGER_VERBOSE = os.environ.get("CONSOLE_LOGGER_VERBOSE", "True")
