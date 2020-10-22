@@ -689,7 +689,6 @@ from alexa import dispatcher
 from alexa import LOGGER
 from alexa import MESSAGE_DUMP
 from alexa import OWNER_ID
-from alexa import OWNER_ID
 from alexa.modules.disable import DisableAbleCommandHandler
 from alexa.modules.helper_funcs.alternate import send_action
 from alexa.modules.helper_funcs.alternate import send_message

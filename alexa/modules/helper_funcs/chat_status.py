@@ -669,15 +669,13 @@ from telegram import ParseMode
 from telegram import Update
 from telegram import User
 from telegram.ext import CallbackContext
-from telegram import Chat, ChatMember, ParseMode, Update
-from telegram.ext import CallbackContext
 
 from alexa import DEL_CMDS
 from alexa import OWNER_ID
 from alexa.mwt import MWT
 
 from pymongo import MongoClient
-from alexa import MONGO_DB_URI, OWNER_ID
+from alexa import MONGO_DB_URI
 from alexa.events import register
 
 client = MongoClient()
