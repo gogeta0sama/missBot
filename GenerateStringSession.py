@@ -1,4 +1,3 @@
-
 #                         GNU AFFERO GENERAL PUBLIC LICENSE
 #                            Version 3, 19 November 2007
 #     
@@ -660,11 +659,6 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-
-
-
-
-
 from telethon.sessions import StringSession
 from telethon.sync import TelegramClient
 
