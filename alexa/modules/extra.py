@@ -662,12 +662,19 @@
 import random
 import re
 from random import randint
-from telegram import Message, Update, User
+
+from telegram import Message
 from telegram import MessageEntity
-from telegram.ext import Filters, MessageHandler, run_async, CommandHandler
-from alexa.modules.helper_funcs.chat_status import user_admin
+from telegram import Update
+from telegram import User
+from telegram.ext import CommandHandler
+from telegram.ext import Filters
+from telegram.ext import MessageHandler
+from telegram.ext import run_async
+
 from alexa import dispatcher
 from alexa.modules.disable import DisableAbleCommandHandler
+from alexa.modules.helper_funcs.chat_status import user_admin
 
 ABUSE_STRINGS = (
     "Fuck off",
@@ -678,186 +685,186 @@ ABUSE_STRINGS = (
     "Nigga",
     "Ur granny tranny",
     "you noob",
-	"Relax your Rear,ders nothing to fear,The Rape train is finally here",
-	"Stfu bc",
-	"Stfu and Gtfo U nub",
-	"GTFO bsdk",
+    "Relax your Rear,ders nothing to fear,The Rape train is finally here",
+    "Stfu bc",
+    "Stfu and Gtfo U nub",
+    "GTFO bsdk",
     "CUnt",
-     "Madharchod",
+    "Madharchod",
     " Gay is here",
-    "Ur dad gey bc "
+    "Ur dad gey bc ",
 )
 
 EYES = [
-    ['⌐■', '■'],
-    [' ͠°', ' °'],
-    ['⇀', '↼'],
-    ['´• ', ' •`'],
-    ['´', '`'],
-    ['`', '´'],
-    ['ó', 'ò'],
-    ['ò', 'ó'],
-    ['⸌', '⸍'],
-    ['>', '<'],
-    ['Ƹ̵̡', 'Ʒ'],
-    ['ᗒ', 'ᗕ'],
-    ['⟃', '⟄'],
-    ['⪧', '⪦'],
-    ['⪦', '⪧'],
-    ['⪩', '⪨'],
-    ['⪨', '⪩'],
-    ['⪰', '⪯'],
-    ['⫑', '⫒'],
-    ['⨴', '⨵'],
-    ['⩿', '⪀'],
-    ['⩾', '⩽'],
-    ['⩺', '⩹'],
-    ['⩹', '⩺'],
-    ['◥▶', '◀◤'],
-    ['◍', '◎'],
-    ['/͠-', '┐͡-\\'],
-    ['⌣', '⌣”'],
-    [' ͡⎚', ' ͡⎚'],
-    ['≋'],
-    ['૦ઁ'],
-    ['  ͯ'],
-    ['  ͌'],
-    ['ළ'],
-    ['◉'],
-    ['☉'],
-    ['・'],
-    ['▰'],
-    ['ᵔ'],
-    [' ﾟ'],
-    ['□'],
-    ['☼'],
-    ['*'],
-    ['`'],
-    ['⚆'],
-    ['⊜'],
-    ['>'],
-    ['❍'],
-    ['￣'],
-    ['─'],
-    ['✿'],
-    ['•'],
-    ['T'],
-    ['^'],
-    ['ⱺ'],
-    ['@'],
-    ['ȍ'],
-    ['  '],
-    ['  '],
-    ['x'],
-    ['-'],
-    ['$'],
-    ['Ȍ'],
-    ['ʘ'],
-    ['Ꝋ'],
-    [''],
-    ['⸟'],
-    ['๏'],
-    ['ⴲ'],
-    ['◕'],
-    ['◔'],
-    ['✧'],
-    ['■'],
-    ['♥'],
-    [' ͡°'],
-    ['¬'],
-    [' º '],
-    ['⨶'],
-    ['⨱'],
-    ['⏓'],
-    ['⏒'],
-    ['⍜'],
-    ['⍤'],
-    ['ᚖ'],
-    ['ᴗ'],
-    ['ಠ'],
-    ['σ'],
-    ['☯']
+    ["⌐■", "■"],
+    [" ͠°", " °"],
+    ["⇀", "↼"],
+    ["´• ", " •`"],
+    ["´", "`"],
+    ["`", "´"],
+    ["ó", "ò"],
+    ["ò", "ó"],
+    ["⸌", "⸍"],
+    [">", "<"],
+    ["Ƹ̵̡", "Ʒ"],
+    ["ᗒ", "ᗕ"],
+    ["⟃", "⟄"],
+    ["⪧", "⪦"],
+    ["⪦", "⪧"],
+    ["⪩", "⪨"],
+    ["⪨", "⪩"],
+    ["⪰", "⪯"],
+    ["⫑", "⫒"],
+    ["⨴", "⨵"],
+    ["⩿", "⪀"],
+    ["⩾", "⩽"],
+    ["⩺", "⩹"],
+    ["⩹", "⩺"],
+    ["◥▶", "◀◤"],
+    ["◍", "◎"],
+    ["/͠-", "┐͡-\\"],
+    ["⌣", "⌣”"],
+    [" ͡⎚", " ͡⎚"],
+    ["≋"],
+    ["૦ઁ"],
+    ["  ͯ"],
+    ["  ͌"],
+    ["ළ"],
+    ["◉"],
+    ["☉"],
+    ["・"],
+    ["▰"],
+    ["ᵔ"],
+    [" ﾟ"],
+    ["□"],
+    ["☼"],
+    ["*"],
+    ["`"],
+    ["⚆"],
+    ["⊜"],
+    [">"],
+    ["❍"],
+    ["￣"],
+    ["─"],
+    ["✿"],
+    ["•"],
+    ["T"],
+    ["^"],
+    ["ⱺ"],
+    ["@"],
+    ["ȍ"],
+    ["  "],
+    ["  "],
+    ["x"],
+    ["-"],
+    ["$"],
+    ["Ȍ"],
+    ["ʘ"],
+    ["Ꝋ"],
+    [""],
+    ["⸟"],
+    ["๏"],
+    ["ⴲ"],
+    ["◕"],
+    ["◔"],
+    ["✧"],
+    ["■"],
+    ["♥"],
+    [" ͡°"],
+    ["¬"],
+    [" º "],
+    ["⨶"],
+    ["⨱"],
+    ["⏓"],
+    ["⏒"],
+    ["⍜"],
+    ["⍤"],
+    ["ᚖ"],
+    ["ᴗ"],
+    ["ಠ"],
+    ["σ"],
+    ["☯"],
 ]
 
 MOUTHS = [
-    ['v'],
-    ['ᴥ'],
-    ['ᗝ'],
-    ['Ѡ'],
-    ['ᗜ'],
-    ['Ꮂ'],
-    ['ᨓ'],
-    ['ᨎ'],
-    ['ヮ'],
-    ['╭͜ʖ╮'],
-    [' ͟ل͜'],
-    [' ͜ʖ'],
-    [' ͟ʖ'],
-    [' ʖ̯'],
-    ['ω'],
-    [' ³'],
-    [' ε '],
-    ['﹏'],
-    ['□'],
-    ['ل͜'],
-    ['‿'],
-    ['╭╮'],
-    ['‿‿'],
-    ['▾'],
-    ['‸'],
-    ['Д'],
-    ['∀'],
-    ['!'],
-    ['人'],
-    ['.'],
-    ['ロ'],
-    ['_'],
-    ['෴'],
-    ['ѽ'],
-    ['ഌ'],
-    ['⏠'],
-    ['⏏'],
-    ['⍊'],
-    ['⍘'],
-    ['ツ'],
-    ['益'],
-    ['╭∩╮'],
-    ['Ĺ̯'],
-    ['◡'],
-    [' ͜つ']
+    ["v"],
+    ["ᴥ"],
+    ["ᗝ"],
+    ["Ѡ"],
+    ["ᗜ"],
+    ["Ꮂ"],
+    ["ᨓ"],
+    ["ᨎ"],
+    ["ヮ"],
+    ["╭͜ʖ╮"],
+    [" ͟ل͜"],
+    [" ͜ʖ"],
+    [" ͟ʖ"],
+    [" ʖ̯"],
+    ["ω"],
+    [" ³"],
+    [" ε "],
+    ["﹏"],
+    ["□"],
+    ["ل͜"],
+    ["‿"],
+    ["╭╮"],
+    ["‿‿"],
+    ["▾"],
+    ["‸"],
+    ["Д"],
+    ["∀"],
+    ["!"],
+    ["人"],
+    ["."],
+    ["ロ"],
+    ["_"],
+    ["෴"],
+    ["ѽ"],
+    ["ഌ"],
+    ["⏠"],
+    ["⏏"],
+    ["⍊"],
+    ["⍘"],
+    ["ツ"],
+    ["益"],
+    ["╭∩╮"],
+    ["Ĺ̯"],
+    ["◡"],
+    [" ͜つ"],
 ]
 
 EARS = [
-    ['q', 'p'],
-    ['ʢ', 'ʡ'],
-    ['⸮', '?'],
-    ['ʕ', 'ʔ'],
-    ['ᖗ', 'ᖘ'],
-    ['ᕦ', 'ᕥ'],
-    ['ᕦ(', ')ᕥ'],
-    ['ᕙ(', ')ᕗ'],
-    ['ᘳ', 'ᘰ'],
-    ['ᕮ', 'ᕭ'],
-    ['ᕳ', 'ᕲ'],
-    ['(', ')'],
-    ['[', ']'],
-    ['¯\\_', '_/¯'],
-    ['୧', '୨'],
-    ['୨', '୧'],
-    ['⤜(', ')⤏'],
-    ['☞', '☞'],
-    ['ᑫ', 'ᑷ'],
-    ['ᑴ', 'ᑷ'],
-    ['ヽ(', ')ﾉ'],
-    ['\\(', ')/'],
-    ['乁(', ')ㄏ'],
-    ['└[', ']┘'],
-    ['(づ', ')づ'],
-    ['(ง', ')ง'],
-    ['⎝', '⎠'],
-    ['ლ(', 'ლ)'],
-    ['ᕕ(', ')ᕗ'],
-    ['(∩', ')⊃━☆ﾟ.*'],
+    ["q", "p"],
+    ["ʢ", "ʡ"],
+    ["⸮", "?"],
+    ["ʕ", "ʔ"],
+    ["ᖗ", "ᖘ"],
+    ["ᕦ", "ᕥ"],
+    ["ᕦ(", ")ᕥ"],
+    ["ᕙ(", ")ᕗ"],
+    ["ᘳ", "ᘰ"],
+    ["ᕮ", "ᕭ"],
+    ["ᕳ", "ᕲ"],
+    ["(", ")"],
+    ["[", "]"],
+    ["¯\\_", "_/¯"],
+    ["୧", "୨"],
+    ["୨", "୧"],
+    ["⤜(", ")⤏"],
+    ["☞", "☞"],
+    ["ᑫ", "ᑷ"],
+    ["ᑴ", "ᑷ"],
+    ["ヽ(", ")ﾉ"],
+    ["\\(", ")/"],
+    ["乁(", ")ㄏ"],
+    ["└[", "]┘"],
+    ["(づ", ")づ"],
+    ["(ง", ")ง"],
+    ["⎝", "⎠"],
+    ["ლ(", "ლ)"],
+    ["ᕕ(", ")ᕗ"],
+    ["(∩", ")⊃━☆ﾟ.*"],
 ]
 
 TOSS = (
@@ -865,27 +872,38 @@ TOSS = (
     "Tails",
 )
 
+
 @run_async
 @user_admin
 def roll(update, context):
     update.message.reply_text(random.choice(range(1, 7)))
 
+
 def toss(update, context):
     update.message.reply_text(random.choice(TOSS))
+
 
 @run_async
 @user_admin
 def abuse(update, context):
     # reply to correct message
-    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
+    reply_text = (update.effective_message.reply_to_message.reply_text
+                  if update.effective_message.reply_to_message else
+                  update.effective_message.reply_text)
     reply_text(random.choice(ABUSE_STRINGS))
+
 
 @run_async
 @user_admin
 def bluetext(update, context):
     # reply to correct message
-    reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text("BLUE TEXT\n MUST CLICK\n I AM A STUPID ANIMAL THAT IS ATTRACTED TO COLORS")
+    reply_text = (update.effective_message.reply_to_message.reply_text
+                  if update.effective_message.reply_to_message else
+                  update.effective_message.reply_text)
+    reply_text(
+        "BLUE TEXT\n MUST CLICK\n I AM A STUPID ANIMAL THAT IS ATTRACTED TO COLORS"
+    )
+
 
 @run_async
 @user_admin
@@ -897,29 +915,32 @@ def rlg(update, context):
     repl = format(ears + eyes + mouth + eyes + ears)
     update.message.reply_text(repl)
 
+
 def decide(update, context):
-        r = randint(1, 100)
-        if r <= 65:
-            update.message.reply_text("Yes.")
-        elif r <= 90:
-            update.message.reply_text("NoU.")
-        else:
-            update.message.reply_text("Maybe.")
+    r = randint(1, 100)
+    if r <= 65:
+        update.message.reply_text("Yes.")
+    elif r <= 90:
+        update.message.reply_text("NoU.")
+    else:
+        update.message.reply_text("Maybe.")
+
 
 def table(update, context):
-            r = randint(1, 100)
-            if r <= 45:
-                update.message.reply_text("(╯°□°）╯彡 ┻━┻")
-            elif r <= 90:
-                update.message.reply_text("Send money bsdk to buy new table to flip")
-            else:
-                update.message.reply_text("Go do some work instead of flippin tables you helpless fagit.")
+    r = randint(1, 100)
+    if r <= 45:
+        update.message.reply_text("(╯°□°）╯彡 ┻━┻")
+    elif r <= 90:
+        update.message.reply_text("Send money bsdk to buy new table to flip")
+    else:
+        update.message.reply_text(
+            "Go do some work instead of flippin tables you helpless fagit.")
 
 
 ABUSE_HANDLER = CommandHandler("abuse", abuse)
 ROLL_HANDLER = CommandHandler("roll", roll)
 TOSS_HANDLER = CommandHandler("toss", toss)
-#BLUETEXT_HANDLER = CommandHandler("bluetext", bluetext)
+# BLUETEXT_HANDLER = CommandHandler("bluetext", bluetext)
 RLG_HANDLER = CommandHandler("rlg", rlg)
 DECIDE_HANDLER = CommandHandler("decide", decide)
 TABLE_HANDLER = CommandHandler("table", table)
@@ -927,7 +948,7 @@ TABLE_HANDLER = CommandHandler("table", table)
 dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(ROLL_HANDLER)
 dispatcher.add_handler(TOSS_HANDLER)
-#dispatcher.add_handler(BLUETEXT_HANDLER)
+# dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
