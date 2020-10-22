@@ -699,7 +699,6 @@ async def is_register_admin(chat, user):
 
 from pymongo import MongoClient
 from alexa import MONGO_DB_URI
-from alexa.events import register
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)

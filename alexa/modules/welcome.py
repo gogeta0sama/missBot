@@ -717,22 +717,9 @@ ENUM_FUNC_MAP = {
 }
 
 from telegram import (
-    ChatPermissions,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    ParseMode,
-    Update,
-)
-
-from telegram.error import BadRequest
+    Update)
 from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    Filters,
-    MessageHandler,
-    run_async,
-)
+    CallbackContext)
 
 # do not async
 def send(update, message, keyboard, backup_message):

@@ -680,7 +680,6 @@ from alexa.events import register
 
 from pymongo import MongoClient
 from alexa import MONGO_DB_URI, OWNER_USERNAME, TEMP_DOWNLOAD_DIRECTORY
-from alexa.events import register
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)

@@ -670,16 +670,9 @@ import asyncio
 import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
-from os import remove
 from os import execl
-import sys
 import heroku3
 import git
-from git import Repo
-from git.exc import GitCommandError
-from git.exc import InvalidGitRepositoryError
-from git.exc import NoSuchPathError
-import asyncio
 import random
 import re
 import time
@@ -693,8 +686,6 @@ from alexa import OWNER_ID
 from contextlib import suppress
 import os
 from os import *
-import sys
-import asyncio
 global UPSTREAM_REPO_URL
 UPSTREAM_REPO_URL = "https://github.com/MissAlexaRobot/MissAlexaRobot.git"
 HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
@@ -816,7 +807,6 @@ async def upstream(ups):
         await lol.edit('`Still Running ....`')
 
     if HEROKU_API_KEY is not None:
-        import heroku3
         heroku = heroku3.from_key(HEROKU_API_KEY)
         heroku_app = None
         heroku_applications = heroku.apps()

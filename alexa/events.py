@@ -667,7 +667,6 @@ from asyncio import subprocess as asyncsub
 from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
-from telethon import events
 from alexa import ubot, BOTLOG, BOTLOG_CHATID, LOGS
 
 def register(**args):
