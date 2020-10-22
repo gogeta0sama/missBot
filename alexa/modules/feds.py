@@ -1247,7 +1247,7 @@ def fed_ban(update, context):
         if not str(user_id).isdigit():
             send_message(update.effective_message, excp.message)
             return
-        if not len(str(user_id)) == 9:
+        if len(str(user_id)) != 9:
             send_message(update.effective_message, "That's so not a user!")
             return
         isvalid = False
@@ -1607,7 +1607,7 @@ def unfban(update, context):
         if not str(user_id).isdigit():
             send_message(update.effective_message, excp.message)
             return
-        if not len(str(user_id)) == 9:
+        if len(str(user_id)) != 9:
             send_message(update.effective_message, "That's so not a user!")
             return
         isvalid = False
