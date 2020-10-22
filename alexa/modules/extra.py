@@ -662,12 +662,13 @@
 import random
 import re
 from random import randint
-from telegram import Message, Update, User
-from telegram import MessageEntity
-from telegram.ext import Filters, MessageHandler, run_async, CommandHandler
-from alexa.modules.helper_funcs.chat_status import user_admin
+
+from telegram import Message, MessageEntity, Update, User
+from telegram.ext import CommandHandler, Filters, MessageHandler, run_async
+
 from alexa import dispatcher
 from alexa.modules.disable import DisableAbleCommandHandler
+from alexa.modules.helper_funcs.chat_status import user_admin
 
 ABUSE_STRINGS = (
     "Fuck off",
