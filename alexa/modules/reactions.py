@@ -660,15 +660,9 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 import random
-
-from telegram import Bot
-from telegram import Chat
-from telegram import Message
-from telegram import MessageEntity
 from telegram import Update
 from telegram.ext import CallbackContext
 from telegram.ext import CommandHandler
-from telegram.ext import Filters
 from telegram.ext import run_async
 
 from alexa import dispatcher

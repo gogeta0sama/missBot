@@ -664,26 +664,14 @@
 
 
 
-from os import remove, execle, path, makedirs, getenv, environ
-from shutil import rmtree
+from os import remove, execle, path, environ
 import asyncio
 import sys
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
-from os import execl
 import heroku3
-import git
-import random
-import re
-import time
-from collections import deque
-import requests
-from telethon.tl.functions.users import GetFullUserRequest
-from telethon.tl.types import MessageEntityMentionName
-from telethon import events
 from alexa.events import register
 from alexa import OWNER_ID
-from contextlib import suppress
 import os
 from os import *
 global UPSTREAM_REPO_URL

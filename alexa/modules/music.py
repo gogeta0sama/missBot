@@ -659,27 +659,16 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-import asyncio
 import glob
-import io
 import os
 import subprocess
-import time
-
-import spotdl
-from telethon import events
 from telethon import types
-from telethon.errors import MessageEmptyError
-from telethon.errors import MessageNotModifiedError
-from telethon.errors import MessageTooLongError
 from telethon.tl import functions
-
-from alexa import LOGGER
 from alexa import tbot
 from alexa.events import register
 
 from pymongo import MongoClient
-from alexa import MONGO_DB_URI, OWNER_USERNAME, TEMP_DOWNLOAD_DIRECTORY
+from alexa import MONGO_DB_URI
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)

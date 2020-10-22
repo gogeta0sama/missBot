@@ -660,7 +660,6 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 import requests
-from telegram import Bot
 from telegram import ParseMode
 from telegram import Update
 from telegram.ext import CallbackContext
@@ -669,12 +668,6 @@ from telegram.ext import run_async
 
 from alexa import CASH_API_KEY
 from alexa import dispatcher
-from alexa.modules.helper_funcs.chat_status import bot_admin
-from alexa.modules.helper_funcs.chat_status import can_pin
-from alexa.modules.helper_funcs.chat_status import can_promote
-from alexa.modules.helper_funcs.chat_status import user_admin
-from alexa.modules.helper_funcs.chat_status import user_can_pin
-from alexa.modules.helper_funcs.chat_status import user_can_restrict
 
 
 @run_async

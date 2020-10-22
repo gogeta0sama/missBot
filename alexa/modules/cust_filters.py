@@ -19,8 +19,6 @@ from alexa import LOGGER
 from alexa.modules.connection import connected
 from alexa.modules.disable import DisableAbleCommandHandler
 from alexa.modules.helper_funcs.alternate import send_message
-from alexa.modules.helper_funcs.alternate import typing_action
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.extraction import extract_text
 from alexa.modules.helper_funcs.filters import CustomFilters

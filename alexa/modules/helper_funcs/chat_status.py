@@ -660,23 +660,17 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 from functools import wraps
-
-from telegram import Bot
 from telegram import Chat
 from telegram import ChatMember
-from telegram import MessageEntity
-from telegram import ParseMode
 from telegram import Update
 from telegram import User
 from telegram.ext import CallbackContext
 
 from alexa import DEL_CMDS
 from alexa import OWNER_ID
-from alexa.mwt import MWT
 
 from pymongo import MongoClient
 from alexa import MONGO_DB_URI
-from alexa.events import register
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)

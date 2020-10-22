@@ -675,8 +675,6 @@ import alexa.modules.sql.blacklist_sql as sql
 from alexa import dispatcher
 from alexa import LOGGER
 from alexa.modules.connection import connected
-from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.chat_status import user_not_admin
 from alexa.modules.helper_funcs.extraction import extract_text

@@ -661,7 +661,6 @@
 #     <https://www.gnu.org/licenses/>.
 import math
 import os
-import re
 import urllib.request as urllib
 from html import escape
 

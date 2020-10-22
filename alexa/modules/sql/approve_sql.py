@@ -662,11 +662,8 @@
 #  This is made by @AyushChatterjee
 #  If you kang this without credits I swear ur mom will die
 import threading
-
-from sqlalchemy import Boolean
 from sqlalchemy import Column
 from sqlalchemy import Integer
-from sqlalchemy import UnicodeText
 
 from alexa.modules.sql import BASE
 from alexa.modules.sql import SESSION

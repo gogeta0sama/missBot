@@ -667,8 +667,6 @@ from requests import get
 from requests import post
 from telethon import types
 from telethon.tl import functions
-
-from alexa import LOGGER
 from alexa import tbot
 from alexa.events import register
 

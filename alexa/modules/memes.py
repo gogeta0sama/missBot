@@ -660,8 +660,6 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 import asyncio
-import base64
-import glob
 import io
 import os
 import random
@@ -674,21 +672,13 @@ from typing import Optional
 
 import nltk  # shitty lib, but it does work
 from PIL import Image
-from spongemock import spongemock
-from telegram import Bot
 from telegram import Message
-from telegram import MessageEntity
-from telegram import Update
-from telegram import User
 from telegram.ext import CommandHandler
-from telegram.ext import Filters
-from telegram.ext import MessageHandler
 from telegram.ext import run_async
 from zalgo_text import zalgo
 
 from alexa import DEEPFRY_TOKEN
 from alexa import dispatcher
-from alexa import LOGGER
 from alexa.modules.helper_funcs.chat_status import user_admin
 from deeppyer import deepfry
 

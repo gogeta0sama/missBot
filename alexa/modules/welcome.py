@@ -681,9 +681,7 @@ from alexa import dispatcher
 from alexa import LOGGER
 from alexa import MESSAGE_DUMP
 from alexa import OWNER_ID
-from alexa.modules.helper_funcs.alternate import typing_action
 from alexa.modules.helper_funcs.chat_status import is_user_ban_protected
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.misc import build_keyboard
 from alexa.modules.helper_funcs.misc import revert_buttons

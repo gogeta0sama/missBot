@@ -669,10 +669,8 @@ from coffeehouse.exception import CoffeeHouseError as CFError
 from coffeehouse.lydia import LydiaAI
 from alexa import LYDIA_API_KEY, OWNER_ID, dispatcher
 from alexa.modules.helper_funcs.chat_status import user_can_change
-from alexa.modules.helper_funcs.filters import CustomFilters
 from alexa.modules.log_channel import loggable
 from telegram import Update
-from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import (CallbackContext, CommandHandler, Filters,
                           MessageHandler, run_async)
 from telegram.utils.helpers import mention_html
