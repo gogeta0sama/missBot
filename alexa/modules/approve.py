@@ -696,7 +696,7 @@ async def is_register_admin(chat, user):
                                                            user))).participant,
             (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
         )
-    elif isinstance(chat, types.InputPeerChat):
+    if isinstance(chat, types.InputPeerChat):
 
         ui = await tbot.get_peer_id(user)
         ps = (await tbot(functions.messages.GetFullChatRequest(chat.chat_id)
@@ -705,8 +705,7 @@ async def is_register_admin(chat, user):
             next((p for p in ps if p.user_id == ui), None),
             (types.ChatParticipantAdmin, types.ChatParticipantCreator),
         )
-    else:
-        return None
+    return None
 
 #------ THANKS TO LONAMI ------#
 
@@ -723,10 +722,9 @@ async def approve(event):
 	approved_userss = approved_users.find({})
 	
 	if event.is_group:
-		if not await can_approve_users(message=event):
-			return
-		else:
-			pass
+	       if not await can_approve_users(message=event):
+	       	return
+	       pass
 	
 	ik = event.pattern_match.group(1)
 	if ik.isdigit():
@@ -782,10 +780,9 @@ async def disapprove(event):
 	approved_userss = approved_users.find({})
 	
 	if event.is_group:
-		if not await can_approve_users(message=event):
-			return
-		else:
-			pass
+	       if not await can_approve_users(message=event):
+	       	return
+	       pass
 	
 	ik = event.pattern_match.group(1)
 	if ik.isdigit():
@@ -838,10 +835,9 @@ async def checkst(event):
 	approved_userss = approved_users.find({})
 	
 	if event.is_group:
-		if not await can_approve_users(message=event):
-			return
-		else:
-			pass
+	       if not await can_approve_users(message=event):
+	       	return
+	       pass
 			
 	ik = event.pattern_match.group(1)
 	if ik.isdigit():
@@ -888,10 +884,9 @@ async def apprlst(event):
 	reply_msg = await event.get_reply_message()	
 	
 	if event.is_group:
-		if not await can_approve_users(message=event):
-			return
-		else:
-			pass
+	       if not await can_approve_users(message=event):
+	       	return
+	       pass
 	
 	autos = approved_users.find({})
 	pp = ""

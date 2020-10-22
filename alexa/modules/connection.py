@@ -933,11 +933,10 @@ def connected(bot, update, chat, user_id, need_admin=True):
                 if (getstatusadmin.status in ("administrator", "creator")
                         or user_id in OWNER_ID or user.id in DEV_USERS):
                     return conn_id
-                else:
-                    send_message(
-                        update.effective_message,
-                        "You must be an admin in the connected group!",
-                    )
+                send_message(
+                    update.effective_message,
+                    "You must be an admin in the connected group!",
+                )
             else:
                 return conn_id
         else:
@@ -971,10 +970,9 @@ def help_connect_chat(update, context):
         send_message(update.effective_message,
                      "PM me with that command to get help.")
         return
-    else:
-        send_message(update.effective_message,
-                     CONN_HELP,
-                     parse_mode="markdown")
+    send_message(update.effective_message,
+                 CONN_HELP,
+                 parse_mode="markdown")
 
 
 @run_async

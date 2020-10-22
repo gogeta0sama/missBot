@@ -719,12 +719,10 @@ def extract_user_and_text(message: Message,
                 "you reply to that person's message instead, or forward one of that user's messages."
             )
             return None, None
-
-        else:
-            user_id = user_id
-            res = message.text.split(None, 2)
-            if len(res) >= 3:
-                text = res[2]
+        user_id = user_id
+        res = message.text.split(None, 2)
+        if len(res) >= 3:
+            text = res[2]
 
     elif len(args) >= 1 and args[0].isdigit():
         user_id = int(args[0])
@@ -793,12 +791,10 @@ def extract_unt_fedban(message: Message,
                 "Try replying to that person's msg or forward their message so i can act upon them"
             )
             return None, None
-
-        else:
-            user_id = user_id
-            res = message.text.split(None, 2)
-            if len(res) >= 3:
-                text = res[2]
+        user_id = user_id
+        res = message.text.split(None, 2)
+        if len(res) >= 3:
+            text = res[2]
 
     elif len(args) >= 1 and args[0].isdigit():
         user_id = int(args[0])
@@ -822,10 +818,10 @@ def extract_unt_fedban(message: Message,
                 "them to give me control! (like a voodoo doll, I need a piece of them to be able "
                 "to execute certain commands...)")
             return None, None
-        elif excp.message != "Chat not found":
+        if excp.message != "Chat not found":
             LOGGER.exception("Exception %s on user %s", excp.message, user_id)
             return None, None
-        elif not str(user_id).isdigit():
+        if not str(user_id).isdigit():
             return None, None
 
     return user_id, text
