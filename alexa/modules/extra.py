@@ -678,12 +678,12 @@ ABUSE_STRINGS = (
     "Nigga",
     "Ur granny tranny",
     "you noob",
-	"Relax your Rear,ders nothing to fear,The Rape train is finally here",
-	"Stfu bc",
-	"Stfu and Gtfo U nub",
-	"GTFO bsdk",
+    "Relax your Rear,ders nothing to fear,The Rape train is finally here",
+    "Stfu bc",
+    "Stfu and Gtfo U nub",
+    "GTFO bsdk",
     "CUnt",
-     "Madharchod",
+    "Madharchod",
     " Gay is here",
     "Ur dad gey bc "
 )
@@ -865,13 +865,16 @@ TOSS = (
     "Tails",
 )
 
+
 @run_async
 @user_admin
 def roll(update, context):
     update.message.reply_text(random.choice(range(1, 7)))
 
+
 def toss(update, context):
     update.message.reply_text(random.choice(TOSS))
+
 
 @run_async
 @user_admin
@@ -880,12 +883,15 @@ def abuse(update, context):
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
     reply_text(random.choice(ABUSE_STRINGS))
 
+
 @run_async
 @user_admin
 def bluetext(update, context):
     # reply to correct message
     reply_text = update.effective_message.reply_to_message.reply_text if update.effective_message.reply_to_message else update.effective_message.reply_text
-    reply_text("BLUE TEXT\n MUST CLICK\n I AM A STUPID ANIMAL THAT IS ATTRACTED TO COLORS")
+    reply_text(
+        "BLUE TEXT\n MUST CLICK\n I AM A STUPID ANIMAL THAT IS ATTRACTED TO COLORS")
+
 
 @run_async
 @user_admin
@@ -897,23 +903,26 @@ def rlg(update, context):
     repl = format(ears + eyes + mouth + eyes + ears)
     update.message.reply_text(repl)
 
+
 def decide(update, context):
-        r = randint(1, 100)
-        if r <= 65:
-            update.message.reply_text("Yes.")
-        elif r <= 90:
-            update.message.reply_text("NoU.")
-        else:
-            update.message.reply_text("Maybe.")
+    r = randint(1, 100)
+    if r <= 65:
+        update.message.reply_text("Yes.")
+    elif r <= 90:
+        update.message.reply_text("NoU.")
+    else:
+        update.message.reply_text("Maybe.")
+
 
 def table(update, context):
-            r = randint(1, 100)
-            if r <= 45:
-                update.message.reply_text("(╯°□°）╯彡 ┻━┻")
-            elif r <= 90:
-                update.message.reply_text("Send money bsdk to buy new table to flip")
-            else:
-                update.message.reply_text("Go do some work instead of flippin tables you helpless fagit.")
+    r = randint(1, 100)
+    if r <= 45:
+        update.message.reply_text("(╯°□°）╯彡 ┻━┻")
+    elif r <= 90:
+        update.message.reply_text("Send money bsdk to buy new table to flip")
+    else:
+        update.message.reply_text(
+            "Go do some work instead of flippin tables you helpless fagit.")
 
 
 ABUSE_HANDLER = CommandHandler("abuse", abuse)
@@ -927,7 +936,7 @@ TABLE_HANDLER = CommandHandler("table", table)
 dispatcher.add_handler(ABUSE_HANDLER)
 dispatcher.add_handler(ROLL_HANDLER)
 dispatcher.add_handler(TOSS_HANDLER)
-#dispatcher.add_handler(BLUETEXT_HANDLER)
+# dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
