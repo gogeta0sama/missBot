@@ -2805,6 +2805,9 @@ async def _(event):
                 await event.reply(str(ex))
             else:
                 p += 1
+            if p == 0:
+              await event.reply("No one is muted in this chat")
+              return
             await done.edit("{}: {} unbanned".format(event.chat_id, p))
 
 @tbot.on(events.NewMessage(pattern="^/unmuteall$"))
@@ -2837,6 +2840,9 @@ async def _(event):
                 await event.reply(str(ex))
             else:
                 p += 1
+            if p == 0:
+              await event.reply("No one is muted in this chat")
+              return
             await done.edit("{}: {} unmuted".format(event.chat_id, p))
 
 
