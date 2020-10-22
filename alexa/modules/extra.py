@@ -659,7 +659,8 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-import random, re
+import random
+import re
 from random import randint
 from telegram import Message, Update, User
 from telegram import MessageEntity
