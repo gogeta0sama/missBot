@@ -35,8 +35,8 @@ async def is_register_admin(chat, user):
     else:
         return None
 
-# syntax : /poll am i cool? | False False False yes no
-# syntax : /poll am i cool? | True@1 False False yes no
+# syntax : /poll 12345 | am i cool? | False False False yes no
+# syntax : /poll 12345 | am i cool? | True@1 False False yes no
 @register(pattern="^/poll (.*)")
 async def _(event):
     approved_userss = approved_users.find({})
@@ -58,20 +58,26 @@ async def _(event):
     if "|" in quew:
          secrets, quess, options = quew.split("|")
     secret = secrets.strip()
+    
     if not secret:
         await event.reply("I need a poll id of 5 digits to make a poll")
         return
-    if isinstance(secret, int):
-       count=0
-       while(secret>0):
-                count=count+1
-                secret=secret//10
-       if count != 5:
+
+    try:
+      secret = int(secret)
+    except ValueError:
+      await event.reply("Poll id should contain only numbers")
+      return
+
+    count=0
+    while(int(secret)>0):
+      count=count+1
+      secret=int(secret)//10
+
+    if count != 5:
         await event.reply("Poll id should be an integer of 5 digits")
         return
-    else:
-       await event.reply("Poll id should be an integer")
-       return
+  
     allpoll = poll_id.find({})
     for c in allpoll:
       if event.from_id == c['user'] and secret == c['pollid']:
@@ -298,34 +304,49 @@ async def stop(event):
        pass
      else:
        return
+
+   try:
+      secret = int(secret)
+   except ValueError:
+      await event.reply("Poll id should contain only numbers")
+      return
+
+   count=0
+   while(int(secret)>0):
+      count=count+1
+      secret=int(secret)//10
+
+   if count != 5:
+        await event.reply("Poll id should be an integer of 5 digits")
+        return
+
    if not event.reply_to_msg_id:
      await event.reply("Please reply to a poll to stop it")
      return
    else:
     try:
      msg = await event.get_reply_message()
-     if not msg.from_id == 1361631434:
+     print(msg.from_id)
+     if not str(msg.from_id) == "PeerUser(user_id=1199522861)":
        await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")     
        return
      if msg.poll:     
       allpoll = poll_id.find({})
       for c in allpoll:
-         if event.from_id == c['user'] and secret == c['pollid']:
-             poll_id.delete_one({'user':event.from_id,'pollid':secret})
-             pass
-         else:
-            await event.reply("Oops, seems like you haven't created this poll")
+         if not event.from_id == c['user'] and secret == c['pollid']:
+            await event.reply("Oops, either you haven't created this poll or you have given wrong poll id")
             return
-      pollid = msg.poll.poll.id
-      await msg.edit(file=types.InputMediaPoll(
-       poll=types.Poll(
-        id=pollid,
-        question="",
-        answers =[],
-        closed=True)))
-      await event.reply("Successfully stopped the poll")
+         poll_id.delete_one({'user':event.from_id,'pollid':secret})     
+         pollid = msg.poll.poll.id 
+         await msg.edit(file=types.InputMediaPoll(
+          poll=types.Poll(
+             id=pollid,
+             question="",
+             answers =[],
+             closed=True)))
+         await event.reply("Successfully stopped the poll")
      else:
         await event.reply("This isn't a poll")
     except Exception:
-        await event.reply("I can't do this operation on this poll.\nProbably it's already closed")     
-
+       await event.reply("I can't do this operation on this poll.\nProbably it's already closed")     
+       return
