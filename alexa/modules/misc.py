@@ -732,7 +732,6 @@ import time
 import re
 from typing import Optional, List
 from telethon import events
-import datetime
 from telethon.tl.types import UserStatusLastMonth, UserStatusLastWeek, ChannelParticipantsKicked, ChatBannedRights
 from telethon.tl import functions, types
 from time import sleep
