@@ -1169,7 +1169,6 @@ __help__ = """
  - /tmute <d/h/m>: temporarily mute a user
  - /unmute: unmutes a user
  - /kick: kicks a user
- - /allowconnect on/yes/off/no: allow connect users to group via PM
  - /addblacklist <trigger> : blacklists the trigger
  - /unblacklist <trigger> | rmblacklist <trigger> : stop blacklisting a certain blacklist trigger
  - /blacklist: list all active blacklist filters
