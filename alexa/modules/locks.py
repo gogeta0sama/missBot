@@ -1187,14 +1187,14 @@ def list_locks(update, context):
 
     # Connection check
    
-        if update.effective_message.chat.type == "private":
+    if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
                 "This command is meant to use in group not in PM",
             )
             return ""
-        chat = update.effective_chat
-        chat_name = update.effective_message.chat.title
+    chat = update.effective_chat
+    chat_name = update.effective_message.chat.title
 
     res = build_lock_message(chat.id)
     if conn:
