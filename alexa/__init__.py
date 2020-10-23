@@ -676,8 +676,8 @@ StartTime = time.time()
 
 # enable logging
 logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.INFO)
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
 
 LOGGER = logging.getLogger(__name__)
 ENV = bool(os.environ.get("ENV", True))
@@ -690,29 +690,23 @@ if ENV:
     try:
         SPAMMERS = {int(x) for x in os.environ.get("SPAMMERS", "").split()}
     except ValueError:
-        raise Exception(
-            "Your spammers users list does not contain valid integers.")
+        raise Exception("Your spammers users list does not contain valid integers.")
     MESSAGE_DUMP = os.environ.get("MESSAGE_DUMP", None)
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
     try:
         SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
     except ValueError:
-        raise Exception(
-            "Your sudo users list does not contain valid integers.")
+        raise Exception("Your sudo users list does not contain valid integers.")
     try:
-        SUPPORT_USERS = {
-            int(x) for x in os.environ.get(
-                "SUPPORT_USERS", "").split()}
+        SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
     except ValueError:
-        raise Exception(
-            "Your support users list does not contain valid integers.")
+        raise Exception("Your support users list does not contain valid integers.")
     try:
         WHITELIST_USERS = {
-            int(x) for x in os.environ.get(
-                "WHITELIST_USERS", "").split()}
+            int(x) for x in os.environ.get("WHITELIST_USERS", "").split()
+        }
     except ValueError:
-        raise Exception(
-            "Your whitelisted users list does not contain valid integers.")
+        raise Exception("Your whitelisted users list does not contain valid integers.")
     WEBHOOK = bool(os.environ.get("WEBHOOK", False))
     URL = os.environ.get("URL", "")  # Does not contain token
     API_KEY = os.environ.get("API_KEY", None)
@@ -763,8 +757,8 @@ if ENV:
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     UPSTREAM_REPO_URL = os.environ.get(
-        "UPSTREAM_REPO_URL",
-        "https://github.com/MissAlexaRobot/MissAlexaRobot.git")
+        "UPSTREAM_REPO_URL", "https://github.com/MissAlexaRobot/MissAlexaRobot.git"
+    )
     TEMPORARY_DATA = os.environ.get("TEMPORARY_DATA", None)
     SPAMMERS = list(SPAMMERS)
     try:
@@ -789,8 +783,8 @@ if ENV:
         )
     else:
         basicConfig(
-            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-            level=INFO)
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=INFO
+        )
     LOGS = getLogger(__name__)
     BOTLOG = os.environ.get("BOTLOG") == "True"
 
@@ -806,15 +800,17 @@ if ENV:
         if entity.default_banned_rights.send_messages:
             LOGS.error(
                 "Your account doesn't have rights to send messages to BOTLOG_CHATID "
-                "group. Check if you typed the Chat ID correctly. Halting!")
+                "group. Check if you typed the Chat ID correctly. Halting!"
+            )
             sys.exit(1)
 
     with ubot:
         try:
             ubot.loop.run_until_complete(check_botlog_chatid())
         except BaseException:
-            LOGS.error("BOTLOG_CHATID environment variable isn't a "
-                       "valid entity. Halting!")
+            LOGS.error(
+                "BOTLOG_CHATID environment variable isn't a " "valid entity. Halting!"
+            )
             sys.exit(1)
     INVALID_PH = "\nERROR: The phone no. entered is incorrect"
     try:
