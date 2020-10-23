@@ -679,7 +679,6 @@ import alexa.modules.sql.locks_sql as sql
 from alexa import dispatcher
 from alexa import LOGGER
 from alexa import OWNER_ID
-from alexa.modules.connection import connected
 from alexa.modules.helper_funcs.alternate import send_message
 from alexa.modules.helper_funcs.chat_status import can_delete
 from alexa.modules.helper_funcs.chat_status import is_bot_admin
@@ -879,18 +878,6 @@ def lock(update, context) -> str:
             ltype = args[0].lower()
             if ltype in LOCK_TYPES:
                 # Connection check
-                conn = connected(context.bot,
-                                 update,
-                                 chat,
-                                 user.id,
-                                 need_admin=True)
-                if conn:
-                    chat = dispatcher.bot.getChat(conn)
-                    chat_id = conn
-                    chat_name = chat.title
-                    text = "Locked all {} messages for non-admins in {}!".format(
-                        ltype, chat_name)
-                else:
                     if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
@@ -918,18 +905,7 @@ def lock(update, context) -> str:
 
             if ltype in LOCK_CHAT_RESTRICTION:
                 # Connection check
-                conn = connected(context.bot,
-                                 update,
-                                 chat,
-                                 user.id,
-                                 need_admin=True)
-                if conn:
-                    chat = dispatcher.bot.getChat(conn)
-                    chat_id = conn
-                    chat_name = chat.title
-                    text = "Locked {} for all non-admins in {}!".format(
-                        ltype, chat_name)
-                else:
+   
                     if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
@@ -991,18 +967,7 @@ def unlock(update, context) -> str:
             ltype = args[0].lower()
             if ltype in LOCK_TYPES:
                 # Connection check
-                conn = connected(context.bot,
-                                 update,
-                                 chat,
-                                 user.id,
-                                 need_admin=True)
-                if conn:
-                    chat = dispatcher.bot.getChat(conn)
-                    chat_id = conn
-                    chat_name = chat.title
-                    text = "Unlocked {} messages for everyone in {}!".format(
-                        ltype, chat_name)
-                else:
+      
                     if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
@@ -1028,18 +993,7 @@ def unlock(update, context) -> str:
 
             if ltype in UNLOCK_CHAT_RESTRICTION:
                 # Connection check
-                conn = connected(context.bot,
-                                 update,
-                                 chat,
-                                 user.id,
-                                 need_admin=True)
-                if conn:
-                    chat = dispatcher.bot.getChat(conn)
-                    chat_id = conn
-                    chat_name = chat.title
-                    text = "Unlocked {} for everyone in {}!".format(
-                        ltype, chat_name)
-                else:
+                
                     if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
@@ -1232,11 +1186,7 @@ def list_locks(update, context):
     user = update.effective_user
 
     # Connection check
-    conn = connected(context.bot, update, chat, user.id, need_admin=True)
-    if conn:
-        chat = dispatcher.bot.getChat(conn)
-        chat_name = chat.title
-    else:
+   
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
