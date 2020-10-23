@@ -1126,7 +1126,7 @@ def main():
     start_handler = CommandHandler("start", start, pass_args=True)
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
-    start_callback_handler = CallbackQueryHandler(start, pattern=r"bot_start")
+    start_callback_handler = CallbackQueryHandler(start, pattern=r"bot_start", pass_args=True)
     dispatcher.add_handler(start_callback_handler)
     migrate_handler = MessageHandler(Filters.status_update.migrate,
                                      migrate_chats) 
