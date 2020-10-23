@@ -672,14 +672,14 @@ import sys
 import textwrap
 import time
 import traceback
-import urllib
 import urllib.request
 from contextlib import contextmanager
 from datetime import datetime
 from html import unescape
 from random import randrange
 from time import sleep
-from typing import List, Optional
+from typing import List
+from typing import Optional
 from urllib.request import urlopen
 
 import aiohttp
@@ -699,41 +699,76 @@ from cowpy import cow
 from fontTools.ttLib import TTFont
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from gtts import gTTS, gTTSError
-from PIL import Image, ImageDraw, ImageFont, ImageOps
+from gtts import gTTS
+from gtts import gTTSError
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+from PIL import ImageOps
 from PyDictionary import PyDictionary
 from pymongo import MongoClient
 from requests import get
-from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, Message,
-                      MessageEntity, ParseMode, ReplyKeyboardRemove, Update)
+from telegram import InlineKeyboardButton
+from telegram import InlineKeyboardMarkup
+from telegram import Message
+from telegram import MessageEntity
+from telegram import ParseMode
+from telegram import ReplyKeyboardRemove
+from telegram import Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
-from telegram.utils.helpers import escape_markdown, mention_html
+from telegram.ext import CallbackContext
+from telegram.ext import CommandHandler
+from telegram.ext import Filters
+from telegram.ext import run_async
+from telegram.utils.helpers import escape_markdown
+from telegram.utils.helpers import mention_html
 from telegraph import Telegraph
 from telethon import *
 from telethon import events
-from telethon.errors import (ChatAdminRequiredError, FloodWaitError,
-                             UserAdminInvalidError, YouBlockedUserError)
-from telethon.tl import functions, types
+from telethon.errors import ChatAdminRequiredError
+from telethon.errors import FloodWaitError
+from telethon.errors import UserAdminInvalidError
+from telethon.errors import YouBlockedUserError
+from telethon.tl import functions
+from telethon.tl import types
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import *
-from telethon.tl.types import (ChannelParticipantsKicked, ChatBannedRights,
-                               InputMediaDice, InputMessagesFilterDocument,
-                               UserStatusLastMonth, UserStatusLastWeek)
+from telethon.tl.types import ChannelParticipantsKicked
+from telethon.tl.types import ChatBannedRights
+from telethon.tl.types import InputMediaDice
+from telethon.tl.types import InputMessagesFilterDocument
+from telethon.tl.types import UserStatusLastMonth
+from telethon.tl.types import UserStatusLastWeek
 from tswift import Song
 from wikipedia import summary
-from wikipedia.exceptions import DisambiguationError, PageError
+from wikipedia.exceptions import DisambiguationError
+from wikipedia.exceptions import PageError
 
 from alexa import *
-from alexa import (IBM_WATSON_CRED_PASSWORD, IBM_WATSON_CRED_URL, MONGO_DB_URI,
-                   OCR_SPACE_API_KEY, OPENWEATHERMAP_ID, OWNER_ID,
-                   OWNER_USERNAME, SUDO_USERS, TEMP_DOWNLOAD_DIRECTORY,
-                   TIME_API_KEY, WOLFRAM_ID, YOUTUBE_API_KEY, StartTime,
-                   dispatcher, tbot, ubot)
-from alexa.__main__ import GDPR, STATS, USER_INFO
-from alexa.events import alexabot, register
+from alexa import dispatcher
+from alexa import IBM_WATSON_CRED_PASSWORD
+from alexa import IBM_WATSON_CRED_URL
+from alexa import MONGO_DB_URI
+from alexa import OCR_SPACE_API_KEY
+from alexa import OPENWEATHERMAP_ID
+from alexa import OWNER_ID
+from alexa import OWNER_USERNAME
+from alexa import StartTime
+from alexa import SUDO_USERS
+from alexa import tbot
+from alexa import TEMP_DOWNLOAD_DIRECTORY
+from alexa import TIME_API_KEY
+from alexa import ubot
+from alexa import WOLFRAM_ID
+from alexa import YOUTUBE_API_KEY
+from alexa.__main__ import GDPR
+from alexa.__main__ import STATS
+from alexa.__main__ import USER_INFO
+from alexa.events import alexabot
+from alexa.events import register
 from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.chat_status import is_user_admin, user_admin
+from alexa.modules.helper_funcs.chat_status import is_user_admin
+from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.extraction import extract_user
 
 USERS_GROUP = 4
