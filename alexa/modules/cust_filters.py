@@ -16,7 +16,6 @@ from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher
 from alexa import LOGGER
-from alexa.modules.connection import connected
 from alexa.modules.helper_funcs.alternate import send_message
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.extraction import extract_text
@@ -49,17 +48,11 @@ def list_handlers(update, context):
     chat = update.effective_chat
     user = update.effective_user
 
-    conn = connected(context.bot, update, chat, user.id, need_admin=False)
-    if conn is False:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-        filter_list = "*Filter in {}:*\n"
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             chat_name = "Local filters"
             filter_list = "*local filters:*\n"
-        else:
+    else:
             chat_name = chat.title
             filter_list = "*Filters in {}*:\n"
 
@@ -98,16 +91,11 @@ def filters(update, context):
     args = msg.text.split(
         None,
         1)  # use python's maxsplit to separate Cmd, keyword, and reply_text
-
-    conn = connected(context.bot, update, chat, user.id)
-    if conn is False:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+        
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             chat_name = "local filters"
-        else:
+    else:
             chat_name = chat.title
 
     if not msg.reply_to_message and len(args) < 2:
@@ -221,15 +209,10 @@ def stop_filter(update, context):
     user = update.effective_user
     args = update.effective_message.text.split(None, 1)
 
-    conn = connected(context.bot, update, chat, user.id)
-    if conn is False:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             chat_name = "Local filters"
-        else:
+    else:
             chat_name = chat.title
 
     if len(args) < 2:
@@ -523,7 +506,7 @@ STOP_HANDLER = CommandHandler("stop", stop_filter)
 RMALLFILTER_HANDLER = CommandHandler("rmallfilter",
                                      rmall_filters,
                                      filters=Filters.group)
-LIST_HANDLER = DisableAbleCommandHandler("filters",
+LIST_HANDLER = CommandHandler("filters",
                                          list_handlers,
                                          admin_ok=True)
 CUST_FILTER_HANDLER = MessageHandler(
