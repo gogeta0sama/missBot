@@ -659,104 +659,82 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-from alexa import StartTime
-from alexa import ubot
-import nude
-import text2emotion as machi
-from telethon.tl.types import InputMessagesFilterDocument
-from alexa.events import alexabot
-import textwrap
-import emoji
-from fontTools.ttLib import TTFont
-from PIL import ImageDraw, ImageFont, ImageOps
-from barcode.writer import ImageWriter
-import barcode
-from alexa import *
-import telegraph
-from alexa import WOLFRAM_ID
-from tswift import Song
-from alexa import TIME_API_KEY
-from telethon.tl.types import InputMediaDice
-from PIL import Image
-from cowpy import cow
-from telethon import *
-import bs4
-from PyDictionary import PyDictionary
-from contextlib import contextmanager
-import glob
-from bing_image_downloader import downloader
-import aiohttp
-import html2text
-from better_profanity import profanity
-from alexa import MONGO_DB_URI
-from pymongo import MongoClient
-from telethon.tl.types import *
-from datetime import datetime
-import traceback
-import io
-from telegram.ext import CallbackContext
-from alexa import OWNER_USERNAME
-from telethon.errors import FloodWaitError
-from alexa.events import register
-from alexa.modules.helper_funcs.extraction import extract_user
-from alexa.__main__ import STATS, USER_INFO
-from alexa.__main__ import GDPR
-from alexa import tbot, OPENWEATHERMAP_ID, YOUTUBE_API_KEY, TEMP_DOWNLOAD_DIRECTORY
-from telegram import ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram import MessageEntity
-from requests import get
-from gtts import gTTSError
-from wikipedia.exceptions import DisambiguationError, PageError
-from wikipedia import summary
-from gtts import gTTS
-from html import unescape
-from googleapiclient.errors import HttpError
-from telegraph import Telegraph
-import sys
-import pyfiglet
-from telethon.errors import YouBlockedUserError
-from telethon.tl.functions.channels import EditBannedRequest
-from telethon.errors import ChatAdminRequiredError, UserAdminInvalidError
-import urllib.request
-from googleapiclient.discovery import build
-from urllib.request import urlopen
-import urllib
-import requests
-import subprocess
-import html
-import json
-import random
-from random import randrange
-import time
-import re
-from typing import Optional, List
-from telethon import events
-from telethon.tl.types import (
-    UserStatusLastMonth,
-    UserStatusLastWeek,
-    ChannelParticipantsKicked,
-    ChatBannedRights,
-)
-from telethon.tl import functions, types
-from time import sleep
 import asyncio
-from telegram import Message, Update, ParseMode
-from telegram.error import BadRequest
-from telegram.ext import run_async, Filters
-from telegram.utils.helpers import mention_html
-from alexa import dispatcher
-from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.chat_status import user_admin, is_user_admin
+import glob
+import html
+import io
+import json
 import os
-from telegram.ext import CommandHandler
-from telegram.utils.helpers import escape_markdown
-from alexa import (
-    OWNER_ID,
-    SUDO_USERS,
-    OCR_SPACE_API_KEY,
-    IBM_WATSON_CRED_URL,
-    IBM_WATSON_CRED_PASSWORD,
-)
+import random
+import re
+import subprocess
+import sys
+import textwrap
+import time
+import traceback
+import urllib
+import urllib.request
+from contextlib import contextmanager
+from datetime import datetime
+from html import unescape
+from random import randrange
+from time import sleep
+from typing import List, Optional
+from urllib.request import urlopen
+
+import aiohttp
+import barcode
+import bs4
+import emoji
+import html2text
+import nude
+import pyfiglet
+import requests
+import telegraph
+import text2emotion as machi
+from barcode.writer import ImageWriter
+from better_profanity import profanity
+from bing_image_downloader import downloader
+from cowpy import cow
+from fontTools.ttLib import TTFont
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from gtts import gTTS, gTTSError
+from PIL import Image, ImageDraw, ImageFont, ImageOps
+from PyDictionary import PyDictionary
+from pymongo import MongoClient
+from requests import get
+from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, Message,
+                      MessageEntity, ParseMode, ReplyKeyboardRemove, Update)
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.utils.helpers import escape_markdown, mention_html
+from telegraph import Telegraph
+from telethon import *
+from telethon import events
+from telethon.errors import (ChatAdminRequiredError, FloodWaitError,
+                             UserAdminInvalidError, YouBlockedUserError)
+from telethon.tl import functions, types
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import *
+from telethon.tl.types import (ChannelParticipantsKicked, ChatBannedRights,
+                               InputMediaDice, InputMessagesFilterDocument,
+                               UserStatusLastMonth, UserStatusLastWeek)
+from tswift import Song
+from wikipedia import summary
+from wikipedia.exceptions import DisambiguationError, PageError
+
+from alexa import *
+from alexa import (IBM_WATSON_CRED_PASSWORD, IBM_WATSON_CRED_URL, MONGO_DB_URI,
+                   OCR_SPACE_API_KEY, OPENWEATHERMAP_ID, OWNER_ID,
+                   OWNER_USERNAME, SUDO_USERS, TEMP_DOWNLOAD_DIRECTORY,
+                   TIME_API_KEY, WOLFRAM_ID, YOUTUBE_API_KEY, StartTime,
+                   dispatcher, tbot, ubot)
+from alexa.__main__ import GDPR, STATS, USER_INFO
+from alexa.events import alexabot, register
+from alexa.modules.disable import DisableAbleCommandHandler
+from alexa.modules.helper_funcs.chat_status import is_user_admin, user_admin
+from alexa.modules.helper_funcs.extraction import extract_user
 
 USERS_GROUP = 4
 
