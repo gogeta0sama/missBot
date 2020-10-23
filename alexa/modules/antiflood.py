@@ -675,7 +675,6 @@ from telegram.ext import run_async
 from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher
-from alexa.modules.connection import connected
 from alexa.modules.helper_funcs.alternate import send_message
 from alexa.modules.helper_funcs.chat_status import is_user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
@@ -772,19 +771,14 @@ def set_flood(update, context) -> str:
     message = update.effective_message  # type: Optional[Message]
     args = context.args
 
-    conn = connected(context.bot, update, chat, user.id, need_admin=True)
-    if conn:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        if update.effective_message.chat.type == "private":
+    if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
                 "This command is meant to use in group not in PM",
             )
             return ""
-        chat_id = update.effective_chat.id
-        chat_name = update.effective_message.chat.title
+    chat_id = update.effective_chat.id
+    chat_name = update.effective_message.chat.title
 
     if len(args) >= 1:
         val = args[0].lower()
@@ -857,19 +851,14 @@ def flood(update, context):
     user = update.effective_user  # type: Optional[User]
     msg = update.effective_message
 
-    conn = connected(context.bot, update, chat, user.id, need_admin=False)
-    if conn:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        if update.effective_message.chat.type == "private":
+    if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
                 "This command is meant to use in group not in PM",
             )
             return
-        chat_id = update.effective_chat.id
-        chat_name = update.effective_message.chat.title
+    chat_id = update.effective_chat.id
+    chat_name = update.effective_message.chat.title
 
     limit = sql.get_flood_limit(chat_id)
     if limit == 0:
@@ -900,21 +889,15 @@ def set_flood_mode(update, context):
     msg = update.effective_message  # type: Optional[Message]
     args = context.args
 
-    conn = connected(context.bot, update, chat, user.id, need_admin=True)
-    if conn:
-        chat = dispatcher.bot.getChat(conn)
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        if update.effective_message.chat.type == "private":
+    if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
                 "This command is meant to use in group not in PM",
             )
             return ""
-        chat = update.effective_chat
-        chat_id = update.effective_chat.id
-        chat_name = update.effective_message.chat.title
+   chat = update.effective_chat
+   chat_id = update.effective_chat.id
+   chat_name = update.effective_message.chat.title
 
     if args:
         if args[0].lower() == "ban":
