@@ -4151,7 +4151,7 @@ async def sticklet(event):
         return
 
 
-@register(pattern=None)
+@register(pattern="")
 async def spam_update(event):
     if event.fwd_from:
         return
