@@ -659,96 +659,119 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-from alexa import StartTime
-from alexa import ubot
-import nude
-import text2emotion as machi
-from telethon.tl.types import InputMessagesFilterDocument
-from alexa.events import alexabot
-import textwrap
-import emoji
-from fontTools.ttLib import TTFont
-from PIL import ImageDraw, ImageFont, ImageOps
-from barcode.writer import ImageWriter
-import barcode
-from alexa import *
-import telegraph
-from alexa import WOLFRAM_ID
-from tswift import Song
-from alexa import TIME_API_KEY
-from telethon.tl.types import InputMediaDice
-from PIL import Image
-from cowpy import cow
-from telethon import *
-import bs4
-from PyDictionary import PyDictionary
-from contextlib import contextmanager
-import glob
-from bing_image_downloader import downloader
-import aiohttp
-import html2text
-from better_profanity import profanity
-from alexa import MONGO_DB_URI
-from pymongo import MongoClient
-from telethon.tl.types import *
-from datetime import datetime
-import traceback
-import io
-from telegram.ext import CallbackContext
-from alexa import OWNER_USERNAME
-from telethon.errors import FloodWaitError
-from alexa.events import register
-from alexa.modules.helper_funcs.extraction import extract_user
-from alexa.__main__ import STATS, USER_INFO
-from alexa.__main__ import GDPR
-from alexa import tbot, OPENWEATHERMAP_ID, YOUTUBE_API_KEY, TEMP_DOWNLOAD_DIRECTORY
-from telegram import ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram import MessageEntity
-from requests import get
-from gtts import gTTSError
-from wikipedia.exceptions import DisambiguationError, PageError
-from wikipedia import summary
-from gtts import gTTS
-from html import unescape
-from googleapiclient.errors import HttpError
-from telegraph import Telegraph
-import sys
-import pyfiglet
-from telethon.errors import YouBlockedUserError
-from telethon.tl.functions.channels import (EditBannedRequest)
-from telethon.errors import (ChatAdminRequiredError,
-                             UserAdminInvalidError)
-import urllib.request
-from googleapiclient.discovery import build
-from urllib.request import urlopen
-import urllib
-import requests
-import subprocess
-import html
-import json
-import random
-from random import randrange
-import time
-import re
-from typing import Optional, List
-from telethon import events
-from telethon.tl.types import UserStatusLastMonth, UserStatusLastWeek, ChannelParticipantsKicked, ChatBannedRights
-from telethon.tl import functions, types
-from time import sleep
 import asyncio
-from telegram import Message, Update, ParseMode
-from telegram.error import BadRequest
-from telegram.ext import run_async, Filters
-from telegram.utils.helpers import mention_html
-from alexa import dispatcher
-from alexa.modules.disable import DisableAbleCommandHandler
-from alexa.modules.helper_funcs.chat_status import user_admin, is_user_admin
+import glob
+import html
+import io
+import json
 import os
-from telegram.ext import CommandHandler
-from telegram.utils.helpers import escape_markdown
-from alexa import OWNER_ID, SUDO_USERS, OCR_SPACE_API_KEY, IBM_WATSON_CRED_URL, IBM_WATSON_CRED_PASSWORD
-USERS_GROUP = 4
+import random
+import re
+import subprocess
+import sys
+import textwrap
+import time
+import traceback
+import urllib.request
+from contextlib import contextmanager
+from datetime import datetime
+from html import unescape
+from random import randrange
+from time import sleep
+from typing import List
+from typing import Optional
+from urllib.request import urlopen
 
+import aiohttp
+import barcode
+import bs4
+import emoji
+import html2text
+import nude
+import pyfiglet
+import requests
+import telegraph
+import text2emotion as machi
+from barcode.writer import ImageWriter
+from better_profanity import profanity
+from bing_image_downloader import downloader
+from cowpy import cow
+from fontTools.ttLib import TTFont
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from gtts import gTTS
+from gtts import gTTSError
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+from PIL import ImageOps
+from PyDictionary import PyDictionary
+from pymongo import MongoClient
+from requests import get
+from telegram import InlineKeyboardButton
+from telegram import InlineKeyboardMarkup
+from telegram import Message
+from telegram import MessageEntity
+from telegram import ParseMode
+from telegram import ReplyKeyboardRemove
+from telegram import Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext
+from telegram.ext import CommandHandler
+from telegram.ext import Filters
+from telegram.ext import run_async
+from telegram.utils.helpers import escape_markdown
+from telegram.utils.helpers import mention_html
+from telegraph import Telegraph
+from telethon import *
+from telethon import events
+from telethon.errors import ChatAdminRequiredError
+from telethon.errors import FloodWaitError
+from telethon.errors import UserAdminInvalidError
+from telethon.errors import YouBlockedUserError
+from telethon.tl import functions
+from telethon.tl import types
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import *
+from telethon.tl.types import ChannelParticipantsKicked
+from telethon.tl.types import ChatBannedRights
+from telethon.tl.types import InputMediaDice
+from telethon.tl.types import InputMessagesFilterDocument
+from telethon.tl.types import UserStatusLastMonth
+from telethon.tl.types import UserStatusLastWeek
+from tswift import Song
+from wikipedia import summary
+from wikipedia.exceptions import DisambiguationError
+from wikipedia.exceptions import PageError
+
+from alexa import *
+from alexa import dispatcher
+from alexa import IBM_WATSON_CRED_PASSWORD
+from alexa import IBM_WATSON_CRED_URL
+from alexa import MONGO_DB_URI
+from alexa import OCR_SPACE_API_KEY
+from alexa import OPENWEATHERMAP_ID
+from alexa import OWNER_ID
+from alexa import OWNER_USERNAME
+from alexa import StartTime
+from alexa import SUDO_USERS
+from alexa import tbot
+from alexa import TEMP_DOWNLOAD_DIRECTORY
+from alexa import TIME_API_KEY
+from alexa import ubot
+from alexa import WOLFRAM_ID
+from alexa import YOUTUBE_API_KEY
+from alexa.__main__ import GDPR
+from alexa.__main__ import STATS
+from alexa.__main__ import USER_INFO
+from alexa.events import alexabot
+from alexa.events import register
+from alexa.modules.disable import DisableAbleCommandHandler
+from alexa.modules.helper_funcs.chat_status import is_user_admin
+from alexa.modules.helper_funcs.chat_status import user_admin
+from alexa.modules.helper_funcs.extraction import extract_user
+
+USERS_GROUP = 4
 
 BANNED_RIGHTS = ChatBannedRights(
     until_date=None,
@@ -777,41 +800,45 @@ MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
-
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client['test']
+db = client["test"]
 approved_users = db.approve
 
 
-#------ THANKS TO LONAMI ------#
+# ------ THANKS TO LONAMI ------#
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
         return isinstance(
-            (await tbot(functions.channels.GetParticipantRequest(chat, user))).participant,
-            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator)
+            (await
+             tbot(functions.channels.GetParticipantRequest(chat,
+                                                           user))).participant,
+            (types.ChannelParticipantAdmin, types.ChannelParticipantCreator),
         )
     elif isinstance(chat, types.InputPeerChat):
         ui = await tbot.get_peer_id(user)
-        ps = (await tbot(functions.messages.GetFullChatRequest(chat.chat_id))) \
-            .full_chat.participants.participants
+        ps = (await tbot(functions.messages.GetFullChatRequest(chat.chat_id)
+                         )).full_chat.participants.participants
         return isinstance(
             next((p for p in ps if p.user_id == ui), None),
-            (types.ChatParticipantAdmin, types.ChatParticipantCreator)
+            (types.ChatParticipantAdmin, types.ChatParticipantCreator),
         )
     else:
         return None
 
 
 async def can_ban_users(message):
-    result = await tbot(functions.channels.GetParticipantRequest(
-        channel=message.chat_id,
-        user_id=message.sender_id,
-    ))
+    result = await tbot(
+        functions.channels.GetParticipantRequest(
+            channel=message.chat_id,
+            user_id=message.sender_id,
+        ))
     p = result.participant
-    return isinstance(p, types.ChannelParticipantCreator) or (
-        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.ban_users)
-#------ THANKS TO LONAMI ------#
+    return isinstance(p, types.ChannelParticipantCreator) or (isinstance(
+        p, types.ChannelParticipantAdmin) and p.admin_rights.ban_users)
+
+
+# ------ THANKS TO LONAMI ------#
 
 
 @user_admin
@@ -836,7 +863,8 @@ def runs(update, context):
         "Legend has it, they're still running.",
         "Hasta la vista, baby.",
         "Ah, what a waste. I liked that one.",
-        "As The Doctor would say... RUN!"]
+        "As The Doctor would say... RUN!",
+    ]
     update.effective_message.reply_text(random.choice(RUNIT))
 
 
@@ -893,7 +921,7 @@ profanity.load_censor_words()
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client['test']
+db = client["test"]
 approved_users = db.approve
 
 
@@ -971,7 +999,7 @@ def info(update, context):
         return False
     else:
         for c in chats:
-            if chat.id == c['id'] and user.id == c['user']:
+            if chat.id == c["id"] and user.id == c["user"]:
                 text += "\n\n<b>This user is approved in this chat</b>"
 
     try:
@@ -1044,8 +1072,8 @@ Keep in mind that your message <b>MUST</b> contain some text other than just a b
 
 
 def markdown_help_sender(update: Update):
-    update.effective_message.reply_text(
-        MARKDOWN_HELP, parse_mode=ParseMode.HTML)
+    update.effective_message.reply_text(MARKDOWN_HELP,
+                                        parse_mode=ParseMode.HTML)
     update.effective_message.reply_text(
         "Try forwarding the following message to me, and you'll see, and Use #test!"
     )
@@ -1060,12 +1088,14 @@ def markdown_help_sender(update: Update):
 def markdown_help(update: Update, context: CallbackContext):
     if update.effective_chat.type != "private":
         update.effective_message.reply_text(
-            'Contact me in pm',
+            "Contact me in pm",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton(
                     "Markdown help",
-                    url=f"t.me/{context.bot.username}?start=markdownhelp")
-            ]]))
+                    url=f"t.me/{context.bot.username}?start=markdownhelp",
+                )
+            ]]),
+        )
         return
     markdown_help_sender(update)
 
@@ -1234,10 +1264,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1252,29 +1282,34 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        await event.reply("Invalid Syntax\nFormat `/tts lang | text`\nFor eg: `/tts en | hello`")
+        await event.reply(
+            "Invalid Syntax\nFormat `/tts lang | text`\nFor eg: `/tts en | hello`"
+        )
         return
     text = text.strip()
     lan = lan.strip()
     try:
-        tts = gTTS(text, tld='com', lang=lan)
+        tts = gTTS(text, tld="com", lang=lan)
         tts.save("k.mp3")
     except AssertionError:
-        await event.reply('The text is empty.\n'
-                          'Nothing left to speak after pre-precessing, '
-                          'tokenizing and cleaning.')
+        await event.reply("The text is empty.\n"
+                          "Nothing left to speak after pre-precessing, "
+                          "tokenizing and cleaning.")
         return
     except ValueError:
-        await event.reply('Language is not supported.')
+        await event.reply("Language is not supported.")
         return
     except RuntimeError:
-        await event.reply('Error loading the languages dictionary.')
+        await event.reply("Error loading the languages dictionary.")
         return
     except gTTSError:
-        await event.reply('Error in Google Text-to-Speech API request !')
+        await event.reply("Error in Google Text-to-Speech API request !")
         return
     with open("k.mp3", "r"):
-        await event.client.send_file(event.chat_id, "k.mp3", voice_note=True, reply_to=reply_to_id)
+        await event.client.send_file(event.chat_id,
+                                     "k.mp3",
+                                     voice_note=True,
+                                     reply_to=reply_to_id)
         os.remove("k.mp3")
 
 
@@ -1283,10 +1318,11 @@ async def wiki(wiki_q):
     """ For .google command, fetch content from Wikipedia. """
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if wiki_q.is_group:
-        if (await is_register_admin(wiki_q.input_chat, wiki_q.message.sender_id)):
+        if await is_register_admin(wiki_q.input_chat,
+                                   wiki_q.message.sender_id):
             pass
         elif wiki_q.chat_id == iid and wiki_q.from_id == userss:
             pass
@@ -1315,7 +1351,8 @@ async def wiki(wiki_q):
         if os.path.exists("output.txt"):
             os.remove("output.txt")
         return
-    await wiki_q.reply("**Search:**\n`" + match + "`\n\n**Result:**\n" + result)
+    await wiki_q.reply("**Search:**\n`" + match + "`\n\n**Result:**\n" +
+                       result)
 
 
 @register(pattern="^/google (.*)")
@@ -1324,10 +1361,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1346,7 +1383,9 @@ async def _(event):
         description = result.get("description")
         last = html2text.html2text(description)
         output_str += "[{}]({})\n{}\n".format(text, url, last)
-    await event.reply("{}".format(output_str), link_preview=False, parse_mode='Markdown')
+    await event.reply("{}".format(output_str),
+                      link_preview=False,
+                      parse_mode="Markdown")
 
 
 @register(pattern="^/weather (.*)")
@@ -1355,27 +1394,29 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
         else:
             return
-    sample_url = "https://api.openweathermap.org/data/2.5/weather?q={}&APPID={}&units=metric"
+    sample_url = (
+        "https://api.openweathermap.org/data/2.5/weather?q={}&APPID={}&units=metric"
+    )
     input_str = event.pattern_match.group(1)
     async with aiohttp.ClientSession() as session:
-        response_api_zero = await session.get(sample_url.format(input_str, OPENWEATHERMAP_ID))
+        response_api_zero = await session.get(
+            sample_url.format(input_str, OPENWEATHERMAP_ID))
     response_api = await response_api_zero.json()
     if response_api["cod"] == 200:
         country_code = response_api["sys"]["country"]
         country_time_zone = int(response_api["timezone"])
         sun_rise_time = int(response_api["sys"]["sunrise"]) + country_time_zone
         sun_set_time = int(response_api["sys"]["sunset"]) + country_time_zone
-        await event.reply(
-            """**Location**: {}
+        await event.reply("""**Location**: {}
 **Temperature**: {}°С
     __minimium__: {}°С
     __maximum__ : {}°С
@@ -1384,20 +1425,19 @@ async def _(event):
 **Clouds**: {}hpa
 **Sunrise**: {} {}
 **Sunset**: {} {}""".format(
-                input_str,
-                response_api["main"]["temp"],
-                response_api["main"]["temp_min"],
-                response_api["main"]["temp_max"],
-                response_api["main"]["humidity"],
-                response_api["wind"]["speed"],
-                response_api["clouds"]["all"],
-                # response_api["main"]["pressure"],
-                time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_rise_time)),
-                country_code,
-                time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_set_time)),
-                country_code
-            )
-        )
+            input_str,
+            response_api["main"]["temp"],
+            response_api["main"]["temp_min"],
+            response_api["main"]["temp_max"],
+            response_api["main"]["humidity"],
+            response_api["wind"]["speed"],
+            response_api["clouds"]["all"],
+            # response_api["main"]["pressure"],
+            time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_rise_time)),
+            country_code,
+            time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_set_time)),
+            country_code,
+        ))
     else:
         await event.reply(response_api["message"])
 
@@ -1408,10 +1448,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
     elif event.chat_id == iid and event.from_id == userss:
         pass
@@ -1425,8 +1465,7 @@ async def _(event):
         # logger.info(response_api_zero)
         response_api = await response_api_zero.read()
         with io.BytesIO(response_api) as out_file:
-            await event.reply(
-                file=out_file)
+            await event.reply(file=out_file)
 
 
 @register(pattern="^/figlet (.*)")
@@ -1435,10 +1474,10 @@ async def figlet(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1465,10 +1504,10 @@ async def img_sampler(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1479,18 +1518,21 @@ async def img_sampler(event):
     downloader.download(
         jit,
         limit=5,
-        output_dir='store',
+        output_dir="store",
         adult_filter_off=False,
         force_replace=False,
-        timeout=60)
+        timeout=60,
+    )
     os.chdir(f'./store/"{query}"')
-    types = ('*.png', '*.jpeg', '*.jpg')  # the tuple of file types
+    types = ("*.png", "*.jpeg", "*.jpg")  # the tuple of file types
     files_grabbed = []
     for files in types:
         files_grabbed.extend(glob.glob(files))
-    await event.client.send_file(event.chat_id, files_grabbed, reply_to=event.id)
-    os.chdir('/app/MissAlexaRobot/MissAlexaRobot')
-    os.system('rm -rf store')
+    await event.client.send_file(event.chat_id,
+                                 files_grabbed,
+                                 reply_to=event.id)
+    os.chdir("/app/MissAlexaRobot/MissAlexaRobot")
+    os.system("rm -rf store")
 
 
 @run_async
@@ -1554,17 +1596,18 @@ async def yts_search(video_q):
     # For .yts command, do a YouTube search from Telegram.
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if video_q.is_group:
-        if (await is_register_admin(video_q.input_chat, video_q.message.sender_id)):
+        if await is_register_admin(video_q.input_chat,
+                                   video_q.message.sender_id):
             pass
         elif video_q.chat_id == iid and video_q.from_id == userss:
             pass
         else:
             return
     query = video_q.pattern_match.group(1)
-    result = ''
+    result = ""
 
     if not YOUTUBE_API_KEY:
         await video_q.reply(
@@ -1591,11 +1634,11 @@ async def youtube_search(query,
                          location=None,
                          location_radius=None):
     """ Do a YouTube search. """
-    youtube = build('youtube',
-                    'v3',
+    youtube = build("youtube",
+                    "v3",
                     developerKey=YOUTUBE_API_KEY,
                     cache_discovery=False)
-    search_response = youtube.search().list(
+    search_response = (youtube.search().list(
         q=query,
         type="video",
         pageToken=token,
@@ -1603,7 +1646,8 @@ async def youtube_search(query,
         part="id,snippet",
         maxResults=10,
         location=location,
-        locationRadius=location_radius).execute()
+        locationRadius=location_radius,
+    ).execute())
 
     videos = []
 
@@ -1620,6 +1664,7 @@ async def youtube_search(query,
         nexttok = "KeyError, try again."
         return (nexttok, videos)
 
+
 """Get Administrators of any Chat*
 Syntax: .userlist"""
 
@@ -1631,10 +1676,10 @@ async def get_users(show):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if show.is_group:
-        if (await is_register_admin(show.input_chat, show.message.sender_id)):
+        if await is_register_admin(show.input_chat, show.message.sender_id):
             pass
         elif show.chat_id == iid and show.from_id == userss:
             pass
@@ -1654,7 +1699,7 @@ async def get_users(show):
     await show.client.send_file(
         show.chat_id,
         "userslist.txt",
-        caption='Users in {}'.format(title),
+        caption="Users in {}".format(title),
         reply_to=show.id,
     )
     os.remove("userslist.txt")
@@ -1664,10 +1709,10 @@ async def get_users(show):
 async def apk(e):
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if e.is_group:
-        if (await is_register_admin(e.input_chat, e.message.sender_id)):
+        if await is_register_admin(e.input_chat, e.message.sender_id):
             pass
         elif e.chat_id == iid and e.from_id == userss:
             pass
@@ -1675,43 +1720,39 @@ async def apk(e):
             return
     try:
         app_name = e.pattern_match.group(1)
-        remove_space = app_name.split(' ')
-        final_name = '+'.join(remove_space)
-        page = requests.get(
-            "https://play.google.com/store/search?q=" +
-            final_name +
-            "&c=apps")
+        remove_space = app_name.split(" ")
+        final_name = "+".join(remove_space)
+        page = requests.get("https://play.google.com/store/search?q=" +
+                            final_name + "&c=apps")
         lnk = str(page.status_code)
-        soup = bs4.BeautifulSoup(page.content, 'lxml', from_encoding='utf-8')
+        soup = bs4.BeautifulSoup(page.content, "lxml", from_encoding="utf-8")
         results = soup.findAll("div", "ZmHEEd")
-        app_name = results[0].findNext(
-            'div', 'Vpfmgd').findNext(
-            'div', 'WsMG1c nnK0zc').text
-        app_dev = results[0].findNext(
-            'div', 'Vpfmgd').findNext(
-            'div', 'KoLSrc').text
-        app_dev_link = "https://play.google.com" + \
-            results[0].findNext('div', 'Vpfmgd').findNext('a', 'mnKHRc')['href']
-        app_rating = results[0].findNext(
-            'div', 'Vpfmgd').findNext(
-            'div', 'pf5lIe').find('div')['aria-label']
-        app_link = "https://play.google.com" + \
-            results[0].findNext('div', 'Vpfmgd').findNext('div', 'vU6FJ p63iDd').a['href']
-        app_icon = results[0].findNext(
-            'div', 'Vpfmgd').findNext(
-            'div', 'uzcko').img['data-src']
+        app_name = (results[0].findNext("div", "Vpfmgd").findNext(
+            "div", "WsMG1c nnK0zc").text)
+        app_dev = results[0].findNext("div",
+                                      "Vpfmgd").findNext("div", "KoLSrc").text
+        app_dev_link = ("https://play.google.com" + results[0].findNext(
+            "div", "Vpfmgd").findNext("a", "mnKHRc")["href"])
+        app_rating = (results[0].findNext("div", "Vpfmgd").findNext(
+            "div", "pf5lIe").find("div")["aria-label"])
+        app_link = ("https://play.google.com" + results[0].findNext(
+            "div", "Vpfmgd").findNext("div", "vU6FJ p63iDd").a["href"])
+        app_icon = (results[0].findNext("div", "Vpfmgd").findNext(
+            "div", "uzcko").img["data-src"])
         app_details = "<a href='" + app_icon + "'>📲&#8203;</a>"
         app_details += " <b>" + app_name + "</b>"
-        app_details += "\n\n<code>Developer :</code> <a href='" + \
-            app_dev_link + "'>" + app_dev + "</a>"
-        app_details += "\n<code>Rating :</code> " + app_rating.replace("Rated ", "⭐ ").replace(
-            " out of ", "/").replace(" stars", "", 1).replace(" stars", "⭐ ").replace("five", "5")
-        app_details += "\n<code>Features :</code> <a href='" + \
-            app_link + "'>View in Play Store</a>"
+        app_details += ("\n\n<code>Developer :</code> <a href='" +
+                        app_dev_link + "'>" + app_dev + "</a>")
+        app_details += "\n<code>Rating :</code> " + app_rating.replace(
+            "Rated ", "⭐ ").replace(" out of ", "/").replace(
+                " stars", "", 1).replace(" stars", "⭐ ").replace("five", "5")
+        app_details += ("\n<code>Features :</code> <a href='" + app_link +
+                        "'>View in Play Store</a>")
         app_details += "\n\n===> @AlexaFamilyBot <==="
-        await e.reply(app_details, link_preview=True, parse_mode='HTML')
+        await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
-        await e.reply("No result found in search. Please enter **Valid app name**")
+        await e.reply(
+            "No result found in search. Please enter **Valid app name**")
     except Exception as err:
         await e.reply("Exception Occured:- " + str(err))
 
@@ -1720,10 +1761,11 @@ async def apk(e):
 async def univsaye(cowmsg):
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if cowmsg.is_group:
-        if (await is_register_admin(cowmsg.input_chat, cowmsg.message.sender_id)):
+        if await is_register_admin(cowmsg.input_chat,
+                                   cowmsg.message.sender_id):
             pass
         elif cowmsg.chat_id == iid and cowmsg.from_id == userss:
             pass
@@ -1803,36 +1845,38 @@ async def rm_deletedacc(show):
     await show.reply(del_status)
 
 
-def ocr_space_file(
-        filename,
-        overlay=False,
-        api_key=OCR_SPACE_API_KEY,
-        language='eng'):
-    payload = {'isOverlayRequired': overlay,
-               'apikey': api_key,
-               'language': language,
-               }
-    with open(filename, 'rb') as f:
-        r = requests.post('https://api.ocr.space/parse/image',
-                          files={filename: f},
-                          data=payload,
-                          )
+def ocr_space_file(filename,
+                   overlay=False,
+                   api_key=OCR_SPACE_API_KEY,
+                   language="eng"):
+    payload = {
+        "isOverlayRequired": overlay,
+        "apikey": api_key,
+        "language": language,
+    }
+    with open(filename, "rb") as f:
+        r = requests.post(
+            "https://api.ocr.space/parse/image",
+            files={filename: f},
+            data=payload,
+        )
     return r.json()
 
 
-def ocr_space_url(
-        url,
-        overlay=False,
-        api_key=OCR_SPACE_API_KEY,
-        language='eng'):
-    payload = {'url': url,
-               'isOverlayRequired': overlay,
-               'apikey': api_key,
-               'language': language,
-               }
-    r = requests.post('https://api.ocr.space/parse/image',
-                      data=payload,
-                      )
+def ocr_space_url(url,
+                  overlay=False,
+                  api_key=OCR_SPACE_API_KEY,
+                  language="eng"):
+    payload = {
+        "url": url,
+        "isOverlayRequired": overlay,
+        "apikey": api_key,
+        "language": language,
+    }
+    r = requests.post(
+        "https://api.ocr.space/parse/image",
+        data=payload,
+    )
     return r.json()
 
 
@@ -1847,10 +1891,10 @@ async def get_ocr_languages(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1891,10 +1935,10 @@ async def parse_ocr_space_api(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1905,22 +1949,23 @@ async def parse_ocr_space_api(event):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     lang_code = event.pattern_match.group(1)
     downloaded_file_name = await event.client.download_media(
-        await event.get_reply_message(),
-        TEMP_DOWNLOAD_DIRECTORY)
+        await event.get_reply_message(), TEMP_DOWNLOAD_DIRECTORY)
     if downloaded_file_name.endswith((".webp")):
         downloaded_file_name = conv_image(downloaded_file_name)
-    test_file = ocr_space_file(
-        filename=downloaded_file_name,
-        language=lang_code)
+    test_file = ocr_space_file(filename=downloaded_file_name,
+                               language=lang_code)
     ParsedText = "hmm"
     try:
         ParsedText = test_file["ParsedResults"][0]["ParsedText"]
         ProcessingTimeInMilliseconds = str(
             int(test_file["ProcessingTimeInMilliseconds"]) // 1000)
     except Exception as e:
-        await event.reply("Error :\n `{}`\nReport This to @AlexaSupport\n\n`{}`".format(str(e), json.dumps(test_file, sort_keys=True, indent=4)))
+        await event.reply(
+            "Error :\n `{}`\nReport This to @AlexaSupport\n\n`{}`".format(
+                str(e), json.dumps(test_file, sort_keys=True, indent=4)))
     else:
-        await event.reply("Read Document in {} seconds. \n{}".format(ProcessingTimeInMilliseconds, ParsedText))
+        await event.reply("Read Document in {} seconds. \n{}".format(
+            ProcessingTimeInMilliseconds, ParsedText))
     os.remove(downloaded_file_name)
 
 
@@ -1942,10 +1987,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -1957,9 +2002,12 @@ async def _(event):
     await event.reply("Downloading to Alexa's server for Analysis ...")
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
-        required_file_name = await event.client.download_media(previous_message, TEMP_DOWNLOAD_DIRECTORY)
+        required_file_name = await event.client.download_media(
+            previous_message, TEMP_DOWNLOAD_DIRECTORY)
         if IBM_WATSON_CRED_URL is None or IBM_WATSON_CRED_PASSWORD is None:
-            await event.reply("You need to set the required ENV variables for this module. \nModule stopping")
+            await event.reply(
+                "You need to set the required ENV variables for this module. \nModule stopping"
+            )
         else:
             await event.reply("Starting analysis")
             headers = {
@@ -1970,7 +2018,7 @@ async def _(event):
                 IBM_WATSON_CRED_URL + "/v1/recognize",
                 headers=headers,
                 data=data,
-                auth=("apikey", IBM_WATSON_CRED_PASSWORD)
+                auth=("apikey", IBM_WATSON_CRED_PASSWORD),
             )
             r = response.json()
             if "results" in r:
@@ -1980,10 +2028,11 @@ async def _(event):
                 transcript_confidence = ""
                 for alternative in results:
                     alternatives = alternative["alternatives"][0]
-                    transcript_response += " " + \
-                        str(alternatives["transcript"])
-                    transcript_confidence += " " + \
-                        str(alternatives["confidence"]) + " + "
+                    transcript_response += " " + str(
+                        alternatives["transcript"])
+                    transcript_confidence += (" " +
+                                              str(alternatives["confidence"]) +
+                                              " + ")
                 end = datetime.datetime.now()
                 ms = (end - start).seconds
                 if transcript_response != "":
@@ -1998,7 +2047,8 @@ async def _(event):
             # now, remove the temporary file
             os.remove(required_file_name)
     else:
-        await event.reply("Reply to a voice message, to get the text out of it.")
+        await event.reply(
+            "Reply to a voice message, to get the text out of it.")
 
 
 @register(pattern="^/news$")
@@ -2030,23 +2080,23 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
         else:
             return
     input_str = print(randrange(7))
-    r = await event.reply(file=InputMediaDice(''))
+    r = await event.reply(file=InputMediaDice(""))
     if input_str:
         try:
             required_number = int(input_str)
             while not r.media.value == required_number:
                 await r.delete()
-                r = await event.reply(file=InputMediaDice(''))
+                r = await event.reply(file=InputMediaDice(""))
         except BaseException:
             pass
 
@@ -2057,23 +2107,23 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
         else:
             return
     input_str = print(randrange(6))
-    r = await event.reply(file=InputMediaDice('🏀'))
+    r = await event.reply(file=InputMediaDice("🏀"))
     if input_str:
         try:
             required_number = int(input_str)
             while not r.media.value == required_number:
                 await r.delete()
-                r = await event.reply(file=InputMediaDice('🏀'))
+                r = await event.reply(file=InputMediaDice("🏀"))
         except BaseException:
             pass
 
@@ -2084,23 +2134,23 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
         else:
             return
     input_str = print(randrange(7))
-    r = await event.reply(file=InputMediaDice('🎯'))
+    r = await event.reply(file=InputMediaDice("🎯"))
     if input_str:
         try:
             required_number = int(input_str)
             while not r.media.value == required_number:
                 await r.delete()
-                r = await event.reply(file=InputMediaDice('🎯'))
+                r = await event.reply(file=InputMediaDice("🎯"))
         except BaseException:
             pass
 
@@ -2130,7 +2180,8 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
                 day_fmt = r"%A"
                 gmt_offset = zone["gmtOffset"]
                 timestamp = datetime.datetime.now(
-                    datetime.timezone.utc) + datetime.timedelta(seconds=gmt_offset)
+                    datetime.timezone.utc) + datetime.timedelta(
+                        seconds=gmt_offset)
                 current_date = timestamp.strftime(date_fmt)
                 current_time = timestamp.strftime(time_fmt)
                 current_day = timestamp.strftime(day_fmt)
@@ -2208,7 +2259,8 @@ def lyrics(update: Update, context: CallbackContext):
             with open("lyrics.txt", "rb") as f:
                 msg.reply_document(
                     document=f,
-                    caption="Message length exceeded max limit! Sending as a text file.",
+                    caption=
+                    "Message length exceeded max limit! Sending as a text file.",
                 )
         else:
             msg.reply_text(reply)
@@ -2223,10 +2275,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -2235,15 +2287,18 @@ async def _(event):
     if not event.reply_to_msg_id:
         i = event.pattern_match.group(1)
         appid = WOLFRAM_ID
-        server = f'https://api.wolframalpha.com/v1/spoken?appid={appid}&i={i}'
+        server = f"https://api.wolframalpha.com/v1/spoken?appid={appid}&i={i}"
         res = get(server)
-        await event.reply(f'**{i}**\n\n' + res.text, parse_mode='Markdown')
+        await event.reply(f"**{i}**\n\n" + res.text, parse_mode="Markdown")
 
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
-        required_file_name = await event.client.download_media(previous_message, TEMP_DOWNLOAD_DIRECTORY)
+        required_file_name = await event.client.download_media(
+            previous_message, TEMP_DOWNLOAD_DIRECTORY)
         if IBM_WATSON_CRED_URL is None or IBM_WATSON_CRED_PASSWORD is None:
-            await event.reply("You need to set the required ENV variables for this module. \nModule stopping")
+            await event.reply(
+                "You need to set the required ENV variables for this module. \nModule stopping"
+            )
         else:
             headers = {
                 "Content-Type": previous_message.media.document.mime_type,
@@ -2253,7 +2308,7 @@ async def _(event):
                 IBM_WATSON_CRED_URL + "/v1/recognize",
                 headers=headers,
                 data=data,
-                auth=("apikey", IBM_WATSON_CRED_PASSWORD)
+                auth=("apikey", IBM_WATSON_CRED_PASSWORD),
             )
             r = response.json()
             if "results" in r:
@@ -2263,16 +2318,16 @@ async def _(event):
                 transcript_confidence = ""
                 for alternative in results:
                     alternatives = alternative["alternatives"][0]
-                    transcript_response += " " + \
-                        str(alternatives["transcript"])
+                    transcript_response += " " + str(
+                        alternatives["transcript"])
                 if transcript_response != "":
                     string_to_show = "{}".format(transcript_response)
                     appid = WOLFRAM_ID
-                    server = f'https://api.wolframalpha.com/v1/spoken?appid={appid}&i={string_to_show}'
+                    server = f"https://api.wolframalpha.com/v1/spoken?appid={appid}&i={string_to_show}"
                     res = get(server)
                     answer = res.text
                     try:
-                        tts = gTTS(answer, tld='com', lang='en')
+                        tts = gTTS(answer, tld="com", lang="en")
                         tts.save("results.mp3")
                     except AssertionError:
                         return
@@ -2283,12 +2338,17 @@ async def _(event):
                     except gTTSError:
                         return
                     with open("results.mp3", "r"):
-                        await event.client.send_file(event.chat_id, "results.mp3", voice_note=True, reply_to=event.id)
+                        await event.client.send_file(
+                            event.chat_id,
+                            "results.mp3",
+                            voice_note=True,
+                            reply_to=event.id,
+                        )
                     os.remove("results.mp3")
                 else:
                     try:
                         answer = "Sorry I can't recognise your query"
-                        tts = gTTS(answer, tld='com', lang='en')
+                        tts = gTTS(answer, tld="com", lang="en")
                         tts.save("results.mp3")
                     except AssertionError:
                         return
@@ -2299,13 +2359,20 @@ async def _(event):
                     except gTTSError:
                         return
                     with open("results.mp3", "r"):
-                        await event.client.send_file(event.chat_id, "results.mp3", voice_note=True, reply_to=event.id)
+                        await event.client.send_file(
+                            event.chat_id,
+                            "results.mp3",
+                            voice_note=True,
+                            reply_to=event.id,
+                        )
                     os.remove("results.mp3")
             else:
                 await event.reply("API Failure !")
                 os.remove(required_file_name)
+
+
 telegraph = Telegraph()
-telegraph.create_account(short_name='Alexa')
+telegraph.create_account(short_name="Alexa")
 
 
 @register(pattern="^/torrent (.*)")
@@ -2314,10 +2381,10 @@ async def tor_search(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -2332,7 +2399,11 @@ async def tor_search(event):
     op = pit.replace(",", "")
     seta = f"Magnets for {str} are below:"
     response = telegraph.create_page(seta, html_content=op)
-    await event.reply('Magnet Links for {}:\n\nhttps://telegra.ph/{}'.format(str, response['path']), link_preview=False)
+    await event.reply(
+        "Magnet Links for {}:\n\nhttps://telegra.ph/{}".format(
+            str, response["path"]),
+        link_preview=False,
+    )
 
 
 @register(pattern="^/fortune$")
@@ -2341,10 +2412,10 @@ async def fortunate(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -2362,7 +2433,12 @@ async def helptorrent(event):
     else:
         topa = "./alexa/Tutorial_For_Torrent.mp4"
         file = await event.client.upload_file(topa)
-        await event.client.send_file(event.chat_id, file, caption="Tutorial For Torrent Module", reply_to=event.id)
+        await event.client.send_file(
+            event.chat_id,
+            file,
+            caption="Tutorial For Torrent Module",
+            reply_to=event.id,
+        )
 
 
 @register(pattern="^/helpcamscanner$")
@@ -2372,17 +2448,22 @@ async def helpcam(event):
     else:
         topa = "./alexa/Tutorial for Camscanner.mp4"
         file = await event.client.upload_file(topa)
-        await event.client.send_file(event.chat_id, file, caption="Tutorial For Camscanner Module", reply_to=event.id)
+        await event.client.send_file(
+            event.chat_id,
+            file,
+            caption="Tutorial For Camscanner Module",
+            reply_to=event.id,
+        )
 
 
-@register(pattern=r'^/phone (.*)')
+@register(pattern=r"^/phone (.*)")
 async def phone(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -2391,17 +2472,17 @@ async def phone(event):
     information = event.pattern_match.group(1)
     number = information
     key = "fe65b94e78fc2e3234c1c6ed1b771abd"
-    api = "http://apilayer.net/api/validate?access_key=" + \
-        key + "&number=" + number + "&country_code=&format=1"
+    api = ("http://apilayer.net/api/validate?access_key=" + key + "&number=" +
+           number + "&country_code=&format=1")
     output = requests.get(api)
     content = output.text
     obj = json.loads(content)
-    country_code = obj['country_code']
-    country_name = obj['country_name']
-    location = obj['location']
-    carrier = obj['carrier']
-    line_type = obj['line_type']
-    validornot = obj['valid']
+    country_code = obj["country_code"]
+    country_name = obj["country_name"]
+    location = obj["location"]
+    carrier = obj["carrier"]
+    line_type = obj["line_type"]
+    validornot = obj["valid"]
     aa = "Valid: " + str(validornot)
     a = "Phone number: " + str(number)
     b = "Country: " + str(country_code)
@@ -2416,21 +2497,15 @@ async def phone(event):
 def online_within(participant):
     status = participant.status
     print(status)
-    if isinstance(
-            status,
-            types.UserStatusOnline) or (
-            status,
-            types.UserStatusRecently) or (
-                status,
-                types.UserStatusEmpty) or (
-                    status,
-                    types.UserStatusLastMonth) or (
-                        status,
-            types.UserStatusLastWeek) or participant.bot:
+    if (isinstance(status, types.UserStatusOnline)
+            or (status, types.UserStatusRecently)
+            or (status, types.UserStatusEmpty)
+            or (status, types.UserStatusLastMonth)
+            or (status, types.UserStatusLastWeek) or participant.bot):
         return False
     else:
-        last_seen = status.was_online if isinstance(
-            status, types.UserStatusOffline) else None
+        last_seen = (status.was_online
+                     if isinstance(status, types.UserStatusOffline) else None)
         print(last_seen)
 
 
@@ -2451,14 +2526,16 @@ async def _(event):
     async for i in event.client.iter_participants(event.chat_id):
 
         if isinstance(i.status, UserStatusLastMonth):
-            status = await event.client(EditBannedRequest(event.chat_id, i, KICK_RIGHTS))
+            status = await event.client(
+                EditBannedRequest(event.chat_id, i, KICK_RIGHTS))
             if not status:
                 return
             else:
                 c = c + 1
 
         if isinstance(i.status, UserStatusLastWeek):
-            status = await event.client(EditBannedRequest(event.chat_id, i, KICK_RIGHTS))
+            status = await event.client(
+                EditBannedRequest(event.chat_id, i, KICK_RIGHTS))
             if not status:
                 return
             else:
@@ -2481,10 +2558,10 @@ async def asciiart(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -2500,7 +2577,7 @@ async def asciiart(event):
         elif item.endswith(".jpeg"):
             os.remove(os.path.join(directory, item))
     reply_msg = await event.get_reply_message()
-    downloaded_file_name = await event.client.download_media(reply_msg, './')
+    downloaded_file_name = await event.client.download_media(reply_msg, "./")
     let = f"{downloaded_file_name}"
     subprocess.run(["python", "scan", "--image", let])
     fuck = await event.client.upload_file("./scanned.jpg")
@@ -2522,10 +2599,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -2558,8 +2635,9 @@ async def _(event):
         message = "SYNTAX: `.barcode <long text to include>`"
     bar_code_type = "code128"
     try:
-        bar_code_mode_f = barcode.get(
-            bar_code_type, message, writer=ImageWriter())
+        bar_code_mode_f = barcode.get(bar_code_type,
+                                      message,
+                                      writer=ImageWriter())
         filename = bar_code_mode_f.save(bar_code_type)
         await event.client.send_file(
             event.chat_id,
@@ -2591,13 +2669,12 @@ async def _(event):
 
     done = await event.reply("Searching Participant Lists.")
     p = 0
-    async for i in event.client.iter_participants(event.chat_id, filter=ChannelParticipantsKicked, aggressive=True):
-        rights = ChatBannedRights(
-            until_date=0,
-            view_messages=False
-        )
+    async for i in event.client.iter_participants(
+            event.chat_id, filter=ChannelParticipantsKicked, aggressive=True):
+        rights = ChatBannedRights(until_date=0, view_messages=False)
         try:
-            await tbot(functions.channels.EditBannedRequest(event.chat_id, i, rights))
+            await tbot(
+                functions.channels.EditBannedRequest(event.chat_id, i, rights))
         except FloodWaitError as ex:
             logger.warn("sleeping for {} seconds".format(ex.seconds))
             sleep(ex.seconds)
@@ -2629,13 +2706,15 @@ async def _(event):
 
     done = await event.reply("Working ...")
     p = 0
-    async for i in event.client.iter_participants(event.chat_id, filter=ChannelParticipantsBanned, aggressive=True):
+    async for i in event.client.iter_participants(
+            event.chat_id, filter=ChannelParticipantsBanned, aggressive=True):
         rights = ChatBannedRights(
             until_date=0,
             send_messages=False,
         )
         try:
-            await tbot(functions.channels.EditBannedRequest(event.chat_id, i, rights))
+            await tbot(
+                functions.channels.EditBannedRequest(event.chat_id, i, rights))
         except FloodWaitError as ex:
             logger.warn("sleeping for {} seconds".format(ex.seconds))
             sleep(ex.seconds)
@@ -2662,47 +2741,50 @@ COLORS = [
     "#6CC7DC",
     "#80C1FA",
     "#BCB3F9",
-    "#E181AC"]
+    "#E181AC",
+]
 
 
 async def process(msg, user, client, reply, replied=None):
     if not os.path.isdir("resources"):
         os.mkdir("resources", 0o755)
         urllib.request.urlretrieve(
-            'https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Regular.ttf',
-            'resources/Roboto-Regular.ttf')
+            "https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Regular.ttf",
+            "resources/Roboto-Regular.ttf",
+        )
         urllib.request.urlretrieve(
-            'https://github.com/erenmetesar/modules-repo/raw/master/Quivira.otf',
-            'resources/Quivira.otf')
+            "https://github.com/erenmetesar/modules-repo/raw/master/Quivira.otf",
+            "resources/Quivira.otf",
+        )
         urllib.request.urlretrieve(
-            'https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Medium.ttf',
-            'resources/Roboto-Medium.ttf')
+            "https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Medium.ttf",
+            "resources/Roboto-Medium.ttf",
+        )
         urllib.request.urlretrieve(
-            'https://github.com/erenmetesar/modules-repo/raw/master/DroidSansMono.ttf',
-            'resources/DroidSansMono.ttf')
+            "https://github.com/erenmetesar/modules-repo/raw/master/DroidSansMono.ttf",
+            "resources/DroidSansMono.ttf",
+        )
         urllib.request.urlretrieve(
-            'https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Italic.ttf',
-            'resources/Roboto-Italic.ttf')
+            "https://github.com/erenmetesar/modules-repo/raw/master/Roboto-Italic.ttf",
+            "resources/Roboto-Italic.ttf",
+        )
 
     # Importıng fonts and gettings the size of text
-    font = ImageFont.truetype(
-        "resources/Roboto-Medium.ttf",
-        43,
-        encoding="utf-16")
-    font2 = ImageFont.truetype(
-        "resources/Roboto-Regular.ttf",
-        33,
-        encoding="utf-16")
-    mono = ImageFont.truetype(
-        "resources/DroidSansMono.ttf",
-        30,
-        encoding="utf-16")
-    italic = ImageFont.truetype(
-        "resources/Roboto-Italic.ttf",
-        33,
-        encoding="utf-16")
-    fallback = ImageFont.truetype(
-        "resources/Quivira.otf", 43, encoding="utf-16")
+    font = ImageFont.truetype("resources/Roboto-Medium.ttf",
+                              43,
+                              encoding="utf-16")
+    font2 = ImageFont.truetype("resources/Roboto-Regular.ttf",
+                               33,
+                               encoding="utf-16")
+    mono = ImageFont.truetype("resources/DroidSansMono.ttf",
+                              30,
+                              encoding="utf-16")
+    italic = ImageFont.truetype("resources/Roboto-Italic.ttf",
+                                33,
+                                encoding="utf-16")
+    fallback = ImageFont.truetype("resources/Quivira.otf",
+                                  43,
+                                  encoding="utf-16")
 
     # Splitting text
     maxlength = 0
@@ -2731,7 +2813,8 @@ async def process(msg, user, client, reply, replied=None):
 
     title = ""
     try:
-        details = await client(functions.channels.GetParticipantRequest(reply.chat_id, user.id))
+        details = await client(
+            functions.channels.GetParticipantRequest(reply.chat_id, user.id))
         if isinstance(details.participant, types.ChannelParticipantCreator):
             title = details.participant.rank if details.participant.rank else "Creator"
         elif isinstance(details.participant, types.ChannelParticipantAdmin):
@@ -2748,8 +2831,8 @@ async def process(msg, user, client, reply, replied=None):
 
     if namewidth > width:
         width = namewidth
-    width += titlewidth + 30 if titlewidth > width - \
-        namewidth else -(titlewidth - 30)
+    width += titlewidth + 30 if titlewidth > width - namewidth else -(
+        titlewidth - 30)
     height = len(text) * 40
 
     # Profile Photo BG
@@ -2781,8 +2864,10 @@ async def process(msg, user, client, reply, replied=None):
 
     # Creating a big canvas to gather all the elements
     canvassize = (
-        middle.width + pfpbg.width, top.height + middle.height + bottom.height)
-    canvas = Image.new('RGBA', canvassize)
+        middle.width + pfpbg.width,
+        top.height + middle.height + bottom.height,
+    )
+    canvas = Image.new("RGBA", canvassize)
     draw = ImageDraw.Draw(canvas)
 
     y = 80
@@ -2796,10 +2881,11 @@ async def process(msg, user, client, reply, replied=None):
             stimg = Image.open(sticker)
             canvas = canvas.resize(
                 (stimg.width + pfpbg.width, stimg.height + 160))
-            top = Image.new(
-                "RGBA", (200 + stimg.width, 300), (29, 29, 29, 255))
+            top = Image.new("RGBA", (200 + stimg.width, 300),
+                            (29, 29, 29, 255))
             draw = ImageDraw.Draw(top)
-            await replied_user(draw, reptot, replied.message.replace("\n", " "), 20)
+            await replied_user(draw, reptot,
+                               replied.message.replace("\n", " "), 20)
             top = top.crop((135, 70, top.width, 300))
             canvas.paste(pfpbg, (0, 0))
             canvas.paste(top, (pfpbg.width + 10, 0))
@@ -2823,7 +2909,13 @@ async def process(msg, user, client, reply, replied=None):
             replied.text = "Voice Message"
         elif replied.document:
             replied.text = "Document"
-        await replied_user(draw, reptot, replied.message.replace("\n", " "), maxlength + len(title), len(title))
+        await replied_user(
+            draw,
+            reptot,
+            replied.message.replace("\n", " "),
+            maxlength + len(title),
+            len(title),
+        )
         y = 200
     elif reply.sticker:
         sticker = await reply.download_media()
@@ -2847,8 +2939,9 @@ async def process(msg, user, client, reply, replied=None):
             docsize = str(round(reply.document.size / 1024**2, 2)) + " MB "
         else:
             docsize = str(round(reply.document.size / 1024**3, 2)) + " GB "
-        docbglen = font.getsize(docsize)[0] if font.getsize(
-            docsize)[0] > font.getsize(docname)[0] else font.getsize(docname)[0]
+        docbglen = (font.getsize(docsize)[0]
+                    if font.getsize(docsize)[0] > font.getsize(docname)[0] else
+                    font.getsize(docname)[0])
         canvas = canvas.resize((pfpbg.width + width + docbglen, 160 + height))
         top, middle, bottom = await drawer(width + docbglen, height + 30)
         canvas.paste(pfpbg, (0, 0))
@@ -2866,8 +2959,9 @@ async def process(msg, user, client, reply, replied=None):
 
     # Writing User's Name
     space = pfpbg.width + 30
-    namefallback = ImageFont.truetype(
-        "resources/Quivira.otf", 43, encoding="utf-16")
+    namefallback = ImageFont.truetype("resources/Quivira.otf",
+                                      43,
+                                      encoding="utf-16")
     for letter in tot:
         if letter in emoji.UNICODE_EMOJI:
             newemoji, mask = await emoji_fetch(letter)
@@ -2883,7 +2977,9 @@ async def process(msg, user, client, reply, replied=None):
 
     if title:
         draw.text((canvas.width - titlewidth - 20, 25),
-                  title, font=font2, fill="#898989")
+                  title,
+                  font=font2,
+                  fill="#898989")
 
     # Writing all separating emojis and regular texts
     x = pfpbg.width + 30
@@ -2891,32 +2987,37 @@ async def process(msg, user, client, reply, replied=None):
     mdlength = 0
     index = 0
     emojicount = 0
-    textfallback = ImageFont.truetype(
-        "resources/Quivira.otf", 33, encoding="utf-16")
+    textfallback = ImageFont.truetype("resources/Quivira.otf",
+                                      33,
+                                      encoding="utf-16")
     textcolor = "white"
     for line in text:
         for letter in line:
-            index = msg.find(letter) if emojicount == 0 else msg.find(
-                letter) + emojicount
+            index = (msg.find(letter)
+                     if emojicount == 0 else msg.find(letter) + emojicount)
             for offset, length in bold.items():
                 if index in range(offset, length):
-                    font2 = ImageFont.truetype(
-                        "resources/Roboto-Medium.ttf", 33, encoding="utf-16")
+                    font2 = ImageFont.truetype("resources/Roboto-Medium.ttf",
+                                               33,
+                                               encoding="utf-16")
                     textcolor = "white"
             for offset, length in italic.items():
                 if index in range(offset, length):
-                    font2 = ImageFont.truetype(
-                        "resources/Roboto-Italic.ttf", 33, encoding="utf-16")
+                    font2 = ImageFont.truetype("resources/Roboto-Italic.ttf",
+                                               33,
+                                               encoding="utf-16")
                     textcolor = "white"
             for offset, length in mono.items():
                 if index in range(offset, length):
-                    font2 = ImageFont.truetype(
-                        "resources/DroidSansMono.ttf", 30, encoding="utf-16")
+                    font2 = ImageFont.truetype("resources/DroidSansMono.ttf",
+                                               30,
+                                               encoding="utf-16")
                     textcolor = "white"
             for offset, length in link.items():
                 if index in range(offset, length):
-                    font2 = ImageFont.truetype(
-                        "resources/Roboto-Regular.ttf", 30, encoding="utf-16")
+                    font2 = ImageFont.truetype("resources/Roboto-Regular.ttf",
+                                               30,
+                                               encoding="utf-16")
                     textcolor = "#898989"
             if letter in emoji.UNICODE_EMOJI:
                 newemoji, mask = await emoji_fetch(letter)
@@ -2925,8 +3026,10 @@ async def process(msg, user, client, reply, replied=None):
                 emojicount += 1
             else:
                 if not await fontTest(letter):
-                    draw.text(
-                        (x, y), letter, font=textfallback, fill=textcolor)
+                    draw.text((x, y),
+                              letter,
+                              font=textfallback,
+                              fill=textcolor)
                     x += textfallback.getsize(letter)[0]
                 else:
                     draw.text((x, y), letter, font=font2, fill=textcolor)
@@ -2939,12 +3042,14 @@ async def process(msg, user, client, reply, replied=None):
 
 async def drawer(width, height):
     # Top part
-    top = Image.new('RGBA', (width, 20), (0, 0, 0, 0))
+    top = Image.new("RGBA", (width, 20), (0, 0, 0, 0))
     draw = ImageDraw.Draw(top)
     draw.line((10, 0, top.width - 20, 0), fill=(29, 29, 29, 255), width=50)
     draw.pieslice((0, 0, 30, 50), 180, 270, fill=(29, 29, 29, 255))
     draw.pieslice((top.width - 75, 0, top.width, 50),
-                  270, 360, fill=(29, 29, 29, 255))
+                  270,
+                  360,
+                  fill=(29, 29, 29, 255))
 
     # Middle part
     middle = Image.new("RGBA", (top.width, height + 75), (29, 29, 29, 255))
@@ -2957,7 +3062,7 @@ async def drawer(width, height):
 
 async def fontTest(letter):
     test = TTFont("resources/Roboto-Medium.ttf")
-    for table in test['cmap'].tables:
+    for table in test["cmap"].tables:
         if ord(letter) in table.cmap.keys():
             return True
 
@@ -2996,9 +3101,7 @@ async def doctype(name, size, type, canvas):
     canvas.paste(doc, (160, 23))
     draw2 = ImageDraw.Draw(canvas)
     draw2.text((320, 40), name, font=font, fill="white")
-    draw2.text(
-        (320, 97), size
-        + type, font=font, fill="#AAAAAA")
+    draw2.text((320, 97), size + type, font=font, fill="#AAAAAA")
     return canvas
 
 
@@ -3014,14 +3117,18 @@ async def no_photo(reply, tot):
 
 
 async def emoji_fetch(emoji):
-    emojis = json.loads(urllib.request.urlopen(
-        "https://github.com/erenmetesar/modules-repo/raw/master/emojis.txt").read().decode())
+    emojis = json.loads(
+        urllib.request.urlopen(
+            "https://github.com/erenmetesar/modules-repo/raw/master/emojis.txt"
+        ).read().decode())
     if emoji in emojis:
         img = emojis[emoji]
-        return await transparent(urllib.request.urlretrieve(img, "resources/emoji.png")[0])
+        return await transparent(
+            urllib.request.urlretrieve(img, "resources/emoji.png")[0])
     else:
         img = emojis["⛔"]
-        return await transparent(urllib.request.urlretrieve(img, "resources/emoji.png")[0])
+        return await transparent(
+            urllib.request.urlretrieve(img, "resources/emoji.png")[0])
 
 
 async def transparent(emoji):
@@ -3046,8 +3153,10 @@ async def replied_user(draw, tot, text, maxlength, title):
     space = 0
     for letter in tot:
         if not await fontTest(letter):
-            draw.text((180 + space, 86), letter,
-                      font=namefallback, fill="#888888")
+            draw.text((180 + space, 86),
+                      letter,
+                      font=namefallback,
+                      fill="#888888")
             space += namefallback.getsize(letter)[0]
         else:
             draw.text((180 + space, 86), letter, font=namefont, fill="#888888")
@@ -3055,8 +3164,10 @@ async def replied_user(draw, tot, text, maxlength, title):
     space = 0
     for letter in text:
         if not await fontTest(letter):
-            draw.text((180 + space, 132), letter,
-                      font=textfallback, fill="#888888")
+            draw.text((180 + space, 132),
+                      letter,
+                      font=textfallback,
+                      fill="#888888")
             space += textfallback.getsize(letter)[0]
         else:
             draw.text((180 + space, 132), letter, font=textfont, fill="white")
@@ -3069,10 +3180,10 @@ async def _(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3082,15 +3193,18 @@ async def _(event):
     reply = await event.get_reply_message()
     msg = reply.message
     repliedreply = await reply.get_reply_message()
-    user = (
-        await event.client.get_entity(reply.forward.sender) if reply.fwd_from
-        else reply.sender)
+    user = (await event.client.get_entity(reply.forward.sender)
+            if reply.fwd_from else reply.sender)
     res, canvas = await process(msg, user, event.client, reply, repliedreply)
     if not res:
         return
-    canvas.save('sticker.webp')
-    await event.client.send_file(event.chat_id, "sticker.webp", reply_to=event.reply_to_msg_id)
-    os.remove('sticker.webp')
+    canvas.save("sticker.webp")
+    await event.client.send_file(event.chat_id,
+                                 "sticker.webp",
+                                 reply_to=event.reply_to_msg_id)
+    os.remove("sticker.webp")
+
+
 BOTLOG_CHATID = os.environ.get("BOTLOG_CHATID")
 
 EMOJI_PATTERN = re.compile(
@@ -3111,7 +3225,8 @@ EMOJI_PATTERN = re.compile(
 
 def deEmojify(inputString: str) -> str:
     """Remove emojis and other non-safe characters from string"""
-    return re.sub(EMOJI_PATTERN, '', inputString)
+    return re.sub(EMOJI_PATTERN, "", inputString)
+
 
 # Made by @AyushChatterjee
 
@@ -3132,10 +3247,10 @@ async def waifu(animu):
 async def stickerizer(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3152,6 +3267,7 @@ async def stickerizer(event):
     os.remove(bara)
     await randika.delete()
 
+
 # Made by @AyushChatterjee
 
 
@@ -3161,9 +3277,7 @@ async def saat(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1011636686))
+                events.NewMessage(incoming=True, from_users=1011636686))
             await event.client.send_file(chat, debloat)
             response = await response
         except YouBlockedUserError:
@@ -3187,10 +3301,10 @@ async def savel(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3210,10 +3324,10 @@ async def savel(event):
 async def sticklet(event):
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3234,7 +3348,7 @@ async def sticklet(event):
     # https://docs.python.org/3/library/textwrap.html#textwrap.wrap
     sticktext = textwrap.wrap(sticktext, width=10)
     # converts back the list to a string
-    sticktext = '\n'.join(sticktext)
+    sticktext = "\n".join(sticktext)
 
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
@@ -3249,15 +3363,10 @@ async def sticklet(event):
         font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
     width, height = draw.multiline_textsize(sticktext, font=font)
-    draw.multiline_text(
-        ((512 - width) / 2,
-         (512 - height) / 2),
-        sticktext,
-        font=font,
-        fill=(
-            R,
-            G,
-            B))
+    draw.multiline_text(((512 - width) / 2, (512 - height) / 2),
+                        sticktext,
+                        font=font,
+                        fill=(R, G, B))
 
     image_stream = io.BytesIO()
     image_stream.name = "@Alexa.webp"
@@ -3265,7 +3374,8 @@ async def sticklet(event):
     image_stream.seek(0)
 
     # finally, reply the sticker
-    await event.reply(file=image_stream, reply_to=event.message.reply_to_msg_id)
+    await event.reply(file=image_stream,
+                      reply_to=event.message.reply_to_msg_id)
     # replacing upper line with this to get reply tags
 
     # cleanup
@@ -3282,7 +3392,7 @@ async def get_font_file(client, channel_id):
         filter=InputMessagesFilterDocument,
         # this might cause FLOOD WAIT,
         # if used too many times
-        limit=None
+        limit=None,
     )
     # get a random font from the list of fonts
     # https://docs.python.org/3/library/random.html#random.choice
@@ -3293,16 +3403,17 @@ async def get_font_file(client, channel_id):
 
 # NEW EMOTION DETECTOR MADE BY @AyushChatterjee
 
+
 @register(pattern="^/emotion$")
 async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3330,14 +3441,14 @@ def echo(update: Update, context: CallbackContext):
     message = update.effective_message
 
     if message.reply_to_message:
-        message.reply_to_message.reply_text(
-            args[1], parse_mode="MARKDOWN", disable_web_page_preview=True)
+        message.reply_to_message.reply_text(args[1],
+                                            parse_mode="MARKDOWN",
+                                            disable_web_page_preview=True)
     else:
-        message.reply_text(
-            args[1],
-            quote=False,
-            parse_mode="MARKDOWN",
-            disable_web_page_preview=True)
+        message.reply_text(args[1],
+                           quote=False,
+                           parse_mode="MARKDOWN",
+                           disable_web_page_preview=True)
     message.delete()
 
 
@@ -3349,8 +3460,9 @@ SLAP_ALEXA_TEMPLATES = (
         "Stop slapping me just because I can't mute you. REEEEEEEEEE.",  # reply to admin
         "tmute",  # command
         "Shut up!",
-        "Silence!"
-    ])
+        "Silence!",
+    ],
+)
 
 SLAP_TEMPLATES = (
     "{user2} was killed by magic.",
@@ -3509,7 +3621,8 @@ def slap(update: Update, context: CallbackContext):
     message = update.effective_message
     chat = update.effective_chat
 
-    reply_text = message.reply_to_message.reply_text if message.reply_to_message else message.reply_text
+    reply_text = (message.reply_to_message.reply_text
+                  if message.reply_to_message else message.reply_text)
 
     curr_user = html.escape(message.from_user.first_name)
     user_id = extract_user(message, args)
@@ -3528,7 +3641,8 @@ def slap(update: Update, context: CallbackContext):
                     chat.id,
                     message.from_user.id,
                     until_date=mutetime,
-                    permissions=ChatPermissions(can_send_messages=False))
+                    permissions=ChatPermissions(can_send_messages=False),
+                )
             reply_text(temp[0])
         else:
             reply_text(temp)
@@ -3549,8 +3663,11 @@ def slap(update: Update, context: CallbackContext):
     hit = random.choice(fun_strings.HIT)
     throw = random.choice(fun_strings.THROW)
 
-    reply = temp.format(
-        user1=user1, user2=user2, item=item, hits=hit, throws=throw)
+    reply = temp.format(user1=user1,
+                        user2=user2,
+                        item=item,
+                        hits=hit,
+                        throws=throw)
 
     reply_text(reply, parse_mode=ParseMode.HTML)
 
@@ -3559,7 +3676,7 @@ sites_list = {
     "Telegram": "https://api.telegram.org",
     "Kaizoku": "https://animekaizoku.com",
     "Kayo": "https://animekayo.com",
-    "Jikan": "https://api.jikan.moe/v3"
+    "Jikan": "https://api.jikan.moe/v3",
 }
 
 
@@ -3629,7 +3746,8 @@ def ping(update: Update, context: CallbackContext):
         "PONG!!\n"
         "<b>Time Taken:</b> <code>{}</code>\n"
         "<b>Service uptime:</b> <code>{}</code>".format(telegram_ping, uptime),
-        parse_mode=ParseMode.HTML)
+        parse_mode=ParseMode.HTML,
+    )
 
 
 @run_async
@@ -3637,15 +3755,16 @@ def ping(update: Update, context: CallbackContext):
 def pingall(update: Update, context: CallbackContext):
     to_ping = ["Kaizoku", "Kayo", "Telegram", "Jikan"]
     pinged_list = ping_func(to_ping)
-    pinged_list.insert(2, '')
+    pinged_list.insert(2, "")
     uptime = get_readable_time((time.time() - StartTime))
 
     reply_msg = "⏱Ping results are:\n"
     reply_msg += "\n".join(pinged_list)
-    reply_msg += '\n<b>Service uptime:</b> <code>{}</code>'.format(uptime)
+    reply_msg += "\n<b>Service uptime:</b> <code>{}</code>".format(uptime)
 
-    update.effective_message.reply_text(
-        reply_msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True)
+    update.effective_message.reply_text(reply_msg,
+                                        parse_mode=ParseMode.HTML,
+                                        disable_web_page_preview=True)
 
 
 @register(pattern="^/howdoi (.*)")
@@ -3654,10 +3773,10 @@ async def howdoi(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3672,13 +3791,20 @@ async def howdoi(event):
 
 async def inline_query(client, bot, query):
     from telethon import custom
-    return custom.InlineResults(client, await client(functions.messages.GetInlineBotResultsRequest(
-        bot=bot,
-        peer='me',
-        query=query,
-        offset='',
-        geo_point=types.InputGeoPointEmpty(),
-    )))
+
+    return custom.InlineResults(
+        client,
+        await client(
+            functions.messages.GetInlineBotResultsRequest(
+                bot=bot,
+                peer="me",
+                query=query,
+                offset="",
+                geo_point=types.InputGeoPointEmpty(),
+            )),
+    )
+
+
 ## -- THANKS TO LONAMI FOR THIS FUNCTION --#
 
 # -- MADE BY @MissAlexa_Robot
@@ -3688,7 +3814,8 @@ async def inline_query(client, bot, query):
 async def ramdomgames(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "1+"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee", "1+"))[0].click("MissAlexaRobot",
+                                                              hide_via=True)
 
 
 @register(pattern="^/mathbattle$")
@@ -3697,10 +3824,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3711,9 +3838,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/gameed")
             response = await response
@@ -3726,7 +3851,8 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "MotoFX"))[0].click('MissAlexaRobot')
+    await (await inline_query(ubot, "@gamee",
+                              "MotoFX"))[0].click("MissAlexaRobot")
 
 
 @register(pattern="^/motofx$")
@@ -3735,10 +3861,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3748,9 +3874,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/jsusxjxhxhxshsjs")
             response = await response
@@ -3763,7 +3887,9 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "Penalty"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee",
+                              "Penalty"))[0].click("MissAlexaRobot",
+                                                   hide_via=True)
 
 
 @register(pattern="^/penaltyshooter$")
@@ -3772,10 +3898,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3785,9 +3911,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/jsuskhfkhdxjzhsjs")
             response = await response
@@ -3800,7 +3924,8 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "F1"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee", "F1"))[0].click("MissAlexaRobot",
+                                                              hide_via=True)
 
 
 @register(pattern="^/racingcar$")
@@ -3809,10 +3934,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3822,9 +3947,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/jslgggfsslaxvuoqdjlxvqs")
             response = await response
@@ -3837,7 +3960,9 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "Karate"))[1].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee",
+                              "Karate"))[1].click("MissAlexaRobot",
+                                                  hide_via=True)
 
 
 @register(pattern="^/karate$")
@@ -3846,10 +3971,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3859,9 +3984,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/jsdndbbduoqdjlxvqs")
             response = await response
@@ -3874,7 +3997,9 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "Football"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee",
+                              "Football"))[0].click("MissAlexaRobot",
+                                                    hide_via=True)
 
 
 @register(pattern="^/footballstar$")
@@ -3883,10 +4008,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3896,9 +4021,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/jsdndbafjaffajlxvqs")
             response = await response
@@ -3911,7 +4034,9 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "Neon"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee",
+                              "Neon"))[0].click("MissAlexaRobot",
+                                                hide_via=True)
 
 
 @register(pattern="^/neonblaster$")
@@ -3920,10 +4045,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3933,9 +4058,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/jsddjdhiwws")
             response = await response
@@ -3948,7 +4071,9 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "Disco"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee",
+                              "Disco"))[0].click("MissAlexaRobot",
+                                                 hide_via=True)
 
 
 @register(pattern="^/discoball$")
@@ -3957,10 +4082,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -3970,9 +4095,7 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/whwyywwhewws")
             response = await response
@@ -3985,7 +4108,9 @@ async def ramdomgamess(event):
 async def ramdomgamesk(event):
     if event.fwd_from:
         return
-    await (await inline_query(ubot, "@gamee", "Gravity"))[0].click('MissAlexaRobot', hide_via=True)
+    await (await inline_query(ubot, "@gamee",
+                              "Gravity"))[0].click("MissAlexaRobot",
+                                                   hide_via=True)
 
 
 @register(pattern="^/gravityninja$")
@@ -3994,10 +4119,10 @@ async def ramdomgamess(event):
         return
     approved_userss = approved_users.find({})
     for ch in approved_userss:
-        iid = ch['id']
-        userss = ch['user']
+        iid = ch["id"]
+        userss = ch["user"]
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             pass
         elif event.chat_id == iid and event.from_id == userss:
             pass
@@ -4007,32 +4132,35 @@ async def ramdomgamess(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1248815845))
+                events.NewMessage(incoming=True, from_users=1248815845))
             entity = await event.client.get_entity(OWNER_USERNAME)
             await tbot.send_message(entity, "/wssksskxxskss")
             response = await response
             await response.forward_to(event.chat_id)
         except Exception:
             pass
+
+
 profanity.load_censor_words()
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client['spam']
+db = client["spam"]
 spammers = db.spammer
 
 
 async def can_change_info(message):
-    result = await tbot(functions.channels.GetParticipantRequest(
-        channel=message.chat_id,
-        user_id=message.sender_id,
-    ))
+    result = await tbot(
+        functions.channels.GetParticipantRequest(
+            channel=message.chat_id,
+            user_id=message.sender_id,
+        ))
     p = result.participant
     return isinstance(p, types.ChannelParticipantCreator) or (isinstance(
         p, types.ChannelParticipantAdmin) and p.admin_rights.change_info)
-#------ THANKS TO LONAMI ------#
+
+
+# ------ THANKS TO LONAMI ------#
 
 # MADE BY @MissAlexa_Robot
 
@@ -4049,10 +4177,14 @@ async def sticklet(event):
     chats = spammers.find({})
     if not input:
         for c in chats:
-            if event.chat_id == c['id']:
-                await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **on**")
+            if event.chat_id == c["id"]:
+                await event.reply(
+                    "Please provide some input yes or no.\n\nCurrent setting is : **on**"
+                )
                 return
-        await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **off**")
+        await event.reply(
+            "Please provide some input yes or no.\n\nCurrent setting is : **off**"
+        )
         return
     if input in "on":
         if event.is_group:
@@ -4063,10 +4195,11 @@ async def sticklet(event):
                     return
 
             for c in chats:
-                if event.chat_id == c['id']:
-                    await event.reply("Profanity filter is already activated for this chat.")
+                if event.chat_id == c["id"]:
+                    await event.reply(
+                        "Profanity filter is already activated for this chat.")
                     return
-            spammers.insert_one({'id': event.chat_id})
+            spammers.insert_one({"id": event.chat_id})
             await event.reply("Profanity filter turned on for this chat.")
     if input in "off":
         if event.is_group:
@@ -4077,11 +4210,13 @@ async def sticklet(event):
                     return
             chats = spammers.find({})
             for c in chats:
-                if event.chat_id == c['id']:
-                    spammers.delete_one({'id': event.chat_id})
-                    await event.reply("Profanity filter turned off for this chat.")
+                if event.chat_id == c["id"]:
+                    spammers.delete_one({"id": event.chat_id})
+                    await event.reply(
+                        "Profanity filter turned off for this chat.")
                     return
-                await event.reply("Profanity filter isn't turned on for this chat.")
+                await event.reply(
+                    "Profanity filter isn't turned on for this chat.")
     if not input == "on" or input == "off":
         await event.reply("I only understand by on or off")
         return
@@ -4099,14 +4234,14 @@ async def spam_update(event):
     sender = await event.get_sender()
     let = sender.username
     if event.is_group:
-        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+        if await is_register_admin(event.input_chat, event.message.sender_id):
             return
         else:
             pass
     chats = spammers.find({})
     for c in chats:
         if event.text:
-            if event.chat_id == c['id']:
+            if event.chat_id == c["id"]:
                 if profanity.contains_profanity(msg) is True:
                     await event.delete()
                     if sender.username is None:
@@ -4114,21 +4249,21 @@ async def spam_update(event):
                         hh = sender.id
                         final = f"[{st}](tg://user?id={hh}) **{msg}** is detected as a slang word and your message has been deleted"
                     else:
-                        final = f'@{let} **{msg}** is detected as a slang word and your message has been deleted'
+                        final = f"@{let} **{msg}** is detected as a slang word and your message has been deleted"
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
         if event.photo:
-            if event.chat_id == c['id']:
+            if event.chat_id == c["id"]:
                 await event.client.download_media(event.photo, "nudes.jpg")
-                if nude.is_nude('./nudes.jpg') is True:
+                if nude.is_nude("./nudes.jpg") is True:
                     await event.delete()
                     if sender.username is None:
                         st = sender.first_name
                         hh = sender.id
                         final = f"[{st}](tg://user?id={hh}) your message has been deleted due to pornographic content"
                     else:
-                        final = f'@{let} your message has been deleted due to pornographic content'
+                        final = f"@{let} your message has been deleted due to pornographic content"
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
@@ -4185,7 +4320,7 @@ async def _(event):
                 force_document=True,
                 allow_cache=False,
                 caption=cmd,
-                reply_to=reply_to_id
+                reply_to=reply_to_id,
             )
 
     else:
@@ -4194,14 +4329,15 @@ async def _(event):
 
 async def aexec(code, smessatatus):
     message = event = smessatatus
-    def p(_x): return print(slitu.yaml_format(_x))
+
+    def p(_x):
+        return print(slitu.yaml_format(_x))
+
     reply = await event.get_reply_message()
-    exec(
-        'async def __aexec(message, reply, client, p): ' +
-        '\n event = smessatatus = message' +
-        ''.join(f'\n {l}' for l in code.split('\n'))
-    )
-    return await locals()['__aexec'](message, reply, message.client, p)
+    exec("async def __aexec(message, reply, client, p): " +
+         "\n event = smessatatus = message" +
+         "".join(f"\n {l}" for l in code.split("\n")))
+    return await locals()["__aexec"](message, reply, message.client, p)
 
 
 @alexabot(pattern=".eval")
@@ -4254,7 +4390,7 @@ async def _(event):
                 force_document=True,
                 allow_cache=False,
                 caption=cmd,
-                reply_to=reply_to_id
+                reply_to=reply_to_id,
             )
 
     else:
@@ -4331,16 +4467,17 @@ INFO_HANDLER = CommandHandler("info", info, pass_args=True)
 GITHUB_HANDLER = CommandHandler("git", github)
 REPO_HANDLER = CommandHandler("repo", repo, pass_args=True)
 ECHO_HANDLER = CommandHandler("echo", echo, filters=Filters.group)
-MD_HELP_HANDLER = CommandHandler(
-    "markdownhelp",
-    markdown_help,
-    filters=Filters.private)
+MD_HELP_HANDLER = CommandHandler("markdownhelp",
+                                 markdown_help,
+                                 filters=Filters.private)
 GDPR_HANDLER = CommandHandler("gdpr", gdpr, filters=Filters.private)
 PASTE_HANDLER = CommandHandler("paste", paste, pass_args=True)
-GET_PASTE_HANDLER = CommandHandler(
-    "getpaste", get_paste_content, pass_args=True)
-PASTE_STATS_HANDLER = CommandHandler(
-    "pastestats", get_paste_stats, pass_args=True)
+GET_PASTE_HANDLER = CommandHandler("getpaste",
+                                   get_paste_content,
+                                   pass_args=True)
+PASTE_STATS_HANDLER = CommandHandler("pastestats",
+                                     get_paste_stats,
+                                     pass_args=True)
 LYRICS_HANDLER = CommandHandler("lyrics", lyrics, pass_args=True)
 TIME_HANDLER = CommandHandler("datetime", gettime)
 STATS_HANDLER = CommandHandler("stats", stats, filters=Filters.user(OWNER_ID))
@@ -4370,8 +4507,6 @@ dispatcher.add_handler(GDPR_HANDLER)
 dispatcher.add_handler(GITHUB_HANDLER)
 dispatcher.add_handler(REPO_HANDLER)
 dispatcher.add_handler(
-    CommandHandler(
-        "removebotkeyboard",
-        reply_keyboard_remove))
+    CommandHandler("removebotkeyboard", reply_keyboard_remove))
 dispatcher.add_handler(SYNO_HANDLER)
 dispatcher.add_handler(ANTO_HANDLER)
