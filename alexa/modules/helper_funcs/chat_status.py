@@ -659,7 +659,6 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-from alexa.modules import connection
 from functools import wraps
 from telegram import Chat
 from telegram import ChatMember
@@ -929,34 +928,3 @@ def user_can_delete(func):
         return func(update, context, *args, **kwargs)
 
     return user_can_deletee
-
-
-def connection_status(func):
-    @wraps(func)
-    def connected_status(update: Update, context: CallbackContext, *args,
-                         **kwargs):
-        conn = connected(
-            context.bot,
-            update,
-            update.effective_chat,
-            update.effective_user.id,
-            need_admin=False)
-
-        if conn:
-            chat = dispatcher.bot.getChat(conn)
-            update.__setattr__("_effective_chat", chat)
-            return func(update, context, *args, **kwargs)
-        if update.effective_message.chat.type == "private":
-            update.effective_message.reply_text(
-                "Send /connect in a group that you and I have in common first."
-            )
-            return connected_status
-
-        return func(update, context, *args, **kwargs)
-
-    return connected_status
-
-
-# Workaround for circular import with connection.py
-
-connected = connection.connected
