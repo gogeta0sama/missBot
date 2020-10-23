@@ -674,10 +674,10 @@ from telegram.ext import run_async
 import alexa.modules.sql.connection_sql as sql
 from alexa import dispatcher
 from alexa import OWNER_ID
-from alexa.modules.helper_funcs import chat_status
+from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.alternate import send_message
 
-user_admin = chat_status.user_can_change
+user_admin = user_can_change
 
 
 @user_admin
