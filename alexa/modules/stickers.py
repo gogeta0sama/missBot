@@ -675,9 +675,8 @@ from telegram import Update
 from telegram.ext import CallbackContext
 from telegram.ext import run_async
 from telegram.utils.helpers import mention_html
-
+from telegram.ext import CommandHandler
 from alexa import dispatcher
-from alexa.modules.disable import CommandHandler
 from alexa.modules.helper_funcs.chat_status import user_admin
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
