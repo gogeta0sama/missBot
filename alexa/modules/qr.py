@@ -713,13 +713,13 @@ async def parseqr(qr_e):
         return
 
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
 
     if (await is_register_admin(qr_e.input_chat, qr_e.message.sender_id)):
        pass
-    elif qr_e.chat_id == iid and qr_e.from_id == userss:  
+    elif qr_e.chat_id == iid and qr_e.from_id == userss:
        pass
     else:
        return
@@ -746,13 +746,13 @@ async def make_qr(qrcode):
     if qrcode.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
 
     if (await is_register_admin(qrcode.input_chat, qrcode.message.sender_id)):
        pass
-    elif qrcode.chat_id == iid and qrcode.from_id == userss:  
+    elif qrcode.chat_id == iid and qrcode.from_id == userss:
        pass
     else:
        return

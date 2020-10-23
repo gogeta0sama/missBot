@@ -706,17 +706,17 @@ async def is_register_admin(chat, user):
 async def carbon_api(e):
     """this method of approve system is made by @AyushChatterjee, god will curse your family if you kang it motherfucker"""
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if e.is_group:
      if (await is_register_admin(e.input_chat, e.message.sender_id)):
        pass
-     elif e.chat_id == iid and e.from_id == userss:  
+     elif e.chat_id == iid and e.from_id == userss:
        pass
      else:
        return
-     
+
     jj = "`Processing..`"
     gg = await e.reply(jj)
     CARBON = "https://carbon.now.sh/?bg=rgba(239%2C40%2C44%2C1)&t=one-light&wt=none&l=application%2Ftypescript&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=143%25&si=false&es=2x&wm=false&code={code}"

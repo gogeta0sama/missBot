@@ -674,7 +674,7 @@ async def can_del(message):
     ))
     p = result.participant
     return isinstance(p, types.ChannelParticipantCreator) or (
-        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.delete_messages) 
+        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.delete_messages)
 #------ THANKS TO LONAMI ------#
 
 

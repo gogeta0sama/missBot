@@ -29,7 +29,7 @@ CommandHandlerList = (
     CommandHandler,
     CustomCommandHandler,
     )
-    
+
 command_list = [
     "cleanbluetext",
     "ignorecleanbluetext",
@@ -55,9 +55,9 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
 
    chat = update.effective_chat
    message = update.effective_message
-   user = update.effective_user  
+   user = update.effective_user
    member = chat.get_member(user.id)
-   chats = approved_users.find({})  
+   chats = approved_users.find({})
    for c in chats:
        iiid= c['id']
        usersss = c['user']
@@ -68,8 +68,8 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
    elif user.id == 1087968824:
            return
    if member.status in ("administrator", "creator"):
-      return 
-    
+      return
+
    if chat.get_member(context.bot.id).can_delete_messages:
         if sql.is_enabled(chat.id):
             fst_word = message.text.strip().split(None, 1)[0]

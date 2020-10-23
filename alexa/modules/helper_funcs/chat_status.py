@@ -704,11 +704,11 @@ def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
 
     if (chat.type == "private" or str(user_id) in str(OWNER_ID) or user_id == str(777000) or chat.all_members_are_administrators):
         return True
-    
-    if not member: 
+
+    if not member:
        member = chat.get_member(user_id)
-    
-    return member.status in ("administrator", "creator") 
+
+    return member.status in ("administrator", "creator")
 
 
 def is_bot_admin(chat: Chat, bot_id: int,
@@ -783,7 +783,7 @@ def user_admin(func):
     def is_admin(update, context, *args, **kwargs):
         user = update.effective_user  # type: Optional[User]
         chat = update.effective_chat
-    
+
         if user and is_user_admin(update.effective_chat, user.id):
             return func(update, context, *args, **kwargs)
         if not user:

@@ -1,34 +1,34 @@
 #                         GNU AFFERO GENERAL PUBLIC LICENSE
 #                            Version 3, 19 November 2007
-#     
+#
 #      Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
 #      Everyone is permitted to copy and distribute verbatim copies
 #      of this license document, but changing it is not allowed.
-#     
+#
 #                                 Preamble
-#     
+#
 #       The GNU Affero General Public License is a free, copyleft license for
 #     software and other kinds of works, specifically designed to ensure
 #     cooperation with the community in the case of network server software.
-#     
+#
 #       The licenses for most software and other practical works are designed
 #     to take away your freedom to share and change the works.  By contrast,
 #     our General Public Licenses are intended to guarantee your freedom to
 #     share and change all versions of a program--to make sure it remains free
 #     software for all its users.
-#     
+#
 #       When we speak of free software, we are referring to freedom, not
 #     price.  Our General Public Licenses are designed to make sure that you
 #     have the freedom to distribute copies of free software (and charge for
 #     them if you wish), that you receive source code or can get it if you
 #     want it, that you can change the software or use pieces of it in new
 #     free programs, and that you know you can do these things.
-#     
+#
 #       Developers that use our General Public Licenses protect your rights
 #     with two steps: (1) assert copyright on the software, and (2) offer
 #     you this License which gives you legal permission to copy, distribute
 #     and/or modify the software.
-#     
+#
 #       A secondary benefit of defending all users' freedom is that
 #     improvements made in alternate versions of the program, if they
 #     receive widespread use, become available for other developers to
@@ -38,7 +38,7 @@
 #     The GNU General Public License permits making a modified version and
 #     letting the public access it on a server without ever releasing its
 #     source code to the public.
-#     
+#
 #       The GNU Affero General Public License is designed specifically to
 #     ensure that, in such cases, the modified source code becomes available
 #     to the community.  It requires the operator of a network server to
@@ -46,48 +46,48 @@
 #     users of that server.  Therefore, public use of a modified version, on
 #     a publicly accessible server, gives the public access to the source
 #     code of the modified version.
-#     
+#
 #       An older license, called the Affero General Public License and
 #     published by Affero, was designed to accomplish similar goals.  This is
 #     a different license, not a version of the Affero GPL, but Affero has
 #     released a new version of the Affero GPL which permits relicensing under
 #     this license.
-#     
+#
 #       The precise terms and conditions for copying, distribution and
 #     modification follow.
-#     
+#
 #                            TERMS AND CONDITIONS
-#     
+#
 #       0. Definitions.
-#     
+#
 #       "This License" refers to version 3 of the GNU Affero General Public License.
-#     
+#
 #       "Copyright" also means copyright-like laws that apply to other kinds of
 #     works, such as semiconductor masks.
-#     
+#
 #       "The Program" refers to any copyrightable work licensed under this
 #     License.  Each licensee is addressed as "you".  "Licensees" and
 #     "recipients" may be individuals or organizations.
-#     
+#
 #       To "modify" a work means to copy from or adapt all or part of the work
 #     in a fashion requiring copyright permission, other than the making of an
 #     exact copy.  The resulting work is called a "modified version" of the
 #     earlier work or a work "based on" the earlier work.
-#     
+#
 #       A "covered work" means either the unmodified Program or a work based
 #     on the Program.
-#     
+#
 #       To "propagate" a work means to do anything with it that, without
 #     permission, would make you directly or secondarily liable for
 #     infringement under applicable copyright law, except executing it on a
 #     computer or modifying a private copy.  Propagation includes copying,
 #     distribution (with or without modification), making available to the
 #     public, and in some countries other activities as well.
-#     
+#
 #       To "convey" a work means any kind of propagation that enables other
 #     parties to make or receive copies.  Mere interaction with a user through
 #     a computer network, with no transfer of a copy, is not conveying.
-#     
+#
 #       An interactive user interface displays "Appropriate Legal Notices"
 #     to the extent that it includes a convenient and prominently visible
 #     feature that (1) displays an appropriate copyright notice, and (2)
@@ -96,18 +96,18 @@
 #     work under this License, and how to view a copy of this License.  If
 #     the interface presents a list of user commands or options, such as a
 #     menu, a prominent item in the list meets this criterion.
-#     
+#
 #       1. Source Code.
-#     
+#
 #       The "source code" for a work means the preferred form of the work
 #     for making modifications to it.  "Object code" means any non-source
 #     form of a work.
-#     
+#
 #       A "Standard Interface" means an interface that either is an official
 #     standard defined by a recognized standards body, or, in the case of
 #     interfaces specified for a particular programming language, one that
 #     is widely used among developers working in that language.
-#     
+#
 #       The "System Libraries" of an executable work include anything, other
 #     than the work as a whole, that (a) is included in the normal form of
 #     packaging a Major Component, but which is not part of that Major
@@ -118,7 +118,7 @@
 #     (kernel, window system, and so on) of the specific operating system
 #     (if any) on which the executable work runs, or a compiler used to
 #     produce the work, or an object code interpreter used to run it.
-#     
+#
 #       The "Corresponding Source" for a work in object code form means all
 #     the source code needed to generate, install, and (for an executable
 #     work) run the object code and to modify the work, including scripts to
@@ -131,16 +131,16 @@
 #     linked subprograms that the work is specifically designed to require,
 #     such as by intimate data communication or control flow between those
 #     subprograms and other parts of the work.
-#     
+#
 #       The Corresponding Source need not include anything that users
 #     can regenerate automatically from other parts of the Corresponding
 #     Source.
-#     
+#
 #       The Corresponding Source for a work in source code form is that
 #     same work.
-#     
+#
 #       2. Basic Permissions.
-#     
+#
 #       All rights granted under this License are granted for the term of
 #     copyright on the Program, and are irrevocable provided the stated
 #     conditions are met.  This License explicitly affirms your unlimited
@@ -148,7 +148,7 @@
 #     covered work is covered by this License only if the output, given its
 #     content, constitutes a covered work.  This License acknowledges your
 #     rights of fair use or other equivalent, as provided by copyright law.
-#     
+#
 #       You may make, run and propagate covered works that you do not
 #     convey, without conditions so long as your license otherwise remains
 #     in force.  You may convey covered works to others for the sole purpose
@@ -159,19 +159,19 @@
 #     for you must do so exclusively on your behalf, under your direction
 #     and control, on terms that prohibit them from making any copies of
 #     your copyrighted material outside their relationship with you.
-#     
+#
 #       Conveying under any other circumstances is permitted solely under
 #     the conditions stated below.  Sublicensing is not allowed; section 10
 #     makes it unnecessary.
-#     
+#
 #       3. Protecting Users' Legal Rights From Anti-Circumvention Law.
-#     
+#
 #       No covered work shall be deemed part of an effective technological
 #     measure under any applicable law fulfilling obligations under article
 #     11 of the WIPO copyright treaty adopted on 20 December 1996, or
 #     similar laws prohibiting or restricting circumvention of such
 #     measures.
-#     
+#
 #       When you convey a covered work, you waive any legal power to forbid
 #     circumvention of technological measures to the extent such circumvention
 #     is effected by exercising rights under this License with respect to
@@ -179,9 +179,9 @@
 #     modification of the work as a means of enforcing, against the work's
 #     users, your or third parties' legal rights to forbid circumvention of
 #     technological measures.
-#     
+#
 #       4. Conveying Verbatim Copies.
-#     
+#
 #       You may convey verbatim copies of the Program's source code as you
 #     receive it, in any medium, provided that you conspicuously and
 #     appropriately publish on each copy an appropriate copyright notice;
@@ -189,24 +189,24 @@
 #     non-permissive terms added in accord with section 7 apply to the code;
 #     keep intact all notices of the absence of any warranty; and give all
 #     recipients a copy of this License along with the Program.
-#     
+#
 #       You may charge any price or no price for each copy that you convey,
 #     and you may offer support or warranty protection for a fee.
-#     
+#
 #       5. Conveying Modified Source Versions.
-#     
+#
 #       You may convey a work based on the Program, or the modifications to
 #     produce it from the Program, in the form of source code under the
 #     terms of section 4, provided that you also meet all of these conditions:
-#     
+#
 #         a) The work must carry prominent notices stating that you modified
 #         it, and giving a relevant date.
-#     
+#
 #         b) The work must carry prominent notices stating that it is
 #         released under this License and any conditions added under section
 #         7.  This requirement modifies the requirement in section 4 to
 #         "keep intact all notices".
-#     
+#
 #         c) You must license the entire work, as a whole, under this
 #         License to anyone who comes into possession of a copy.  This
 #         License will therefore apply, along with any applicable section 7
@@ -214,12 +214,12 @@
 #         regardless of how they are packaged.  This License gives no
 #         permission to license the work in any other way, but it does not
 #         invalidate such permission if you have separately received it.
-#     
+#
 #         d) If the work has interactive user interfaces, each must display
 #         Appropriate Legal Notices; however, if the Program has interactive
 #         interfaces that do not display Appropriate Legal Notices, your
 #         work need not make them do so.
-#     
+#
 #       A compilation of a covered work with other separate and independent
 #     works, which are not by their nature extensions of the covered work,
 #     and which are not combined with it such as to form a larger program,
@@ -229,19 +229,19 @@
 #     beyond what the individual works permit.  Inclusion of a covered work
 #     in an aggregate does not cause this License to apply to the other
 #     parts of the aggregate.
-#     
+#
 #       6. Conveying Non-Source Forms.
-#     
+#
 #       You may convey a covered work in object code form under the terms
 #     of sections 4 and 5, provided that you also convey the
 #     machine-readable Corresponding Source under the terms of this License,
 #     in one of these ways:
-#     
+#
 #         a) Convey the object code in, or embodied in, a physical product
 #         (including a physical distribution medium), accompanied by the
 #         Corresponding Source fixed on a durable physical medium
 #         customarily used for software interchange.
-#     
+#
 #         b) Convey the object code in, or embodied in, a physical product
 #         (including a physical distribution medium), accompanied by a
 #         written offer, valid for at least three years and valid for as
@@ -253,13 +253,13 @@
 #         more than your reasonable cost of physically performing this
 #         conveying of source, or (2) access to copy the
 #         Corresponding Source from a network server at no charge.
-#     
+#
 #         c) Convey individual copies of the object code with a copy of the
 #         written offer to provide the Corresponding Source.  This
 #         alternative is allowed only occasionally and noncommercially, and
 #         only if you received the object code with such an offer, in accord
 #         with subsection 6b.
-#     
+#
 #         d) Convey the object code by offering access from a designated
 #         place (gratis or for a charge), and offer equivalent access to the
 #         Corresponding Source in the same way through the same place at no
@@ -272,16 +272,16 @@
 #         Corresponding Source.  Regardless of what server hosts the
 #         Corresponding Source, you remain obligated to ensure that it is
 #         available for as long as needed to satisfy these requirements.
-#     
+#
 #         e) Convey the object code using peer-to-peer transmission, provided
 #         you inform other peers where the object code and Corresponding
 #         Source of the work are being offered to the general public at no
 #         charge under subsection 6d.
-#     
+#
 #       A separable portion of the object code, whose source code is excluded
 #     from the Corresponding Source as a System Library, need not be
 #     included in conveying the object code work.
-#     
+#
 #       A "User Product" is either (1) a "consumer product", which means any
 #     tangible personal property which is normally used for personal, family,
 #     or household purposes, or (2) anything designed or sold for incorporation
@@ -294,7 +294,7 @@
 #     is a consumer product regardless of whether the product has substantial
 #     commercial, industrial or non-consumer uses, unless such uses represent
 #     the only significant mode of use of the product.
-#     
+#
 #       "Installation Information" for a User Product means any methods,
 #     procedures, authorization keys, or other information required to install
 #     and execute modified versions of a covered work in that User Product from
@@ -302,7 +302,7 @@
 #     suffice to ensure that the continued functioning of the modified object
 #     code is in no case prevented or interfered with solely because
 #     modification has been made.
-#     
+#
 #       If you convey an object code work under this section in, or with, or
 #     specifically for use in, a User Product, and the conveying occurs as
 #     part of a transaction in which the right of possession and use of the
@@ -313,7 +313,7 @@
 #     if neither you nor any third party retains the ability to install
 #     modified object code on the User Product (for example, the work has
 #     been installed in ROM).
-#     
+#
 #       The requirement to provide Installation Information does not include a
 #     requirement to continue to provide support service, warranty, or updates
 #     for a work that has been modified or installed by the recipient, or for
@@ -321,15 +321,15 @@
 #     network may be denied when the modification itself materially and
 #     adversely affects the operation of the network or violates the rules and
 #     protocols for communication across the network.
-#     
+#
 #       Corresponding Source conveyed, and Installation Information provided,
 #     in accord with this section must be in a format that is publicly
 #     documented (and with an implementation available to the public in
 #     source code form), and must require no special password or key for
 #     unpacking, reading or copying.
-#     
+#
 #       7. Additional Terms.
-#     
+#
 #       "Additional permissions" are terms that supplement the terms of this
 #     License by making exceptions from one or more of its conditions.
 #     Additional permissions that are applicable to the entire Program shall
@@ -338,41 +338,41 @@
 #     apply only to part of the Program, that part may be used separately
 #     under those permissions, but the entire Program remains governed by
 #     this License without regard to the additional permissions.
-#     
+#
 #       When you convey a copy of a covered work, you may at your option
 #     remove any additional permissions from that copy, or from any part of
 #     it.  (Additional permissions may be written to require their own
 #     removal in certain cases when you modify the work.)  You may place
 #     additional permissions on material, added by you to a covered work,
 #     for which you have or can give appropriate copyright permission.
-#     
+#
 #       Notwithstanding any other provision of this License, for material you
 #     add to a covered work, you may (if authorized by the copyright holders of
 #     that material) supplement the terms of this License with terms:
-#     
+#
 #         a) Disclaiming warranty or limiting liability differently from the
 #         terms of sections 15 and 16 of this License; or
-#     
+#
 #         b) Requiring preservation of specified reasonable legal notices or
 #         author attributions in that material or in the Appropriate Legal
 #         Notices displayed by works containing it; or
-#     
+#
 #         c) Prohibiting misrepresentation of the origin of that material, or
 #         requiring that modified versions of such material be marked in
 #         reasonable ways as different from the original version; or
-#     
+#
 #         d) Limiting the use for publicity purposes of names of licensors or
 #         authors of the material; or
-#     
+#
 #         e) Declining to grant rights under trademark law for use of some
 #         trade names, trademarks, or service marks; or
-#     
+#
 #         f) Requiring indemnification of licensors and authors of that
 #         material by anyone who conveys the material (or modified versions of
 #         it) with contractual assumptions of liability to the recipient, for
 #         any liability that these contractual assumptions directly impose on
 #         those licensors and authors.
-#     
+#
 #       All other non-permissive additional terms are considered "further
 #     restrictions" within the meaning of section 10.  If the Program as you
 #     received it, or any part of it, contains a notice stating that it is
@@ -382,46 +382,46 @@
 #     License, you may add to a covered work material governed by the terms
 #     of that license document, provided that the further restriction does
 #     not survive such relicensing or conveying.
-#     
+#
 #       If you add terms to a covered work in accord with this section, you
 #     must place, in the relevant source files, a statement of the
 #     additional terms that apply to those files, or a notice indicating
 #     where to find the applicable terms.
-#     
+#
 #       Additional terms, permissive or non-permissive, may be stated in the
 #     form of a separately written license, or stated as exceptions;
 #     the above requirements apply either way.
-#     
+#
 #       8. Termination.
-#     
+#
 #       You may not propagate or modify a covered work except as expressly
 #     provided under this License.  Any attempt otherwise to propagate or
 #     modify it is void, and will automatically terminate your rights under
 #     this License (including any patent licenses granted under the third
 #     paragraph of section 11).
-#     
+#
 #       However, if you cease all violation of this License, then your
 #     license from a particular copyright holder is reinstated (a)
 #     provisionally, unless and until the copyright holder explicitly and
 #     finally terminates your license, and (b) permanently, if the copyright
 #     holder fails to notify you of the violation by some reasonable means
 #     prior to 60 days after the cessation.
-#     
+#
 #       Moreover, your license from a particular copyright holder is
 #     reinstated permanently if the copyright holder notifies you of the
 #     violation by some reasonable means, this is the first time you have
 #     received notice of violation of this License (for any work) from that
 #     copyright holder, and you cure the violation prior to 30 days after
 #     your receipt of the notice.
-#     
+#
 #       Termination of your rights under this section does not terminate the
 #     licenses of parties who have received copies or rights from you under
 #     this License.  If your rights have been terminated and not permanently
 #     reinstated, you do not qualify to receive new licenses for the same
 #     material under section 10.
-#     
+#
 #       9. Acceptance Not Required for Having Copies.
-#     
+#
 #       You are not required to accept this License in order to receive or
 #     run a copy of the Program.  Ancillary propagation of a covered work
 #     occurring solely as a consequence of using peer-to-peer transmission
@@ -430,14 +430,14 @@
 #     modify any covered work.  These actions infringe copyright if you do
 #     not accept this License.  Therefore, by modifying or propagating a
 #     covered work, you indicate your acceptance of this License to do so.
-#     
+#
 #       10. Automatic Licensing of Downstream Recipients.
-#     
+#
 #       Each time you convey a covered work, the recipient automatically
 #     receives a license from the original licensors, to run, modify and
 #     propagate that work, subject to this License.  You are not responsible
 #     for enforcing compliance by third parties with this License.
-#     
+#
 #       An "entity transaction" is a transaction transferring control of an
 #     organization, or substantially all assets of one, or subdividing an
 #     organization, or merging organizations.  If propagation of a covered
@@ -447,7 +447,7 @@
 #     give under the previous paragraph, plus a right to possession of the
 #     Corresponding Source of the work from the predecessor in interest, if
 #     the predecessor has it or can get it with reasonable efforts.
-#     
+#
 #       You may not impose any further restrictions on the exercise of the
 #     rights granted or affirmed under this License.  For example, you may
 #     not impose a license fee, royalty, or other charge for exercise of
@@ -455,13 +455,13 @@
 #     (including a cross-claim or counterclaim in a lawsuit) alleging that
 #     any patent claim is infringed by making, using, selling, offering for
 #     sale, or importing the Program or any portion of it.
-#     
+#
 #       11. Patents.
-#     
+#
 #       A "contributor" is a copyright holder who authorizes use under this
 #     License of the Program or a work on which the Program is based.  The
 #     work thus licensed is called the contributor's "contributor version".
-#     
+#
 #       A contributor's "essential patent claims" are all patent claims
 #     owned or controlled by the contributor, whether already acquired or
 #     hereafter acquired, that would be infringed by some manner, permitted
@@ -471,19 +471,19 @@
 #     purposes of this definition, "control" includes the right to grant
 #     patent sublicenses in a manner consistent with the requirements of
 #     this License.
-#     
+#
 #       Each contributor grants you a non-exclusive, worldwide, royalty-free
 #     patent license under the contributor's essential patent claims, to
 #     make, use, sell, offer for sale, import and otherwise run, modify and
 #     propagate the contents of its contributor version.
-#     
+#
 #       In the following three paragraphs, a "patent license" is any express
 #     agreement or commitment, however denominated, not to enforce a patent
 #     (such as an express permission to practice a patent or covenant not to
 #     sue for patent infringement).  To "grant" such a patent license to a
 #     party means to make such an agreement or commitment not to enforce a
 #     patent against the party.
-#     
+#
 #       If you convey a covered work, knowingly relying on a patent license,
 #     and the Corresponding Source of the work is not available for anyone
 #     to copy, free of charge and under the terms of this License, through a
@@ -497,7 +497,7 @@
 #     covered work in a country, or your recipient's use of the covered work
 #     in a country, would infringe one or more identifiable patents in that
 #     country that you have reason to believe are valid.
-#     
+#
 #       If, pursuant to or in connection with a single transaction or
 #     arrangement, you convey, or propagate by procuring conveyance of, a
 #     covered work, and grant a patent license to some of the parties
@@ -505,7 +505,7 @@
 #     or convey a specific copy of the covered work, then the patent license
 #     you grant is automatically extended to all recipients of the covered
 #     work and works based on it.
-#     
+#
 #       A patent license is "discriminatory" if it does not include within
 #     the scope of its coverage, prohibits the exercise of, or is
 #     conditioned on the non-exercise of one or more of the rights that are
@@ -520,13 +520,13 @@
 #     for and in connection with specific products or compilations that
 #     contain the covered work, unless you entered into that arrangement,
 #     or that patent license was granted, prior to 28 March 2007.
-#     
+#
 #       Nothing in this License shall be construed as excluding or limiting
 #     any implied license or other defenses to infringement that may
 #     otherwise be available to you under applicable patent law.
-#     
+#
 #       12. No Surrender of Others' Freedom.
-#     
+#
 #       If conditions are imposed on you (whether by court order, agreement or
 #     otherwise) that contradict the conditions of this License, they do not
 #     excuse you from the conditions of this License.  If you cannot convey a
@@ -536,9 +536,9 @@
 #     to collect a royalty for further conveying from those to whom you convey
 #     the Program, the only way you could satisfy both those terms and this
 #     License would be to refrain entirely from conveying the Program.
-#     
+#
 #       13. Remote Network Interaction; Use with the GNU General Public License.
-#     
+#
 #       Notwithstanding any other provision of this License, if you modify the
 #     Program, your modified version must prominently offer all users
 #     interacting with it remotely through a computer network (if your version
@@ -549,7 +549,7 @@
 #     shall include the Corresponding Source for any work covered by version 3
 #     of the GNU General Public License that is incorporated pursuant to the
 #     following paragraph.
-#     
+#
 #       Notwithstanding any other provision of this License, you have
 #     permission to link or combine any covered work with a work licensed
 #     under version 3 of the GNU General Public License into a single
@@ -557,14 +557,14 @@
 #     License will continue to apply to the part which is the covered work,
 #     but the work with which it is combined will remain governed by version
 #     3 of the GNU General Public License.
-#     
+#
 #       14. Revised Versions of this License.
-#     
+#
 #       The Free Software Foundation may publish revised and/or new versions of
 #     the GNU Affero General Public License from time to time.  Such new versions
 #     will be similar in spirit to the present version, but may differ in detail to
 #     address new problems or concerns.
-#     
+#
 #       Each version is given a distinguishing version number.  If the
 #     Program specifies that a certain numbered version of the GNU Affero General
 #     Public License "or any later version" applies to it, you have the
@@ -573,19 +573,19 @@
 #     Foundation.  If the Program does not specify a version number of the
 #     GNU Affero General Public License, you may choose any version ever published
 #     by the Free Software Foundation.
-#     
+#
 #       If the Program specifies that a proxy can decide which future
 #     versions of the GNU Affero General Public License can be used, that proxy's
 #     public statement of acceptance of a version permanently authorizes you
 #     to choose that version for the Program.
-#     
+#
 #       Later license versions may give you additional or different
 #     permissions.  However, no additional obligations are imposed on any
 #     author or copyright holder as a result of your choosing to follow a
 #     later version.
-#     
+#
 #       15. Disclaimer of Warranty.
-#     
+#
 #       THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
 #     APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
 #     HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
@@ -594,9 +594,9 @@
 #     PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
 #     IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
 #     ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
-#     
+#
 #       16. Limitation of Liability.
-#     
+#
 #       IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
 #     WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
 #     THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
@@ -606,47 +606,47 @@
 #     PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
 #     EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
 #     SUCH DAMAGES.
-#     
+#
 #       17. Interpretation of Sections 15 and 16.
-#     
+#
 #       If the disclaimer of warranty and limitation of liability provided
 #     above cannot be given local legal effect according to their terms,
 #     reviewing courts shall apply local law that most closely approximates
 #     an absolute waiver of all civil liability in connection with the
 #     Program, unless a warranty or assumption of liability accompanies a
 #     copy of the Program in return for a fee.
-#     
+#
 #                          END OF TERMS AND CONDITIONS
-#     
+#
 #                 How to Apply These Terms to Your New Programs
-#     
+#
 #       If you develop a new program, and you want it to be of the greatest
 #     possible use to the public, the best way to achieve this is to make it
 #     free software which everyone can redistribute and change under these terms.
-#     
+#
 #       To do so, attach the following notices to the program.  It is safest
 #     to attach them to the start of each source file to most effectively
 #     state the exclusion of warranty; and each file should have at least
 #     the "copyright" line and a pointer to where the full notice is found.
-#     
+#
 #         <one line to give the program's name and a brief idea of what it does.>
 #         Copyright (C) <year>  <name of author>
-#     
+#
 #         This program is free software: you can redistribute it and/or modify
 #         it under the terms of the GNU Affero General Public License as published
 #         by the Free Software Foundation, either version 3 of the License, or
 #         (at your option) any later version.
-#     
+#
 #         This program is distributed in the hope that it will be useful,
 #         but WITHOUT ANY WARRANTY; without even the implied warranty of
 #         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #         GNU Affero General Public License for more details.
-#     
+#
 #         You should have received a copy of the GNU Affero General Public License
 #         along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#     
+#
 #     Also add information on how to contact you by electronic and paper mail.
-#     
+#
 #       If your software can interact with users remotely through a computer
 #     network, you should also make sure that it provides a way for users to
 #     get its source.  For example, if your program is a web application, its
@@ -654,7 +654,7 @@
 #     of the code.  There are many ways you could offer source, and different
 #     solutions will be better for different programs; see section 13 for the
 #     specific requirements.
-#     
+#
 #       You should also get your employer (if you work as a programmer) or school,
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
@@ -785,9 +785,9 @@ async def can_ban_users(message):
     ))
     p = result.participant
     return isinstance(p, types.ChannelParticipantCreator) or (
-        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.ban_users) 
+        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.ban_users)
 #------ THANKS TO LONAMI ------#
- 
+
 
 @user_admin
 @run_async
@@ -860,7 +860,7 @@ def info(update, context):
     msg = update.effective_message  # type: Optional[Message]
     user_id = extract_user(update.effective_message, args)
     chat = update.effective_chat
-    
+
     if user_id:
         user = context.bot.get_chat(user_id)
 
@@ -897,7 +897,7 @@ def info(update, context):
 
     text += "\nNumber of profile pics: {}".format(
         context.bot.get_user_profile_photos(user.id).total_count)
-    
+
 
     if user.id == OWNER_ID:
         text += "\n\nAy, this guy is my owner.\nI would never do anything against him!"
@@ -915,7 +915,7 @@ def info(update, context):
     except BadRequest:
         pass
 
-        
+
     for mod in USER_INFO:
         try:
             mod_info = mod.__user_info__(user.id).strip()
@@ -931,7 +931,7 @@ def info(update, context):
      for c in chats:
        if chat.id == c['id'] and user.id == c['user']:
           text += "\n\n<b>This user is approved in this chat</b>"
-          
+
 
     try:
         profile = context.bot.get_user_profile_photos(user.id).photos[0][-1]
@@ -1192,13 +1192,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1217,7 +1217,7 @@ async def _(event):
     lan = lan.strip()
     try:
         tts = gTTS(text, tld='com', lang=lan)
-        tts.save("k.mp3") 
+        tts.save("k.mp3")
     except AssertionError:
         await event.reply('The text is empty.\n'
                          'Nothing left to speak after pre-precessing, '
@@ -1240,13 +1240,13 @@ async def _(event):
 async def wiki(wiki_q):
     """ For .google command, fetch content from Wikipedia. """
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if wiki_q.is_group:
      if (await is_register_admin(wiki_q.input_chat, wiki_q.message.sender_id)):
        pass
-     elif wiki_q.chat_id == iid and wiki_q.from_id == userss:  
+     elif wiki_q.chat_id == iid and wiki_q.from_id == userss:
        pass
      else:
        return
@@ -1276,18 +1276,18 @@ async def wiki(wiki_q):
     await wiki_q.reply("**Search:**\n`" + match + "`\n\n**Result:**\n" + result)
 import html2text
 
-@register(pattern="^/google (.*)") 
+@register(pattern="^/google (.*)")
 async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1302,7 +1302,7 @@ async def _(event):
         url = result.get("url")
         description = result.get("description")
         last = html2text.html2text(description)
-        output_str += "[{}]({})\n{}\n".format(text, url, last)       
+        output_str += "[{}]({})\n{}\n".format(text, url, last)
     await event.reply("{}".format(output_str), link_preview=False, parse_mode='Markdown')
 
 import aiohttp
@@ -1313,13 +1313,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1366,13 +1366,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
         pass
-    elif event.chat_id == iid and event.from_id == userss:  
+    elif event.chat_id == iid and event.from_id == userss:
         pass
     else:
        return
@@ -1386,21 +1386,21 @@ async def _(event):
         with io.BytesIO(response_api) as out_file:
             await event.reply(
                 file=out_file)
-            
 
- 
+
+
 @register(pattern="^/figlet (.*)")
 async def figlet(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1427,13 +1427,13 @@ async def img_sampler(event):
      if event.fwd_from:
         return
      approved_userss = approved_users.find({})
-     for ch in approved_userss: 
+     for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
      if event.is_group:
       if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-      elif event.chat_id == iid and event.from_id == userss:  
+      elif event.chat_id == iid and event.from_id == userss:
        pass
       else:
        return
@@ -1458,8 +1458,8 @@ def shrug(update: Update, context: CallbackContext):
         message.reply_to_message.reply_text(default_msg)
     else:
         message.reply_text(default_msg)
-        
-        
+
+
 from PyDictionary import PyDictionary
 dictionary=PyDictionary()
 
@@ -1510,13 +1510,13 @@ def antonyms(update: Update, context: CallbackContext):
 async def yts_search(video_q):
     # For .yts command, do a YouTube search from Telegram.
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if video_q.is_group:
      if (await is_register_admin(video_q.input_chat, video_q.message.sender_id)):
        pass
-     elif video_q.chat_id == iid and video_q.from_id == userss:  
+     elif video_q.chat_id == iid and video_q.from_id == userss:
        pass
      else:
        return
@@ -1529,7 +1529,7 @@ async def yts_search(video_q):
         )
         return
 
-   
+
     full_response = await youtube_search(query)
     videos_json = full_response[1]
 
@@ -1581,20 +1581,20 @@ async def youtube_search(query,
 """Get Administrators of any Chat*
 Syntax: .userlist"""
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
-                                                                                    
+
 @register(pattern="^/users$")
 async def get_users(show):
         if not show.is_group:
             await show.reply("Are you sure this is a group?")
             return
         approved_userss = approved_users.find({})
-        for ch in approved_userss: 
+        for ch in approved_userss:
             iid = ch['id']
             userss = ch['user']
         if show.is_group:
          if (await is_register_admin(show.input_chat, show.message.sender_id)):
            pass
-         elif show.chat_id == iid and show.from_id == userss:  
+         elif show.chat_id == iid and show.from_id == userss:
            pass
          else:
            return
@@ -1616,19 +1616,19 @@ async def get_users(show):
                 reply_to=show.id,
                 )
         os.remove("userslist.txt")
-import bs4 
+import bs4
 from telethon import *
 
 @register(pattern="^/app (.*)")
 async def apk(e):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if e.is_group:
      if (await is_register_admin(e.input_chat, e.message.sender_id)):
        pass
-     elif e.chat_id == iid and e.from_id == userss:  
+     elif e.chat_id == iid and e.from_id == userss:
        pass
      else:
        return
@@ -1662,13 +1662,13 @@ from cowpy import cow
 @register(pattern=r"^/(\w+)say (.*)")
 async def univsaye(cowmsg):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if cowmsg.is_group:
      if (await is_register_admin(cowmsg.input_chat, cowmsg.message.sender_id)):
        pass
-     elif cowmsg.chat_id == iid and cowmsg.from_id == userss:  
+     elif cowmsg.chat_id == iid and cowmsg.from_id == userss:
        pass
      else:
        return
@@ -1685,7 +1685,7 @@ async def univsaye(cowmsg):
         cheese = cheese()
 
         await cowmsg.reply(f"`{cheese.milk(text).replace('`', '´')}`")
- 
+
 
 @tbot.on(events.NewMessage(pattern="^/zombies(?: |$)(.*)"))
 async def rm_deletedacc(show):
@@ -1693,23 +1693,23 @@ async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
     del_status = "`No deleted accounts found, Group is cleaned as Hell`"
-    
+
     if show.is_private:
         return
-        
+
     if show.is_group:
        if str(show.from_id) in str(OWNER_ID):
           pass
        else:
          if not await can_ban_users(message=show):
            return
-    
+
     if con != "clean":
         await show.reply("`Searching for zombie accounts...`")
         async for user in show.client.iter_participants(show.chat_id):
             if user.deleted:
                 del_u += 1
-         
+
         if del_u > 0:
             del_status = f"Found **{del_u}** deleted account(s) in this group,\
             \nclean them by using `/zombies clean`"
@@ -1782,13 +1782,13 @@ async def get_ocr_languages(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1826,13 +1826,13 @@ async def parse_ocr_space_api(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1855,7 +1855,7 @@ async def parse_ocr_space_api(event):
     else:
         await event.reply("Read Document in {} seconds. \n{}".format(ProcessingTimeInMilliseconds, ParsedText))
     os.remove(downloaded_file_name)
-   
+
 
 
 
@@ -1875,13 +1875,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1914,7 +1914,7 @@ async def _(event):
                 transcript_confidence = ""
                 for alternative in results:
                     alternatives = alternative["alternatives"][0]
-                    transcript_response += " " + str(alternatives["transcript"]) 
+                    transcript_response += " " + str(alternatives["transcript"])
                     transcript_confidence += " " + str(alternatives["confidence"]) + " + "
                 end = datetime.datetime.now()
                 ms = (end - start).seconds
@@ -1937,7 +1937,7 @@ async def _(event):
      return
   if event.fwd_from:
      return
- 
+
   news_url="https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en"
   Client=urlopen(news_url)
   xml_page=Client.read()
@@ -1961,13 +1961,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -1987,13 +1987,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -2014,13 +2014,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -2156,13 +2156,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -2172,7 +2172,7 @@ async def _(event):
        server = f'https://api.wolframalpha.com/v1/spoken?appid={appid}&i={i}'
        res = get(server)
        await event.reply(f'**{i}**\n\n' + res.text, parse_mode='Markdown')
- 
+
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
         required_file_name = await event.client.download_media(previous_message, TEMP_DOWNLOAD_DIRECTORY)
@@ -2197,37 +2197,37 @@ async def _(event):
                 transcript_confidence = ""
                 for alternative in results:
                     alternatives = alternative["alternatives"][0]
-                    transcript_response += " " + str(alternatives["transcript"]) 
+                    transcript_response += " " + str(alternatives["transcript"])
                 if transcript_response != "":
-                    string_to_show = "{}".format(transcript_response)           
+                    string_to_show = "{}".format(transcript_response)
                     appid = WOLFRAM_ID
                     server = f'https://api.wolframalpha.com/v1/spoken?appid={appid}&i={string_to_show}'
-                    res = get(server)                    
+                    res = get(server)
                     answer = res.text
                     try:
                        tts = gTTS(answer, tld='com', lang='en')
                        tts.save("results.mp3")
-                    except AssertionError: 
+                    except AssertionError:
                       return
-                    except ValueError:    
+                    except ValueError:
                       return
-                    except RuntimeError:        
+                    except RuntimeError:
                       return
                     except gTTSError:
                       return
                     with open("results.mp3", "r"):
                         await event.client.send_file(event.chat_id, "results.mp3", voice_note=True, reply_to=event.id)
                     os.remove("results.mp3")
-                else:                   
+                else:
                     try:
                        answer = "Sorry I can't recognise your query"
                        tts = gTTS(answer, tld='com', lang='en')
                        tts.save("results.mp3")
-                    except AssertionError: 
+                    except AssertionError:
                       return
-                    except ValueError:    
+                    except ValueError:
                       return
-                    except RuntimeError:        
+                    except RuntimeError:
                       return
                     except gTTSError:
                       return
@@ -2244,41 +2244,41 @@ telegraph.create_account(short_name='Alexa')
 @register(pattern="^/torrent (.*)")
 async def tor_search(event):
    if event.fwd_from:
-      return 
+      return
    approved_userss = approved_users.find({})
-   for ch in approved_userss: 
+   for ch in approved_userss:
        iid = ch['id']
        userss = ch['user']
    if event.is_group:
     if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-    elif event.chat_id == iid and event.from_id == userss:  
+    elif event.chat_id == iid and event.from_id == userss:
        pass
     else:
        return
    str = event.pattern_match.group(1)
    let = f'"{str}"'
-   jit = subprocess.check_output(["we-get", "-s", let, "-J"])   
+   jit = subprocess.check_output(["we-get", "-s", let, "-J"])
    proc = jit.decode()
    sit = proc.replace("{", "")
    pit = sit.replace("}", "")
    op = pit.replace(",", "")
    seta = f"Magnets for {str} are below:"
    response = telegraph.create_page(seta, html_content=op)
-   await event.reply('Magnet Links for {}:\n\nhttps://telegra.ph/{}'.format(str,response['path']), link_preview=False) 
+   await event.reply('Magnet Links for {}:\n\nhttps://telegra.ph/{}'.format(str,response['path']), link_preview=False)
 
 @register(pattern="^/fortune$")
 async def fortunate(event):
    if event.fwd_from:
-      return 
+      return
    approved_userss = approved_users.find({})
-   for ch in approved_userss: 
+   for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
    if event.is_group:
     if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-    elif event.chat_id == iid and event.from_id == userss:  
+    elif event.chat_id == iid and event.from_id == userss:
        pass
     else:
        return
@@ -2291,38 +2291,38 @@ from alexa import *
 @register(pattern="^/helptorrent$")
 async def helptorrent(event):
  if event.fwd_from or event.is_group:
-    return 
+    return
  else:
    topa = "./alexa/Tutorial_For_Torrent.mp4"
-   file = await event.client.upload_file(topa) 
+   file = await event.client.upload_file(topa)
    await event.client.send_file(event.chat_id, file, caption="Tutorial For Torrent Module", reply_to=event.id)
-   
+
 @register(pattern="^/helpcamscanner$")
 async def helpcam(event):
  if event.fwd_from or event.is_group:
-    return 
+    return
  else:
    topa = "./alexa/Tutorial for Camscanner.mp4"
-   file = await event.client.upload_file(topa) 
+   file = await event.client.upload_file(topa)
    await event.client.send_file(event.chat_id, file, caption="Tutorial For Camscanner Module", reply_to=event.id)
-   
+
 
 @register(pattern=r'^/phone (.*)')
-async def phone(event): 
+async def phone(event):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
     information = event.pattern_match.group(1)
     number = information
-    key = "fe65b94e78fc2e3234c1c6ed1b771abd" 
+    key = "fe65b94e78fc2e3234c1c6ed1b771abd"
     api = "http://apilayer.net/api/validate?access_key=" + key + "&number=" + number + "&country_code=&format=1"
     output = requests.get(api)
     content = output.text
@@ -2331,8 +2331,8 @@ async def phone(event):
     country_name = obj['country_name']
     location = obj['location']
     carrier = obj['carrier']
-    line_type = obj['line_type']	
-    validornot = obj['valid']	
+    line_type = obj['line_type']
+    validornot = obj['valid']
     aa = "Valid: "+str(validornot)
     a = "Phone number: "+str(number)
     b = "Country: " +str(country_code)
@@ -2343,7 +2343,7 @@ async def phone(event):
     g = f"{aa}\n{a}\n{b}\n{c}\n{d}\n{e}\n{f}"
     await event.reply(g)
 from telethon import *
-                                   
+
 def online_within(participant):
   status = participant.status
   print(status)
@@ -2352,13 +2352,13 @@ def online_within(participant):
   else:
     last_seen = status.was_online if isinstance(status, types.UserStatusOffline) else None
     print(last_seen)
-  
+
 
 @tbot.on(events.NewMessage(pattern="^/kickthefools"))
 async def _(event):
     if event.fwd_from:
         return
-    
+
     if event.is_private:
         return
 
@@ -2369,45 +2369,45 @@ async def _(event):
     KICK_RIGHTS = ChatBannedRights(until_date=None, view_messages=True)
     done = await event.reply("Working ...")
     async for i in event.client.iter_participants(event.chat_id):
-        
+
         if isinstance(i.status, UserStatusLastMonth):
             status = await event.client(EditBannedRequest(event.chat_id, i, KICK_RIGHTS))
             if not status:
                return
             else:
                c = c + 1
-                    
+
         if isinstance(i.status, UserStatusLastWeek):
             status = await event.client(EditBannedRequest(event.chat_id, i, KICK_RIGHTS))
             if not status:
                return
             else:
-               c = c + 1             
-            
+               c = c + 1
+
     if c == 0:
        await done.edit("Got no one to kick 😔")
-       return      
-    
+       return
+
     required_string = "Successfully Kicked **{}** users"
     await event.reply(required_string.format(c))
 
-      
+
 
 @register(pattern="^/camscanner$")
 async def asciiart(event):
   if event.fwd_from:
-     return  
+     return
   if not event.from_id:
      await event.reply("Reply To A Image Plox..")
      return
   approved_userss = approved_users.find({})
-  for ch in approved_userss: 
+  for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
   if event.is_group:
    if (await is_register_admin(event.input_chat, event.message.sender_id)):
       pass
-   elif event.chat_id == iid and event.from_id == userss:  
+   elif event.chat_id == iid and event.from_id == userss:
       pass
    else:
       return
@@ -2435,7 +2435,7 @@ async def asciiart(event):
         os.remove(os.path.join(directory, item))
     elif item.endswith(".jpeg"):
         os.remove(os.path.join(directory, item))
-    
+
 import barcode
 from barcode.writer import ImageWriter
 
@@ -2445,13 +2445,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -2527,10 +2527,10 @@ async def _(event):
                 await event.reply(str(ex))
             else:
                 p += 1
-            
+
     if p == 0:
        await done.edit("No one is banned in this chat")
-       return      
+       return
     required_string = "Successfully unbanned **{}** users"
     await event.reply(required_string.format(p))
 
@@ -2564,10 +2564,10 @@ async def _(event):
                 await event.reply(str(ex))
             else:
                 p += 1
-            
+
     if p == 0:
        await done.edit("No one is muted in this chat")
-       return      
+       return
     required_string = "Successfully unmuted **{}** users"
     await event.reply(required_string.format(p))
 
@@ -2576,7 +2576,7 @@ async def _(event):
 # Oringinal Source from Nicegrill: https://github.com/erenmetesar/NiceGrill/
 # Ported to Lynda by: @pokurt
 from PIL import ImageDraw, ImageFont, ImageOps
-from fontTools.ttLib import TTFont 
+from fontTools.ttLib import TTFont
 import emoji
 import textwrap
 import logging
@@ -2836,7 +2836,7 @@ async def drawer(width, height):
 
         # Middle part
         middle = Image.new("RGBA", (top.width, height + 75), (29, 29, 29, 255))
-        
+
         # Bottom part
         bottom = ImageOps.flip(top)
 
@@ -2905,11 +2905,11 @@ async def emoji_fetch(emoji):
         else:
             img = emojis["⛔"]
             return await transparent(urllib.request.urlretrieve(img, "resources/emoji.png")[0])
-        
+
 async def transparent(emoji):
         emoji = Image.open(emoji).convert("RGBA")
         emoji.thumbnail((40, 40))
-        
+
         # Mask
         mask = Image.new("L", (40, 40), 0)
         draw = ImageDraw.Draw(mask)
@@ -2940,19 +2940,19 @@ async def replied_user(draw, tot, text, maxlength, title):
             else:
                 draw.text((180 + space, 132), letter, font=textfont, fill="white")
                 space += textfont.getsize(letter)[0]
-                
+
 @register(pattern="^/quotly$")
 async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -2984,7 +2984,7 @@ EMOJI_PATTERN = re.compile(
     "\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
     "\U0001FA00-\U0001FA6F"  # Chess Symbols
     "\U0001FA70-\U0001FAFF"  # Symbols and Pictographs Extended-A
-    "\U00002702-\U000027B0"  # Dingbats 
+    "\U00002702-\U000027B0"  # Dingbats
     "]+")
 
 def deEmojify(inputString: str) -> str:
@@ -3001,20 +3001,20 @@ async def waifu(animu):
   null = await sticcers[0].download_media(TEMP_DOWNLOAD_DIRECTORY)
   global bara
   bara = str(null)
-  
+
   print("sticker downloaded successfully")
 
 
 @register(pattern="^/animate (.*)")
 async def stickerizer(event):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -3035,20 +3035,20 @@ async def stickerizer(event):
 async def saat(event):
   chat = "@FileToLinkTGbot"
   async with event.client.conversation(chat) as conv:
-    try:     
+    try:
        response = conv.wait_event(events.NewMessage(incoming=True,from_users=1011636686))
        await event.client.send_file(chat, debloat)
-       response = await response 
-    except YouBlockedUserError: 
+       response = await response
+    except YouBlockedUserError:
          return
     if not response:
           return
     if response.text.startswith("🔗"):
     #    my_string= response.text
-    #    p = re.compile(":(.*)")    
-    #    global holababy  
+    #    p = re.compile(":(.*)")
+    #    global holababy
     #    holababy = p.findall(my_string)
-      global holababy  
+      global holababy
       holababy = response.text
 
 
@@ -3056,43 +3056,43 @@ async def saat(event):
 @register(pattern="^/savefile$")
 async def savel(event):
   if event.fwd_from:
-    return 
+    return
   if not event.reply_to_msg_id:
     return
   approved_userss = approved_users.find({})
-  for ch in approved_userss: 
+  for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
   if event.is_group:
    if (await is_register_admin(event.input_chat, event.message.sender_id)):
       pass
-   elif event.chat_id == iid and event.from_id == userss:  
+   elif event.chat_id == iid and event.from_id == userss:
       pass
    else:
       return
 
-  reply_message = await event.get_reply_message() 
+  reply_message = await event.get_reply_message()
   global debloat
   debloat = await reply_message.download_media(TEMP_DOWNLOAD_DIRECTORY)
   entity = await event.client.get_entity(OWNER_USERNAME)
   randika = await event.client.send_message(entity, "/saved")
   await event.reply(f"{holababy}")
   await randika.delete()
-        
-    
+
+
 from telethon.tl.types import InputMessagesFilterDocument
 
 
 @register(pattern="^/sticklet (.*)")
 async def sticklet(event):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
       pass
      else:
       return
@@ -3103,7 +3103,7 @@ async def sticklet(event):
     # get the input text
     # the text on which we would like to do the magic on
     sticktext= event.pattern_match.group(1)
-    
+
     # delete the userbot command,
     # i don't know why this is required
     # await event.delete()
@@ -3116,7 +3116,7 @@ async def sticklet(event):
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
     fontsize = 230
-    
+
     FONT_FILE = await get_font_file(ubot, "@IndianBot_Fonts")
 
     font = ImageFont.truetype(FONT_FILE, size=fontsize)
@@ -3166,13 +3166,13 @@ async def _(event):
     if event.fwd_from:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -3189,7 +3189,7 @@ async def _(event):
     # s = r.replace("'Fear'", "")
     t = o.replace(", ", "\n\n")
     await event.reply(t)
-    
+
 @run_async
 @user_admin
 def echo(update: Update, context: CallbackContext):
@@ -3321,7 +3321,7 @@ SLAP_TEMPLATES = (
     "{user2} lost his race piece!",  #No game no life reference
     "Shut up {user2}, you are just {user2}.",  #No game no life reference
     "{user1} hits {user2} with Aka si anse!",  #No game no life reference
-    "@NeoTheKitty scratches {user2}",  #Pixels pet cat - @NeoTheKitty 
+    "@NeoTheKitty scratches {user2}",  #Pixels pet cat - @NeoTheKitty
     "Majin buu ate {user2}",  #Dbz
     "Goblin slayer slays {user2}",  #Goblin Slayer
 )
@@ -3519,15 +3519,15 @@ def pingall(update: Update, context: CallbackContext):
 @register(pattern="^/howdoi (.*)")
 async def howdoi(event):
    if event.fwd_from:
-      return 
+      return
    approved_userss = approved_users.find({})
-   for ch in approved_userss: 
+   for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
    if event.is_group:
     if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-    elif event.chat_id == iid and event.from_id == userss:  
+    elif event.chat_id == iid and event.from_id == userss:
        pass
     else:
        return
@@ -3553,33 +3553,33 @@ async def inline_query(client, bot, query):
 @alexabot(pattern="^/gameed")
 async def ramdomgames(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "1+"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/mathbattle$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
 
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/gameed")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3587,32 +3587,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/jsusxjxhxhxshsjs")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "MotoFX"))[0].click('MissAlexaRobot')
 
 
 @register(pattern="^/motofx$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/jsusxjxhxhxshsjs")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3620,32 +3620,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/jsuskhfkhdxjzhsjs")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "Penalty"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/penaltyshooter$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/jsuskhfkhdxjzhsjs")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3653,32 +3653,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/jslgggfsslaxvuoqdjlxvqs")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "F1"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/racingcar$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/jslgggfsslaxvuoqdjlxvqs")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3686,32 +3686,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/jsdndbbduoqdjlxvqs")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "Karate"))[1].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/karate$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/jsdndbbduoqdjlxvqs")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3719,32 +3719,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/jsdndbafjaffajlxvqs")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "Football"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/footballstar$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/jsdndbafjaffajlxvqs")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3752,32 +3752,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/jsddjdhiwws")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "Neon"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/neonblaster$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/jsddjdhiwws")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3785,32 +3785,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/whwyywwhewws")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "Disco"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/discoball$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/whwyywwhewws")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3818,32 +3818,32 @@ async def ramdomgamess(event):
 @alexabot(pattern="^/wssksskxxskss")
 async def ramdomgamesk(event):
  if event.fwd_from:
-  return 
+  return
  await (await inline_query(ubot, "@gamee", "Gravity"))[0].click('MissAlexaRobot', hide_via=True)
 
 
 @register(pattern="^/gravityninja$")
 async def ramdomgamess(event):
  if event.fwd_from:
-  return 
+  return
  approved_userss = approved_users.find({})
- for ch in approved_userss: 
+ for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
  if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
  chat = "@MissAlexa_Robot"
- async with event.client.conversation(chat) as conv: 
-  try:     
+ async with event.client.conversation(chat) as conv:
+  try:
    response = conv.wait_event(events.NewMessage(incoming=True,from_users=1248815845))
    entity = await event.client.get_entity(OWNER_USERNAME)
    await tbot.send_message(entity, "/wssksskxxskss")
-   response = await response 
+   response = await response
    await response.forward_to(event.chat_id)
   except Exception:
    pass
@@ -3862,15 +3862,15 @@ async def can_change_info(message):
     ))
     p = result.participant
     return isinstance(p, types.ChannelParticipantCreator) or (
-        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.change_info) 
+        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.change_info)
 #------ THANKS TO LONAMI ------#
- 
+
 # MADE BY @MissAlexa_Robot
 
 @register(pattern="^/profanity(?: |$)(.*)")
 async def sticklet(event):
     if event.fwd_from:
-        return  
+        return
     if event.is_private:
         return
     if MONGO_DB_URI is None:
@@ -3879,19 +3879,19 @@ async def sticklet(event):
     chats = spammers.find({})
     if not input:
      for c in chats:
-        if event.chat_id == c['id']:         
+        if event.chat_id == c['id']:
            await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **on**")
            return
      await event.reply("Please provide some input yes or no.\n\nCurrent setting is : **off**")
      return
-    if input in "on": 
+    if input in "on":
      if event.is_group:
        if str(event.from_id) in str(OWNER_ID):
            pass
        else:
           if not await can_change_info(message=event):
              return
- 
+
        for c in chats:
          if event.chat_id == c['id']:
              await event.reply("Profanity filter is already activated for this chat.")
@@ -3907,7 +3907,7 @@ async def sticklet(event):
              return
        chats = spammers.find({})
        for c in chats:
-         if event.chat_id == c['id']:            
+         if event.chat_id == c['id']:
            spammers.delete_one({'id':event.chat_id})
            await event.reply("Profanity filter turned off for this chat.")
            return
@@ -3915,14 +3915,14 @@ async def sticklet(event):
     if not input == "on" or input == "off":
        await event.reply("I only understand by on or off")
        return
-     
+
 import nude
 
-@tbot.on(events.NewMessage())      
+@tbot.on(events.NewMessage())
 async def spam_update(event):
   if event.fwd_from:
-    return  
-  if event.is_private:  	
+    return
+  if event.is_private:
    return
   if MONGO_DB_URI is None:
    return
@@ -3933,10 +3933,10 @@ async def spam_update(event):
     if (await is_register_admin(event.input_chat, event.message.sender_id)):
        return
     else:
-       pass     
+       pass
   chats = spammers.find({})
   for c in chats:
-   if event.text: 
+   if event.text:
     if event.chat_id == c['id']:
      if profanity.contains_profanity(msg) is True:
         await event.delete()
@@ -4016,7 +4016,7 @@ async def _(event):
                 caption=cmd,
                 reply_to=reply_to_id
             )
-            
+
     else:
         await event.reply(final_output)
 
@@ -4084,7 +4084,7 @@ async def _(event):
                 caption=cmd,
                 reply_to=reply_to_id
             )
-            
+
     else:
         await event.edit(final_output)
 
@@ -4113,38 +4113,38 @@ If you are still messed up send `/helpcamscanner` in pm for the tutorial !
  - /gps: <location> Get gps location.
  - /imdb - Get full info about a movie with imdb.com
  - /img <text>: Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
- - /img2text <lang>: Type in reply to a image to extract the text from it 	
- - /img2textlang: List all the available languages	
- - /phone <number in international format>: Check if the number really exists and returns information about it.If the number is fake then it will return null-type response 
+ - /img2text <lang>: Type in reply to a image to extract the text from it
+ - /img2textlang: List all the available languages
+ - /phone <number in international format>: Check if the number really exists and returns information about it.If the number is fake then it will return null-type response
 Example: `/phone +9162XX93X805`, `/phone +1916X978XX1`
  - /news: Returns today's Indian Headlines (ONLY WORKS IN PM)
  - /getqr: Get the QR Code content from the replied QR Code
  - /makeqr <content>: Make a QR Code from the given message (text, link, etc...)
  - /reverse: Does a reverse image search of the media which it was replied to.
- - /rmbg: Type in reply to a media to remove it's background 
+ - /rmbg: Type in reply to a media to remove it's background
  - /stt: Type in reply to a voice message(english only) to extract text from it.
  - /tts <lang | text>: Returns a speech note of the text provided
  - /torrent <text>: Search for torrent links
 If you are still messed up send `/helptorrent` in pm for the tutorial !
- - /wall <topic>: Searches best wallpaper on the given topic and returns them 
+ - /wall <topic>: Searches best wallpaper on the given topic and returns them
  - /weather <city>: Get weather info in a particular place
  - /wttr <city>: Advanced weather module, usage same as /weather
- - /wttr moon: Get the current status of moon 
+ - /wttr moon: Get the current status of moon
  - /wiki <text>: Returns search from wikipedia for the input text
  - /yt <text>: perform a youtube search
  - /ytaudio <link> or /ytvideo <link>: Downlods a video or audio from a youtube video to the bots local server
  - /zip: reply to a telegram file to compressing in .zip format
  - /unzip: reply to a telegram file to decompress it from the .zip format
  - /git <username>: Returns info about a GitHub user or organization.
- - /repo <username>: Return the GitHub user or organization repository list  
- - /app <appname>: Search for an app in playstore 
+ - /repo <username>: Return the GitHub user or organization repository list
+ - /app <appname>: Search for an app in playstore
  - /magisk: Get the latest Magisk releases
  - /device <codename>: Get info about an Android device
  - /codename <brand> <device>: Search for Android device codename
  - /specs <brand> <device>: Get device specifications info
  - /twrp <codename>: Get the latest TWRP download for an Android device
  - /song <songname artist(optional)>: uploads the song in it's best quality available
- - /lyrics <songname artist (optional)>: get the lyrics of a song 
+ - /lyrics <songname artist (optional)>: get the lyrics of a song
  - /barcode <text>: makes a barcode out of the text, crop the barcode if you don't want to reveal the text
 - /savefile: Gives you a permanent link of a file so that you can download it later anytime
 """

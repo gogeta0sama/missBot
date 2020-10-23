@@ -39,17 +39,17 @@ async def is_register_admin(chat, user):
 @register(pattern="^/poll (.*)")
 async def _(event):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
-    try: 
+    try:
       quew= event.pattern_match.group(1)
     except Exception:
        await event.reply("Where is the question ?")
@@ -57,7 +57,7 @@ async def _(event):
     if "|" in quew:
          secrets, quess, options = quew.split("|")
     secret = secrets.strip()
-    
+
     if not secret:
         await event.reply("I need a poll id of 5 digits to make a poll")
         return
@@ -76,17 +76,17 @@ async def _(event):
     if count != 5:
         await event.reply("Poll id should be an integer of 5 digits")
         return
-  
+
     allpoll = poll_id.find({})
     for c in allpoll:
       if event.from_id == c['user'] and secret == c['pollid']:
           await event.reply("Please give another poll id, this id is already used")
           return
       poll_id.insert_one({'user':event.from_id,'pollid':secret})
-    
+
     ques = quess.strip()
     option = options.strip()
-    quiz = option.split(' ')[1-1] 
+    quiz = option.split(' ')[1-1]
     if "True" in quiz:
        quizy = True
        if "@" in quiz:
@@ -94,65 +94,65 @@ async def _(event):
           rightone = two.strip()
        else:
           await event.reply("You need to select the right answer with question number like True@1, True@3 etc..")
-          return          
+          return
 
        quizoptionss = []
-       try: 
-         ab = option.split(' ')[4-1] 
-         cd = option.split(' ')[5-1] 
+       try:
+         ab = option.split(' ')[4-1]
+         cd = option.split(' ')[5-1]
          quizoptionss.append(types.PollAnswer(ab, b'1'))
          quizoptionss.append(types.PollAnswer(cd, b'2'))
        except Exception:
          await event.reply("At least need two options to create a poll")
          return
        try:
-         ef = option.split(' ')[6-1] 
+         ef = option.split(' ')[6-1]
          quizoptionss.append(types.PollAnswer(ef, b'3'))
        except Exception:
-         ef = None        
+         ef = None
        try:
-         gh = option.split(' ')[7-1] 
+         gh = option.split(' ')[7-1]
          quizoptionss.append(types.PollAnswer(gh, b'4'))
        except Exception:
-         gh = None  
+         gh = None
        try:
-         ij = option.split(' ')[8-1] 
+         ij = option.split(' ')[8-1]
          quizoptionss.append(types.PollAnswer(ij, b'5'))
        except Exception:
          ij = None
        try:
-         kl = option.split(' ')[9-1] 
+         kl = option.split(' ')[9-1]
          quizoptionss.append(types.PollAnswer(kl, b'6'))
        except Exception:
          kl = None
        try:
-         mn = option.split(' ')[10-1] 
+         mn = option.split(' ')[10-1]
          quizoptionss.append(types.PollAnswer(mn, b'7'))
        except Exception:
-         mn = None        
+         mn = None
        try:
-         op = option.split(' ')[11-1] 
+         op = option.split(' ')[11-1]
          quizoptionss.append(types.PollAnswer(op, b'8'))
        except Exception:
-         op = None   
+         op = None
        try:
-         qr = option.split(' ')[12-1] 
+         qr = option.split(' ')[12-1]
          quizoptionss.append(types.PollAnswer(qr, b'9'))
        except Exception:
-         qr= None   
+         qr= None
        try:
-         st = option.split(' ')[13-1] 
+         st = option.split(' ')[13-1]
          quizoptionss.append(types.PollAnswer(st, b'10'))
        except Exception:
-         st = None   
-         
+         st = None
+
     elif "False" in quiz:
        quizy = False
     else:
        await event.reply("Wrong arguments provided !")
        return
-       
-    pvote = option.split(' ')[2-1] 
+
+    pvote = option.split(' ')[2-1]
     if "True" in pvote:
        pvoty = True
     elif "False" in pvote:
@@ -160,7 +160,7 @@ async def _(event):
     else:
        await event.reply("Wrong arguments provided !")
        return
-    mchoice = option.split(' ')[3-1] 
+    mchoice = option.split(' ')[3-1]
     if "True" in mchoice:
        mchoicee = True
     elif "False" in mchoice:
@@ -169,56 +169,56 @@ async def _(event):
        await event.reply("Wrong arguments provided !")
        return
     optionss = []
-    try: 
-      ab = option.split(' ')[4-1] 
-      cd = option.split(' ')[5-1] 
+    try:
+      ab = option.split(' ')[4-1]
+      cd = option.split(' ')[5-1]
       optionss.append(types.PollAnswer(ab, b'1'))
       optionss.append(types.PollAnswer(cd, b'2'))
     except Exception:
       await event.reply("At least need two options to create a poll")
       return
     try:
-      ef = option.split(' ')[6-1] 
+      ef = option.split(' ')[6-1]
       optionss.append(types.PollAnswer(ef, b'3'))
     except Exception:
-      ef = None     
+      ef = None
     try:
-      gh = option.split(' ')[7-1] 
+      gh = option.split(' ')[7-1]
       optionss.append(types.PollAnswer(gh, b'4'))
     except Exception:
-      gh = None  
+      gh = None
     try:
-      ij = option.split(' ')[8-1] 
+      ij = option.split(' ')[8-1]
       optionss.append(types.PollAnswer(ij, b'5'))
     except Exception:
       ij = None
     try:
-      kl = option.split(' ')[9-1] 
+      kl = option.split(' ')[9-1]
       optionss.append(types.PollAnswer(kl, b'6'))
     except Exception:
       kl = None
     try:
-      mn = option.split(' ')[10-1] 
+      mn = option.split(' ')[10-1]
       optionss.append(types.PollAnswer(mn, b'7'))
     except Exception:
-      mn = None     
+      mn = None
     try:
-      op = option.split(' ')[11-1] 
+      op = option.split(' ')[11-1]
       optionss.append(types.PollAnswer(op, b'8'))
     except Exception:
-      op = None   
+      op = None
     try:
-      qr = option.split(' ')[12-1] 
+      qr = option.split(' ')[12-1]
       optionss.append(types.PollAnswer(qr, b'9'))
     except Exception:
-      qr= None   
+      qr= None
     try:
-      st = option.split(' ')[13-1] 
+      st = option.split(' ')[13-1]
       optionss.append(types.PollAnswer(st, b'10'))
     except Exception:
-      st = None   
-  
-    if pvoty is False and quizy is False and mchoicee is False:      
+      st = None
+
+    if pvoty is False and quizy is False and mchoicee is False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
@@ -226,39 +226,39 @@ async def _(event):
         answers=optionss,
         quiz=False)))
 
-      
-    if pvoty is True and quizy is False and mchoicee is True:      
+
+    if pvoty is True and quizy is False and mchoicee is True:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
         answers=optionss,
         quiz=False,
-        multiple_choice=True, 
+        multiple_choice=True,
         public_voters=True)))
 
 
-    if pvoty is False and quizy is False and mchoicee is True:      
+    if pvoty is False and quizy is False and mchoicee is True:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
         answers=optionss,
         quiz=False,
-        multiple_choice=True, 
+        multiple_choice=True,
         public_voters=False)))
-   
- 
-    if pvoty is True and quizy is False and mchoicee is False:      
+
+
+    if pvoty is True and quizy is False and mchoicee is False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
         id=12345,
         question=ques,
         answers=optionss,
         quiz=False,
-        multiple_choice=False, 
+        multiple_choice=False,
         public_voters=True)))
-            
+
 
     if pvoty is False and quizy is True and mchoicee is False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
@@ -269,7 +269,7 @@ async def _(event):
         quiz=True
     ),
     correct_answers=[f"{rightone}"]))
-    
+
     if pvoty is True and quizy is True and mchoicee is False:
      await tbot.send_file(event.chat_id, types.InputMediaPoll(
       poll=types.Poll(
@@ -280,7 +280,7 @@ async def _(event):
         public_voters=True
     ),
     correct_answers=[f"{rightone}"]))
-    
+
     if pvoty is True and quizy is True and mchoicee is True:
        await event.reply("You can't use multiple voting with quiz mode")
        return
@@ -293,13 +293,13 @@ async def _(event):
 async def stop(event):
    secret = event.pattern_match.group(1)
    approved_userss = approved_users.find({})
-   for ch in approved_userss: 
+   for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
    if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -327,16 +327,16 @@ async def stop(event):
      msg = await event.get_reply_message()
      print(msg.from_id)
      if str(msg.from_id) != "PeerUser(user_id=1199522861)":
-       await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")     
+       await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")
        return
-     if msg.poll:     
+     if msg.poll:
       allpoll = poll_id.find({})
       for c in allpoll:
          if not event.from_id == c['user'] and secret == c['pollid']:
             await event.reply("Oops, either you haven't created this poll or you have given wrong poll id")
             return
-         poll_id.delete_one({'user':event.from_id,'pollid':secret})     
-         pollid = msg.poll.poll.id 
+         poll_id.delete_one({'user':event.from_id,'pollid':secret})
+         pollid = msg.poll.poll.id
          await msg.edit(file=types.InputMediaPoll(
           poll=types.Poll(
              id=pollid,
@@ -347,5 +347,5 @@ async def stop(event):
      else:
         await event.reply("This isn't a poll")
     except Exception:
-       await event.reply("I can't do this operation on this poll.\nProbably it's already closed")     
+       await event.reply("I can't do this operation on this poll.\nProbably it's already closed")
        return

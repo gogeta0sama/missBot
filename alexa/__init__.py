@@ -758,9 +758,9 @@ if ENV:
 
     # Load at end to ensure all prev variables have been set
     from alexa.modules.helper_funcs.handlers import CustomCommandHandler
-    
+
     tg.CommandHandler = CustomCommandHandler
-    
+
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL", "https://github.com/MissAlexaRobot/MissAlexaRobot.git")
@@ -823,6 +823,6 @@ if ENV:
     except PhoneNumberInvalidError:
         print(INVALID_PH)
         sys.exit(1)
-        
+
 else:
     sys.exit(1)

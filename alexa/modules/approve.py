@@ -684,9 +684,9 @@ async def can_approve_users(message):
     ))
     p = result.participant
     return isinstance(p, types.ChannelParticipantCreator) or (
-        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.add_admins) 
+        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.add_admins)
 
- 
+
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
 
@@ -709,28 +709,28 @@ async def is_register_admin(chat, user):
 
 #------ THANKS TO LONAMI ------#
 
- 
+
 @register(pattern="^/approve(?: |$)(.*)")
 async def approve(event):
 	if event.fwd_from:
-		return  
+		return
 	if MONGO_DB_URI is None:
 		return
 	chat_id = event.chat.id
-	sender = event.from_id 
-	reply_msg = await event.get_reply_message()	
+	sender = event.from_id
+	reply_msg = await event.get_reply_message()
 	approved_userss = approved_users.find({})
-	
+
 	if event.is_group:
 	       if not await can_approve_users(message=event):
 	       	return
-	
+
 	ik = event.pattern_match.group(1)
 	if ik.isdigit():
 		input = int(ik)
 	else:
 		input = ik.replace("@", "")
-	
+
 	if not input:
 		iid = reply_msg.from_id if event.reply_to_msg_id else await event.reply("Reply To Someone's Message Or Provide Some Input")
 	elif input:
@@ -741,17 +741,17 @@ async def approve(event):
 		cunt = input
 		dent = await tbot.get_entity(cunt)
 		iid = dent.id
-			
+
 	if await is_register_admin(event.input_chat, iid):
 		await event.reply("Why will I approve an admin ?")
 		return
-	
+
 
 	if iid == event.from_id or iid == event.from_id:
 		await event.reply('Why are you trying to approve yourself ?')
 		print("6")
 		return
-		
+
 	if event.from_id == 1361631434 or iid == 1361631434:
 		await event.reply('I am not gonna approve myself')
 		print("7")
@@ -761,33 +761,33 @@ async def approve(event):
 	for c in chats:
 		if event.chat_id == c['id'] and iid == c['user']:
 			await event.reply("This User is Already Approved")
-			return 
+			return
 
 	approved_users.insert_one({'id':event.chat_id,'user':iid})
 	await event.reply("Successfully Approved User")
-	
+
 
 @register(pattern="^/disapprove(?: |$)(.*)")
 async def disapprove(event):
 	if event.fwd_from:
-		return  
+		return
 	if MONGO_DB_URI is None:
 		return
 	chat_id = event.chat.id
-	sender = event.from_id 
-	reply_msg = await event.get_reply_message()	
+	sender = event.from_id
+	reply_msg = await event.get_reply_message()
 	approved_userss = approved_users.find({})
-	
+
 	if event.is_group:
 	       if not await can_approve_users(message=event):
 	       	return
-	
+
 	ik = event.pattern_match.group(1)
 	if ik.isdigit():
 		input = int(ik)
 	else:
 		input = ik.replace("@", "")
-	
+
 	if not input:
 		iid = reply_msg.from_id if event.reply_to_msg_id else await event.reply("Reply To Someone's Message Or Provide Some Input")
 	elif input:
@@ -798,7 +798,7 @@ async def disapprove(event):
 		cunt = input
 		dent = await tbot.get_entity(cunt)
 		iid = dent.id
-			
+
 	if await is_register_admin(event.input_chat, iid):
 		await event.reply("Why will I disapprove an admin ?")
 		return
@@ -807,7 +807,7 @@ async def disapprove(event):
 		await event.reply('Why are you trying to disapprove yourself ?')
 		print("6")
 		return
-		
+
 	if event.from_id == 1361631434 or iid == 1361631434:
 		await event.reply('I am not gonna disapprove myself')
 		print("7")
@@ -820,28 +820,28 @@ async def disapprove(event):
 			await event.reply("Successfully Disapproved User")
 			return
 	await event.reply("This User isn't approved yet")
-	
+
 @register(pattern="^/checkstatus(?: |$)(.*)")
 async def checkst(event):
 	if event.fwd_from:
-		return  
+		return
 	if MONGO_DB_URI is None:
 		return
 	chat_id = event.chat.id
-	sender = event.from_id 
-	reply_msg = await event.get_reply_message()	
+	sender = event.from_id
+	reply_msg = await event.get_reply_message()
 	approved_userss = approved_users.find({})
-	
+
 	if event.is_group:
 	       if not await can_approve_users(message=event):
 	       	return
-			
+
 	ik = event.pattern_match.group(1)
 	if ik.isdigit():
 		input = int(ik)
 	else:
 		input = ik.replace("@", "")
-	
+
 	if not input:
 		iid = reply_msg.from_id if event.reply_to_msg_id else await event.reply("Reply To Someone's Message Or Provide Some Input")
 	elif input:
@@ -852,38 +852,38 @@ async def checkst(event):
 		cunt = input
 		dent = await tbot.get_entity(cunt)
 		iid = dent.id
-			
+
 	if await is_register_admin(event.input_chat, iid):
 		await event.reply("Why will check status of an admin ?")
 		return
-	
+
 	if event.from_id == 1361631434 or iid == 1361631434:
 		await event.reply('I am not gonna check my status')
 		print("7")
 		return
-	
+
 	chats = approved_users.find({})
 	for c in chats:
 		if event.chat_id == c['id'] and iid == c['user']:
 			await event.reply("This User is Approved")
-			return 
+			return
 	await event.reply("This user isn't Approved")
 
 
 @register(pattern="^/listapproved$")
 async def apprlst(event):
 	if event.fwd_from:
-		return  
+		return
 	if MONGO_DB_URI is None:
 		return
 	chat_id = event.chat.id
-	sender = event.from_id 
-	reply_msg = await event.get_reply_message()	
-	
+	sender = event.from_id
+	reply_msg = await event.get_reply_message()
+
 	if event.is_group:
 	       if not await can_approve_users(message=event):
 	       	return
-	
+
 	autos = approved_users.find({})
 	pp = ""
 	for i in autos:
@@ -902,4 +902,4 @@ async def apprlst(event):
 		await event.reply(pp)
 	except Exception:
 		await event.reply("No one is approved in this chat.")
-	
+

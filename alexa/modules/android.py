@@ -706,13 +706,13 @@ async def magisk(event):
     if event.from_id == None:
         return
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
      if (await is_register_admin(event.input_chat, event.message.sender_id)):
        pass
-     elif event.chat_id == iid and event.from_id == userss:  
+     elif event.chat_id == iid and event.from_id == userss:
        pass
      else:
        return
@@ -754,13 +754,13 @@ async def magisk(event):
 @register(pattern=r"^/device(?: |$)(\S*)")
 async def device_info(request):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if request.is_group:
       if (await is_register_admin(request.input_chat, request.message.sender_id)):
        pass
-      elif request.chat_id == iid and request.from_id == userss:  
+      elif request.chat_id == iid and request.from_id == userss:
        pass
       else:
        return
@@ -792,13 +792,13 @@ async def device_info(request):
 @register(pattern=r"^/codename(?: |)([\S]*)(?: |)([\s\S]*)")
 async def codename_info(request):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if request.is_group:
      if (await is_register_admin(request.input_chat, request.message.sender_id)):
        pass
-     elif request.chat_id == iid and request.from_id == userss:  
+     elif request.chat_id == iid and request.from_id == userss:
        pass
      else:
        return
@@ -842,13 +842,13 @@ async def codename_info(request):
 @register(pattern=r"^/specs(?: |)([\S]*)(?: |)([\s\S]*)")
 async def devices_specifications(request):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if request.is_group:
      if (await is_register_admin(request.input_chat, request.message.sender_id)):
        pass
-     elif request.chat_id == iid and request.from_id == userss:  
+     elif request.chat_id == iid and request.from_id == userss:
        pass
      else:
        return
@@ -907,13 +907,13 @@ async def devices_specifications(request):
 @register(pattern=r"^/twrp(?: |$)(\S*)")
 async def twrp(request):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if request.is_group:
      if (await is_register_admin(request.input_chat, request.message.sender_id)):
        pass
-     elif request.chat_id == iid and request.from_id == userss:  
+     elif request.chat_id == iid and request.from_id == userss:
        pass
      else:
        return

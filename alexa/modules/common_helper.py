@@ -756,7 +756,7 @@ __help__ = """
  - /connection <chatid>: Connect to remote chat
  - /disconnect: disconnects a chat from pm
  - /helpconnect: gets the available list commands
- - /gbanstat on/off/yes/no: Enable the effect of global bans in your chat thus saving you from spammers, leechers and the biggest trolls. This is enabled by default ensuring the safety of your group 
+ - /gbanstat on/off/yes/no: Enable the effect of global bans in your chat thus saving you from spammers, leechers and the biggest trolls. This is enabled by default ensuring the safety of your group
 """
 
 __mod_name__ = "Helpers 🤗"

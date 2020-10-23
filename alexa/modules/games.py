@@ -9,7 +9,7 @@ __help__ = """
  - /racingcar
  - /karate
  - /footballstar
- - /gravityninja 
+ - /gravityninja
  - /discoball
  - /neonblaster
 """

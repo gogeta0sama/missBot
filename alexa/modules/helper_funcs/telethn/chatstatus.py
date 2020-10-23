@@ -6,7 +6,7 @@ async def user_is_ban_protected(user_id: int, message):
     status = False
     if message.is_private or str(user_id) in str(OWNER_ID):
         return True
-    
+
     async for user in tbot.iter_participants(
             message.chat_id, filter=ChannelParticipantsAdmins):
         if user_id == user.id:

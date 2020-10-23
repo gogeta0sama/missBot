@@ -698,17 +698,17 @@ async def is_register_admin(chat, user):
 @register(pattern="^/type (.*)")
 async def typewriter(typew):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if typew.is_group:
      if (await is_register_admin(typew.input_chat, typew.message.sender_id)):
        pass
-     elif typew.chat_id == iid and typew.from_id == userss:  
+     elif typew.chat_id == iid and typew.from_id == userss:
        pass
      else:
        return
-    
+
     message = typew.pattern_match.group(1)
     if message:
         pass

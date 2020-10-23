@@ -702,13 +702,13 @@ async def is_register_admin(chat, user):
 @register(pattern="^/imdb (.*)")
 async def imdb(e):
     approved_userss = approved_users.find({})
-    for ch in approved_userss: 
+    for ch in approved_userss:
         iid = ch['id']
         userss = ch['user']
     if e.is_group:
      if (await is_register_admin(e.input_chat, e.message.sender_id)):
        pass
-     elif e.chat_id == iid and e.from_id == userss:  
+     elif e.chat_id == iid and e.from_id == userss:
        pass
      else:
        return
