@@ -682,7 +682,7 @@ import alexa.modules.sql.notes_sql as sql
 from alexa import dispatcher
 from alexa import LOGGER
 from alexa import MESSAGE_DUMP
-from alexa.modules.connection import connected
+
 from alexa.modules.helper_funcs.chat_status import user_admin_no_reply
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.misc import build_keyboard
@@ -718,13 +718,9 @@ def get(bot, update, notename, show_none=True, no_format=False):
     chat_id = update.effective_chat.id
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-    conn = connected(bot, update, chat, user.id, need_admin=False)
-    if conn:
-        chat_id = conn
-        send_id = user.id
-    else:
-        chat_id = update.effective_chat.id
-        send_id = chat_id
+    
+    chat_id = update.effective_chat.id
+    send_id = chat_id
 
     note = sql.get_note(chat_id, notename)
     message = update.effective_message  # type: Optional[Message]
@@ -891,15 +887,11 @@ def hash_get(update, context):
 def save(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-    conn = connected(context.bot, update, chat, user.id)
-    if conn is False:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+  
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             chat_name = "local notes"
-        else:
+    else:
             chat_name = chat.title
 
     msg = update.effective_message
@@ -935,17 +927,13 @@ def clear(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     msg = update.effective_message
-    conn = connected(context.bot, update, chat, user.id)
+    
     note_name, text, data_type, content, buttons = get_note_type(msg)
 
-    if conn is False:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             chat_name = "local notes"
-        else:
+    else:
             chat_name = chat.title
 
     if len(args) >= 1:
@@ -968,17 +956,12 @@ def list_notes(update, context):
     chat_id = update.effective_chat.id
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-    conn = connected(context.bot, update, chat, user.id, need_admin=False)
-    if conn is False:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-        msg = "*Notes in {}:*\n"
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+    
+    chat_id = update.effective_chat.id
+     if chat.type == "private":
             chat_name = ""
             msg = "*Local Notes:*\n"
-        else:
+     else:
             chat_name = chat.title
             msg = "*Notes saved in {}:*\n"
 
