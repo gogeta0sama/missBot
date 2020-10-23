@@ -851,9 +851,9 @@ def blacklist_mode(update, context):
                 "This command can be only used in group not in PM",
             )
             return ""
-   chat = update.effective_chat
-   chat_id = update.effective_chat.id
-   chat_name = update.effective_message.chat.title
+    chat = update.effective_chat
+    chat_id = update.effective_chat.id
+    chat_name = update.effective_message.chat.title
 
     if args:
         if (args[0].lower() == "off" or args[0].lower() == "nothing"
