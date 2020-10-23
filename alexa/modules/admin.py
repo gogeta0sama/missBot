@@ -670,7 +670,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher
-from alexa.modules.connection import connected
+
 from alexa.modules.helper_funcs.chat_status import bot_admin
 from alexa.modules.helper_funcs.chat_status import can_pin
 from alexa.modules.helper_funcs.chat_status import can_promote
@@ -868,14 +868,9 @@ def invite(update, context):
     chat = update.effective_chat
     args = context.args
 
-    conn = connected(context.bot, update, chat, user.id, need_admin=True)
-    if conn:
-        chat = dispatcher.bot.getChat(conn)
-    else:
-        if msg.chat.type == "private":
+    if msg.chat.type == "private":
             msg.reply_text("This command is meant to use in chat not in PM")
             return ""
-        chat = update.effective_chat
 
     if chat.username:
         msg.reply_text("@" + chat.username)
