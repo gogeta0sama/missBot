@@ -4151,7 +4151,7 @@ async def sticklet(event):
         return
 
 
-@tbot.on(pattern=None)
+@register(pattern=None)
 async def spam_update(event):
     if event.fwd_from:
         return
