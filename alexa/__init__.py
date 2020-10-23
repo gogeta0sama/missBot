@@ -662,15 +662,13 @@
 import logging
 import os
 import sys
-from logging import basicConfig
-from logging import DEBUG
-from logging import getLogger
-from logging import INFO
+import time
+from logging import DEBUG, INFO, basicConfig, getLogger
+
 import telegram.ext as tg
 from telethon import TelegramClient
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.sessions import StringSession
-import time
 
 StartTime = time.time()
 
