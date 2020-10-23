@@ -904,18 +904,18 @@ def lock(update, context) -> str:
                         ))
 
             if ltype in LOCK_CHAT_RESTRICTION:
-                    # Connection check
+                # Connection check
    
-                    if update.effective_message.chat.type == "private":
+                if update.effective_message.chat.type == "private":
                         send_message(
                             update.effective_message,
                             "This command is meant to use in group not in PM",
                         )
                         return ""
-                    chat = update.effective_chat
-                    chat_id = update.effective_chat.id
-                    chat_name = update.effective_message.chat.title
-                    text = "Locked {} for all non-admins!".format(ltype)
+                chat = update.effective_chat
+                chat_id = update.effective_chat.id
+                chat_name = update.effective_message.chat.title
+                text = "Locked {} for all non-admins!".format(ltype)
 
                 current_permission = context.bot.getChat(chat_id).permissions
                 context.bot.set_chat_permissions(
