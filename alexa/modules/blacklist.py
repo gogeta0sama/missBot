@@ -674,7 +674,6 @@ from telegram.utils.helpers import mention_html
 import alexa.modules.sql.blacklist_sql as sql
 from alexa import dispatcher
 from alexa import LOGGER
-from alexa.modules.connection import connected
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.chat_status import user_not_admin
 from alexa.modules.helper_funcs.extraction import extract_text
@@ -692,16 +691,10 @@ def blacklist(update, context):
     chat = update.effective_chat
     user = update.effective_user
     args = context.args
-
-    conn = connected(context.bot, update, chat, user.id, need_admin=False)
-    if conn:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        if chat.type == "private":
+    if chat.type == "private":
             return
-        chat_id = update.effective_chat.id
-        chat_name = chat.title
+    chat_id = update.effective_chat.id
+    chat_name = chat.title
 
     filter_list = "Current blacklisted words in <b>{}</b>:\n".format(chat_name)
 
@@ -738,15 +731,10 @@ def add_blacklist(update, context):
     user = update.effective_user
     words = msg.text.split(None, 1)
 
-    conn = connected(context.bot, update, chat, user.id)
-    if conn:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             return
-        chat_name = chat.title
+    chat_name = chat.title
 
     if len(words) > 1:
         text = words[1]
@@ -787,15 +775,10 @@ def unblacklist(update, context):
     user = update.effective_user
     words = msg.text.split(None, 1)
 
-    conn = connected(context.bot, update, chat, user.id)
-    if conn:
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        chat_id = update.effective_chat.id
-        if chat.type == "private":
+    chat_id = update.effective_chat.id
+    if chat.type == "private":
             return
-        chat_name = chat.title
+    chat_name = chat.title
 
     if len(words) > 1:
         text = words[1]
@@ -862,21 +845,15 @@ def blacklist_mode(update, context):
     msg = update.effective_message
     args = context.args
 
-    conn = connected(context.bot, update, chat, user.id, need_admin=True)
-    if conn:
-        chat = dispatcher.bot.getChat(conn)
-        chat_id = conn
-        chat_name = dispatcher.bot.getChat(conn).title
-    else:
-        if update.effective_message.chat.type == "private":
+    if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
                 "This command can be only used in group not in PM",
             )
             return ""
-        chat = update.effective_chat
-        chat_id = update.effective_chat.id
-        chat_name = update.effective_message.chat.title
+   chat = update.effective_chat
+   chat_id = update.effective_chat.id
+   chat_name = update.effective_message.chat.title
 
     if args:
         if (args[0].lower() == "off" or args[0].lower() == "nothing"
