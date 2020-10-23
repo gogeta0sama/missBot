@@ -1124,25 +1124,16 @@ def migrate_chats(update, context):
 def main():
     # test_handler = CommandHandler("test", test)
     start_handler = CommandHandler("start", start, pass_args=True)
-
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
-
-    #    settings_handler = CommandHandler("settings", get_settings)
-    #    settings_callback_handler = CallbackQueryHandler(settings_button, pattern=r"stngs_")
-
+    start_callback_handler = CallbackQueryHandler(send_start, pattern=r"bot_start")
+    dispatcher.add_handler(start_callback_handler)
     migrate_handler = MessageHandler(Filters.status_update.migrate,
-                                     migrate_chats)
-    #    is_chat_allowed_handler = MessageHandler(Filters.group, is_chat_allowed)
-
-    # dispatcher.add_handler(test_handler)
+                                     migrate_chats) 
     dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(help_handler)
-    #   dispatcher.add_handler(settings_handler)
-    dispatcher.add_handler(help_callback_handler)
-    #  dispatcher.add_handler(settings_callback_handler)
+    dispatcher.add_handler(help_handler)   
+    dispatcher.add_handler(help_callback_handler)   
     dispatcher.add_handler(migrate_handler)
-
     dispatcher.add_error_handler(error_handler)
 
     if WEBHOOK:
