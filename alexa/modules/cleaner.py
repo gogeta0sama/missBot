@@ -1,6 +1,5 @@
 import html
 
-
 from telegram import Update, ParseMode
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async, CallbackContext
 from alexa import dispatcher, CustomCommandHandler
