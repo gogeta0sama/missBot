@@ -1691,12 +1691,14 @@ async def apk(e):
             'div', 'Vpfmgd').findNext(
             'div', 'KoLSrc').text
         app_dev_link = "https://play.google.com" + \
-            results[0].findNext('div', 'Vpfmgd').findNext('a', 'mnKHRc')['href']
+            results[0].findNext('div', 'Vpfmgd').findNext(
+                'a', 'mnKHRc')['href']
         app_rating = results[0].findNext(
             'div', 'Vpfmgd').findNext(
             'div', 'pf5lIe').find('div')['aria-label']
         app_link = "https://play.google.com" + \
-            results[0].findNext('div', 'Vpfmgd').findNext('div', 'vU6FJ p63iDd').a['href']
+            results[0].findNext('div', 'Vpfmgd').findNext(
+                'div', 'vU6FJ p63iDd').a['href']
         app_icon = results[0].findNext(
             'div', 'Vpfmgd').findNext(
             'div', 'uzcko').img['data-src']
