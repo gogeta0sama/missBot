@@ -768,7 +768,6 @@ if ENV:
     TEMPORARY_DATA = os.environ.get("TEMPORARY_DATA", None)
     SPAMMERS = list(SPAMMERS)
     try:
-        pass
 
         antispam_module = True
     except ModuleNotFoundError:
