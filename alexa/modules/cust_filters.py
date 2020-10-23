@@ -17,7 +17,6 @@ from telegram.utils.helpers import mention_html
 from alexa import dispatcher
 from alexa import LOGGER
 from alexa.modules.connection import connected
-from alexa.modules.disable import DisableAbleCommandHandler
 from alexa.modules.helper_funcs.alternate import send_message
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.extraction import extract_text
