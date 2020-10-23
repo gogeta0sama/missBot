@@ -958,10 +958,10 @@ def list_notes(update, context):
     user = update.effective_user  # type: Optional[User]
     
     chat_id = update.effective_chat.id
-     if chat.type == "private":
+    if chat.type == "private":
             chat_name = ""
             msg = "*Local Notes:*\n"
-     else:
+    else:
             chat_name = chat.title
             msg = "*Notes saved in {}:*\n"
 
