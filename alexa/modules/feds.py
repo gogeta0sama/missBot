@@ -1971,7 +1971,8 @@ def fed_ban_list(update, context):
                     waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                           time.localtime(cek.get("value")))
                     update.effective_message.reply_text(
-                        "You can backup your data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
+                        "You can backup your data once every 30 minutes!\nYou can back up data again at `{}`" .format(
+                            waktu),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     return
@@ -2010,7 +2011,8 @@ def fed_ban_list(update, context):
                     waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                           time.localtime(cek.get("value")))
                     update.effective_message.reply_text(
-                        "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
+                        "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(
+                            waktu),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     return
@@ -2065,7 +2067,8 @@ def fed_ban_list(update, context):
                 waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                       time.localtime(cek.get("value")))
                 update.effective_message.reply_text(
-                    "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
+                    "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(
+                        waktu),
                     parse_mode=ParseMode.MARKDOWN,
                 )
                 return
@@ -2219,7 +2222,8 @@ def fed_import_bans(update, context):
                 waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                       time.localtime(cek.get("value")))
                 update.effective_message.reply_text(
-                    "You can get your data once every 30 minutes!\nYou can get data again at `{}`" .format(waktu),
+                    "You can get your data once every 30 minutes!\nYou can get data again at `{}`" .format(
+                        waktu),
                     parse_mode=ParseMode.MARKDOWN,
                 )
                 return
