@@ -708,11 +708,11 @@ buttons = [[
                          url="https://t.me/MissAlexaRobotSupport"),
 ]]
 
-buttons += [[
-    InlineKeyboardButton(text="Commands ❓", callback_data="help_back"),
-    InlineKeyboardButton(text="Source 🌐",
-                         url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
-]]
+buttons += [[InlineKeyboardButton(text="Commands ❓",
+                                  callback_data="help_back"),
+             InlineKeyboardButton(text="Source 🌐",
+                                  url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
+             ]]
 
 HELP_STRINGS = """
 [#include <std/disclaimer.h>](https://telegra.ph/MissAlexaRobot-10-09)
@@ -785,7 +785,7 @@ def send_help(chat_id, text, keyboard=None):
 def test(update, context):
     try:
         print(update)
-    except:
+    except BaseException:
         pass
     update.effective_message.reply_text("Hola tester! _I_ *have* `markdown`",
                                         parse_mode=ParseMode.MARKDOWN)
@@ -830,17 +830,20 @@ def start(update, context):
 
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
-    # Log the error before we do anything else, so we can see it even if something breaks.
+    # Log the error before we do anything else, so we can see it even if
+    # something breaks.
     LOGGER.error(msg="Exception while handling an update:",
                  exc_info=context.error)
 
     # traceback.format_exception returns the usual python message about an exception, but as a
-    # list of strings rather than a single string, so we have to join them together.
+    # list of strings rather than a single string, so we have to join them
+    # together.
     tb_list = traceback.format_exception(None, context.error,
                                          context.error.__traceback__)
     tb = "".join(tb_list)
 
-    # Build the message with some markup and additional information about what happened.
+    # Build the message with some markup and additional information about what
+    # happened.
     message = ("An exception was raised while handling an update\n"
                "<pre>update = {}</pre>\n\n"
                "<pre>{}</pre>").format(
@@ -849,7 +852,7 @@ def error_handler(update, context):
                                   indent=2,
                                   ensure_ascii=False)),
                    html.escape(tb),
-               )
+    )
 
     if len(message) >= 4096:
         message = message[:4096]
@@ -962,7 +965,7 @@ def send_settings(chat_id, user_id, user=False):
         if USER_SETTINGS:
             settings = "\n\n".join("*{}*:\n{}".format(
                 mod.__mod_name__, mod.__user_settings__(user_id))
-                                   for mod in USER_SETTINGS.values())
+                for mod in USER_SETTINGS.values())
             dispatcher.bot.send_message(
                 user_id,
                 "These are your current settings:" + "\n\n" + settings,
@@ -1028,13 +1031,10 @@ def settings_button(update, context):
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
                 "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(curr_page - 1,
-                                     CHAT_SETTINGS,
-                                     "stngs",
-                                     chat=chat_id)),
-            )
+                "you're interested in.".format(
+                    chat.title), reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(
+                        curr_page - 1, CHAT_SETTINGS, "stngs", chat=chat_id)), )
 
         elif next_match:
             chat_id = next_match.group(1)
@@ -1042,25 +1042,21 @@ def settings_button(update, context):
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
                 "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(chat.title),
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(next_page + 1,
-                                     CHAT_SETTINGS,
-                                     "stngs",
-                                     chat=chat_id)),
-            )
+                "you're interested in.".format(
+                    chat.title), reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(
+                        next_page + 1, CHAT_SETTINGS, "stngs", chat=chat_id)), )
 
         elif back_match:
             chat_id = back_match.group(1)
             chat = context.bot.get_chat(chat_id)
             query.message.reply_text(
-                text=
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
-                "you're interested in.".format(escape_markdown(chat.title)),
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)),
-            )
+                text="Hi there! There are quite a few settings for {} - go ahead and pick what "
+                "you're interested in.".format(
+                    escape_markdown(
+                        chat.title)), parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(
+                        0, CHAT_SETTINGS, "stngs", chat=chat_id)), )
 
         # ensure no spinny white circle
         query.message.delete()
@@ -1161,11 +1157,15 @@ def main():
             tbot.run_until_disconnected()
 
     else:
-        updater.start_polling(poll_interval=0, timeout=15, read_latency=4, clean=True)
+        updater.start_polling(
+            poll_interval=0,
+            timeout=15,
+            read_latency=4,
+            clean=True)
         if len(argv) not in (1, 3, 4):
-           tbot.disconnect()
+            tbot.disconnect()
         else:
-           tbot.run_until_disconnected()
+            tbot.run_until_disconnected()
         LOGGER.info("Successfully Started Alexa !")
     updater.idle()
 

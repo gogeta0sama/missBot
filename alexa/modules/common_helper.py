@@ -692,7 +692,7 @@ def gtrans(update, context):
         results = translated.text
         msg.reply_text("Translated from {} to {}.\n {}".format(
             trl, lang, results))
-    except:
+    except BaseException:
         msg.reply_text("Error! invalid language code.")
 
 

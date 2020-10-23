@@ -675,6 +675,7 @@ client = MongoClient(MONGO_DB_URI)
 db = client['test']
 approved_users = db.approve
 
+
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
 
@@ -695,6 +696,7 @@ async def is_register_admin(chat, user):
         )
     return None
 
+
 @register(pattern="^/song (.*)")
 async def _(event):
     if event.fwd_from:
@@ -705,12 +707,12 @@ async def _(event):
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
-     if (await is_register_admin(event.input_chat, event.message.sender_id)):
-       pass
-     elif event.chat_id == iid and event.from_id == userss:
-       pass
-     else:
-       return
+        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+            pass
+        elif event.chat_id == iid and event.from_id == userss:
+            pass
+        else:
+            return
 
     cmd = event.pattern_match.group(1)
     cmnd = f"{cmd}"
@@ -718,22 +720,21 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
     try:
-     subprocess.run(["spotdl", "-s", cmnd, "-q", "best"])
-     subprocess.run(
-         'for f in *.opus; do      mv -- "$f" "${f%.opus}.mp3"; done',
-         shell=True)
-     l = glob.glob("*.mp3")
-     loa = l[0]
-     await event.reply("sending the song")
-     await event.client.send_file(
-        event.chat_id,
-        loa,
-        force_document=False,
-        allow_cache=False,
-        supports_streaming=True,
-        caption=cmd,
-        reply_to=reply_to_id)
-     os.system("rm -rf *.mp3")
+        subprocess.run(["spotdl", "-s", cmnd, "-q", "best"])
+        subprocess.run(
+            'for f in *.opus; do      mv -- "$f" "${f%.opus}.mp3"; done',
+            shell=True)
+        l = glob.glob("*.mp3")
+        loa = l[0]
+        await event.reply("sending the song")
+        await event.client.send_file(
+            event.chat_id,
+            loa,
+            force_document=False,
+            allow_cache=False,
+            supports_streaming=True,
+            caption=cmd,
+            reply_to=reply_to_id)
+        os.system("rm -rf *.mp3")
     except Exception:
-      await event.reply("I am getting too many requests !\nPlease try again later.")
-
+        await event.reply("I am getting too many requests !\nPlease try again later.")

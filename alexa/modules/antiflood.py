@@ -845,8 +845,7 @@ def set_flood(update, context) -> str:
                 "Invalid argument please use a number, 'off' or 'no'")
     else:
         message.reply_text(
-            ("Use `/setflood number` to enable anti-flood.\nOr use `/setflood off` to disable antiflood!."
-             ),
+            ("Use `/setflood number` to enable anti-flood.\nOr use `/setflood off` to disable antiflood!."),
             parse_mode="markdown",
         )
     return ""
@@ -883,8 +882,8 @@ def flood(update, context):
     else:
         if conn:
             text = msg.reply_text(
-                "I'm currently restricting members after {} consecutive messages in {}."
-                .format(limit, chat_name))
+                "I'm currently restricting members after {} consecutive messages in {}." .format(
+                    limit, chat_name))
         else:
             text = msg.reply_text(
                 "I'm currently restricting members after {} consecutive messages."

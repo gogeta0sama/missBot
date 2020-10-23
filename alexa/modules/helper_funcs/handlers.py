@@ -664,7 +664,7 @@ from telegram import Update
 
 try:
     from alexa import CUSTOM_CMD
-except:
+except BaseException:
     CUSTOM_CMD = False
 
 if CUSTOM_CMD:

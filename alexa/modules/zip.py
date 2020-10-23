@@ -676,6 +676,7 @@ client = MongoClient(MONGO_DB_URI)
 db = client['test']
 approved_users = db.approve
 
+
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
 
@@ -702,12 +703,12 @@ async def _(event):
     if event.fwd_from:
         return
     if event.is_group:
-     if (await is_register_admin(event.input_chat, event.message.sender_id)):
-       pass
-     elif event.chat_id == iid and event.from_id == userss:
-       pass
-     else:
-       return
+        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+            pass
+        elif event.chat_id == iid and event.from_id == userss:
+            pass
+        else:
+            return
 
     if not event.is_reply:
         await event.reply("Reply to a file to compress it.")

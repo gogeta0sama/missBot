@@ -695,7 +695,8 @@ def split_message(msg: str) -> List[str]:
         else:
             result.append(small_msg)
             small_msg = line
-            # Else statement at the end of the for loop, so append the leftover string.
+            # Else statement at the end of the for loop, so append the leftover
+            # string.
     result.append(small_msg)
 
     return result
@@ -734,7 +735,8 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix,
     #    if len(pairs) > 7:
     #        pairs = pairs[modulo_page * 7:7 * (modulo_page + 1)] + [
     #            (EqInlineKeyboardButton("<<<", callback_data="{}_prev({})".format(prefix, modulo_page)),
-    #             EqInlineKeyboardButton(">>>", callback_data="{}_next({})".format(prefix, modulo_page)))]
+    # EqInlineKeyboardButton(">>>", callback_data="{}_next({})".format(prefix,
+    # modulo_page)))]
 
     return pairs
 

@@ -878,7 +878,7 @@ def invite(update, context):
         chat = update.effective_chat
 
     if chat.username:
-        msg.reply_text("@"+chat.username)
+        msg.reply_text("@" + chat.username)
     elif chat.type == chat.SUPERGROUP or chat.type == chat.CHANNEL:
         bot_member = chat.get_member(context.bot.id)
         if bot_member.can_invite_users:

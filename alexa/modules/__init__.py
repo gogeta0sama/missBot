@@ -669,7 +669,8 @@ def __list_all_modules():
     import glob
     from os.path import basename, dirname, isfile
 
-    # This generates a list of modules in this folder for the * in __main__ to work.
+    # This generates a list of modules in this folder for the * in __main__ to
+    # work.
     mod_paths = glob.glob(dirname(__file__) + "/*.py")
     all_modules = [
         basename(f)[:-3] for f in mod_paths

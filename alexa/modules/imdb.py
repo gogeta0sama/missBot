@@ -659,6 +659,8 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
+from alexa import MONGO_DB_URI
+from pymongo import MongoClient
 import re
 
 import bs4
@@ -670,13 +672,12 @@ from alexa.events import register
 
 langi = "en"
 
-from pymongo import MongoClient
-from alexa import MONGO_DB_URI
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client['test']
 approved_users = db.approve
+
 
 async def is_register_admin(chat, user):
     if isinstance(chat, (types.InputPeerChannel, types.InputChannel)):
@@ -706,12 +707,12 @@ async def imdb(e):
         iid = ch['id']
         userss = ch['user']
     if e.is_group:
-     if (await is_register_admin(e.input_chat, e.message.sender_id)):
-       pass
-     elif e.chat_id == iid and e.from_id == userss:
-       pass
-     else:
-       return
+        if (await is_register_admin(e.input_chat, e.message.sender_id)):
+            pass
+        elif e.chat_id == iid and e.from_id == userss:
+            pass
+        else:
+            return
 
     try:
         movie_name = e.pattern_match.group(1)

@@ -708,7 +708,7 @@ def reverse(update, context):
             txt = args[0]
             try:
                 lim = int(txt)
-            except:
+            except BaseException:
                 lim = 2
         else:
             lim = 2
@@ -718,7 +718,7 @@ def reverse(update, context):
             img_link = splatargs[1]
             try:
                 lim = int(splatargs[2])
-            except:
+            except BaseException:
                 lim = 2
         elif len(splatargs) == 2:
             img_link = splatargs[1]
@@ -831,12 +831,12 @@ def ParseSauce(googleurl):
         for bess in soup.findAll("a", {"class": "PBorbe"}):
             url = "https://www.google.com" + bess.get("href")
             results["override"] = url
-    except:
+    except BaseException:
         pass
 
     for similar_image in soup.findAll("input", {"class": "gLFyf"}):
-        url = "https://www.google.com/search?tbm=isch&q=" + urllib.parse.quote_plus(
-            similar_image.get("value"))
+        url = "https://www.google.com/search?tbm=isch&q=" + \
+            urllib.parse.quote_plus(similar_image.get("value"))
         results["similar_images"] = url
 
     for best_guess in soup.findAll("div", attrs={"class": "r5a77d"}):

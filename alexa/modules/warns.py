@@ -731,7 +731,8 @@ def warn(user: User,
         for warn_reason in reasons:
             reply += "\n - {}".format(html.escape(warn_reason))
 
-        # message.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        # message.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie
+        # sticker
         keyboard = None
         log_reason = ("<b>{}:</b>"
                       "\n#WARN_BAN"
@@ -957,7 +958,8 @@ def add_warn_filter(update, context):
     extracted = split_quotes(args[1])
 
     if len(extracted) >= 2:
-        # set trigger -> lower, so as to avoid adding duplicate filters with different cases
+        # set trigger -> lower, so as to avoid adding duplicate filters with
+        # different cases
         keyword = extracted[0].lower()
         content = extracted[1]
 

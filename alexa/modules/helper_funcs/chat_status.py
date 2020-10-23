@@ -659,6 +659,7 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
+from alexa.modules import connection
 from functools import wraps
 from telegram import Chat
 from telegram import ChatMember
@@ -697,16 +698,17 @@ def is_user_ban_protected(chat: Chat, user_id: int,
 def is_user_admin(chat: Chat, user_id: int, member: ChatMember = None) -> bool:
     chats = approved_users.find({})
     for c in chats:
-       iid= c['id']
-       userss = c['user']
-       if str(user_id) in str(userss) and str(chat.id) in str(iid):
-          return True
+        iid = c['id']
+        userss = c['user']
+        if str(user_id) in str(userss) and str(chat.id) in str(iid):
+            return True
 
-    if (chat.type == "private" or str(user_id) in str(OWNER_ID) or user_id == str(777000) or chat.all_members_are_administrators):
+    if (chat.type == "private" or str(user_id) in str(OWNER_ID)
+            or user_id == str(777000) or chat.all_members_are_administrators):
         return True
 
     if not member:
-       member = chat.get_member(user_id)
+        member = chat.get_member(user_id)
 
     return member.status in ("administrator", "creator")
 
@@ -787,12 +789,13 @@ def user_admin(func):
         if user and is_user_admin(update.effective_chat, user.id):
             return func(update, context, *args, **kwargs)
         if not user:
-           pass
+            pass
 
         else:
             return
 
     return is_admin
+
 
 def user_admin_no_reply(func):
     @wraps(func)
@@ -955,6 +958,5 @@ def connection_status(func):
 
 
 # Workaround for circular import with connection.py
-from alexa.modules import connection
 
 connected = connection.connected

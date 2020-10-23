@@ -27,7 +27,7 @@ BLUE_TEXT_CLEAN_GROUP = 15
 CommandHandlerList = (
     CommandHandler,
     CustomCommandHandler,
-    )
+)
 
 command_list = [
     "cleanbluetext",
@@ -44,37 +44,37 @@ command_list = [
 for handler_list in dispatcher.handlers:
     for handler in dispatcher.handlers[handler_list]:
         if any(isinstance(handler, cmd_handler)
-            for cmd_handler in CommandHandlerList):
-                command_list += handler.command
+               for cmd_handler in CommandHandlerList):
+            command_list += handler.command
 
 
 @run_async
 def clean_blue_text_must_click(update: Update, context: CallbackContext):
-   # sourcery skip: merge-nested-ifs, move-assign
+    # sourcery skip: merge-nested-ifs, move-assign
 
-   chat = update.effective_chat
-   message = update.effective_message
-   user = update.effective_user
-   member = chat.get_member(user.id)
-   chats = approved_users.find({})
-   for c in chats:
-       iiid= c['id']
-       usersss = c['user']
-       if str(user.id) in str(usersss) and str(chat.id) in str(iiid):
-          return
-   if user.id == context.bot.id:
-           return
-   elif user.id == 1087968824:
-           return
-   if member.status in ("administrator", "creator"):
-      return
+    chat = update.effective_chat
+    message = update.effective_message
+    user = update.effective_user
+    member = chat.get_member(user.id)
+    chats = approved_users.find({})
+    for c in chats:
+        iiid = c['id']
+        usersss = c['user']
+        if str(user.id) in str(usersss) and str(chat.id) in str(iiid):
+            return
+    if user.id == context.bot.id:
+        return
+    elif user.id == 1087968824:
+        return
+    if member.status in ("administrator", "creator"):
+        return
 
-   if chat.get_member(context.bot.id).can_delete_messages:
+    if chat.get_member(context.bot.id).can_delete_messages:
         if sql.is_enabled(chat.id):
             fst_word = message.text.strip().split(None, 1)[0]
 
             if len(fst_word) > 1 and any(fst_word.startswith(start)
-                                        for start in CMD_STARTERS):
+                                         for start in CMD_STARTERS):
 
                 command = fst_word[1:].split('@')
                 chat = update.effective_chat

@@ -718,11 +718,11 @@ async def parseqr(qr_e):
         userss = ch['user']
 
     if (await is_register_admin(qr_e.input_chat, qr_e.message.sender_id)):
-       pass
+        pass
     elif qr_e.chat_id == iid and qr_e.from_id == userss:
-       pass
+        pass
     else:
-       return
+        return
 
     start = datetime.now()
     downloaded_file_name = await qr_e.client.download_media(
@@ -751,11 +751,11 @@ async def make_qr(qrcode):
         userss = ch['user']
 
     if (await is_register_admin(qrcode.input_chat, qrcode.message.sender_id)):
-       pass
+        pass
     elif qrcode.chat_id == iid and qrcode.from_id == userss:
-       pass
+        pass
     else:
-       return
+        return
     start = datetime.now()
     input_str = qrcode.pattern_match.group(1)
     message = "SYNTAX: `.makeqr <long text to include>`"

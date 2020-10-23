@@ -692,6 +692,7 @@ INSERTION_LOCK = threading.RLock()
 AFK_USERS = {}
 AFK_USERSS = {}
 
+
 def is_afk(user_id):
     return user_id in AFK_USERS
 

@@ -755,9 +755,10 @@ def warn_user(user_id, chat_id, reason=None):
             if warned_user.reasons is None:
                 warned_user.reasons = [reason]
             else:
-                warned_user.reasons = warned_user.reasons + [
-                    reason
-                ]  # TODO:: double check this Daan: Not really wizardry, it adds a new entry to a list/array which can be done this way, basically append equivalent
+                # TODO:: double check this Daan: Not really wizardry, it adds a
+                # new entry to a list/array which can be done this way,
+                # basically append equivalent
+                warned_user.reasons = warned_user.reasons + [reason]
 
         reasons = warned_user.reasons
         num = warned_user.num_warns

@@ -659,7 +659,8 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-# Note: chat_id's are stored as strings because the int is too large to be stored in a PSQL database.
+# Note: chat_id's are stored as strings because the int is too large to be
+# stored in a PSQL database.
 import threading
 
 from sqlalchemy import Boolean

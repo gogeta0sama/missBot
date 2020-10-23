@@ -731,7 +731,8 @@ def ban(update, context):
 
     try:
         chat.kick_member(user_id)
-        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie
+        # sticker
         context.bot.sendMessage(
             chat.id,
             "let {} walk the plank.".format(
@@ -824,7 +825,8 @@ def temp_ban(update, context):
 
     try:
         chat.kick_member(user_id, until_date=bantime)
-        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie
+        # sticker
         message.reply_text(
             "Banned! User will be banned for {}.".format(time_val))
         return log
@@ -882,7 +884,8 @@ def kick(update, context):
 
     res = chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie
+        # sticker
         context.bot.sendMessage(
             chat.id,
             "Untill we meet again {}.".format(

@@ -730,7 +730,8 @@ def get(bot, update, notename, show_none=True, no_format=False):
     message = update.effective_message  # type: Optional[Message]
 
     if note:
-        # If we're replying to a message, reply to that message (unless it's an error)
+        # If we're replying to a message, reply to that message (unless it's an
+        # error)
         if message.reply_to_message:
             reply_id = message.reply_to_message.message_id
         else:
@@ -790,7 +791,7 @@ def get(bot, update, notename, show_none=True, no_format=False):
                         escape(message.from_user.first_name),
                         escape(message.from_user.last_name),
                     ] if message.from_user.last_name else
-                                      [escape(message.from_user.first_name)]),
+                        [escape(message.from_user.first_name)]),
                     username="@" + escape(message.from_user.username)
                     if message.from_user.username else mention_html(
                         message.from_user.id, message.from_user.first_name),

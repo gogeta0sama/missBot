@@ -1101,7 +1101,7 @@ def fed_info(update, context):
     owner = context.bot.get_chat(info["owner"])
     try:
         owner_name = owner.first_name + " " + owner.last_name
-    except:
+    except BaseException:
         owner_name = owner.first_name
     FEDADMIN = sql.all_fed_users(fed_id)
     FEDADMIN.append(int(owner.id))
@@ -1160,7 +1160,7 @@ def fed_admin(update, context):
     owner = context.bot.get_chat(info["owner"])
     try:
         owner_name = owner.first_name + " " + owner.last_name
-    except:
+    except BaseException:
         owner_name = owner.first_name
     text += " • {}\n".format(mention_html(owner.id, owner_name))
 
@@ -1399,8 +1399,8 @@ def fed_ban(update, context):
                                 targetfed_id = sql.get_fed_id(fedschat)
                                 sql.unsubs_fed(fed_id, targetfed_id)
                                 LOGGER.info(
-                                    "Chat {} has unsub fed {} because I was kicked"
-                                    .format(fedschat, info["fname"]))
+                                    "Chat {} has unsub fed {} because I was kicked" .format(
+                                        fedschat, info["fname"]))
                                 continue
                         elif excp.message == "User_id_invalid":
                             break
@@ -1544,8 +1544,8 @@ def fed_ban(update, context):
                                 targetfed_id = sql.get_fed_id(fedschat)
                                 sql.unsubs_fed(fed_id, targetfed_id)
                                 LOGGER.info(
-                                    "Chat {} has unsub fed {} because I was kicked"
-                                    .format(fedschat, info["fname"]))
+                                    "Chat {} has unsub fed {} because I was kicked" .format(
+                                        fedschat, info["fname"]))
                                 continue
                         elif excp.message == "User_id_invalid":
                             break
@@ -1891,7 +1891,7 @@ def fed_broadcast(update, context):
         text = text_parser
         try:
             broadcaster = user.first_name
-        except:
+        except BaseException:
             broadcaster = user.first_name + " " + user.last_name
         text += "\n\n- {}".format(mention_markdown(user.id, broadcaster))
         chat_list = sql.all_fed_chats(fed_id)
@@ -1971,8 +1971,7 @@ def fed_ban_list(update, context):
                     waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                           time.localtime(cek.get("value")))
                     update.effective_message.reply_text(
-                        "You can backup your data once every 30 minutes!\nYou can back up data again at `{}`"
-                        .format(waktu),
+                        "You can backup your data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     return
@@ -2011,8 +2010,7 @@ def fed_ban_list(update, context):
                     waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                           time.localtime(cek.get("value")))
                     update.effective_message.reply_text(
-                        "You can back up data once every 30 minutes!\nYou can back up data again at `{}`"
-                        .format(waktu),
+                        "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     return
@@ -2058,7 +2056,7 @@ def fed_ban_list(update, context):
 
     try:
         update.effective_message.reply_text(text, parse_mode=ParseMode.HTML)
-    except:
+    except BaseException:
         jam = time.time()
         new_jam = jam + 1800
         cek = get_chat(chat.id, chat_data)
@@ -2067,8 +2065,7 @@ def fed_ban_list(update, context):
                 waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                       time.localtime(cek.get("value")))
                 update.effective_message.reply_text(
-                    "You can back up data once every 30 minutes!\nYou can back up data again at `{}`"
-                    .format(waktu),
+                    "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
                     parse_mode=ParseMode.MARKDOWN,
                 )
                 return
@@ -2084,9 +2081,8 @@ def fed_ban_list(update, context):
             update.effective_message.reply_document(
                 document=output,
                 filename="fbanlist.txt",
-                caption=
-                "The following is a list of users who are currently fbanned in the Federation {}."
-                .format(info["fname"]),
+                caption="The following is a list of users who are currently fbanned in the Federation {}." .format(
+                    info["fname"]),
             )
 
 
@@ -2173,7 +2169,7 @@ def fed_chats(update, context):
 
     try:
         update.effective_message.reply_text(text, parse_mode=ParseMode.HTML)
-    except:
+    except BaseException:
         cleanr = re.compile("<.*?>")
         cleantext = re.sub(cleanr, "", text)
         with BytesIO(str.encode(cleantext)) as output:
@@ -2181,9 +2177,8 @@ def fed_chats(update, context):
             update.effective_message.reply_document(
                 document=output,
                 filename="fedchats.txt",
-                caption=
-                "Here is a list of all the chats that joined the federation {}."
-                .format(info["fname"]),
+                caption="Here is a list of all the chats that joined the federation {}." .format(
+                    info["fname"]),
             )
 
 
@@ -2224,8 +2219,7 @@ def fed_import_bans(update, context):
                 waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                       time.localtime(cek.get("value")))
                 update.effective_message.reply_text(
-                    "You can get your data once every 30 minutes!\nYou can get data again at `{}`"
-                    .format(waktu),
+                    "You can get your data once every 30 minutes!\nYou can get data again at `{}`" .format(waktu),
                     parse_mode=ParseMode.MARKDOWN,
                 )
                 return
@@ -2422,10 +2416,8 @@ def del_fed_button(update, context):
         delete = sql.del_fed(fed_id)
         if delete:
             query.message.edit_text(
-                "You have removed your Federation! Now all the Groups that are connected with `{}` do not have a Federation."
-                .format(getfed["fname"]),
-                parse_mode="markdown",
-            )
+                "You have removed your Federation! Now all the Groups that are connected with `{}` do not have a Federation." .format(
+                    getfed["fname"]), parse_mode="markdown", )
 
 
 @run_async
@@ -2458,7 +2450,7 @@ def fed_stat_user(update, context):
                     parse_mode="markdown",
                 )
                 return
-            if user_name == "" or user_name == None:
+            if user_name == "" or user_name is None:
                 user_name = "He/she"
             if not reason:
                 send_message(
@@ -2478,7 +2470,7 @@ def fed_stat_user(update, context):
                 user_name = context.bot.get_chat(user_id).first_name
             except BadRequest:
                 user_name = "He/she"
-            if user_name == "" or user_name == None:
+            if user_name == "" or user_name is None:
                 user_name = "He/she"
         if len(fbanlist) == 0:
             send_message(
@@ -2652,8 +2644,9 @@ def subs_feds(update, context):
         if subfed:
             send_message(
                 update.effective_message,
-                "Federation `{}` has subscribe the federation `{}`. Every time there is a Fedban from that federation, this federation will also banned that user."
-                .format(fedinfo["fname"], getfed["fname"]),
+                "Federation `{}` has subscribe the federation `{}`. Every time there is a Fedban from that federation, this federation will also banned that user." .format(
+                    fedinfo["fname"],
+                    getfed["fname"]),
                 parse_mode="markdown",
             )
             get_fedlog = sql.get_fed_log(args[0])
@@ -2815,7 +2808,7 @@ def is_user_fed_owner(fed_id, user_id):
     if getsql is False:
         return False
     getfedowner = eval(getsql["fusers"])
-    if getfedowner == None or getfedowner == False:
+    if getfedowner is None or getfedowner == False:
         return False
     getfedowner = getfedowner["owner"]
     if str(user_id) == getfedowner or int(user_id) == OWNER_ID:

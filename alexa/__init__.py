@@ -700,12 +700,16 @@ if ENV:
         raise Exception(
             "Your sudo users list does not contain valid integers.")
     try:
-        SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
+        SUPPORT_USERS = {
+            int(x) for x in os.environ.get(
+                "SUPPORT_USERS", "").split()}
     except ValueError:
         raise Exception(
             "Your support users list does not contain valid integers.")
     try:
-        WHITELIST_USERS = {int(x) for x in os.environ.get("WHITELIST_USERS", "").split()}
+        WHITELIST_USERS = {
+            int(x) for x in os.environ.get(
+                "WHITELIST_USERS", "").split()}
     except ValueError:
         raise Exception(
             "Your whitelisted users list does not contain valid integers.")
@@ -758,7 +762,9 @@ if ENV:
 
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
-    UPSTREAM_REPO_URL = os.environ.get("UPSTREAM_REPO_URL", "https://github.com/MissAlexaRobot/MissAlexaRobot.git")
+    UPSTREAM_REPO_URL = os.environ.get(
+        "UPSTREAM_REPO_URL",
+        "https://github.com/MissAlexaRobot/MissAlexaRobot.git")
     TEMPORARY_DATA = os.environ.get("TEMPORARY_DATA", None)
     SPAMMERS = list(SPAMMERS)
     try:
@@ -807,7 +813,7 @@ if ENV:
     with ubot:
         try:
             ubot.loop.run_until_complete(check_botlog_chatid())
-        except:
+        except BaseException:
             LOGS.error("BOTLOG_CHATID environment variable isn't a "
                        "valid entity. Halting!")
             sys.exit(1)

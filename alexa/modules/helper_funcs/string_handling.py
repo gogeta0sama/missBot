@@ -760,7 +760,8 @@ def markdown_parser(txt: str,
                         match.start(1) <= start and end <= match.end(1)
                         for match in LINK_REGEX.finditer(txt)):
                     continue
-                # TODO: investigate possible offset bug when lots of emoji are present
+                # TODO: investigate possible offset bug when lots of emoji are
+                # present
                 res += _selective_escape(txt[prev:start]
                                          or "") + escape_markdown(ent_text)
 
@@ -872,7 +873,8 @@ def split_quotes(text: str) -> List:
 
         # 1 to avoid starting quote, and counter is exclusive so avoids ending
         key = remove_escapes(text[1:counter].strip())
-        # index will be in range, or `else` would have been executed and returned
+        # index will be in range, or `else` would have been executed and
+        # returned
         rest = text[counter + 1:].strip()
         if not key:
             key = text[0] + text[0]

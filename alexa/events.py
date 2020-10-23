@@ -669,6 +669,7 @@ from time import gmtime, strftime
 from traceback import format_exc
 from alexa import ubot, BOTLOG, BOTLOG_CHATID, LOGS
 
+
 def register(**args):
     """ Registers a new message. """
     pattern = args.get('pattern')
@@ -685,6 +686,7 @@ def register(**args):
         return func
 
     return decorator
+
 
 def chataction(**args):
     """ Registers chat actions. """
@@ -782,7 +784,8 @@ def alexabot(**args):
             #
             except events.StopPropagation:
                 raise events.StopPropagation
-            # This is a gay exception and must be passed out. So that it doesnt spam chats
+            # This is a gay exception and must be passed out. So that it doesnt
+            # spam chats
             except KeyboardInterrupt:
                 pass
             except BaseException as e:

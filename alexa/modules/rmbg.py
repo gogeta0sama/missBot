@@ -659,6 +659,8 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
+from alexa import MONGO_DB_URI
+from pymongo import MongoClient
 import io
 import os
 from datetime import datetime
@@ -692,13 +694,12 @@ async def is_register_admin(chat, user):
         )
     return None
 
-from pymongo import MongoClient
-from alexa import MONGO_DB_URI
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client['test']
 approved_users = db.approve
+
 
 @register(pattern="^/rmbg")
 async def _(event):
@@ -710,12 +711,12 @@ async def _(event):
         iid = ch['id']
         userss = ch['user']
     if event.is_group:
-     if (await is_register_admin(event.input_chat, event.message.sender_id)):
-       pass
-     elif event.chat_id == iid and event.from_id == userss:
-       pass
-     else:
-       return
+        if (await is_register_admin(event.input_chat, event.message.sender_id)):
+            pass
+        elif event.chat_id == iid and event.from_id == userss:
+            pass
+        else:
+            return
 
     if REM_BG_API_KEY is None:
         await event.reply(

@@ -667,14 +667,15 @@ from telethon import types
 from telethon.tl import functions
 from telethon.errors.rpcerrorlist import MessageDeleteForbiddenError
 
+
 async def can_del(message):
     result = await tbot(functions.channels.GetParticipantRequest(
         channel=message.chat_id,
         user_id=message.sender_id,
     ))
     p = result.participant
-    return isinstance(p, types.ChannelParticipantCreator) or (
-        isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.delete_messages)
+    return isinstance(p, types.ChannelParticipantCreator) or (isinstance(
+        p, types.ChannelParticipantAdmin) and p.admin_rights.delete_messages)
 #------ THANKS TO LONAMI ------#
 
 
@@ -700,17 +701,17 @@ async def purge_messages(event):
     for msg_id in range(message_id, delete_to + 1):
         messages.append(msg_id)
         if len(messages) == 100:
-           try:
-              await event.client.delete_messages(event.chat_id, messages)
-              messages = []
-           except MessageDeleteForbiddenError:
-              await event.reply("I can't delete messages that are too old")
-              return
+            try:
+                await event.client.delete_messages(event.chat_id, messages)
+                messages = []
+            except MessageDeleteForbiddenError:
+                await event.reply("I can't delete messages that are too old")
+                return
     try:
-       await event.client.delete_messages(event.chat_id, messages)
+        await event.client.delete_messages(event.chat_id, messages)
     except MessageDeleteForbiddenError:
-       await event.reply("I can't delete messages that are too old")
-       return
+        await event.reply("I can't delete messages that are too old")
+        return
     time_ = time.perf_counter() - start
     text = f"Purged Successfully in {time_:0.2f} Second(s)"
     await event.respond(text, parse_mode='markdown')
@@ -731,10 +732,10 @@ async def delete_messages(event):
     chat = await event.get_input_chat()
     del_message = [message, event.message]
     try:
-      await event.client.delete_messages(chat, del_message)
+        await event.client.delete_messages(chat, del_message)
     except MessageDeleteForbiddenError:
-       await event.reply("I can't delete messages that are too old")
-       return
+        await event.reply("I can't delete messages that are too old")
+        return
 
 
 __mod_name__ = "Purges"

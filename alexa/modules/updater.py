@@ -661,9 +661,6 @@
 #     <https://www.gnu.org/licenses/>.
 
 
-
-
-
 from os import remove, execle, path, environ
 import asyncio
 import sys

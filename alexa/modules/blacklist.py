@@ -1030,26 +1030,20 @@ def del_blacklist(update, context):
                         permissions=ChatPermissions(can_send_messages=False),
                     )
                     bot.sendMessage(
-                        chat.id,
-                        f"Muted {user.first_name} for using Blacklisted word: {trigger}!",
-                    )
+                        chat.id, f"Muted {user.first_name} for using Blacklisted word: {trigger}!", )
                     return
                 elif getmode == 4:
                     message.delete()
                     res = chat.unban_member(update.effective_user.id)
                     if res:
                         bot.sendMessage(
-                            chat.id,
-                            f"Kicked {user.first_name} for using Blacklisted word: {trigger}!",
-                        )
+                            chat.id, f"Kicked {user.first_name} for using Blacklisted word: {trigger}!", )
                     return
                 elif getmode == 5:
                     message.delete()
                     chat.kick_member(user.id)
                     bot.sendMessage(
-                        chat.id,
-                        f"Banned {user.first_name} for using Blacklisted word: {trigger}",
-                    )
+                        chat.id, f"Banned {user.first_name} for using Blacklisted word: {trigger}", )
                     return
                 elif getmode == 6:
                     message.delete()
