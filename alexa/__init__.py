@@ -725,7 +725,7 @@ if ENV:
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
     DB_URI = os.environ.get("DATABASE_URL")
     LOAD = os.environ.get("LOAD", "").split()
-    NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
+    NO_LOAD = os.environ.get("NO_LOAD", "").split()
     DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
     STRICT_ANTISPAM = bool(os.environ.get("STRICT_ANTISPAM", True))
     DEEPFRY_TOKEN = os.environ.get("DEEPFRY_TOKEN", "")
