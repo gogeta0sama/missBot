@@ -663,7 +663,10 @@ import logging
 import os
 import sys
 import time
-from logging import DEBUG, INFO, basicConfig, getLogger
+from logging import basicConfig
+from logging import DEBUG
+from logging import getLogger
+from logging import INFO
 
 import telegram.ext as tg
 from telethon import TelegramClient
