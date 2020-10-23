@@ -674,8 +674,8 @@ from telegram.ext import run_async
 import alexa.modules.sql.connection_sql as sql
 from alexa import dispatcher
 from alexa import OWNER_ID
-from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.alternate import send_message
+from alexa.modules.helper_funcs.chat_status import user_can_change
 
 user_admin = user_can_change
 
@@ -795,7 +795,8 @@ def connect_chat(update, context):
                     chat_name = conn_chat.title
                     send_message(
                         update.effective_message,
-                        "Successfully connected to *{}*. \nUse /helpconnect to check available commands." .format(chat_name),
+                        "Successfully connected to *{}*. \nUse /helpconnect to check available commands."
+                        .format(chat_name),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     sql.add_history_conn(user.id, str(conn_chat.id), chat_name)
@@ -884,7 +885,8 @@ def connect_chat(update, context):
                     sql.add_history_conn(user.id, str(chat.id), chat_name)
                     context.bot.send_message(
                         update.effective_message.from_user.id,
-                        "You are connected to *{}*. \nUse `/helpconnect` to check available commands." .format(chat_name),
+                        "You are connected to *{}*. \nUse `/helpconnect` to check available commands."
+                        .format(chat_name),
                         parse_mode="markdown",
                     )
                 except BadRequest:
@@ -968,9 +970,7 @@ def help_connect_chat(update, context):
         send_message(update.effective_message,
                      "PM me with that command to get help.")
         return
-    send_message(update.effective_message,
-                 CONN_HELP,
-                 parse_mode="markdown")
+    send_message(update.effective_message, CONN_HELP, parse_mode="markdown")
 
 
 @run_async
