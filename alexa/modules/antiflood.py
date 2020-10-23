@@ -895,9 +895,9 @@ def set_flood_mode(update, context):
                 "This command is meant to use in group not in PM",
             )
             return ""
-   chat = update.effective_chat
-   chat_id = update.effective_chat.id
-   chat_name = update.effective_message.chat.title
+    chat = update.effective_chat
+    chat_id = update.effective_chat.id
+    chat_name = update.effective_message.chat.title
 
     if args:
         if args[0].lower() == "ban":
