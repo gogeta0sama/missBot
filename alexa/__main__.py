@@ -827,6 +827,38 @@ def start(update, context):
     else:
         update.effective_message.reply_text("I am Alive ^_^")
 
+def send_start(update, context):
+    #Try to remove old message
+    try:
+        query = update.callback_query
+        query.message.delete()
+    except:
+        pass
+
+    chat = update.effective_chat  # type: Optional[Chat]
+    first_name = update.effective_user.first_name 
+    text = PM_START_TEXT
+    buttons = [[
+      InlineKeyboardButton(text="Add to Group 👥",
+                         url="t.me/MissAlexaRobot?startgroup=true"),
+      InlineKeyboardButton(text="Support Group 🎙️",
+                         url="https://t.me/MissAlexaRobotSupport"),
+      ]]
+
+    buttons += [[InlineKeyboardButton(text="Commands ❓",
+                                  callback_data="help_back"),
+                 InlineKeyboardButton(text="Source 🌐",
+                                  url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
+               ]]
+    
+    update.effective_message.reply_text(
+                PM_START_TEXT,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+            )
+
 
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
@@ -1126,7 +1158,7 @@ def main():
     start_handler = CommandHandler("start", start, pass_args=True)
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
-    start_callback_handler = CallbackQueryHandler(start, pattern=r"bot_start", pass_args=True)
+    start_callback_handler = CallbackQueryHandler(start, pattern=r"bot_start")
     dispatcher.add_handler(start_callback_handler)
     migrate_handler = MessageHandler(Filters.status_update.migrate,
                                      migrate_chats) 
