@@ -662,15 +662,16 @@
 import logging
 import os
 import sys
+import time
 from logging import basicConfig
 from logging import DEBUG
 from logging import getLogger
 from logging import INFO
+
 import telegram.ext as tg
 from telethon import TelegramClient
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.sessions import StringSession
-import time
 
 StartTime = time.time()
 
@@ -701,15 +702,17 @@ if ENV:
             "Your sudo users list does not contain valid integers.")
     try:
         SUPPORT_USERS = {
-            int(x) for x in os.environ.get(
-                "SUPPORT_USERS", "").split()}
+            int(x)
+            for x in os.environ.get("SUPPORT_USERS", "").split()
+        }
     except ValueError:
         raise Exception(
             "Your support users list does not contain valid integers.")
     try:
         WHITELIST_USERS = {
-            int(x) for x in os.environ.get(
-                "WHITELIST_USERS", "").split()}
+            int(x)
+            for x in os.environ.get("WHITELIST_USERS", "").split()
+        }
     except ValueError:
         raise Exception(
             "Your whitelisted users list does not contain valid integers.")
