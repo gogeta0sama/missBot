@@ -5,7 +5,7 @@ from telegram import Update, ParseMode
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async, CallbackContext
 from alexa import dispatcher, CustomCommandHandler
 
-from alexa.modules.helper_funcs.chat_status import bot_can_delete, user_can_change, connection_status
+from alexa.modules.helper_funcs.chat_status import bot_can_delete, user_can_change
 from alexa.modules.sql import cleaner_sql as sql
 from pymongo import MongoClient
 from alexa import MONGO_DB_URI
@@ -88,7 +88,6 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
 
 
 @run_async
-@connection_status
 @bot_can_delete
 @user_can_change
 def set_blue_text_must_click(update: Update, context: CallbackContext):
