@@ -660,7 +660,6 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 import html
-from typing import List
 from typing import Optional
 
 from telegram import Chat
@@ -680,7 +679,6 @@ from telegram.utils.helpers import mention_html
 
 from alexa import dispatcher
 from alexa import LOGGER
-from alexa.modules.helper_funcs.chat_status import user_admin
 from alexa.modules.helper_funcs.chat_status import user_can_change
 from alexa.modules.helper_funcs.chat_status import user_not_admin
 from alexa.modules.log_channel import loggable

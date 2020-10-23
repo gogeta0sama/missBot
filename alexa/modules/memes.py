@@ -667,8 +667,6 @@ import re
 import string
 from io import BytesIO
 from pathlib import Path
-from typing import List
-from typing import Optional
 
 import nltk  # shitty lib, but it does work
 from PIL import Image

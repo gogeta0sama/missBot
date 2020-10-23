@@ -683,7 +683,6 @@ from alexa.modules.helper_funcs.chat_status import user_admin, is_user_admin
 import os
 from telegram.ext import CommandHandler
 from telegram.utils.helpers import escape_markdown
-import alexa.modules.sql.users_sql as sql
 from alexa import OWNER_ID, SUDO_USERS, OCR_SPACE_API_KEY, IBM_WATSON_CRED_URL, IBM_WATSON_CRED_PASSWORD
 USERS_GROUP = 4
 import requests
@@ -1580,7 +1579,6 @@ async def youtube_search(query,
 
 """Get Administrators of any Chat*
 Syntax: .userlist"""
-from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
 @register(pattern="^/users$")
 async def get_users(show):
@@ -2579,7 +2577,6 @@ from PIL import ImageDraw, ImageFont, ImageOps
 from fontTools.ttLib import TTFont
 import emoji
 import textwrap
-import logging
 
 COLORS = [
     "#F07975", "#F49F69", "#F9C84A", "#8CC56E", "#6CC7DC", "#80C1FA", "#BCB3F9", "#E181AC"]

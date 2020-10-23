@@ -661,7 +661,6 @@
 #     <https://www.gnu.org/licenses/>.
 import html
 import os
-from typing import Optional
 
 from telegram import ParseMode
 from telegram.error import BadRequest

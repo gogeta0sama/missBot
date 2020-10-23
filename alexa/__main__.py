@@ -664,7 +664,6 @@ import importlib
 import json
 import re
 import traceback
-from typing import List
 from typing import Optional
 
 from telegram import Chat

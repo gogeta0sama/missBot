@@ -662,16 +662,11 @@
 import logging
 import os
 import sys
-import threading
-from importlib import import_module
 from logging import basicConfig
 from logging import DEBUG
 from logging import getLogger
 from logging import INFO
-from sys import version_info
 import telegram.ext as tg
-from dotenv import load_dotenv
-from pyDownload import Downloader
 from telethon import TelegramClient
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.sessions import StringSession
@@ -767,8 +762,7 @@ if ENV:
     TEMPORARY_DATA = os.environ.get("TEMPORARY_DATA", None)
     SPAMMERS = list(SPAMMERS)
     try:
-        from alexa.antispam import (antispam_cek_user, antispam_restrict_user,
-                                    detect_user)
+        pass
 
         antispam_module = True
     except ModuleNotFoundError:

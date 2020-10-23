@@ -1,6 +1,5 @@
 import html
 
-from typing import List
 
 from telegram import Update, ParseMode
 from telegram.ext import CommandHandler, MessageHandler, Filters, run_async, CallbackContext
