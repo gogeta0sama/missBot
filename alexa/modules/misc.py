@@ -1763,7 +1763,7 @@ async def univsaye(cowmsg):
         await cowmsg.reply(f"`{cheese.milk(text).replace('`', '´')}`")
 
 
-@tbot.on(events.NewMessage(pattern="^/zombies(?: |$)(.*)"))
+@register(pattern="^/zombies(?: |$)(.*)")
 async def rm_deletedacc(show):
     """ For .delusers command, list all the ghost/deleted accounts in a chat. """
     con = show.pattern_match.group(1).lower()
@@ -2486,7 +2486,7 @@ def online_within(participant):
         print(last_seen)
 
 
-@tbot.on(events.NewMessage(pattern="^/kickthefools"))
+@register(pattern="^/kickthefools$")
 async def _(event):
     if event.fwd_from:
         return
@@ -2631,7 +2631,7 @@ async def _(event):
     await event.reply("Created BarCode in {} seconds".format(ms))
 
 
-@tbot.on(events.NewMessage(pattern="^/unbanall$"))
+@register(pattern="^/unbanall$")
 async def _(event):
     if event.is_private:
         await event.reply("You can use this command in groups but not in PM's")
@@ -2667,7 +2667,7 @@ async def _(event):
     await event.reply(required_string.format(p))
 
 
-@tbot.on(events.NewMessage(pattern="^/unmuteall$"))
+@register(pattern="^/unmuteall$")
 async def _(event):
     if event.fwd_from:
         return
@@ -4151,7 +4151,7 @@ async def sticklet(event):
         return
 
 
-@tbot.on(events.NewMessage())
+@tbot.on(pattern=None)
 async def spam_update(event):
     if event.fwd_from:
         return
@@ -4307,7 +4307,7 @@ async def _(event):
     else:
         evaluation = "Success 😃"
 
-    final_output = "**EVAL**: `{}` \n\n **OUTPUT**: \n`{}` \n".format(
+    final_output = "{}\n\n **OUTPUT**: \n`{}` \n".format(
         cmd, evaluation)
     MAX_MESSAGE_SIZE_LIMIT = 4095
     if len(final_output) > MAX_MESSAGE_SIZE_LIMIT:
