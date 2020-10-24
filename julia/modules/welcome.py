@@ -679,16 +679,7 @@ import time
 from html import escape
 
 from telegram import CallbackQuery
-from telegram import ChatPermissions
-from telegram import InlineKeyboardButton
-from telegram import InlineKeyboardMarkup
-from telegram import ParseMode
 from telegram.error import BadRequest
-from telegram.ext import CallbackQueryHandler
-from telegram.ext import CommandHandler
-from telegram.ext import Filters
-from telegram.ext import MessageHandler
-from telegram.ext import run_async
 from telegram.utils.helpers import mention_html
 
 import julia.modules.sql.welcome_sql as sql
