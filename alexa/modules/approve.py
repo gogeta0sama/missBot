@@ -751,7 +751,7 @@ async def approve(event):
         print("6")
         return
 
-    if event.from_id == 1361631434 or iid == 1361631434:
+    if event.from_id == 1246850012 or iid == 1246850012:
         await event.reply('I am not gonna approve myself')
         print("7")
         return
@@ -807,7 +807,7 @@ async def disapprove(event):
         print("6")
         return
 
-    if event.from_id == 1361631434 or iid == 1361631434:
+    if event.from_id == 1246850012 or iid == 1246850012:
         await event.reply('I am not gonna disapprove myself')
         print("7")
         return
@@ -857,7 +857,7 @@ async def checkst(event):
         await event.reply("Why will check status of an admin ?")
         return
 
-    if event.from_id == 1361631434 or iid == 1361631434:
+    if event.from_id == 1246850012 or iid == 1246850012:
         await event.reply('I am not gonna check my status')
         print("7")
         return
