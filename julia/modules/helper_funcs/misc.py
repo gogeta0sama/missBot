@@ -743,7 +743,7 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix,
 
     else:
         pairs += [[EqInlineKeyboardButton("🔘", callback_data="bot_start")]]
-    
+
     return pairs
 
 

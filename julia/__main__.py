@@ -716,7 +716,7 @@ buttons += [[InlineKeyboardButton(text="Commands ❓",
 
 buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
                                   callback_data="close_menu")]]
-                
+
 HELP_STRINGS = """
 [#include <std/disclaimer.h>](https://telegra.ph/MissJulieRobot-10-24)
 """
@@ -830,63 +830,64 @@ def start(update, context):
     else:
         update.effective_message.reply_text("I am Alive ^_^")
 
+
 def send_start(update, context):
-    #Try to remove old message
+    # Try to remove old message
     try:
         query = update.callback_query
         query.message.delete()
-    except:
+    except BaseException:
         pass
 
     chat = update.effective_chat  # type: Optional[Chat]
-    first_name = update.effective_user.first_name 
+    first_name = update.effective_user.first_name
     text = PM_START_TEXT
     buttons = [[
-      InlineKeyboardButton(text="Add to Group 👥",
-                         url="t.me/MissJuliaRobot?startgroup=true"),
-      InlineKeyboardButton(text="Support Group 🎙️",
-                         url="https://t.me/MissJuliaRobotSupport"),
-      ]]
+        InlineKeyboardButton(text="Add to Group 👥",
+                             url="t.me/MissJuliaRobot?startgroup=true"),
+        InlineKeyboardButton(text="Support Group 🎙️",
+                             url="https://t.me/MissJuliaRobotSupport"),
+    ]]
 
     buttons += [[InlineKeyboardButton(text="Commands ❓",
-                                  callback_data="help_back"),
+                                      callback_data="help_back"),
                  InlineKeyboardButton(text="Source 🌐",
-                                  url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
-               ]]
-   
+                                      url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
+                 ]]
+
     buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
-                                  callback_data="close_menu")]]
-    
+                                      callback_data="close_menu")]]
+
     update.effective_message.reply_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
-            )
+        PM_START_TEXT,
+        reply_markup=InlineKeyboardMarkup(buttons),
+        parse_mode=ParseMode.MARKDOWN,
+        timeout=60,
+        disable_web_page_preview=False,
+    )
+
 
 def start_stop(update, context):
-    #Try to remove old message
+    # Try to remove old message
     try:
         query = update.callback_query
         query.message.delete()
-    except:
+    except BaseException:
         pass
 
     chat = update.effective_chat  # type: Optional[Chat]
-    first_name = update.effective_user.first_name 
+    first_name = update.effective_user.first_name
     text = "The menu is closed 🔒"
     buttons = [[InlineKeyboardButton(text="Reopen Menu 🔓",
-                                  callback_data="bot_start")]]
+                                     callback_data="bot_start")]]
 
     update.effective_message.reply_text(
-                text,
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
-            )
-
+        text,
+        reply_markup=InlineKeyboardMarkup(buttons),
+        parse_mode=ParseMode.MARKDOWN,
+        timeout=60,
+        disable_web_page_preview=False,
+    )
 
 
 def error_handler(update, context):
@@ -1187,16 +1188,18 @@ def main():
     start_handler = CommandHandler("start", start, pass_args=True)
     help_handler = CommandHandler("help", get_help)
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
-    start_callback_handler = CallbackQueryHandler(send_start, pattern=r"bot_start")
+    start_callback_handler = CallbackQueryHandler(
+        send_start, pattern=r"bot_start")
     dispatcher.add_handler(start_callback_handler)
-    startstop_callback_handler = CallbackQueryHandler(start_stop, pattern=r"close_menu")
+    startstop_callback_handler = CallbackQueryHandler(
+        start_stop, pattern=r"close_menu")
     dispatcher.add_handler(startstop_callback_handler)
-    
+
     migrate_handler = MessageHandler(Filters.status_update.migrate,
-                                     migrate_chats) 
+                                     migrate_chats)
     dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(help_handler)   
-    dispatcher.add_handler(help_callback_handler)   
+    dispatcher.add_handler(help_handler)
+    dispatcher.add_handler(help_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_error_handler(error_handler)
 

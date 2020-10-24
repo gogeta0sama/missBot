@@ -772,11 +772,11 @@ def set_flood(update, context) -> str:
     args = context.args
 
     if update.effective_message.chat.type == "private":
-            send_message(
-                update.effective_message,
-                "This command is meant to use in group not in PM",
-            )
-            return ""
+        send_message(
+            update.effective_message,
+            "This command is meant to use in group not in PM",
+        )
+        return ""
     chat_id = update.effective_chat.id
     chat_name = update.effective_message.chat.title
 
@@ -805,10 +805,10 @@ def set_flood(update, context) -> str:
                     "Antiflood must be either 0 (disabled) or number greater than 3!",
                 )
                 return ""
-            sql.set_flood(chat_id, amount)          
+            sql.set_flood(chat_id, amount)
             text = message.reply_text(
-                    "Successfully updated anti-flood limit to {}!".format(
-                        amount))
+                "Successfully updated anti-flood limit to {}!".format(
+                    amount))
             send_message(update.effective_message,
                          text,
                          parse_mode="markdown")
@@ -839,11 +839,11 @@ def flood(update, context):
     msg = update.effective_message
 
     if update.effective_message.chat.type == "private":
-            send_message(
-                update.effective_message,
-                "This command is meant to use in group not in PM",
-            )
-            return
+        send_message(
+            update.effective_message,
+            "This command is meant to use in group not in PM",
+        )
+        return
     chat_id = update.effective_chat.id
     chat_name = update.effective_message.chat.title
 
@@ -853,8 +853,8 @@ def flood(update, context):
         send_message(update.effective_message, text, parse_mode="markdown")
     else:
         text = msg.reply_text(
-                "I'm currently restricting members after {} consecutive messages."
-                .format(limit))
+            "I'm currently restricting members after {} consecutive messages."
+            .format(limit))
         send_message(update.effective_message, text, parse_mode="markdown")
 
 
@@ -868,11 +868,11 @@ def set_flood_mode(update, context):
     args = context.args
 
     if update.effective_message.chat.type == "private":
-            send_message(
-                update.effective_message,
-                "This command is meant to use in group not in PM",
-            )
-            return ""
+        send_message(
+            update.effective_message,
+            "This command is meant to use in group not in PM",
+        )
+        return ""
     chat = update.effective_chat
     chat_id = update.effective_chat.id
     chat_name = update.effective_message.chat.title
@@ -913,10 +913,10 @@ def set_flood_mode(update, context):
             send_message(update.effective_message,
                          "I only understand ban/kick/mute/tban/tmute!")
             return
-        
+
         text = msg.reply_text(
-                "Exceeding consecutive flood limit will result in {}!".format(
-                    settypeflood))
+            "Exceeding consecutive flood limit will result in {}!".format(
+                settypeflood))
         send_message(update.effective_message, text, parse_mode="markdown")
         return ("<b>{}:</b>\n"
                 "<b>Admin:</b> {}\n"
@@ -936,10 +936,10 @@ def set_flood_mode(update, context):
         settypeflood = "tban for {}".format(getvalue)
     elif getmode == 5:
         settypeflood = "tmute for {}".format(getvalue)
-    
+
     text = msg.reply_text(
-            "Sending more message than flood limit will result in {}.".
-            format(settypeflood))
+        "Sending more message than flood limit will result in {}.".
+        format(settypeflood))
     send_message(update.effective_message,
                  text,
                  parse_mode=ParseMode.MARKDOWN)

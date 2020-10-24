@@ -718,7 +718,7 @@ def get(bot, update, notename, show_none=True, no_format=False):
     chat_id = update.effective_chat.id
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-    
+
     chat_id = update.effective_chat.id
     send_id = chat_id
 
@@ -887,12 +887,12 @@ def hash_get(update, context):
 def save(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-  
+
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            chat_name = "local notes"
+        chat_name = "local notes"
     else:
-            chat_name = chat.title
+        chat_name = chat.title
 
     msg = update.effective_message
 
@@ -927,14 +927,14 @@ def clear(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     msg = update.effective_message
-    
+
     note_name, text, data_type, content, buttons = get_note_type(msg)
 
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            chat_name = "local notes"
+        chat_name = "local notes"
     else:
-            chat_name = chat.title
+        chat_name = chat.title
 
     if len(args) >= 1:
         notename = args[0].lower()
@@ -956,14 +956,14 @@ def list_notes(update, context):
     chat_id = update.effective_chat.id
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-    
+
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            chat_name = ""
-            msg = "*Local Notes:*\n"
+        chat_name = ""
+        msg = "*Local Notes:*\n"
     else:
-            chat_name = chat.title
-            msg = "*Notes saved in {}:*\n"
+        chat_name = chat.title
+        msg = "*Notes saved in {}:*\n"
 
     note_list = sql.get_all_chat_notes(chat_id)
     des = "You can get notes by using `/get notename`, or `#notename`.\n"

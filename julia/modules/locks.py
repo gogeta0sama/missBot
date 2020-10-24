@@ -879,16 +879,16 @@ def lock(update, context) -> str:
             if ltype in LOCK_TYPES:
                 # Connection check
                 if update.effective_message.chat.type == "private":
-                        send_message(
-                            update.effective_message,
-                            "This command is meant to use in group not in PM",
-                        )
-                        return ""
+                    send_message(
+                        update.effective_message,
+                        "This command is meant to use in group not in PM",
+                    )
+                    return ""
                 chat = update.effective_chat
                 chat_id = update.effective_chat.id
                 chat_name = update.effective_message.chat.title
                 text = "Locked all {} messages for non-admins!".format(
-                        ltype)
+                    ltype)
                 sql.update_lock(chat.id, ltype, locked=True)
                 send_message(update.effective_message,
                              text,
@@ -905,13 +905,13 @@ def lock(update, context) -> str:
 
             if ltype in LOCK_CHAT_RESTRICTION:
                 # Connection check
-   
+
                 if update.effective_message.chat.type == "private":
-                        send_message(
-                            update.effective_message,
-                            "This command is meant to use in group not in PM",
-                        )
-                        return ""
+                    send_message(
+                        update.effective_message,
+                        "This command is meant to use in group not in PM",
+                    )
+                    return ""
                 chat = update.effective_chat
                 chat_id = update.effective_chat.id
                 chat_name = update.effective_message.chat.title
@@ -967,13 +967,13 @@ def unlock(update, context) -> str:
             ltype = args[0].lower()
             if ltype in LOCK_TYPES:
                 # Connection check
-      
+
                 if update.effective_message.chat.type == "private":
-                        send_message(
-                            update.effective_message,
-                            "This command is meant to use in group not in PM",
-                        )
-                        return ""
+                    send_message(
+                        update.effective_message,
+                        "This command is meant to use in group not in PM",
+                    )
+                    return ""
                 chat = update.effective_chat
                 chat_id = update.effective_chat.id
                 chat_name = update.effective_message.chat.title
@@ -993,13 +993,13 @@ def unlock(update, context) -> str:
 
             if ltype in UNLOCK_CHAT_RESTRICTION:
                 # Connection check
-                
+
                 if update.effective_message.chat.type == "private":
-                        send_message(
-                            update.effective_message,
-                            "This command is meant to use in group not in PM",
-                        )
-                        return ""
+                    send_message(
+                        update.effective_message,
+                        "This command is meant to use in group not in PM",
+                    )
+                    return ""
                 chat = update.effective_chat
                 chat_id = update.effective_chat.id
                 chat_name = update.effective_message.chat.title
@@ -1186,18 +1186,18 @@ def list_locks(update, context):
     user = update.effective_user
 
     # Connection check
-   
+
     if update.effective_message.chat.type == "private":
-            send_message(
-                update.effective_message,
-                "This command is meant to use in group not in PM",
-            )
-            return ""
+        send_message(
+            update.effective_message,
+            "This command is meant to use in group not in PM",
+        )
+        return ""
     chat = update.effective_chat
     chat_name = update.effective_message.chat.title
 
     res = build_lock_message(chat.id)
-    
+
     send_message(update.effective_message, res, parse_mode=ParseMode.MARKDOWN)
 
 

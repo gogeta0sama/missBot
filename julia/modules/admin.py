@@ -869,8 +869,8 @@ def invite(update, context):
     args = context.args
 
     if msg.chat.type == "private":
-            msg.reply_text("This command is meant to use in chat not in PM")
-            return ""
+        msg.reply_text("This command is meant to use in chat not in PM")
+        return ""
 
     if chat.username:
         msg.reply_text("@" + chat.username)

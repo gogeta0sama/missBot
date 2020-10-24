@@ -1399,8 +1399,8 @@ def fed_ban(update, context):
                                 targetfed_id = sql.get_fed_id(fedschat)
                                 sql.unsubs_fed(fed_id, targetfed_id)
                                 LOGGER.info(
-                                    "Chat {} has unsub fed {} because I was kicked"
-                                    .format(fedschat, info["fname"]))
+                                    "Chat {} has unsub fed {} because I was kicked" .format(
+                                        fedschat, info["fname"]))
                                 continue
                         elif excp.message == "User_id_invalid":
                             break
@@ -1544,8 +1544,8 @@ def fed_ban(update, context):
                                 targetfed_id = sql.get_fed_id(fedschat)
                                 sql.unsubs_fed(fed_id, targetfed_id)
                                 LOGGER.info(
-                                    "Chat {} has unsub fed {} because I was kicked"
-                                    .format(fedschat, info["fname"]))
+                                    "Chat {} has unsub fed {} because I was kicked" .format(
+                                        fedschat, info["fname"]))
                                 continue
                         elif excp.message == "User_id_invalid":
                             break
@@ -1971,8 +1971,7 @@ def fed_ban_list(update, context):
                     waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                           time.localtime(cek.get("value")))
                     update.effective_message.reply_text(
-                        "You can backup your data once every 30 minutes!\nYou can back up data again at `{}`"
-                        .format(waktu),
+                        "You can backup your data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     return
@@ -2011,8 +2010,7 @@ def fed_ban_list(update, context):
                     waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                           time.localtime(cek.get("value")))
                     update.effective_message.reply_text(
-                        "You can back up data once every 30 minutes!\nYou can back up data again at `{}`"
-                        .format(waktu),
+                        "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
                         parse_mode=ParseMode.MARKDOWN,
                     )
                     return
@@ -2069,8 +2067,7 @@ def fed_ban_list(update, context):
                 waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                       time.localtime(cek.get("value")))
                 update.effective_message.reply_text(
-                    "You can back up data once every 30 minutes!\nYou can back up data again at `{}`"
-                    .format(waktu),
+                    "You can back up data once every 30 minutes!\nYou can back up data again at `{}`" .format(waktu),
                     parse_mode=ParseMode.MARKDOWN,
                 )
                 return
@@ -2086,9 +2083,8 @@ def fed_ban_list(update, context):
             update.effective_message.reply_document(
                 document=output,
                 filename="fbanlist.txt",
-                caption=
-                "The following is a list of users who are currently fbanned in the Federation {}."
-                .format(info["fname"]),
+                caption="The following is a list of users who are currently fbanned in the Federation {}." .format(
+                    info["fname"]),
             )
 
 
@@ -2183,9 +2179,8 @@ def fed_chats(update, context):
             update.effective_message.reply_document(
                 document=output,
                 filename="fedchats.txt",
-                caption=
-                "Here is a list of all the chats that joined the federation {}."
-                .format(info["fname"]),
+                caption="Here is a list of all the chats that joined the federation {}." .format(
+                    info["fname"]),
             )
 
 
@@ -2226,8 +2221,7 @@ def fed_import_bans(update, context):
                 waktu = time.strftime("%H:%M:%S %d/%m/%Y",
                                       time.localtime(cek.get("value")))
                 update.effective_message.reply_text(
-                    "You can get your data once every 30 minutes!\nYou can get data again at `{}`"
-                    .format(waktu),
+                    "You can get your data once every 30 minutes!\nYou can get data again at `{}`" .format(waktu),
                     parse_mode=ParseMode.MARKDOWN,
                 )
                 return
@@ -2424,10 +2418,8 @@ def del_fed_button(update, context):
         delete = sql.del_fed(fed_id)
         if delete:
             query.message.edit_text(
-                "You have removed your Federation! Now all the Groups that are connected with `{}` do not have a Federation."
-                .format(getfed["fname"]),
-                parse_mode="markdown",
-            )
+                "You have removed your Federation! Now all the Groups that are connected with `{}` do not have a Federation." .format(
+                    getfed["fname"]), parse_mode="markdown", )
 
 
 @run_async
@@ -2654,8 +2646,9 @@ def subs_feds(update, context):
         if subfed:
             send_message(
                 update.effective_message,
-                "Federation `{}` has subscribe the federation `{}`. Every time there is a Fedban from that federation, this federation will also banned that user."
-                .format(fedinfo["fname"], getfed["fname"]),
+                "Federation `{}` has subscribe the federation `{}`. Every time there is a Fedban from that federation, this federation will also banned that user." .format(
+                    fedinfo["fname"],
+                    getfed["fname"]),
                 parse_mode="markdown",
             )
             get_fedlog = sql.get_fed_log(args[0])

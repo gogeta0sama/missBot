@@ -50,11 +50,11 @@ def list_handlers(update, context):
 
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            chat_name = "Local filters"
-            filter_list = "*local filters:*\n"
+        chat_name = "Local filters"
+        filter_list = "*local filters:*\n"
     else:
-            chat_name = chat.title
-            filter_list = "*Filters in {}*:\n"
+        chat_name = chat.title
+        filter_list = "*Filters in {}*:\n"
 
     all_handlers = sql.get_chat_triggers(chat_id)
 
@@ -91,12 +91,12 @@ def filters(update, context):
     args = msg.text.split(
         None,
         1)  # use python's maxsplit to separate Cmd, keyword, and reply_text
-        
+
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            chat_name = "local filters"
+        chat_name = "local filters"
     else:
-            chat_name = chat.title
+        chat_name = chat.title
 
     if not msg.reply_to_message and len(args) < 2:
         send_message(
@@ -211,9 +211,9 @@ def stop_filter(update, context):
 
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            chat_name = "Local filters"
+        chat_name = "Local filters"
     else:
-            chat_name = chat.title
+        chat_name = chat.title
 
     if len(args) < 2:
         send_message(update.effective_message, "What should i stop?")
@@ -507,8 +507,8 @@ RMALLFILTER_HANDLER = CommandHandler("rmallfilter",
                                      rmall_filters,
                                      filters=Filters.group)
 LIST_HANDLER = CommandHandler("filters",
-                                         list_handlers,
-                                         admin_ok=True)
+                              list_handlers,
+                              admin_ok=True)
 CUST_FILTER_HANDLER = MessageHandler(
     CustomFilters.has_text & ~Filters.update.edited_message, reply_filter)
 

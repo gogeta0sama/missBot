@@ -692,7 +692,7 @@ def blacklist(update, context):
     user = update.effective_user
     args = context.args
     if chat.type == "private":
-            return
+        return
     chat_id = update.effective_chat.id
     chat_name = chat.title
 
@@ -733,7 +733,7 @@ def add_blacklist(update, context):
 
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            return
+        return
     chat_name = chat.title
 
     if len(words) > 1:
@@ -777,7 +777,7 @@ def unblacklist(update, context):
 
     chat_id = update.effective_chat.id
     if chat.type == "private":
-            return
+        return
     chat_name = chat.title
 
     if len(words) > 1:
@@ -846,11 +846,11 @@ def blacklist_mode(update, context):
     args = context.args
 
     if update.effective_message.chat.type == "private":
-            send_message(
-                update.effective_message,
-                "This command can be only used in group not in PM",
-            )
-            return ""
+        send_message(
+            update.effective_message,
+            "This command can be only used in group not in PM",
+        )
+        return ""
     chat = update.effective_chat
     chat_id = update.effective_chat.id
     chat_name = update.effective_message.chat.title
@@ -919,7 +919,7 @@ def blacklist_mode(update, context):
                 "I only understand: off/del/warn/ban/kick/mute/tban/tmute!",
             )
             return ""
-        
+
         text = "Changed blacklist mode: `{}`!".format(settypeblacklist)
         send_message(update.effective_message, text, parse_mode="markdown")
         return ("<b>{}:</b>\n"
@@ -946,7 +946,7 @@ def blacklist_mode(update, context):
         settypeblacklist = "temporarily ban for {}".format(getvalue)
     elif getmode == 7:
         settypeblacklist = "temporarily mute for {}".format(getvalue)
-    
+
     text = "Current blacklistmode: *{}*.".format(settypeblacklist)
     send_message(update.effective_message,
                  text,
