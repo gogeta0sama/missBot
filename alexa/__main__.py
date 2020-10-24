@@ -715,7 +715,7 @@ buttons += [[InlineKeyboardButton(text="Commands ❓",
              ]]
 
 buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
-                                  callback_data="start_stop"),
+                                  callback_data="start_stop")]]
                 
 HELP_STRINGS = """
 [#include <std/disclaimer.h>](https://telegra.ph/MissAlexaRobot-10-09)
@@ -873,8 +873,8 @@ def start_stop(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     first_name = update.effective_user.first_name 
     text = "The menu is closed 🔒"
-    buttons = [[InlineKeyboardButton(text="Reopen 🔓",
-                                  callback_data="send_start"),
+    buttons = [[InlineKeyboardButton(text="Reopen Menu 🔓",
+                                  callback_data="send_start")]]
 
     update.effective_message.reply_text(
                 text,
