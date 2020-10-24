@@ -698,7 +698,7 @@ from julia.modules.helper_funcs.misc import paginate_modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 
 PM_START_TEXT = """
-[#include <std/disclaimer.h>](https://telegra.ph/MissJuliaRobot-10-09)
+[#include <std/disclaimer.h>](https://telegra.ph/MissJulieRobot-10-24)
 """
 
 buttons = [[
@@ -718,7 +718,7 @@ buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
                                   callback_data="close_menu")]]
                 
 HELP_STRINGS = """
-[#include <std/disclaimer.h>](https://telegra.ph/MissJuliaRobot-10-09)
+[#include <std/disclaimer.h>](https://telegra.ph/MissJulieRobot-10-24)
 """
 
 IMPORTED = {}
