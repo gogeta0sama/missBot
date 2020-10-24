@@ -988,14 +988,13 @@ async def stop(event):
     else:
         try:
             msg = await event.get_reply_message()
-            c = await tbot.get_me()
-            if str(msg.from_id) != str(c.id):
+            if str(msg.from_id) != "PeerUser(user_id=1246850012)"
                 await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")
                 return
             if msg.poll:
                 allpoll = poll_id.find({})
                 for c in allpoll:
-                    if not event.from_id == c['user'] and secret == c['pollid']:
+                    if event.from_id == c['user'] and secret == c['pollid']:
                         await event.reply("Oops, either you haven't created this poll or you have given wrong poll id")
                         return
                     poll_id.delete_one(
