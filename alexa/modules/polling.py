@@ -326,8 +326,8 @@ async def stop(event):
     else:
         try:
             msg = await event.get_reply_message()
-            print(msg.from_id)
-            if str(msg.from_id) != "PeerUser(user_id=1199522861)":
+            c = await tbot.get_me()
+            if str(msg.from_id) != str(c.id):
                 await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")
                 return
             if msg.poll:
