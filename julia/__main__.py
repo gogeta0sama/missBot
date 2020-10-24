@@ -716,7 +716,7 @@ buttons = [[
 buttons += [[InlineKeyboardButton(text="Commands ❓",
                                   callback_data="help_back"),
              InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
-                                  url="https://t.me/joinchat/AAAAAExdk4yxAPBKuNFKnQ"),
+                                  url="https://t.me/joinchat/AAAAAExdk4x2AeQSTzBnfA"),
              ]]
 
 buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
@@ -868,7 +868,7 @@ def send_start(update, context):
     buttons += [[InlineKeyboardButton(text="Commands ❓",
                                       callback_data="help_back"),
                  InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
-                                      url="https://t.me/joinchat/AAAAAExdk4yxAPBKuNFKnQ"),
+                                      url="https://t.me/joinchat/AAAAAExdk4x2AeQSTzBnfA"),
                  ]]
 
     buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
