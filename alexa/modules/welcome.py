@@ -680,21 +680,21 @@ from telegram.ext import MessageHandler
 from telegram.ext import run_async
 from telegram.utils.helpers import mention_html
 
-import alexa.modules.sql.welcome_sql as sql
-from alexa import dispatcher
-from alexa import LOGGER
-from alexa import MESSAGE_DUMP
-from alexa import OWNER_ID
-from alexa.modules.helper_funcs.chat_status import is_user_ban_protected
-from alexa.modules.helper_funcs.chat_status import user_can_change
-from alexa.modules.helper_funcs.misc import build_keyboard
-from alexa.modules.helper_funcs.misc import revert_buttons
-from alexa.modules.helper_funcs.msg_types import get_welcome_type
-from alexa.modules.helper_funcs.string_handling import escape_invalid_curly_brackets
-from alexa.modules.helper_funcs.string_handling import markdown_parser
-from alexa.modules.helper_funcs.string_handling import markdown_to_html
-from alexa.modules.log_channel import loggable
-from alexa.modules.sql.global_bans_sql import is_user_gbanned
+import julia.modules.sql.welcome_sql as sql
+from julia import dispatcher
+from julia import LOGGER
+from julia import MESSAGE_DUMP
+from julia import OWNER_ID
+from julia.modules.helper_funcs.chat_status import is_user_ban_protected
+from julia.modules.helper_funcs.chat_status import user_can_change
+from julia.modules.helper_funcs.misc import build_keyboard
+from julia.modules.helper_funcs.misc import revert_buttons
+from julia.modules.helper_funcs.msg_types import get_welcome_type
+from julia.modules.helper_funcs.string_handling import escape_invalid_curly_brackets
+from julia.modules.helper_funcs.string_handling import markdown_parser
+from julia.modules.helper_funcs.string_handling import markdown_to_html
+from julia.modules.log_channel import loggable
+from julia.modules.sql.global_bans_sql import is_user_gbanned
 
 VALID_WELCOME_FORMATTERS = [
     "first",
@@ -844,7 +844,7 @@ def new_member(update, context):
             if new_mem.id == context.bot.id:
                 update.effective_message.reply_text(
                     "Hey {}, I'm {}! Thank you for adding me to {}"
-                    " and be sure to join our support group: @MissAlexaRobotSupport to know more about updates and tricks!"
+                    " and be sure to join our support group: @MissJuliaRobotSupport to know more about updates and tricks!"
                     .format(user.first_name, context.bot.first_name,
                             chat_name),
                     reply_to_message_id=reply,
@@ -852,7 +852,7 @@ def new_member(update, context):
 
                 context.bot.send_message(
                     MESSAGE_DUMP,
-                    "alexa have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>"
+                    "julia have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>"
                     .format(chat.title, chat.id),
                     parse_mode=ParseMode.HTML,
                 )
