@@ -7,7 +7,7 @@
 
 **A modular telegram bot written in python coupled with SQL and MongoDB**
 
-Can be found on telegram as [Alexa](https://t.me/MissAlexaRobot)
+Can be found on telegram as [Julia](https://t.me/MissJuliaRobot)
 
 Deploy Alexa to Heroku:
 
