@@ -714,6 +714,9 @@ buttons += [[InlineKeyboardButton(text="Commands ❓",
                                   url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
              ]]
 
+buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
+                                  callback_data="start_stop"),
+                
 HELP_STRINGS = """
 [#include <std/disclaimer.h>](https://telegra.ph/MissAlexaRobot-10-09)
 """
@@ -858,6 +861,29 @@ def send_start(update, context):
                 timeout=60,
                 disable_web_page_preview=False,
             )
+
+def start_stop(update, context):
+    #Try to remove old message
+    try:
+        query = update.callback_query
+        query.message.delete()
+    except:
+        pass
+
+    chat = update.effective_chat  # type: Optional[Chat]
+    first_name = update.effective_user.first_name 
+    text = "The menu is closed 🔒"
+    buttons = [[InlineKeyboardButton(text="Reopen 🔓",
+                                  callback_data="send_start"),
+
+    update.effective_message.reply_text(
+                text,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+            )
+
 
 
 def error_handler(update, context):
