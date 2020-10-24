@@ -659,10 +659,6 @@
 #     if any, to sign a "copyright disclaimer" for the program, if necessary.
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
-from telegram.ext import (
-    CallbackContext)
-from telegram import (
-    Update)
 import re
 import time
 from html import escape
@@ -685,7 +681,9 @@ from julia import dispatcher
 from julia import LOGGER
 from julia import MESSAGE_DUMP
 from julia import OWNER_ID
+from julia.modules.helper_funcs.alternate import typing_action
 from julia.modules.helper_funcs.chat_status import is_user_ban_protected
+from julia.modules.helper_funcs.chat_status import user_admin
 from julia.modules.helper_funcs.chat_status import user_can_change
 from julia.modules.helper_funcs.misc import build_keyboard
 from julia.modules.helper_funcs.misc import revert_buttons
@@ -718,9 +716,25 @@ ENUM_FUNC_MAP = {
     sql.Types.VIDEO.value: dispatcher.bot.send_video,
 }
 
+from telegram import (
+    ChatPermissions,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    ParseMode,
+    Update,
+)
+
+from telegram.error import BadRequest
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+    run_async,
+)
 
 # do not async
-
 def send(update, message, keyboard, backup_message):
     chat = update.effective_chat
     cleanserv = sql.clean_service(chat.id)
@@ -841,7 +855,7 @@ def new_member(update, context):
                 continue
 
             # Make bot greet admins
-            if new_mem.id == context.bot.id:
+            elif new_mem.id == context.bot.id:
                 update.effective_message.reply_text(
                     "Hey {}, I'm {}! Thank you for adding me to {}"
                     " and be sure to join our support group: @MissJuliaRobotSupport to know more about updates and tricks!"
@@ -895,12 +909,14 @@ def new_member(update, context):
                     buttons = sql.get_welc_buttons(chat.id)
                     keyb = build_keyboard(buttons)
                 else:
-                    res = 'Hey {}, how are you?'.format(first_name)
+                    res = sql.DEFAULT_WELCOME.format(first=first_name)
                     keyb = []
 
                 keyboard = InlineKeyboardMarkup(keyb)
 
-                sent = send(update, res, keyboard, 'Hey {}, how are you?'.format(first_name))  # type: Optional[Message]
+                sent = send(update, res, keyboard,
+                            sql.DEFAULT_WELCOME.format(
+                                first=first_name))  # type: Optional[Message]
 
                 # User exception from mutes:
                 if (is_user_ban_protected(chat, new_mem.id,
@@ -1054,7 +1070,9 @@ def welcome(update, context):
         pref, welcome_m, welcome_type = sql.get_welc_pref(chat.id)
         update.effective_message.reply_text(
             "This chat has it's welcome setting set to: `{}`.\n*The welcome message "
-            "(not filling the {{}}) is:*".format(pref), parse_mode=ParseMode.MARKDOWN, )
+            "(not filling the {{}}) is:*".format(pref),
+            parse_mode=ParseMode.MARKDOWN,
+        )
 
         if welcome_type == sql.Types.BUTTON_TEXT:
             buttons = sql.get_welc_buttons(chat.id)
@@ -1104,7 +1122,9 @@ def goodbye(update, context):
         pref, goodbye_m, goodbye_type = sql.get_gdbye_pref(chat.id)
         update.effective_message.reply_text(
             "This chat has it's goodbye setting set to: `{}`.\n*The goodbye  message "
-            "(not filling the {{}}) is:*".format(pref), parse_mode=ParseMode.MARKDOWN, )
+            "(not filling the {{}}) is:*".format(pref),
+            parse_mode=ParseMode.MARKDOWN,
+        )
 
         if goodbye_type == sql.Types.BUTTON_TEXT:
             buttons = sql.get_gdbye_buttons(chat.id)
@@ -1241,7 +1261,7 @@ def welcomemute(update, context) -> str:
                     "\nHas toggled welcome mute to <b>OFF</b>.".format(
                         escape(chat.title),
                         mention_html(user.id, user.first_name)))
-        if args[0].lower() in ("soft"):
+        elif args[0].lower() in ("soft"):
             sql.set_welcome_mutes(chat.id, "soft")
             msg.reply_text(
                 "I will restrict user's permission to send media for 24 hours")
@@ -1251,7 +1271,7 @@ def welcomemute(update, context) -> str:
                     "\nHas toggled welcome mute to <b>SOFT</b>.".format(
                         escape(chat.title),
                         mention_html(user.id, user.first_name)))
-        if args[0].lower() in ("strong"):
+        elif args[0].lower() in ("strong"):
             sql.set_welcome_mutes(chat.id, "strong")
             msg.reply_text("I will now mute people when they join and"
                            " click on the button to be unmuted.")
@@ -1261,11 +1281,12 @@ def welcomemute(update, context) -> str:
                     "\nHas toggled welcome mute to <b>STRONG</b>.".format(
                         escape(chat.title),
                         mention_html(user.id, user.first_name)))
-        msg.reply_text(
-            "Please enter `off`/`on`/`soft`/`strong`!",
-            parse_mode=ParseMode.MARKDOWN,
-        )
-        return ""
+        else:
+            msg.reply_text(
+                "Please enter `off`/`on`/`soft`/`strong`!",
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            return ""
     else:
         curr_setting = sql.welcome_mutes(chat.id)
         reply = "\n Give me a setting! Choose one of: `off`/`no` or `soft` or `strong` only! \nCurrent setting: `{}`"
@@ -1302,7 +1323,7 @@ def clean_welcome(update, context) -> str:
                 "\nHas toggled clean welcomes to <code>ON</code>.".format(
                     escape(chat.title), mention_html(user.id,
                                                      user.first_name)))
-    if args[0].lower() in ("off", "no"):
+    elif args[0].lower() in ("off", "no"):
         sql.set_clean_welcome(str(chat.id), False)
         update.effective_message.reply_text(
             "I won't delete old welcome messages.")
@@ -1312,10 +1333,11 @@ def clean_welcome(update, context) -> str:
                 "\nHas toggled clean welcomes to <code>OFF</code>.".format(
                     escape(chat.title), mention_html(user.id,
                                                      user.first_name)))
-    # idek what you're writing, say yes or no
-    update.effective_message.reply_text(
-        "I understand 'on/yes' or 'off/no' only!")
-    return ""
+    else:
+        # idek what you're writing, say yes or no
+        update.effective_message.reply_text(
+            "I understand 'on/yes' or 'off/no' only!")
+        return ""
 
 
 @run_async
@@ -1347,8 +1369,8 @@ def cleanservice(update: Update, context: CallbackContext) -> str:
                 "Welcome clean service is : on", parse_mode=ParseMode.MARKDOWN)
         else:
             update.effective_message.reply_text(
-                "Welcome clean service is : off",
-                parse_mode=ParseMode.MARKDOWN)
+                "Welcome clean service is : off", parse_mode=ParseMode.MARKDOWN)
+
 
 
 @run_async
