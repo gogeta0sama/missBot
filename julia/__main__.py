@@ -860,15 +860,15 @@ def send_start(update, context):
     text = PM_START_TEXT
     buttons = [[
         InlineKeyboardButton(text="Add to Group 👥",
-                             url="t.me/MissJuliaRobot?startgroup=true"),
+                             url="t.me/HarleyQuinn_RoBot?startgroup=true"),
         InlineKeyboardButton(text="Support Group 🎙️",
-                             url="https://t.me/MissJuliaRobotSupport"),
+                             url="https://t.me/MegatronSupportGroup"),
     ]]
 
     buttons += [[InlineKeyboardButton(text="Commands ❓",
                                       callback_data="help_back"),
-                 InlineKeyboardButton(text="Source 🌐",
-                                      url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
+                 InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
+                                      url="https://t.me/joinchat/AAAAAExdk4yxAPBKuNFKnQ"),
                  ]]
 
     buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
