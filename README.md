@@ -4,6 +4,7 @@
 
 [![AGPLv3 license](https://img.shields.io/github/license/MissJuliaRobot/MissJuliaRobot)](https://www.gnu.org/licenses/agpl-3.0.en.html)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b5531bcac1e1486fb5eb13d5852f5bd1)](https://app.codacy.com/gh/MissJuliaRobot/MissJuliaRobot?utm_source=github.com&utm_medium=referral&utm_content=MissJuliaRobot/MissJuliaRobot&utm_campaign=Badge_Grade)
+[![Updates channel!](https://img.shields.io/badge/Join%20News%20Channel-✓-red)](https://t.me/MissJuliaRobotNews)
 
 **A modular telegram bot written in python coupled with SQL and MongoDB**
 
