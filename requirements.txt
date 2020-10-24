@@ -27,7 +27,6 @@ pynewtonmath
 python-rapidjson
 PyYAML
 requests
-spamwatch
 spongemock
 sqlalchemy
 tldextract
