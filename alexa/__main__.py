@@ -698,27 +698,27 @@ from alexa.modules.helper_funcs.misc import paginate_modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 
 PM_START_TEXT = """
-[#include <std/disclaimer.h>](https://telegra.ph/MissAlexaRobot-10-09)
+[#include <std/disclaimer.h>](https://telegra.ph/MissJuliaRobot-10-09)
 """
 
 buttons = [[
     InlineKeyboardButton(text="Add to Group 👥",
-                         url="t.me/MissAlexaRobot?startgroup=true"),
+                         url="t.me/MissJuliaRobot?startgroup=true"),
     InlineKeyboardButton(text="Support Group 🎙️",
-                         url="https://t.me/MissAlexaRobotSupport"),
+                         url="https://t.me/MissJuliaRobotSupport"),
 ]]
 
 buttons += [[InlineKeyboardButton(text="Commands ❓",
                                   callback_data="help_back"),
              InlineKeyboardButton(text="Source 🌐",
-                                  url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
+                                  url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
              ]]
 
 buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
                                   callback_data="close_menu")]]
                 
 HELP_STRINGS = """
-[#include <std/disclaimer.h>](https://telegra.ph/MissAlexaRobot-10-09)
+[#include <std/disclaimer.h>](https://telegra.ph/MissJuliaRobot-10-09)
 """
 
 IMPORTED = {}
@@ -843,15 +843,15 @@ def send_start(update, context):
     text = PM_START_TEXT
     buttons = [[
       InlineKeyboardButton(text="Add to Group 👥",
-                         url="t.me/MissAlexaRobot?startgroup=true"),
+                         url="t.me/MissJuliaRobot?startgroup=true"),
       InlineKeyboardButton(text="Support Group 🎙️",
-                         url="https://t.me/MissAlexaRobotSupport"),
+                         url="https://t.me/MissJuliaRobotSupport"),
       ]]
 
     buttons += [[InlineKeyboardButton(text="Commands ❓",
                                   callback_data="help_back"),
                  InlineKeyboardButton(text="Source 🌐",
-                                  url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
+                                  url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
                ]]
    
     buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
