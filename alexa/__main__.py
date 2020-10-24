@@ -715,7 +715,7 @@ buttons += [[InlineKeyboardButton(text="Commands ❓",
              ]]
 
 buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
-                                  callback_data="start_stop")]]
+                                  callback_data="close_menu")]]
                 
 HELP_STRINGS = """
 [#include <std/disclaimer.h>](https://telegra.ph/MissAlexaRobot-10-09)
@@ -855,7 +855,7 @@ def send_start(update, context):
                ]]
    
     buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
-                                  callback_data="start_stop")]]
+                                  callback_data="close_menu")]]
     
     update.effective_message.reply_text(
                 PM_START_TEXT,
@@ -1189,6 +1189,9 @@ def main():
     help_callback_handler = CallbackQueryHandler(help_button, pattern=r"help_")
     start_callback_handler = CallbackQueryHandler(send_start, pattern=r"bot_start")
     dispatcher.add_handler(start_callback_handler)
+    startstop_callback_handler = CallbackQueryHandler(start_stop, pattern=r"close_menu")
+    dispatcher.add_handler(startstop_callback_handler)
+    
     migrate_handler = MessageHandler(Filters.status_update.migrate,
                                      migrate_chats) 
     dispatcher.add_handler(start_handler)
