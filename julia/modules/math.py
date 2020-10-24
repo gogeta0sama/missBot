@@ -660,8 +660,7 @@
 #     For more information on this, and how to apply and follow the GNU AGPL, see
 #     <https://www.gnu.org/licenses/>.
 import math
-
-import pynewtonmath as newton
+import requests
 from telegram import Update
 from telegram.ext import CallbackContext
 from telegram.ext import CommandHandler
@@ -676,7 +675,11 @@ from julia.modules.helper_funcs.chat_status import user_admin
 def simplify(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.simplify("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/simplify/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
@@ -684,7 +687,11 @@ def simplify(update: Update, context: CallbackContext):
 def factor(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.factor("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/factor/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
@@ -692,7 +699,11 @@ def factor(update: Update, context: CallbackContext):
 def derive(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.derive("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/derive/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
@@ -700,7 +711,11 @@ def derive(update: Update, context: CallbackContext):
 def integrate(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.integrate("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/integrate/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
@@ -708,7 +723,11 @@ def integrate(update: Update, context: CallbackContext):
 def zeroes(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.zeroes("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/zeroes/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
@@ -716,7 +735,11 @@ def zeroes(update: Update, context: CallbackContext):
 def tangent(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.tangent("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/tangent/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
@@ -724,7 +747,11 @@ def tangent(update: Update, context: CallbackContext):
 def area(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
-    message.reply_text(newton.area("{}".format(args[0])))
+    response = requests.get('https://newton.now.sh/api/v2/area/{}').format(args)
+    c = response.text
+    obj = json.loads(c)
+    j = obj['result']
+    message.reply_text(j)
 
 
 @run_async
