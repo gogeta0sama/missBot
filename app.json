@@ -1,10 +1,10 @@
 {
   "name": "MissAlexaRobot",
   "description": "A Powerful Telegram Bot written in PTB and Telethon",
-  "logo": "https://telegra.ph/file/ff67325252e0b692e4f4d.jpg",
+  "logo": "https://telegra.ph/file/1b8591ec85dfefd72f0d3.jpg",
   "keywords": ["telegram", "group", "management", "bot"],
-  "repository": "https://github.com/MissAlexaRobot/MissAlexaRobot",
-  "success_url": "https://telegra.ph/MissAlexaRobot-10-09",
+  "repository": "https://github.com/MissJuliaRobot/MissJuliaRobot.git",
+  "success_url": "https://telegra.ph/MissJulieRobot-10-24",
   "env": {
     "API_KEY": {
       "description": "Get this value from my.telegram.org! Please do not steal",
