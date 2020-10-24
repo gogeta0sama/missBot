@@ -1,1 +1,1 @@
-worker: sh -c 'rm -rf * && mkdir MissJuliaRobot && cd MissJuliaRobot && git clone https://github.com/MissJuliaRobot/MissJuliaRobot.git && cd MissJuliaRobot && python3 -m julia'
+worker: sh -c 'rm -rf * && mkdir Missbot && cd Missbot && git clone https://github.com/gogeta0sama/Missbot.git && cd Missbot && python3 -m julia'
