@@ -853,6 +853,9 @@ def send_start(update, context):
                  InlineKeyboardButton(text="Source 🌐",
                                   url="https://github.com/MissAlexaRobot/MissAlexaRobot"),
                ]]
+   
+    buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
+                                  callback_data="start_stop")]]
     
     update.effective_message.reply_text(
                 PM_START_TEXT,
