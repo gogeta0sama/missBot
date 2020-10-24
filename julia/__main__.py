@@ -698,27 +698,43 @@ from julia.modules.helper_funcs.misc import paginate_modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 
 PM_START_TEXT = """
-[#include <std/disclaimer.h>](https://telegra.ph/MissJulieRobot-10-24)
+Hello {}, My Name Is *Harley Quinn* !
+I'm group management bot maintained by [Lucifer MorningStar](t.me/SSJ4GOGETA).
+To add me to your group click ["HERE"](http://t.me/HarleyQuinn_RoBot?startgroup=botstart)
+You can find my list of available commands with /help.
+Only Sudo & Support User Can use Special Module if you want use these Modules Commands then contact admins in Harley Quinn Support.
+My future updates will be put into This Channel - [Harley Quinn News](http://t.me/MegatronUpdate) & My Support Group [Harley Quinn Support](http://t.me/MegatronSupportGroup).
 """
 
 buttons = [[
     InlineKeyboardButton(text="Add to Group 👥",
-                         url="t.me/MissJuliaRobot?startgroup=true"),
+                         url="t.me/HarleyQuinn_RoBot?startgroup=true"),
     InlineKeyboardButton(text="Support Group 🎙️",
-                         url="https://t.me/MissJuliaRobotSupport"),
+                         url="https://t.me/MegatronSupportGroup"),
 ]]
 
 buttons += [[InlineKeyboardButton(text="Commands ❓",
                                   callback_data="help_back"),
-             InlineKeyboardButton(text="Source 🌐",
-                                  url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
+             InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
+                                  url="https://t.me/joinchat/AAAAAExdk4yxAPBKuNFKnQ"),
              ]]
 
 buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
                                   callback_data="close_menu")]]
 
 HELP_STRINGS = """
-[#include <std/disclaimer.h>](https://telegra.ph/MissJulieRobot-10-24)
+Harley Quinn is a extremely modular and easy to use telegram bot loaded with all the essential commands that a group administrator needs 
+
+NOTE :
+Most of the commands of  @HarleyQuinn_RoBot  are available for admins so dont panic if some command isn't working (that's probably because you are not admin in the chat). However irrespective of this anyone can use the bot in PM
+
+@HarleyQuinn_RoBot depends completely on admin permission rather than it's own so if you are missing any certain rights then it will simply ignore you !
+
+Basic Commands :
+/start: starts the bot
+/help: gives the available list of commands
+/runs: check if bot is alive or not
+/ping: check ping response
 """
 
 IMPORTED = {}
@@ -844,15 +860,15 @@ def send_start(update, context):
     text = PM_START_TEXT
     buttons = [[
         InlineKeyboardButton(text="Add to Group 👥",
-                             url="t.me/MissJuliaRobot?startgroup=true"),
+                             url="t.me/HarleyQuinn_RoBot?startgroup=true"),
         InlineKeyboardButton(text="Support Group 🎙️",
-                             url="https://t.me/MissJuliaRobotSupport"),
+                             url="https://t.me/MegatronSupportGroup"),
     ]]
 
     buttons += [[InlineKeyboardButton(text="Commands ❓",
                                       callback_data="help_back"),
-                 InlineKeyboardButton(text="Source 🌐",
-                                      url="https://github.com/MissJuliaRobot/MissJuliaRobot"),
+                 InlineKeyboardButton(text="𝐏𝐨𝐩𝐂𝐨𝐫𝐧𝐓𝐢𝐦𝐞 🍿",
+                                      url="https://t.me/joinchat/AAAAAExdk4yxAPBKuNFKnQ"),
                  ]]
 
     buttons += [[InlineKeyboardButton(text="Close Menu 🔒",
