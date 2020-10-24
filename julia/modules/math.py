@@ -827,7 +827,7 @@ def log(update: Update, context: CallbackContext):
 
 __help__ = """
 Solves complex math problems using https://newton.now.sh
- - /simplify: Simplify `/math 2^2+2(2)`
+ - /simplify: Simplify `/simplify 2^2+2(2)`
  - /factor: Factor `/factor x^2 + 2x`
  - /derive: Derive `/derive x^2+2x`
  - /integrate: Integrate `/integrate x^2+2x`
