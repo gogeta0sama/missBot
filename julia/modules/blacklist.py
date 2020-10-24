@@ -919,11 +919,8 @@ def blacklist_mode(update, context):
                 "I only understand: off/del/warn/ban/kick/mute/tban/tmute!",
             )
             return ""
-        if conn:
-            text = "Changed blacklist mode: `{}` in *{}*!".format(
-                settypeblacklist, chat_name)
-        else:
-            text = "Changed blacklist mode: `{}`!".format(settypeblacklist)
+        
+        text = "Changed blacklist mode: `{}`!".format(settypeblacklist)
         send_message(update.effective_message, text, parse_mode="markdown")
         return ("<b>{}:</b>\n"
                 "<b>Admin:</b> {}\n"
@@ -949,11 +946,8 @@ def blacklist_mode(update, context):
         settypeblacklist = "temporarily ban for {}".format(getvalue)
     elif getmode == 7:
         settypeblacklist = "temporarily mute for {}".format(getvalue)
-    if conn:
-        text = "Current blacklistmode: *{}* in *{}*.".format(
-            settypeblacklist, chat_name)
-    else:
-        text = "Current blacklistmode: *{}*.".format(settypeblacklist)
+    
+    text = "Current blacklistmode: *{}*.".format(settypeblacklist)
     send_message(update.effective_message,
                  text,
                  parse_mode=ParseMode.MARKDOWN)
