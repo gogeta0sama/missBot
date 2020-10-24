@@ -669,9 +669,9 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import UnicodeText
 
-from alexa.modules.helper_funcs.msg_types import Types
-from alexa.modules.sql import BASE
-from alexa.modules.sql import SESSION
+from julia.modules.helper_funcs.msg_types import Types
+from julia.modules.sql import BASE
+from julia.modules.sql import SESSION
 
 DEFAULT_WELCOME = "Hi {first}, how are you?"
 DEFAULT_GOODBYE = "Bye {first}, nice knowing you!"
