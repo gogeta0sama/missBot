@@ -988,7 +988,7 @@ async def stop(event):
     else:
         try:
             msg = await event.get_reply_message()
-            if str(msg.from_id) != "PeerUser(user_id=1246850012)"
+            if str(msg.from_id) != "PeerUser(user_id=1246850012)":
                 await event.reply("I can't do this operation on this poll.\nProbably it's not created by me")
                 return
             if msg.poll:
