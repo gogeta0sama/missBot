@@ -765,9 +765,6 @@ if ENV:
 
     STRING_SESSION = os.environ.get("STRING_SESSION", None)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
-    UPSTREAM_REPO_URL = os.environ.get(
-        "UPSTREAM_REPO_URL",
-        "https://github.com/MissAlexaRobot/MissAlexaRobot.git")
     TEMPORARY_DATA = os.environ.get("TEMPORARY_DATA", None)
     SPAMMERS = list(SPAMMERS)
     try:
