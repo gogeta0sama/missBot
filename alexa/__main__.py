@@ -877,7 +877,7 @@ def start_stop(update, context):
     first_name = update.effective_user.first_name 
     text = "The menu is closed 🔒"
     buttons = [[InlineKeyboardButton(text="Reopen Menu 🔓",
-                                  callback_data="send_start")]]
+                                  callback_data="bot_start")]]
 
     update.effective_message.reply_text(
                 text,
