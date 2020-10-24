@@ -673,8 +673,8 @@ from julia.modules.helper_funcs.chat_status import user_admin
 @run_async
 @user_admin
 def simplify(update: Update, context: CallbackContext):
-    args = context.args
-    print(args)
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/simplify/{args}')
     c = response.text
@@ -686,7 +686,8 @@ def simplify(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 def factor(update: Update, context: CallbackContext):
-    args = context.args
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/factor/{args}')
     c = response.text
@@ -698,7 +699,8 @@ def factor(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 def derive(update: Update, context: CallbackContext):
-    args = context.args
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/derive/{args}')
     c = response.text
@@ -710,7 +712,8 @@ def derive(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 def integrate(update: Update, context: CallbackContext):
-    args = context.args
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/integrate/{args}')
     c = response.text
@@ -722,7 +725,8 @@ def integrate(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 def zeroes(update: Update, context: CallbackContext):
-    args = context.args
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/zeroes/{args}')
     c = response.text
@@ -734,7 +738,8 @@ def zeroes(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 def tangent(update: Update, context: CallbackContext):
-    args = context.args
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/tangent/{args}')
     c = response.text
@@ -746,7 +751,8 @@ def tangent(update: Update, context: CallbackContext):
 @run_async
 @user_admin
 def area(update: Update, context: CallbackContext):
-    args = context.args
+    arg = context.args
+    args = "".join(arg)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/area/{args}')
     c = response.text
