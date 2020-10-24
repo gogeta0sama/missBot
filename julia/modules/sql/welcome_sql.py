@@ -674,7 +674,7 @@ from julia.modules.sql import BASE
 from julia.modules.sql import SESSION
 
 DEFAULT_WELCOME = "Hi {first}, how are you?"
-DEFAULT_GOODBYE = "Nice knowing you!"
+DEFAULT_GOODBYE = "{first} nice knowing you!"
 
 
 class Welcome(BASE):
