@@ -669,12 +669,12 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import UnicodeText
 
-from julia.modules.helper_funcs.msg_types import Types
-from julia.modules.sql import BASE
-from julia.modules.sql import SESSION
+from alexa.modules.helper_funcs.msg_types import Types
+from alexa.modules.sql import BASE
+from alexa.modules.sql import SESSION
 
 DEFAULT_WELCOME = "Hi {first}, how are you?"
-DEFAULT_GOODBYE = "{first} nice knowing you!"
+DEFAULT_GOODBYE = "{first} has left the game."
 
 
 class Welcome(BASE):
@@ -832,8 +832,9 @@ def get_welc_pref(chat_id):
     SESSION.close()
     if welc:
         return welc.should_welcome, welc.custom_welcome, welc.welcome_type
-    # Welcome by default.
-    return True, DEFAULT_WELCOME, Types.TEXT
+    else:
+        # Welcome by default.
+        return True, DEFAULT_WELCOME, Types.TEXT
 
 
 def get_gdbye_pref(chat_id):
@@ -841,8 +842,9 @@ def get_gdbye_pref(chat_id):
     SESSION.close()
     if welc:
         return welc.should_goodbye, welc.custom_leave, welc.leave_type
-    # Welcome by default.
-    return True, DEFAULT_GOODBYE, Types.TEXT
+    else:
+        # Welcome by default.
+        return True, DEFAULT_GOODBYE, Types.TEXT
 
 
 def set_clean_welcome(chat_id, clean_welcome):
@@ -1022,6 +1024,7 @@ def set_clean_service(chat_id: Union[int, str], setting: bool):
         chat_setting.clean_service = setting
         SESSION.add(chat_setting)
         SESSION.commit()
+
 
 
 def migrate_chat(old_chat_id, new_chat_id):
