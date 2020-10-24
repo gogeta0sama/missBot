@@ -854,7 +854,7 @@ def new_member(update, context):
                 continue
 
             # Make bot greet admins
-            elif new_mem.id == context.bot.id:
+            if new_mem.id == context.bot.id:
                 update.effective_message.reply_text(
                     "Hey {}, I'm {}! Thank you for adding me to {}"
                     " and be sure to join our support group: @MissJuliaRobotSupport to know more about updates and tricks!"
