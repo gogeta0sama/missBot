@@ -895,14 +895,12 @@ def new_member(update, context):
                     buttons = sql.get_welc_buttons(chat.id)
                     keyb = build_keyboard(buttons)
                 else:
-                    res = sql.DEFAULT_WELCOME.format(first=first_name)
+                    res = 'Hey {}, how are you?'.format(first_name)
                     keyb = []
 
                 keyboard = InlineKeyboardMarkup(keyb)
 
-                sent = send(update, res, keyboard,
-                            sql.DEFAULT_WELCOME.format(
-                                first=first_name))  # type: Optional[Message]
+                sent = send(update, res, keyboard, 'Hey {}, how are you?'.format(first_name))  # type: Optional[Message]
 
                 # User exception from mutes:
                 if (is_user_ban_protected(chat, new_mem.id,
