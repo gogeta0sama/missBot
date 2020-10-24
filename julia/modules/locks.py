@@ -1197,9 +1197,7 @@ def list_locks(update, context):
     chat_name = update.effective_message.chat.title
 
     res = build_lock_message(chat.id)
-    if conn:
-        res = res.replace("Locks in", "*{}*".format(chat_name))
-
+    
     send_message(update.effective_message, res, parse_mode=ParseMode.MARKDOWN)
 
 
