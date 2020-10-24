@@ -674,6 +674,7 @@ from julia.modules.helper_funcs.chat_status import user_admin
 @user_admin
 def simplify(update: Update, context: CallbackContext):
     args = context.args
+    print(args)
     message = update.effective_message
     response = requests.get(f'https://newton.now.sh/api/v2/simplify/{args}')
     c = response.text
@@ -820,7 +821,7 @@ def log(update: Update, context: CallbackContext):
 
 __help__ = """
 Solves complex math problems using https://newton.now.sh
- - /math: Math `/math 2^2+2(2)`
+ - /simplify: Simplify `/math 2^2+2(2)`
  - /factor: Factor `/factor x^2 + 2x`
  - /derive: Derive `/derive x^2+2x`
  - /integrate: Integrate `/integrate x^2+2x`
@@ -843,7 +844,7 @@ To compute fractions, enter expressions as numerator(over)denominator. For examp
 
 __mod_name__ = "Maths ➗"
 
-SIMPLIFY_HANDLER = CommandHandler("math", simplify)
+SIMPLIFY_HANDLER = CommandHandler("simplify", simplify)
 FACTOR_HANDLER = CommandHandler("factor", factor)
 DERIVE_HANDLER = CommandHandler("derive", derive)
 INTEGRATE_HANDLER = CommandHandler("integrate", integrate)
